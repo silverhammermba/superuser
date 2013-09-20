@@ -1,0 +1,429 @@
+Simpleton to Superuser
+
+To put it briefly:
+Do you rely on computers in your daily life but don't really understand how they
+work? Are you frustrated or confused when your computer seems to take on a life
+of its own? Are you worried about falling prey to viruses, identity theft, or
+internet scams? If so, I hope this site will have something for you.
+
+Really, what is this?
+Simpleton to Superuser is an online textbook designed to help anyone with only a
+basic knowledge of computers become like that one nerd you know who somehow has
+a solution for every computer problem. I decided to write this book because as a
+technologically literate person I both love technology and acknowledge that
+there is a steep learning curve when you are first entering the world of
+computers. This isn't a complete guide to computers - the topic is simply too
+broad. But after reading you should be equipped with an above-average knowledge of
+computers in general and should have a solid foundation of knowledge on which to
+expand.
+
+This guide covers two main topics: computers and the Internet. It has many
+sections and is written to be read in order, but if you have a specific interest
+you can jump straight to the section you want using the Table of Contents.
+
+1. Beginning Our Journey
+Congratulations! By starting to read this guide you have already set yourself
+apart from so many simpletons out there. A healthy thirst for knowledge and the
+willingness to read long, boring documents to acquire said knowledge is an
+important trait of any superuser. I'll do my best to minmize the boringness so
+long as you keep up the knowledge thirstiness.
+
+What is a Superuser?
+On a computer system, the superuser is the one user with complete control over
+the system. You might not realize this, but chances are that on the very
+computer that you are using to read this guide there is information you cannot
+access and tasks you are not allowed to perform. That is because you are a
+regular user rather than a superuser. And for good reason! Certain information
+on your computer is extremely sensitive. If the information becomes corrupted
+you could lose your personal files, crash the computer, or even cause
+irreversible damage to it! The superuser has no restrictions when using the
+computer, which means an ignorant superuser can easily cause serious damage to a
+computer by acting carelessly. On the flipside, superusers can also exercise
+complete control over a computer - tweaking and tailoring its every behavior to
+suit their needs. Since the superuser has no restrictions, she also has the most
+responsibility!
+
+Technically speaking, it is quite trivial to become the superuser on your
+personal computer. Being able to handle the burden of being superuser is another
+matter entirely! When I refer to "becoming a superuser" in this book, what I
+almost always mean is acquiring the knowledge and skills necessary to be a
+responsible, benevolt one. In order to be a good superuser, you need to have a
+solid understanding of how computers work and the various systems involved in
+their operation. When you understand your computer, you are better able to
+operate it as the superuser without causing harm.
+
+There are many skills that I consider essential to being a superuser. I will
+mention them throughout this guide as they become relevant, or you can look at
+the full list on the side. Let's get a few to start:
+
+* A superuser is always thirsty for knowledge (I got excited and mentioned this
+  earlier). Every tidbit of computer knowledge is of interest to a superuser -
+  though some tidbits are of more interest than others
+
+* RTFM (three of the letters stand for Read The Manual). It is often tempting to
+  seek out an expert to answer your computer questions, but it is essential that
+  a superuser be able to acquire knowledge on their own. Just about every bit of
+  technology in the world has an associated manual, and most are available for
+  free, though they are sometimes not easy to find. Many experts will refuse to
+  answer a question if it's clear that the asker made no effort to figure it out
+  on their own first
+
+* A superuser learns by doing. You can read as much as you want about computers
+  and technology, but you haven't learned a thing until you get down and dirty
+  at a keyboard to apply the concepts yourself
+
+That should be enough to get us started. Now let's get excited! What benefits
+are there to being a true superuser?
+
+* A superuser is her own tech support. You can save time and money by fixing
+  your own problems
+
+* A superuser is a safer user. 99% of the dangers of computer use are spawned
+  from laziness and ignorance. The more you understand your computer, the more
+  you will be able to protect it and you from cyber threats
+
+* A superuser can tweak and specialize a computer to perform a wider variety of
+  tasks, to operate more efficiently, and to better fit her needs. As a true
+  superuser, your computer will feel like your room: all of your favorite things
+  at hand, your possessions precisely arranged for ease of access, pleasing
+  decor, comfort, familiarity, etc.
+
+By now you are hopefully excited. If not, consider taking an invigorating walk
+or something. We begin with Part 1.
+
+Part 1: Computers
+=================
+
+We're going to start by answering a question so fundamental that you might even
+laugh that I ask it at all: what is a computer? This is a funny question since
+you're using one right now. You could answer it succinctly by pointing at the
+screen you're reading, but let's take it seriously for a moment. Do you really
+know what a computer is? What is the difference between a computer and a
+calculator? Other than size and shape, what makes different computers different?
+What makes one computer better than another?
+
+Let's take a stab at answering that first question.
+Q: What is a computer?
+A: Something that computes.
+
+Obvious, right? Now you have 10 seconds to define "compute"... and now that
+you've failed to do so you can go back and apologize to that answer that seemed
+so foolishly obvious; because it turns out that computation is surprisingly
+tricky to define. It wasn't until the 1930s that anyone managed to put forth a
+decent definition for the term, and even today no one can come up with an
+argument for why that definition is the "right" one. We've all just agreed to
+hope that it's the right one. Weird, right!?
+
+So what is this definition? A computation is any function that can be evaluated
+using an algorithm. Woah, terminology alert! Let's break it down:
+
+A function is something that can be given input and will return output. A
+function must return the same output every time when you give it the same input.
+For example, "Given two integers, what is their sum?" is a function. Its input
+is two numbers and its output is a single number. "What day of the week was it
+on a certain date?" is also a function. With the date as the input you can look
+backwards or forwards in the calendar to see if that day was "Monday",
+"Tuesday", etc. and that is your output. "What is your favorite color?" is *not*
+a function! If I ask you now, your output might be green, but if I ask later on
+that could change! The output needs to be the same every time the function gets
+the same input. You can think of the output as depending only on what the input
+is.
+
+When a function is evaluated, I mean that given an input to the function we
+determine what the output of the function is. Looking up the date in a calendar
+would be "evaluating" my previous function example.
+
+An algorithm is a well-defined, step-by-step process. In other words, an
+algorithm is just a list of instructions. However the instructions must be
+*completely clear*. There should be no room for interpretation! For example,
+"multiply this number by 2" would work as a step in an algorithm since anyone who
+knows how to multiply will get the exact same result. However "draw a pretty
+picture" would not work in an algorithm since it's so ambiguous! What do you
+mean by "pretty"? What tools can we draw with? What should I draw a picture of?
+
+Now read it again: a computation is any function that can be evaluated using an
+algorithm. A computation takes input and produces output by following a clear,
+step-by-step process and where the output depends only on the input. Got it?
+Good.
+
+Thinking deeper: you might be wondering: since a computation is a function that
+can be evaluated using an algorithm, does that mean there are functions that
+*can't* be evaluated using any algorithm? Yes! They're both really cool and
+beyond the scope of this book. Search the web for "uncomputable function".
+
+Exercises
+---------
+1. Come up with three more functions. What is the input? What is the output? How is
+   the function evaluated?
+
+2. Come up with something that takes input and produces output, but is *not* a
+   function. What makes it not a function? Can you turn your non-function into a
+   function by making it require more input?
+
+3. You probably learned how about to multiply long numbers by hand in elementary
+   school. Did you realize that the method you learned was an algorithm? Try to
+   write out a multiplication algorithm for multiplying a three-digit number by
+   a one-digit number as step-by-step instructions. Assume that the reader of
+   the instructions knows how to multiply and add single digit numbers.
+
+Now we know what a computation is, but how is that related to the computers we
+know today?
+
+To answer this question, we're going to go way back to the beginning and talk
+about the very first computers: people. People have been carrying out
+computation for quite some time, especially for business purposes. The faster
+and more accurately you can compute, the more products you can sell, the more
+accurately you can track your finances, the further you can plan for the future,
+etc.
+
+Humans are decent at computation (almost all of pre-college math is
+computation), but they come with some significant drawbacks. The main problem is
+that computation is very boring. Since computation relies on algorithms -
+instructions with no room for interpretation - it can be very uncreative, dull
+work. Dull work causes people to zone out; zoning out causes people to make
+silly mistakes. Secondly, humans don't have very good memories for computation.
+We can remember lots and lots of things, but our memory is fuzzy and selective:
+not so good at remembering huge quantities of precise numbers. That means that
+large computations require a lot of book-keeping to bypass our limited memory.
+Lastly humans aren't terribly fast at computation. For big companies with lots
+of accounting requirements, this was especially problematic.
+
+Various computational tools have been invented over the years to assist humans
+with computation - such as the abacus and slide rule - but these essentially
+amount to fancy book-keeping methods and still require slow, fallible human
+effort.
+
+The next big breakthrough in computation came with computing machines. This was
+a crucial stepping stone to modern computers, so we're going to relive it right
+now by inventing a machine that can add two numbers with much less chance of
+human fallibity mucking it up. We're going to work our way up to this machine by
+making much simpler machines first.
+
+We'll start with a wheel attached to the surface of a table. Around this wheel
+we'll evenly write the digits 0-9. We can attach a handle to rotate the wheel
+and draw a mark on the table to point at the wheel. Tada! We now have a very
+simple computing machine! In particular, this is an "add 1 to a number" machine.
+It takes as input a single digit number and outputs a single digit number. The
+algorithm it uses is as follows:
+
+1. Turn the wheel so that the mark points at the input digit
+2. Turn the wheel so that the mark points at the next biggest digit
+3. The digit pointed to by the mark is the output
+
+This machine is a bit silly - especially since it doesn't even work! What
+happens if we give it 9 as input? Argh! The wheel circles back around to 0! We
+can solve this problem by adding another wheel to our contraption.
+
+The second wheel is exactly like the first, except rather than turning it
+directly with a handle we attach it to the first wheel. The attachment should be
+designed such that the second wheel remains stationary. Except when the first
+wheel turns from 9 back to 0, then the second wheel advances by one digit (the
+specific mechanism isn't important, but you can see an example TODO here). Now
+when we give an input of 09, turning the handle changes the 9 to 0, which
+advances the 0 to 1 and we get 10! Success! If we keep turning, the second wheel
+remains at 1 (giving us 11, 12, 13, ...) until we get to 19 and it once again
+advances us to 20.
+
+By now you should realize that we still have a problem. Our new machine works
+all the way up to 99 and then the same error occurs. Turning the rightmost 9
+back to 0 advances the leftmost 9 to 0 as well, so our machine says that 99+1=0.
+Dang! We can keep adding more wheels like we did before but that only delays the
+error. So how do we solve it? Well, we don't. Without having infinitely many
+wheels, there's nothing we can do other than ensure that we have enough wheels
+at the moment to handle the input we have. You might be surprised to know that -
+as simple as our little machine is - it shares this problem with every modern
+computer. It's such a common problem that computer scientists even have a
+special term for it: "overflow". As is common in computer science, from now on
+we'll just assume that we have lots and lots of wheels - not inifinitely many,
+but enough that we can handle reasonably large numbers without overflowing.
+
+Thinking deeper: it's tempting to think of overflow as a problem as I did here.
+But there's another way to look at it. What if we thought of our machine as
+taking your input and output, dividing them by 100 and then only showing you the
+remainder? 99+1=100=100*1+0 so the machine tells you zero! It's easy to see that
+this always works: 100+1=101=100*1+1 and so on. This trick is called modular
+arithmetic and it works just like normal arithmetic except that numbers never
+get bigger than the "modulus" (which is 100, in this case).
+
+Now we make a small addition to our machine. We'll change the mechanism linking
+the wheels together so that also when turning a wheel backwards from 0 to 9, it
+turns the wheel to its left backwards by 1 (the reverse of what the wheels did
+before). Now we have an "add or subtract 1 from a number" machine! By turning
+the handle in the opposite direction, it counts in the opposite direction from
+what it did before. As you might expect, this machine now has an "underflow"
+problem: if we subtract 1 from 0, the rightmost 0 turns to a 9, which turns the
+wheel to its left from 0 to 9, which turns the wheel to its left from 0 to 9,
+which... ends up with 9999...9 (the largest number we can have with the wheels
+in our machine). Again, this problem is unavoidable.
+
+We are now ready to construct our number adding machine. To construct it, we
+take *two* of our add/subtract 1 machines and connect them such that the two
+wheels with handles turn each other in opposite directions. Now when we add 1
+on one machine, it subtracts 1 on the other machine and vice versa. Operating
+this machine is quite simple:
+
+1. manually turn the wheels of each machine to display the two input numbers
+2. turn the handle until one of the machines is all zeroes
+3. the other machine now shows the sum
+
+This machine solves a lot of the problems with human computation. Short of
+inputting the numbers incorrectly or misreading the output, it's virtually
+impossible to make a computational error. It can technically compute as quickly
+as the operator can turn the handle (if it is well built). It does solve the
+problem of humans' limited memory, however it exchanges it for its own memory
+problem: the over/underflowing we noticed earlier. This isn't as bad though:
+we're limited by the machine's memory (number of wheels), but at least we know
+exactly what that limit is.
+
+We do have some new problems though. Building a physical machine out of gears
+and levers is no simple task, especially since a high degree of precision is
+required for good operation. With use this machine would slowly deteriote and
+need to be serviced and supplied with replacement parts. Also while humans can
+be taught and trained to perform any kind of computation, this machine had to be
+especially designed to perform our one, specific kind of computation. If you
+wanted to build a machine that multiplied numbers or one that performs
+exponents, you would need to design and manufacture a whole new machine from
+scratch. Ugh. Still, for a while these sorts of machines were quite widely used.
+The German Enigma encryption machine in World War II is a particularly famous
+machine of this class (it used electrict only to illuminate light bulbs, the
+workings of the machine were very similar to our wheel-based adding machine).
+
+It was during the effort to break the Enigma code that a brilliant English
+mathematician began dreaming up a new sort of computing machine. What if you
+could build a computing machine *that computes computing machines*? A machine
+where the input would not only be numbers (as we've seen), but the type of
+computation to perform as well. That is, by changing part of the input you could
+have the machine perform a completely different computation on the same numbers.
+Such a machine would solve the biggest problem with previous computing machines:
+the need to design and manufacture a new machine for each type of computation.
+Such a machine would - in a sense - be the last computing machine you would ever
+need; it could be adapted to solve any computable problem simply by changing its
+input.
+
+The machine he created, and which now bears his name, is the Turing machine. In
+order to create the mother-of-all computing machines, Turing distilled
+computation to its bare essentials. The machine consists of the following
+components:
+
+1. A tape, on which we can write a sequence of digits. As with the number of
+   wheels on our adding machine, we assume that the tape is very long - long
+   enough for whatever computation we are performing. We assume that the tape
+   starts with every position in the sequence set to 0
+2. A head which can read and write digits on the tape - but only one digit at
+   a time! The head can move along the tape to go from one digit to the
+   previous or next, but again only one digit at a time.
+3. A "state register", which we can think of like a wheel in our adding machine.
+   The wheel has numbers around the edge and a mark pointing at single numbers.
+   Whatever numbers is currently pointed to, we call the "current state" of the
+   Turing machine. Similar to the tape, we don't care how many numbers are
+   around the edge of the wheel. It just needs to be enough to perform the
+   computation we're doing. We assume that the machine starts in state 0.
+4. A list of instructions for the head to follow. However, every single
+   instruction must be of the form:
+   i.   Depending on the current tape digit and the current state,
+   ii.  Write a digit to the tape (it could be the same one we just read),
+   iii. Move the head either one symbol to the left, one symbol to the right, or
+        not at all,
+   iv.  And choose the next state of the machine (again, this could be the same
+        state it was already in)
+
+Let's compare this to the mechanical adding machine we recently built. The tape
+is a lot like the series of wheels. Each wheel pointed to a single digit, just
+as each position on the tape can have a single digit on it. The head is kind of
+like us, looking at the wheels and turning the crank until the computation is
+complete. The list of instructions is an algorithm just like the instructions
+for operating the adding machine. The big difference is that these instructions
+must all be the same format: read a digit, write a digit, move, change state.
+Noticeably absent is the state register. We'll see how that works in a moment.
+
+To show you how a Turing machine can replicate any other computation machine,
+we'll recreate our amazing "add 1 to a number" machine with a Turing machine.
+
+First we'll give the machine input: we take our tape of all zeros, erase a few
+of them, and write our number in their place. We can write our number such that
+the rightmost digit is under the head of the machine. For this computation, we
+will only need two states, so our Turing machine should have a state register
+with at least states 0 and 1 on it.
+
+Now we need to give it a list of instructions. Remember that all Turing machine
+instructions look something like, "If you read a 0 and the current state is 1,
+write a 3, move to the left, and change the current state to 2." Another
+instruction might be, "If you read a 1 and the current state is 1, write a 0,
+don't move, and change the current state to 10." Note that of all those words,
+only a few things are different between those instructions. So to keep things
+short we'll write instructions in shorthand:
+
+(the digit that was read, the current state, the digit to write, the direction to move: L/R/N, and the next state)
+
+In our shorthand those last two instructions would look like this:
+(1, 0, 3, L, 2)
+(1, 1, 0, N, 10)
+
+Back to the add 1 machine, here is our list of instructions:
+(0, 0, 1, N, 1)
+(0, 1, 2, N, 1)
+(0, 2, 3, N, 1)
+(0, 3, 4, N, 1)
+...
+(0, 7, 8, N, 1)
+(0, 8, 9, N, 1)
+(0, 9, 0, L, 0)
+
+Now we can imagine how our Turing machine will operate. Suppose we give it 4 as
+input:
+
+1. The machine starts in state 0 and reads a 4. This matches the rule
+   (0, 4, 5, N, 1) so it writes a 5, doesn't move the head, and changes to state
+   1.
+1. The machine is in state 1 and reads a 5. There are no rules that start with
+   (1, 5, ...) so the machine stops.
+
+Lo and behold there is now a 5 on the tape! Amazing! Okay, maybe not that
+amazing. Perhaps an input of 299 will be more mind-blowing:
+
+1. The machine starts in state 0 and reads a 9. This matches the rule
+   (0, 9, 0, L, 0) so it writes a 0, moves the head to the left one, and changes
+   to state 0.
+2. The machine is in state 0 and reads a 9. This matches the same rule as
+   before, so it writes a 0, moves the head to the left one, and changes to
+   state 0.
+3. The machine is in state 0 and reads a 2. This matches the rule
+   (0, 2, 3, N, 1), so it writes a 3, doesn't move the head, and changes to
+   state 1.
+4. The machine is in state 1 and reads a 3. There are no rules starting with
+   (1, 3, ...) so the machine stops.
+
+Bam! Our Turing machine wrote 300 on that imaginary tape like a BOSS.
+
+Have you figured out the purpose of the state register yet? It comes from how
+addition works with single digit numbers. In most cases, when you add 1 to a
+single digit number you just change to the next single digit number and you're
+done. The exception is when you add 1 to 9, then you change it to a 0 and have
+to add 1 to the next digit as well. So you think can of state 0 in the register
+as being the "add 1 to this digit" state. Look back at the list of instructions;
+every rule starting with (0, ...) says how to change that digit when 1 is added
+to it. The 1 state is our "finished" state. No rule starts with (1, ...) so when
+we change to that state the machine will stop. Every instruction transitions to
+the finished state except for the rule (0, 9, ...) because then we need to keep
+adding. Cool, right?
+
+The state register is key to the magic of the Turing machine. Even though it's
+just a bunch of numbers, the way we use those states in our instructions gives
+them special meaning. You might write different Turing machine instructions also
+using states 0 and 1, but with completely different meanings than my 0 and 1.
+
+Exercises
+---------
+1. Create a list of Turing machine instructions for subtracting one from a
+   number. Test your instructions using 4 and 100 as input. Now try subtracting
+   1 from 0. What will happen? Think about different ways you might avoid this
+   problem.
+
+2. The Turing machine I described uses digits and numbers for the tape and state
+   register but these were actually an arbitrary choice. What if we upgrade our
+   Turing machine to read and write letters in addition to digits? Can this help
+   solve the problem in the Exercise 1?
+
+3. The rules for the add 1 machine are really repetitive. Try to think of a way
+   to change the input we give the machine so that we don't end up with 9
+   versions of basically the same rule.
