@@ -1,10 +1,7 @@
 ---
 layout: chapter
-title: "Beginning!"
+title: "Beginning the Journey"
 ---
-
-Beginning the Journey
-=====================
 
 Congratulations! By starting to read this guide you have already set yourself
 apart from so many simpletons out there. A healthy thirst for knowledge and the

@@ -76,16 +76,15 @@ special term for it: "overflow". As is common in computer science, from now on
 we'll just assume that we have lots and lots of wheels - not inifinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
-<div class="deeper">
-	It's tempting to think of overflow as a problem like I just did. But there's
-	another way to look at it. What if we thought of our machine as taking your
-	input and output, dividing them by 100 and then only showing you the
-	remainder? 99+1=100=100*1+0 so the machine tells you zero! Do a few examples
-	and you'll see that this always works: 100+1=101=100*1+1 and so on. This
-	trick is called "modular arithmetic". It works just like normal arithmetic
-	except that numbers never get bigger than the "modulus" (which is 100, in
-	this case).
-</div>
+<aside class="deeper">
+It's tempting to think of overflow as a problem like I just did. But there's
+another way to look at it. What if we thought of our machine as taking your
+input and output, dividing them by 100 and then only showing you the remainder?
+99 + 1 = 100 = 100 &times; 1 + 0 so the machine tells you zero! Do a few examples and you'll see
+that this always works: 100 + 1 = 101 = 100 &times; 1 + 1 and so on. This trick is called
+"modular arithmetic". It works just like normal arithmetic except that numbers
+never get bigger than the "modulus" (which is 100, in this case).
+</aside>
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
@@ -261,18 +260,24 @@ them special meaning. You could write different Turing machine instructions also
 using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
-<div class="exercises">
-	<ol>
-		<li>Create a list of Turing machine instructions for subtracting one
-		from a number. Test your instructions using 4 as input and again using
-		100. Now try subtracting 1 from 0. What will happen? Think about
-		different ways you might avoid this problem.</li>
-		<li>The Turing machine I described uses digits and numbers for the tape
-		and state register but these were actually an arbitrary choice. What if
-		we upgrade our Turing machine to read and write letters in addition to
-		digits? Can this help solve the problem in the Exercise 1?</li>
-		<li>The rules for the add 1 machine are really repetitive. Try to think
-		of a way to change the rules and input we give the machine so that we
-		don't end up with 9 versions of basically the same rule.</li>
-   </ol>
-</div>
+<aside class="exercises">
+<ol>
+<li>
+Create a list of Turing machine instructions for subtracting one from a number.
+Test your instructions using 4 as input and again using 100. Now try subtracting
+1 from 0. What will happen? Think about different ways you might avoid this
+problem.
+</li>
+<li>
+The Turing machine I described uses digits and numbers for the tape and state
+register but these were actually an arbitrary choice. What if we upgrade our
+Turing machine to read and write letters in addition to digits? Can this help
+solve the problem in the Exercise 1?
+</li>
+<li>
+The rules for the add 1 machine are really repetitive. Try to think of a way to
+change the rules and input we give the machine so that we don't end up with 9
+versions of basically the same rule.
+</li>
+</ol>
+</aside>

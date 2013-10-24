@@ -230,13 +230,13 @@ they line up with each other. Notice the patterns that emerge.
 8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
 scientist humor again). Count from 0 to 31 in a column like we did earlier but
 this time write out all 4 digits of each nibble (0000, 0001, 0010, etc.). Do you
-see a pattern? Do you see a much easier way to count this way without adding 1
-to the previous number?
+see a pattern? Do you see a much easier way to count these numbers without
+adding 1 to each previous number?
 </li>
 <li>
-Write out a random sequence of 16 ones and zeroes. Now convert your 16 bit
-binary number to hexadecimal using the nibble trick. Repeat this a few times
-until you start feeling comfortable with the process.
+Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
+binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a few
+times until you start feeling comfortable with the process.
 </li>
 </ol>
 </aside>

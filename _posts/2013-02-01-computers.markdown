@@ -30,10 +30,10 @@ hope that it's the right one. Weird, right!?
 
 So what is this definition?
 
-<div class="definition">
-	A <strong>computation</strong> is any function that can be evaluated using
-	an algorithm.
-</div>
+<aside class="definition">
+A <strong>computation</strong> is any function that can be evaluated using an
+algorithm.
+</aside>
 
 Woah, terminology alert! Let's break it down: a _function_ is something that
 can be given input and will return output. And it must return the _same_ output
@@ -65,13 +65,13 @@ algorithm. A computation takes input and produces output by following a clear,
 step-by-step process and where the output depends only on the input. Got it?
 Good.
 
-<div class="deeper">
-	You might be wondering: since a computation is a function that can be
-	evaluated using an algorithm, does that mean there are functions that
-	<strong>can't</strong> be evaluated using any algorithm? Yes! They're both
-	really cool and beyond the scope of this book. Search the web for
-	"uncomputable function".
-</div>
+<aside class="deeper">
+You might be wondering: since a computation is a function that can be evaluated
+using an algorithm, does that mean there are functions that
+<strong>can't</strong> be evaluated using any algorithm? Yes! They're both
+really cool and beyond the scope of this book. Search the web for "uncomputable
+function".
+</aside>
 
 Now get ready because here comes the first set of exercises. This isn't school
 so you don't _have_ to do them and some problems are tricky enough that I don't
@@ -79,21 +79,23 @@ expect you to figure them out very easily. But remember that a superuser learns
 by doing, so at the very least try to think about each question a little bit
 before moving on.
 
-<div class="exercises">
-	<ol>
-		<li>Come up with three more functions. What is the input? What is the
-		output? How is the function evaluated?</li>
-
-		<li>Come up with something that takes input and produces output, but is
-		<strong>not</strong> a function. What makes it not a function? Can you
-		turn your non-function into a function by making it require more
-		input?</li>
-
-		<li>You probably learned how to multiply long numbers by hand in
-		elementary school. Did you realize that the method you learned was an
-		algorithm? Try to write out a multiplication algorithm for multiplying
-		a three-digit number by a one-digit number as step-by-step
-		instructions. Assume that the reader of the instructions knows how to
-		multiply and add only single digit numbers.</li>
-   </ol>
-</div>
+<aside class="exercises">
+<ol>
+<li>
+Come up with three more functions. What is the input? What is the output? How is
+the function evaluated?
+</li>
+<li>
+Come up with something that takes input and produces output, but is
+<strong>not</strong> a function. What makes it not a function? Can you turn your
+non-function into a function by making it require more input?
+</li>
+<li>
+You probably learned how to multiply long numbers by hand in elementary school.
+Did you realize that the method you learned was an algorithm? Try to write out a
+multiplication algorithm for multiplying a three-digit number by a one-digit
+number as step-by-step instructions. Assume that the reader of the instructions
+knows how to multiply and add only single digit numbers.
+</li>
+</ol>
+</aside>
