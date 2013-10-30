@@ -226,6 +226,18 @@ computer scientists. It is very succinct to read and write but also not hard to
 see what the corresponding binary information is. Usually when superusers view
 the raw data stored on a computer, they view it in hexadecimal.
 
+Throughout this chapter I've used the mathematical notation of
+<sub>sub</sub>scripts to show which base a number is written in. Computer
+scientists don't really do this, though. Usually the base of a number is
+obvious from the context so they don't write anything. But when they have
+numbers of different bases mixed together, they add something _before_ the number
+to indicate the base. For binary, they precede the digits with '0b', for
+hexadecimal '0x', and for octal (base 8) they precede the digits with a zero.
+If the digits have no prefix, it is assumed to be decimal. As far as computer
+scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
+
+0b10111001 = 0271 = 0xB9 = 185
+
 This chapter's exercises are best done with some graph paper.
 
 <aside class="exercises">
