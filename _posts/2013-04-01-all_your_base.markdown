@@ -258,5 +258,11 @@ Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
 binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a few
 times until you start feeling comfortable with the process.
 </li>
+<li>
+At the last minute I mentioned base 8 AKA octal. I also showed you a trick for
+quickly converting from binary to hexadecimal. Since 16 and 8 are both powers
+of 2, can you find a similar trick for quickly converting from binary to octal?
+Do you see how this trick could apply to other pairs of bases?
+</li>
 </ol>
 </aside>
