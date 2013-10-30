@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Part 1 - Computers
+title: 'Part 1: Computers'
 ---
 
 We're going to start by answering a question so fundamental that you might even
