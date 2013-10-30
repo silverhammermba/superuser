@@ -9,6 +9,57 @@ willingness to read long, boring documents to acquire said knowledge is an
 important trait of any superuser. I'll do my best to minimize the boringness so
 long as you keep up the knowledge thirstiness.
 
+How to Read This Book
+---------------------
+
+This guide is broken into four parts.
+
+1. Computers: learn about the fundamentals of computation and how modern
+   computers work.
+2. The Internet: learn about how computers communicate with each other and the
+   mechanisms that make the Internet tick.
+3. Computers in Depth: learn how to assemble a computer from scratch, how to
+   install and customize an operating system, and create your own software.
+4. The Internet in Depth: learn about network security and web applications.
+
+These parts build upon each other and are written to be read in order but if
+you have a particular interest you can easily skip forward to a specific
+chapter using the table of contents.
+
+Notation
+--------
+
+Occasionally you'll see little highlighted blurbs like these.
+
+<aside class="definition">
+Defintions highlight terms that are important to understand. Pay close
+attention! All definitions from the chapters (and a few more) are listed here.
+
+TODO add link
+</aside>
+
+<aside class="note">
+Notes are little reminders. They might remind you of older material that is
+being used again or they'll try to clear up a frequent point of confusion.
+</aside>
+
+<aside class="deeper">
+Sometimes I think of something related to the current chapter that is too cool
+for me to not mention - even though it's not necessary. This is how such
+information will show up. Don't feel bad about skipping over these if they go
+over your head.
+</aside>
+
+<aside class="exercises">
+Most chapters have a few exercises at the end to help you grasp concepts from
+the chapter. They're not graded, but you should still consider them. And yes
+there are selected answers in the back.
+
+TODO add link
+</aside>
+
+So anyway...
+
 What is a Superuser?
 --------------------
 
