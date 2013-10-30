@@ -47,9 +47,9 @@ algorithm it uses is as follows:
 2. Turn the wheel so that the mark points at the next biggest digit
 3. The digit pointed to by the mark is the output
 
-This machine is a bit silly - especially since it doesn't even work! What
-happens if we give it 9 as input? Argh! The wheel circles back around to 0! We
-can solve this problem by adding another wheel to our contraption.
+This machine is a bit silly, but it does do the job... kinda. What happens if we
+give it 9 as input? Argh! The wheel circles back around to 0! We can solve this
+problem by adding another wheel to our contraption.
 
 The second wheel is exactly like the first, except rather than turning it
 directly with a handle we attach it to the first wheel. The attachment should be
@@ -133,7 +133,7 @@ otherwise functioned similarly to our wheel-based adding machine.
 The capability to break the Enigma code was thanks in part to a brilliant
 English mathematician who had dreamed up a new sort of computing machine. He
 wondered if you could build a computing machine *that computes computing
-machines*? A machine where the input would not only be numbers, but the type of
+machines*: a machine where the input would not only be numbers, but the type of
 computation to perform as well. That is, by changing part of the input you could
 have the machine perform a completely different computation on the same numbers.
 Such a machine would solve the biggest problem with previous computing machines:
@@ -156,9 +156,9 @@ components:
    digit to the previous or next, but again only one digit at a time.
 3. A <strong>state register</strong>, which we can think of like a wheel in our
    adding machine. The wheel has numbers around the edge and a mark pointing at
-   single numbers. Whatever numbers is currently pointed to, we call the
-   "current state" of the Turing machine. Similar to the tape, we don't care how
-   many numbers are around the edge of the wheel. It just needs to be enough to
+   single numbers. Whatever number is currently pointed to, we call the "current
+   state" of the Turing machine. Similar to the tape, we don't care how many
+   numbers are around the edge of the wheel. It just needs to be enough to
    perform the computation we're doing. We assume that the machine starts in
    state 0.
 4. A list of <strong>instructions</strong> for the head to follow. However,
@@ -246,7 +246,7 @@ Have you figured out the purpose of the state register yet? It comes from how
 addition works with single digit numbers. In most cases, when you add 1 to a
 single digit number you just change it to the next single digit number and
 you're done. The exception is when you add 1 to 9, then you change it to a 0 and
-have to add 1 to the next digit as well. So you think can of state 0 in the
+have to add 1 to the next digit as well. So you can think of state 0 in the
 register as being the "add 1 to this digit" state. Look back at the list of
 instructions; every rule starting with (0, ...) says how to change that digit
 when 1 is added to it. The 1 state is our "finished" state. No rule starts with
