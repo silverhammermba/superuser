@@ -62,18 +62,25 @@ Most humans tend to think in base 10, so it's useful to be able to convert
 numbers in different bases to base 10. Here's how you convert base 10 to base
 10:
 
-1324<sub>10</sub> = 1 &times; (10<sup>3</sup>) + 3 &times; (10<sup>2</sup>) + 2 &times; (10<sup>1</sup>) + 4 &times; (10<sup>0</sup>) = 1000 + 300 + 20 + 4 = 1324<sub>10</sub>
+1324<sub>10</sub> = 1 &times; (10<sup>3</sup>) + 3 &times; (10<sup>2</sup>) + 2 &times; (10<sup>1</sup>) + 4 &times; (10<sup>0</sup>) = 1000<sub>10</sub> + 300<sub>10</sub> + 20<sub>10</sub> + 4<sub>10</sub> = 1324<sub>10</sub>
 
-Converting from base 5 is similar:
+Don't get freaked out by the notation! Think about how you say "1324": one
+thousand three hundred and twenty four. Or to make a slight modification: one
+thousand, three hundreds, two tens, and 4 ones; this is exactly what the
+formula is doing! Converting from base 5 is similar except now all of the tens
+becomes fives:
 
-1324<sub>5</sub> = 1 &times; (5<sup>3</sup>) + 3 &times; (5<sup>2</sup>) + 2 &times; (5<sup>1</sup>) + 4 &times; (5<sup>0</sup>) = 125 + 75 + 10 + 4 = 214<sub>10</sub>
+1324<sub>5</sub> = 1 &times; (5<sup>3</sup>) + 3 &times; (5<sup>2</sup>) + 2 &times; (5<sup>1</sup>) + 4 &times; (5<sup>0</sup>) = 125<sub>10</sub> + 75<sub>10</sub> + 10<sub>10</sub> + 4<sub>10</sub> = 214<sub>10</sub>
+
+Previously we split the number up into ones, tens, hundreds, thousands, ... all
+the powers of ten. Now we're splitting up the number by the powers of five.
 
 <aside class="note">
 <p>
 If it's been a while since your last arithmetic class, Here's a crash
-course on exponentiation. Remember that 10<sup>3</sup> = 10 &times; 10 &times; 10 or
-"three 10s multiplied together". Two special cases to also keep in
-mind:
+course on exponentiation. Remember that ten to the power of three is
+10<sup>3</sup> = 10 &times; 10 &times; 10 or "three tens multiplied together".
+Two special cases to also keep in mind:
 </p>
 <p>X<sup>1</sup>=X</p>
 <p>X<sup>0</sup> = 1 (if X isn't 0)</p>
@@ -130,7 +137,7 @@ digits carry over. This binary counting pattern is at the heart of every
 computer, so it's good to have an intuitive grasp of it. Converting from binary
 to decimal is a good skill to have as well:
 
-110101<sub>2</sub> = 1 &times; (2<sup>5</sup>) + 1 &times; (2<sup>4</sup>) + 0 &times; (2<sup>3</sup>) + 1 &times; (2<sup>2</sup>) + 0 &times; (2<sup>1</sup>) + 1 &times; (2<sup>0</sup>) = 32 + 16 + 4 + 1 = 53<sub>10</sub>
+110101<sub>2</sub> = 1 &times; (2<sup>5</sup>) + 1 &times; (2<sup>4</sup>) + 0 &times; (2<sup>3</sup>) + 1 &times; (2<sup>2</sup>) + 0 &times; (2<sup>1</sup>) + 1 &times; (2<sup>0</sup>) = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
 
 Notice how the method for conversion is the same as before, but wonderfully
 simple: since the only digits are 0 or 1, each power of 2 is either added or not
@@ -139,9 +146,9 @@ memorized the first several powers of 2 for this reason.
 
 Now let's think about how this affects our machines. The wheels of our adding
 machine now seem rather silly, having only two digits each. They could now be
-simple on/off switches. Our Turing machine is now much simpler to program as
-well! We needed 10 instructions for our decimal "plus 1" machine, with lots of
-repetition among them, but in binary we only need 2:
+simple on/off switches. Our Turing machine is much simpler to program as well!
+We needed 10 instructions for our decimal "plus 1" machine - with lots of
+repetition among them - but in binary we only need 2:
 
     (0, 0, 1, N, 1)
     (0, 1, 0, L, 0)
@@ -157,17 +164,18 @@ computers e.g. 2<sub>10</sub> = 00000010<sub>2</sub>. Large binary numbers that
 require more than 8 digits are usually written as multiple bytes placed
 end-to-end.
 
-A byte can store the values 00000000<sub>2</sub> to 11111111<sub>2</sub>. If we
-add 1 to that last value, we get 100000000<sub>2</sub> which we can easily
-convert to base 10: it's 2<sup>8</sup> = 256. Thus a byte can store the values
-0<sub>10</sub> to 255<sub>10</sub>.
+A byte can store the values 00000000<sub>2</sub> to 11111111<sub>2</sub>. Let's
+figure out what this is in decimal. As a little trick, we can do
+11111111<sub>2</sub> + 1<sub>2</sub> = 100000000<sub>2</sub> = 2<sup>8</sup> =
+256<sub>10</sub> = 255<sub>10</sub> + 1<sub>10</sub>. Thus a byte can store
+the values 0<sub>10</sub> to 255<sub>10</sub>.
 
 Putting bits in groups of 8 makes some things more convient, but it's still
 annoying to read and write all of those binary digits. To solve this problem,
-computer scientists employee another tool: hexadecimal.
+computer scientists employ another tool: hexadecimal.
 
 Hexadecimal is the fancy word for base 16. 16 is more than 10 so where we
-previously had fewer digits to use, now we add 6 more digits! It is telling of
+previously had fewer digits to use, now we _add_ 6 more digits! It is telling of
 computer scientists' creativity that these new digits are A, B, C, D, E, and F.
 Counting in hexadecimal looks like this:
 
