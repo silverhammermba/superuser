@@ -1,10 +1,7 @@
 ---
 layout: chapter
-title: Computers
+title: Part 1 - Computers
 ---
-
-Part 1: Computers
-=================
 
 We're going to start by answering a question so fundamental that you might even
 laugh that I ask it at all: what is a computer? This is a funny question since
@@ -21,12 +18,12 @@ Q: What is a computer?
 A: Something that computes.
 
 Obvious, right? Now you have 10 seconds to define "compute"... and now that
-you've failed to do so you can go back and apologize to that answer that seemed
-so foolishly obvious; because it turns out that computation is surprisingly
-tricky to define. It wasn't until the 1930s that anyone managed to put forth a
-decent definition for the term, and even today no one can come up with an
-argument for why that definition is the "right" one. We've all just agreed to
-hope that it's the right one. Weird, right!?
+you've failed to do so you can go back and apologize to that question that
+seemed so obvious; because it turns out that computation is surprisingly tricky
+to define. It wasn't until the 1930s that anyone managed to put forth a decent
+definition for the term, and even today no one can come up with an argument for
+why that definition is the "right" one. We've all just agreed to hope that it's
+the right one. Weird, right!?
 
 So what is this definition?
 
