@@ -1,0 +1,80 @@
+---
+layout: chapter
+title: The Ultimate Computer
+---
+
+Disclaimer
+----------
+
+Originally this chapter was just going to be a "Thinking Deeper" blurb, since
+the topic is quite brain-bending. However I couldn't think of even a basic
+explanation that would fit in a blurb, and the topic is far too cool to simply
+mention with no explanation. Thus I'm including the topic as a mini-chapter
+which you can feel free to skip if things start getting too intense.
+
+Total Recall
+------------
+
+Now that we've learned a good deal about computers, let's recall why they were
+created in the first place. Humans can compute things by hand, but that's
+error-prone and slow. Machines can be built to perform specific computations,
+but those are hard to design and have limited uses. Computers nicely solve
+these problems by being fast and accurate, but also easily reconfigurable to
+perform different calculations. But is it possible that computers still aren't
+good enough? Maybe there's yet another even more generalized machine that can
+do everything a computer can and more!
+
+Spoiler alert: there isn't. Now don't be too disappointed, because this simple
+fact is actually amazing and we are now going to see why. Let's recall what a
+computer does: it evaluates functions using algorithms. We saw the Turing
+machine as a perfect example of this. You give it input, tell it the algorithm to
+perform, it cranks away and out comes your answer. Let's write that down like this:
+
+input + algorithm -> Turing machine -> answer
+
+Earlier I described computers as machines that compute computing machines. Now
+let's try to apply that principle once more to get one level of abstraction
+higher: a machine that computes computers, a sort of metacomputer. We'd want it
+to be able to act like any kind of computer, just like a computer can act like
+any kind of computing machine - something like this:
+
+input + algorithm + computer -> metacomputer -> answer
+
+But here's the kicker. Recall how a Turing machine operates - how it's various
+components interact. Predicting what a Turing machine will do given certain
+input is a simple matter of following the steps as it reads its instructions
+and manipulates the tape. Hm... "following the steps," that sounds like an
+algorithm! Come to think of it, if you give a Turing machine input and an
+algorithm, it produces the same output every time. That sounds like a function!
+That sounds like a **computable** function!
+
+Did you catch that? Turing machines are computable functions, which means they
+can be described with algorithms. That means we can rewrite our metacomputer
+diagram. The "computer" that we were providing is really just another
+algorithm. Meanwhile we can lump the old algorithm and the input together and
+call both of them the input to our metacomputer.
+
+(input + algorithm) + algorithm -> metacomputer -> answer
+
+But wait, why do we need a metacomputer for this stuff? It's the same old
+"input + algorithm -> computer -> answer" as before, just rebranded. **Our
+fancy metacomputer can be a regular old computer**. Mind. Blown.
+
+So What?
+--------
+
+This is one of the most powerful properties of computation: any computer can
+simulate any other computer. You can simulate the operation of a Turing machine
+_using a Turing machine_. And even better, by the laws of mathematical
+induction you can repeat this process of abstraction arbitrarily many times.
+You can simulate a Turing macine inside a Turing machine being simulated by a
+Turing machine and so on. The possibilities are literally endless.
+
+Modern computers take advantage of this abstraction to make computers easier to
+use for humans. We start by building a computer that works sort of like a
+Turing machine: relatively simple to build and operate but kind of confusing to
+use. Then we come up with more complicated computers that are a little
+easier to use, but rather than needing to build them, we can simply simulate
+them using the Turing machine. Rinse and repeat until you have an incredibly
+advanced and complicated computer all working inside your simple Turing
+machine.
