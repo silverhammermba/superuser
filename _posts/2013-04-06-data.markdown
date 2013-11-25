@@ -1,0 +1,15 @@
+---
+layout: chapter
+title: For Matt
+---
+
+Last chapter we learned that computers store information in binary, broken up
+into 8-digit bytes. So "information", to a computer, is really just a bunch of
+numbers. But obviously the computers we know can do much more than work with
+boring old numbers. They can edit photographs, play music, let us interact with
+stunning games, show us animations and videos, and basically anything else you
+can think of. It seems like a huge gap exists between simple binary numbers and
+the multimedia we interact with.
+
+TODO describe file formats and data sizes. But does this even fit here? We just
+need to know Mb, Gb, etc. before the real computers chapter...
