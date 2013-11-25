@@ -9,8 +9,9 @@ perform any computation! There's still a big gap between the simple, theoretical
 Turing machine and the complicated computers we use in real life but you'll be
 happy to know that we'll be skipping over most of the details of that topic.
 
-But there is one more topic which we must cover in detail before we're ready to
-talk about real computers: binary!
+We're getting _sooo_ close to talking about real life computers. I promise!
+There's just a couple more topics which we must cover before we're ready to talk
+about real computers. First up: binary!
 
 The machines we learned about previously counted the way we're used to: 0,
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ... and you get the idea. The wheels we
@@ -40,15 +41,16 @@ And we've run out of digits again so:
 
 But what do these numbers mean? Let's count "normally" alongside:
 
+<pre>
 0, 1, 2, 3, 4, 10, 11, 12, 13, 14, 20, 21, 22, 23, 24, 30, 31, 32, 33, ...
-
 0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...
+</pre>
 
 Now we can see that "10" with this new counting system means five, "21" means
 eleven, and so on. Ugh, this is getting really confusing. We need names for this
 stuff. In mathematics, these different ways of counting are called different
-*bases*. When we use 0 through 9, we have 10 digits so that's "base 10" A.K.A.
-"decimal". 0 through 4 is 5 digits so that would be "base 5". To avoid confusion
+*bases*. When we use 0 through 9, we have ten digits so that's "base 10" A.K.A.
+"decimal". 0 through 4 is five digits so that would be "base 5". To avoid confusion
 you can put the base next to the number so that it's clear what you mean. For
 example:
 
@@ -66,7 +68,7 @@ numbers in different bases to base 10. Here's how you convert base 10 to base
 
 Don't get freaked out by the notation! Think about how you say "1324": one
 thousand three hundred and twenty four. Or to make a slight modification: one
-thousand, three hundreds, two tens, and 4 ones; this is exactly what the
+thousand, three hundreds, two tens, and four ones; this is exactly what the
 formula is doing! Converting from base 5 is similar except now all of the tens
 becomes fives:
 
@@ -92,44 +94,46 @@ different things depending on the base it's written in.
 If we are okay with reading and writing in base 5, then we could simplify our
 machines by removing the digits 6-9. Our wheels would be smaller and our
 instruction lists would be shorter. If we remove more digits, we can make things
-simpler still! Let's remove digits until we're left with the bare minimum: 0 and
-1. We now have 2 digits so this is called base 2 A.K.A. "binary". Counting in
+simpler still! Let's remove digits until we're left with the bare minimum: 0 and 1.
+We now have 2 digits so this is called base 2 A.K.A. "binary". Counting in
 binary works just like it does in other bases, but can get a little confusing
 because we can't count very far before we run out of digits. For an example,
 follow along as we count from 0 to 31 in binary:
 
-     0:      0
-     1:      1
-     2:     10
-     3:     11
-     4:    100
-     5:    101
-     6:    110
-     7:    111
-     8:   1000
-     9:   1001
-    10:   1010
-    11:   1011
-    12:   1100
-    13:   1101
-    14:   1110
-    15:   1111
-    16:  10000
-    17:  10001
-    18:  10010
-    19:  10011
-    20:  10100
-    21:  10101
-    22:  10110
-    23:  10111
-    24:  11000
-    25:  11001
-    26:  11010
-    27:  11011
-    28:  11100
-    29:  11101
-    30:  11110
-    31:  11111
+<pre>
+ 0:      0
+ 1:      1
+ 2:     10
+ 3:     11
+ 4:    100
+ 5:    101
+ 6:    110
+ 7:    111
+ 8:   1000
+ 9:   1001
+10:   1010
+11:   1011
+12:   1100
+13:   1101
+14:   1110
+15:   1111
+16:  10000
+17:  10001
+18:  10010
+19:  10011
+20:  10100
+21:  10101
+22:  10110
+23:  10111
+24:  11000
+25:  11001
+26:  11010
+27:  11011
+28:  11100
+29:  11101
+30:  11110
+31:  11111
+</pre>
 
 If you skipped over that boring column of numbers, go back and seriously follow
 along. I recommend writing the numbers down in order so that you can see how the
@@ -144,7 +148,7 @@ simple: since the only digits are 0 or 1, each power of 2 is either added or not
 added to the sum; no multiplication is required! Many computer scientists have
 memorized the first several powers of 2 for this reason.
 
-Now let's think about how this affects our machines. The wheels of our adding
+Let's think about how this affects our machines. The wheels of our adding
 machine now seem rather silly, having only two digits each. They could now be
 simple on/off switches. Our Turing machine is much simpler to program as well!
 We needed 10 instructions for our decimal "plus 1" machine - with lots of
@@ -248,10 +252,11 @@ they line up with each other. Notice the patterns that emerge.
 </li>
 <li>
 8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
-scientist humor again). Count from 0 to 31 in a column like we did earlier but
-this time write out all 4 digits of each nibble (0000, 0001, 0010, etc.). Do you
-see a pattern? Do you see a much easier way to count these numbers without
-adding 1 to each previous number?
+scientist humor again). Look back at the chart showing how hexadimcal digits
+correspond to binary nibbles. Now count from 0 to 15 in binary, writing out all
+4 bits of each nibble, just like in the chart. Trust me: do it. Do you notice
+any patterns? Do you see a trick for easily counting in binary without needing
+to add 1 and keep track of carrying?
 </li>
 <li>
 Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
@@ -259,10 +264,11 @@ binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a few
 times until you start feeling comfortable with the process.
 </li>
 <li>
-At the last minute I mentioned base 8 AKA octal. I also showed you a trick for
-quickly converting from binary to hexadecimal. Since 16 and 8 are both powers
-of 2, can you find a similar trick for quickly converting from binary to octal?
-Do you see how this trick could apply to other pairs of bases?
+At the last minute I mentioned base 8 AKA octal. And earlier I showed you a
+trick for quickly converting from binary to hexadecimal. Since 16 and 8 are
+both powers of 2, can you find a similar trick for quickly converting from
+binary to octal?  Do you see how this trick could apply to other pairs of
+bases?
 </li>
 </ol>
 </aside>
