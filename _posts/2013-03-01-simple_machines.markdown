@@ -260,6 +260,8 @@ them special meaning. You could write different Turing machine instructions also
 using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
+TODO mention "program" somewhere, so I can use it in the real computers chapter.
+
 <aside class="exercises">
 <ol>
 <li>
