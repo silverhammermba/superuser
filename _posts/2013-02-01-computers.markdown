@@ -16,12 +16,12 @@ Q: What is a computer?
 
 A: Something that computes.
 
-Obvious, right? Now you have 10 seconds to define "compute"... don't worry.
-Even computer scientists had a hard time defining it. It wasn't until the 1930s
-that anyone managed to put forth a decent definition for the term, and even
-today no one can come up with an argument for why that definition is the
-"right" one. We've all just agreed to hope that it's the right one. Weird,
-right!?
+Obvious, right? Now you have 10 seconds to define "compute". Not so obvious.
+Don't worry, because even computer scientists had a hard time defining it. It
+wasn't until the 1930s that anyone managed to put forth a decent definition for
+the term, and even today no one can come up with an argument for why that
+definition is the "right" one. We've all just agreed to hope that it's the
+right one. Weird, right!?
 
 So what is this definition?
 
