@@ -47,21 +47,27 @@ algorithm it uses is as follows:
 2. Turn the wheel so that the mark points at the next biggest digit
 3. The digit pointed to by the mark is the output
 
-This machine is a bit silly, but it does do the job... kinda. What happens if we
-give it 9 as input? Argh! The wheel circles back around to 0! We can solve this
-problem by adding another wheel to our contraption.
+![Add 1 Machine](/images/add1.png)
 
-The second wheel is exactly like the first, except rather than turning it
-directly with a handle we attach it to the first wheel. The attachment should be
+This machine is a bit silly, but it does do the job... kinda. What happens if
+we give it 9 as input? Argh! The wheel circles back around to 0!
+
+![Overflow](/images/overflow.png)
+
+We can solve this problem by adding another wheel to our contraption. The
+second wheel is exactly like the first, except rather than turning it directly
+with a handle we attach it to the first wheel. The attachment should be
 designed such that the second wheel remains stationary. Except when the first
 wheel turns from 9 back to 0, then the second wheel advances by one digit (the
 diagram shows a crude example of this, but if you want to see how this is done
 for real check out this [video][yt]). Now when we give an input of 09, turning
-the handle changes the 9 to 0, which advances the 0 to 1 and we get 10! Success!
-If we keep turning, the second wheel remains at 1 (giving us 11, 12, 13, ...)
-until we get to 19 and it once again advances us to 20.
+the handle changes the 9 to 0, which advances the 0 to 1 and we get 10!
+Success!  If we keep turning, the second wheel remains at 1 (giving us 11, 12,
+13, ...) until we get to 19 and it once again advances us to 20.
 
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
+
+![Carrying Digits](/images/carry.png)
 
 By now you might realize that we still have a problem. Our new machine works
 all the way up to 99 and then the same error occurs. Turning the rightmost 9
@@ -83,7 +89,7 @@ input and output, dividing them by 100 and then only showing you the remainder?
 99 + 1 = 100 = 100 &times; 1 + 0 so the machine tells you zero! Do a few examples and you'll see
 that this always works: 100 + 1 = 101 = 100 &times; 1 + 1 and so on. This trick is called
 "modular arithmetic". It works just like normal arithmetic except that numbers
-never get bigger than the "modulus" (which is 100, in this case).
+always stay smaller than the "modulus" (which is 100, in this case).
 </aside>
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
@@ -126,9 +132,15 @@ specially designed to perform our one, specific kind of computation. If you
 wanted to build a machine that multiplied numbers or one that performs
 exponents, you would need to design and manufacture a whole new machine from
 scratch. Ugh. Still, for a while these sorts of machines were quite widely used.
-The German Enigma encryption machine in World War II is a particularly famous
-machine of this class. The Enigma used electricity to power lightbulbs, but
-otherwise functioned similarly to our wheel-based adding machine.
+The German [Enigma encryption machine][wp] used in World War II is a
+particularly famous machine of this class. The Enigma used electricity to power
+lightbulbs, but otherwise functioned similarly to our wheel-based adding
+machine.
+
+[wp]: http://en.wikipedia.org/wiki/Enigma_machine
+
+Computers
+=========
 
 The capability to break the Enigma code was thanks in part to a brilliant
 English mathematician who had dreamed up a new sort of computing machine. He
@@ -142,25 +154,25 @@ Such a machine would - in a sense - be the last computing machine you would ever
 need; it could be adapted to solve any computable problem simply by changing its
 input.
 
-The machine he created, and which now bears his name, is the Turing machine. In
-order to create the mother-of-all computing machines, Turing distilled
-computation to its bare essentials. The machine consists of the following
-components:
+The machine he created, and which now bears his name, is the Turing machine:
+the first true computer. In order to create the mother-of-all computing
+machines, Turing distilled computation to its bare essentials. The machine
+consists of the following components:
 
 1. A <strong>tape</strong>, on which we can write a sequence of digits. As with
    the number of wheels on our adding machine, we assume that the tape is very
-   long - long enough for whatever computation we are performing. We assume that
-   the tape starts with every position in the sequence set to 0
+   long - long enough for whatever computation we are performing. We assume
+   that the tape starts with every position in the sequence set to 0
 2. A <strong>head</strong> which can read and write digits on the tape - but
    only one digit at a time! The head can move along the tape to go from one
    digit to the previous or next, but again only one digit at a time.
 3. A <strong>state register</strong>, which we can think of like a wheel in our
    adding machine. The wheel has numbers around the edge and a mark pointing at
-   single numbers. Whatever number is currently pointed to, we call the "current
-   state" of the Turing machine. Similar to the tape, we don't care how many
-   numbers are around the edge of the wheel. It just needs to be enough to
-   perform the computation we're doing. We assume that the machine starts in
-   state 0.
+   a single number. Whatever number is currently pointed to, we call the
+   "current state" of the Turing machine. Similar to the tape, we don't care
+   how many numbers are around the edge of the wheel. It just needs to be
+   enough to perform the computation we're doing. We assume that the machine
+   starts in state 0.
 4. A list of <strong>instructions</strong> for the head to follow. However,
    every single instruction must be a rule of the form:
 
@@ -260,15 +272,22 @@ them special meaning. You could write different Turing machine instructions also
 using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
-TODO mention "program" somewhere, so I can use it in the real computers chapter.
+<aside class="definition">
+An algorithm that is read and performed by a computer is called a
+<strong>program</strong>. <strong>Programming</strong> is the process of
+inputting the algorithm into the computer for it to read.
+</aside>
+
+In the vernacular of superusers, you could call the list of instructions an "Add
+1 to a number _program_".
 
 <aside class="exercises">
 <ol>
 <li>
-Create a list of Turing machine instructions for subtracting one from a number.
-Test your instructions using 4 as input and again using 100. Now try subtracting
-1 from 0. What will happen? Think about different ways you might avoid this
-problem.
+Create a list of Turing machine instructions (i.e. a program) for subtracting
+one from a number.  Test your instructions using 4 as input and again using 100.
+Now try subtracting 1 from 0. What will happen? Think about different ways you
+might avoid this problem.
 </li>
 <li>
 The Turing machine I described uses digits and numbers for the tape and state
@@ -277,9 +296,9 @@ Turing machine to read and write letters in addition to digits? Can this help
 solve the problem in the Exercise 1?
 </li>
 <li>
-The rules for the add 1 machine are really repetitive. Try to think of a way to
-change the rules and input we give the machine so that we don't end up with 9
-versions of basically the same rule.
+The add 1 program is really repetitive. Try to think of a way to change the
+program and input we give the machine so that we don't end up with 9 versions of
+basically the same instruction.
 </li>
 </ol>
 </aside>
