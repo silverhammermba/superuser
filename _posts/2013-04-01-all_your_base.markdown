@@ -4,14 +4,17 @@ title: All Your Base
 ---
 
 You have now constructed (in your mind) a true, modern computer! Given enough
-tape, a big enough state register, and the right set of instructions, you can
-perform any computation! There's still a big gap between the simple, theoretical
-Turing machine and the complicated computers we use in real life but you'll be
-happy to know that we'll be skipping over most of the details of that topic.
+tape, a big enough state register, and the right program, you can perform any
+computation! There's still a big gap between the simple, theoretical Turing
+machine and the complicated computers we use in real life but you'll be happy to
+know that we'll be skipping over most of the details of that topic.
 
 We're getting _sooo_ close to talking about real life computers. I promise!
 There's just a couple more topics which we must cover before we're ready to talk
-about real computers. First up: binary!
+about real computers. First up:
+
+Binary
+======
 
 The machines we learned about previously counted the way we're used to: 0,
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ... and you get the idea. The wheels we
@@ -28,23 +31,21 @@ and once again the 9 becomes a 0 and the digit to the left changes. It's just
 like how our adding machine worked. So now imagine that we *don't* have the
 digits 0 through 9. What if we only have 0 through 4? Let's count:
 
-0, 1, 2, 3, 4, ...
+    0, 1, 2, 3, 4, ...
 
 Well just like before, we don't have a digit for 5. So let's make the 4 into a 0
 and put a 1 to its left:
 
-0, 1, 2, 3, 4, 10, 11, 12, 13, 14, ...
+    0, 1, 2, 3, 4, 10, 11, 12, 13, 14, ...
 
 And we've run out of digits again so:
 
-0, 1, 2, 3, 4, 10, 11, 12, 13, 14, 20, 21, 22, 23, 24, 30, 31, 32, 33, ...
+    0, 1, 2, 3, 4, 10, 11, 12, 13, 14, 20, 21, 22, 23, 24, 30, 31, 32, 33, ...
 
 But what do these numbers mean? Let's count "normally" alongside:
 
-<pre>
-0, 1, 2, 3, 4, 10, 11, 12, 13, 14, 20, 21, 22, 23, 24, 30, 31, 32, 33, ...
-0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...
-</pre>
+    0, 1, 2, 3, 4, 10, 11, 12, 13, 14, 20, 21, 22, 23, 24, 30, 31, 32, 33, ...
+    0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...
 
 Now we can see that "10" with this new counting system means five, "21" means
 eleven, and so on. Ugh, this is getting really confusing. We need names for this
@@ -100,40 +101,38 @@ binary works just like it does in other bases, but can get a little confusing
 because we can't count very far before we run out of digits. For an example,
 follow along as we count from 0 to 31 in binary:
 
-<pre>
- 0:      0
- 1:      1
- 2:     10
- 3:     11
- 4:    100
- 5:    101
- 6:    110
- 7:    111
- 8:   1000
- 9:   1001
-10:   1010
-11:   1011
-12:   1100
-13:   1101
-14:   1110
-15:   1111
-16:  10000
-17:  10001
-18:  10010
-19:  10011
-20:  10100
-21:  10101
-22:  10110
-23:  10111
-24:  11000
-25:  11001
-26:  11010
-27:  11011
-28:  11100
-29:  11101
-30:  11110
-31:  11111
-</pre>
+     0:      0
+     1:      1
+     2:     10
+     3:     11
+     4:    100
+     5:    101
+     6:    110
+     7:    111
+     8:   1000
+     9:   1001
+    10:   1010
+    11:   1011
+    12:   1100
+    13:   1101
+    14:   1110
+    15:   1111
+    16:  10000
+    17:  10001
+    18:  10010
+    19:  10011
+    20:  10100
+    21:  10101
+    22:  10110
+    23:  10111
+    24:  11000
+    25:  11001
+    26:  11010
+    27:  11011
+    28:  11100
+    29:  11101
+    30:  11110
+    31:  11111
 
 If you skipped over that boring column of numbers, go back and seriously follow
 along. I recommend writing the numbers down in order so that you can see how the
@@ -158,12 +157,13 @@ repetition among them - but in binary we only need 2:
     (0, 1, 0, L, 0)
 
 Reading and writing binary can be tedious and confusing for humans, but for
-computing machines it makes things so much easier! That being said, a single
-binary digit cannot store very much information: it can only be 0 or 1. It is
-telling of computer scientists' humor that this amount of information (a single
-binary digit) is called a "bit". To make things more convenient for people,
-modern computers usually deal with bits in groups of 8, called "bytes". Thus,
-small binary numbers are usually written with the full 8 bits when dealing with
+computing machines it makes things so much easier! The fundamental unit of
+information in computers is a binary digit. That being said, a single binary
+digit cannot store very much information: it can only be 0 or 1. It is telling
+of computer scientists' humor that this amount of information (a single binary
+digit) is called a "bit". To make things more convenient for people, modern
+computers usually deal with bits in groups of 8, called "bytes". Thus, small
+binary numbers are usually written with the full 8 bits when dealing with
 computers e.g. 2<sub>10</sub> = 00000010<sub>2</sub>. Large binary numbers that
 require more than 8 digits are usually written as multiple bytes placed
 end-to-end.
@@ -174,7 +174,10 @@ figure out what this is in decimal. As a little trick, we can do
 256<sub>10</sub> = 255<sub>10</sub> + 1<sub>10</sub>. Thus a byte can store
 the values 0<sub>10</sub> to 255<sub>10</sub>.
 
-Putting bits in groups of 8 makes some things more convient, but it's still
+Other Bases
+===========
+
+Putting bits in groups of 8 makes some things more convenient, but it's still
 annoying to read and write all of those binary digits. To solve this problem,
 computer scientists employ another tool: hexadecimal.
 
@@ -210,20 +213,7 @@ hexadecimal digits and their binary equivalents:
 Each hexadecimal digit can be represented with four bits. This mathematical
 trick lets us read and write bytes as pairs of hexadecimal digits:
 
-<table>
-<tr colspan="2">
-<td>00110010<sub>2</sub></td>
-</tr>
-<tr>
-<td>0011<sub>2</sub></td><td>0010<sub>2</sub></td>
-</tr>
-<tr>
-<td>3<sub>16</sub></td><td>2<sub>16</sub></td>
-</tr>
-<tr colspan="2">
-<td>32<sub>16</sub></td>
-</tr>
-</table>
+![Binary to Decimal](/images/hex.png)
 
 Being able to read and write numbers in hexadecimal is a handy skill for
 computer scientists. It is very succinct to read and write but also not hard to
@@ -240,7 +230,7 @@ hexadecimal '0x', and for octal (base 8) they precede the digits with a zero.
 If the digits have no prefix, it is assumed to be decimal. As far as computer
 scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
-0b10111001 = 0271 = 0xB9 = 185
+0b10111001 = 0271 = 185 = 0xB9
 
 This chapter's exercises are best done with some graph paper.
 
