@@ -8,12 +8,12 @@
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
-		<div class="site">
-			<header>
-				<h1><a href="/">{{ site.name }}</a></h1>
-				<a class="extra" href="/">home</a>
-			</header>
+		<header>
+			<h1><a href="/">{{ site.name }}</a></h1>
+			<a class="extra" href="/">home</a>
+		</header>
 
+		<section id="main">
 			<aside id="toc">
 				<h1>Table of Contents</h1>
 				<nav>
@@ -27,13 +27,14 @@
 
 			{{ content }}
 
-			<footer>
-				<div class="contact">
-					<p>
-						<a href="https://github.com/silverhammermba">github.com/silverhammermba</a><br />
-					</p>
-				</div>
-			</footer>
-		</div>
+		</section>
+
+		<footer>
+			<div class="contact">
+				<p>
+					<a href="https://github.com/silverhammermba">github.com/silverhammermba</a><br />
+				</p>
+			</div>
+		</footer>
 	</body>
 </html>
