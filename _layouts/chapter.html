@@ -3,28 +3,22 @@ layout: default
 ---
 
 <article>
+	{% if page.previous.url %}
 	<header>
 		<nav>
-        {% if page.previous.url %}
                 <a href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-        {% endif %}
-        {% if page.next.url %}
-                <a href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-        {% endif %}
 		</nav>
 	</header>
+	{% endif %}
 	<h1>{{ page.title }}</h1>
 
 	{{ content }}
 
+	{% if page.next.url %}
 	<footer>
 		<nav>
-        {% if page.previous.url %}
-                <a href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-        {% endif %}
-        {% if page.next.url %}
                 <a href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-        {% endif %}
 		</nav>
 	</footer>
+	{% endif %}
 </article>
