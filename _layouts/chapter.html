@@ -6,7 +6,7 @@ layout: default
 	{% if page.previous.url %}
 	<header>
 		<nav>
-                <a href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+                <a href="{{page.previous.url}}">Previously: {{page.previous.title}}</a>
 		</nav>
 	</header>
 	{% endif %}
@@ -17,7 +17,7 @@ layout: default
 	{% if page.next.url %}
 	<footer>
 		<nav>
-                <a href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+                <a href="{{page.next.url}}">Next Chapter: {{page.next.title}}</a>
 		</nav>
 	</footer>
 	{% endif %}
