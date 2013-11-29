@@ -1,0 +1,18 @@
+body {
+	background-color: #213d21;
+}
+
+#main {
+	margin: auto;
+}
+
+#toc {
+	display: inline-block;
+}
+
+article {
+	display: inline-block;
+	background-color: #f6f6f6;
+	padding: 40px;
+	width: 50%;
+}
