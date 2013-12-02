@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: All Your Base
+title: Bases
 ---
 
 You have now constructed (in your mind) a true, modern computer! Given enough
@@ -174,8 +174,8 @@ figure out what this is in decimal. As a little trick, we can do
 256<sub>10</sub> = 255<sub>10</sub> + 1<sub>10</sub>. Thus a byte can store
 the values 0<sub>10</sub> to 255<sub>10</sub>.
 
-Other Bases
-===========
+All Your Base
+=============
 
 Putting bits in groups of 8 makes some things more convenient, but it's still
 annoying to read and write all of those binary digits. To solve this problem,

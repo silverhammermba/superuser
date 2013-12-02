@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Information
+title: Formatting
 ---
 
 Last chapter we learned how computers do everything in binary... but that's just
@@ -16,11 +16,11 @@ bits for convenience. To keep things short, we'll write things in hexadecimal.
 
 Right now the bytes are all zero, but we want to store information in these
 bytes. Eight bytes is 64 bits. That means we can store values from 0 to
-2<sup>64</sup> - 1. But can we really? Real computers have much more memory than
-just eight bytes; they can have hundreds of thousands of bytes. With thousands
-of bytes around, how do you tell the computer that these eight bytes go
-together? One way would be to agree that the first byte says how many bytes
-we're grouping together:
+2<sup>64</sup> - 1. But can we really use all eight bytes? Real computers have
+much more memory than just eight bytes; they can have hundreds of thousands of
+bytes. With thousands of bytes around, how do you tell the computer that we
+only want to use eight? One way would be to agree that the first byte says how
+many bytes we're grouping together:
 
     08 00 00 00 00 00 00 00
 
@@ -75,7 +75,8 @@ complications, unfortunately. As you might recall from the previous chapter,
 humans really like decimal but computers like binary. So while it is natural for
 people to use kilo, mega, and giga, etc. to mean 1000<sup>1</sup>,
 1000<sup>2</sup>, and 1000<sup>3</sup>, it is common for computer scientists to
-use powers of 1024 = 2<sup>10</sup>. In other words
+use powers of 1024 = 2<sup>10</sup>. In other words, sometimes bytes are
+measured like this:
 
 * 1,024 bytes is a kilobyte
 * 1,024 kilobytes is a megabyte
