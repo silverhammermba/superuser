@@ -1,0 +1,169 @@
+---
+layout: chapter
+title: The Real Deal
+---
+
+By now you should have a decent grasp of the theory behind computation and what
+makes a computer a computer. But the tiny theoretical machines we've been
+playing with are nothing compared to the fearsome computers we use in this
+modern age. How do those work? Unfortunately the answer is very, very, **very**
+complicated. So we're going to skip over a whole lot of details (yay!) because
+frankly most superusers don't know this stuff anyway and often don't need to.
+
+<aside class="note">
+BUT that doesn't mean you shouldn't care about learning those omitted details!
+Remember: every tidbit of knowledge about computers is of interest to a
+superuser. Some tidbits are just more interesting than others.
+</aside>
+
+Virtually every modern computer is made of several interconnected and swappable
+pieces. Each piece has a different responsibility. This is nice because if a
+piece breaks or isn't working well, we don't need to throw out the whole
+computer - we can just swap out the offending component. For some less important
+pieces, the computer might even continue operating in the event of a failure.
+Now put your hands together as we welcome our players to the stage...
+
+Central Processing Unit
+=======================
+
+Often called the "processor" or "CPU", this component is the beating heart of
+your computer.  It performs almost every calculation of the computer, and it
+does so at a mind-bendingly fast speed. The CPU is very much analogous to a
+Turing machine. A Turing machine's memory is the tape on which it writes
+digits; a CPU's memory is its "registers": a collection of numbers each with a
+specific size (32 bit, 64 bit, etc.) and silly names like "EAX" or "XMM0". The
+CPU performs algorithms by following instructions - just like a Turing machine.
+An example of a CPU instruction might be "store the 32-bit value 0xF4285BC0 in
+the register EAX" or "add the value in RBX to the value in EAX and store the
+result in EAX". A Turing machine has a moving head to perform the algorithm's
+instructions; in a CPU the equivalent component is called the "core". Many
+modern CPUs have multiple cores, allowing the CPU to process several
+instructions at once! Some of the duty of the Turing machine's state register
+is performed by special registers in the CPU while other aspects of the state
+are handled by other components (as we'll see later).
+
+CPUs are measured primarily in three ways: speed, parallelism, and memory. Speed
+is by far the most valued quality. CPUs read instructions following a very rigid
+timer called the "clock". The faster the clock speed, the quicker the CPU can
+finish each calculation. But there are limits to the clock speed: set it too
+fast and the calculations can become error-prone or the CPU can overheat and
+damage its physical components. The usual measure of speed is hertz. A 1 hertz
+CPU can perform one program instruction each second. An average CPU at the time
+of writing is clocked at about 3.5 Gigahertz i.e. 3.5 _billion_ instructions
+per second i.e. rather fast indeed.
+
+The second measure, parallelism, is just a count of how many cores a CPU has.
+Four core CPUs (aka quad-core) are becoming quite common these days. Parallelism
+is a very appealling idea because you might think that it multiplies the speed
+of a CPU: a CPU that performs four instructions at once will finish four times
+faster. But the reality is less exciting. It turns out to be very hard to create
+algorithms that still work when four instructions are processed at once, so many
+algorithms simply ignore additional cores and only use one core at a time.
+Still, we're getting better at taking advantage of multiple cores so single core
+CPUs are becoming less and less common.
+
+The final measure, memory, is mentioned much less often but is still crucial.
+With our Turing machines, we were allowed to have as much imaginary tape as we
+wanted, which was convenient but unrealistic. With a CPU, the number and size of
+available registers is set in stone and the total capacity is not very large. To
+help with this, most modern CPUs have a "cache" - an extra chunk of memory
+(usually a few megabytes) for storing additional information. The limitation
+of the cache is that it can _only_ store information. If we want to use a number
+in the cache for a calculation, it must first be transferred to a register. This
+makes using the cache slightly slower than the registers, but the extra size
+makes it worth it.
+
+Random Access Memory
+====================
+
+Often called just "memory" or "RAM", this component stores most of the
+information needed while your computer is in operation. Compared to the size of
+the registers and cache of the CPU, the RAM is **massive** - usually measured in
+gigabytes (remember, that's _billions_ of bytes). However, accesing information
+in the RAM is even slower than accesing the CPU cache. But again, the increase
+in storage capacity makes it worth it. The RAM is where the programs are stored
+before the CPU performs them, and it also performs much of the duty of the
+Turing machine's state register, keeping track of the state of the algorithms
+as the CPU does all the work.
+
+You might be wondering about that word "random" in the name. It doesn't mean
+what you think it means, first of all. You can imagine the RAM as a bookshelf,
+where the CPU stores the books that it can't carry around with it. What happens
+when the CPU needs its copy of "The Golden Compass", though? The computer could
+start at one end of bookshelf and run its finger along each spine until it
+spots the requested title, presenting it with a flourish. This would be what
+computer scientists call "sequential access" - the computer looking at each book
+_in sequence_ in order to find a specific one. But sequential access is slow;
+the more books you have, the longer it takes to find a particular one.  RAM is
+a much more clever bookshelf. It is designed in such a way that the CPU could
+start calling out book titles _randomly_ and the RAM would retrieve each one
+almost instantly - that's what random access means.
+
+RAM is easy to measure: you want a lot of it (about 4-16 Gigabytes at the time
+of writing) and you want it to be fast.
+
+Now the RAM has one big deficiency: it's _volatile_. That means it can only
+store information while it is powered by electricity. To continue the previous
+analogy, the RAM is like a bookshelf _without the shelf_. When the CPU hands
+over its copy of "The Amber Spyglass", the RAM dutifully puts it in place, and
+it immediately starts falling to the floor. But the RAM is so very speedy that
+it can grab each book before it hits the ground and put it back in place again,
+over and over again while your computer is running. But as soon as your computer
+is powered off they all clatter to the floor and that beautifully organized
+information is lost.
+
+But what about all of your personal files? Your don't lose all of them when you
+turn off your computer. Where are they stored?
+
+Hard Drive
+==========
+
+People these days have a lot of data. Music, movies, and games can quickly add
+up to be hundreds of gigabytes of information - far too large to even store in
+your RAM (ignoring the problem of volatility).  To solve this problem, we need
+large, persistent data storage. The hard drive fills this role.
+
+There's some confusing terminology here, and to understand we need to quickly
+recount the history of data storage. In days of yore, it was common for personal
+computers to store information on flexible magnetic disks.  By spinning the disk
+around, the computer could read information from different portions of the disk.
+For example you would store a program on such a disk, plug it into your
+computer, and the program would be transferred to your RAM for the CPU to read.
+These disks were affectionately referred to as "floppy disks" and they were
+cheap but couldn't store much information. Often we had to break data down into
+smaller chunks and store them on several floppy disks, which was a major
+inconvenience.
+
+The situation improved with the creation of hard disks. These were magnetic
+like floppy disks, but made of thick metal and were capable of storing much
+more information. Hard disks could store essentially as much information as you
+could want but were larger and more complex. Because of this, hard disks were
+usually used as permanent fixtures in computers rather than swapped out
+frequently like floppy disks. The motorized components that drove the spinning
+of the disk and read and wrote information to and from it were included with the
+disk as a single package. Hence, these storage devices were called "hard disk
+drives" or "HDD"s for short.
+
+Similar to the story for RAM, it is even slower to read and write data to a HDD
+but the huge increase in storage capacity makes it worth it. By now you might
+notice a pattern:
+
+Registers &rarr; Cache &rarr; RAM &rarr; HDD
+
+Each transition trades speed of access for increase in capacity. This is one of
+the biggest differences between a theoretical computer like a Turing machine and
+a real computer. In theory, a computer only needs a single type of memory - but
+by having multiple types with different speeds and capacities we can make
+computers run faster and more efficiently.
+
+And since we're always searching for faster ways of doing things, HDDs are
+currently on their way out of the door. The replacements are called solid-state
+drives or "SSD"s. They perform the same duty as HDDs, but are physically
+smaller, require less electricity to operate, and operate much, much faster.
+SSDs don't use disks or have motors and moving parts like HDDs do but it's still
+quite common for people to call them "disks" or "hard drives". Weird, right?
+
+Motherboard
+===========
+
+The motherboard or "mobo" 

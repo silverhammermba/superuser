@@ -1,0 +1,95 @@
+---
+layout: chapter
+title: Formatting
+---
+
+Last chapter we learned how computers do everything in binary... but that's just
+a bunch of numbers. It seems like a far cry from the complex information we
+store in computers these days. How does something like a game, or a song, or a
+slideshow get turned into a bunch of numbers? This is a big topic that we'll
+discuss later on, but the basic idea is not too difficult.
+
+Let's start with eight bytes. Remember, computers work with bytes rather than
+bits for convenience. To keep things short, we'll write things in hexadecimal.
+
+    00 00 00 00 00 00 00 00
+
+Right now the bytes are all zero, but we want to store information in these
+bytes. Eight bytes is 64 bits. That means we can store values from 0 to
+2<sup>64</sup> - 1. But can we really use all eight bytes? Real computers have
+much more memory than just eight bytes; they can have hundreds of thousands of
+bytes. With thousands of bytes around, how do you tell the computer that we
+only want to use eight? One way would be to agree that the first byte says how
+many bytes we're grouping together:
+
+    08 00 00 00 00 00 00 00
+
+We have seven bytes leftover to actually store information, so we can store
+values up to 2<sup>56</sup> - 1. Let's store a nice big number in there. How
+about 4,240,876,579,651,596? That fills out the last seven bytes nicely:
+
+    08 0F 11 0E 06 11 00 0C
+
+But what if we want to store something other than numbers? We could store words
+by agreeing that each byte will be one letter. A is 00, B is 01, C is 02, etc.
+Then we could store up to seven letters with these bytes. Let's store the word
+"program":
+
+    08 0F 11 0E 06 11 00 0C
+
+Huh. Now we have a problem. How does the computer know whether we are storing
+the word "program" or the value 4,240,876,579,651,596? Well let's make another
+agreement. After the number of bytes, we'll devote the second byte to describing
+what kind of information we're storing. For example we could agree that 00 means
+it's a number, 01 means it's letters, 02 could be a picture, etc. We only have
+six bytes left, but at least now we can tell the difference between "turing" and
+20,976,906,013,958:
+
+    08 00 13 14 11 08 0D 06
+    08 01 13 14 11 08 0D 06
+
+You see? By grouping bytes in different ways and agreeing on the meanings of
+different bytes, we can store a variety of information just using numbers. These
+agreements have a technical term:
+
+<aside class="definition">
+A <strong>format</strong> groups bytes together and assigns specific meanings to
+certain bytes and byte values.
+</aside>
+
+Size Matters
+============
+
+As I mentioned before, computers can have many, many bytes. Luckily we've got
+easier ways to refer to the huge numbers of bytes that come into play when it
+comes to data. Bytes use the standard metric prefixes:
+
+* 1,000 bytes is a **kilo**byte or KB
+* 1,000 kilobytes is a **mega**byte or MB
+* 1,000 megabytes is a **giga**byte or GB
+* 1,000 gigabytes is a **tera**byte or TB
+
+Terabytes are becoming more common these days, but it will probably be a few
+years before the next prefix (peta) becomes common. There are some
+complications, unfortunately. As you might recall from the previous chapter,
+humans really like decimal but computers like binary. So while it is natural for
+people to use kilo, mega, and giga, etc. to mean 1000<sup>1</sup>,
+1000<sup>2</sup>, and 1000<sup>3</sup>, it is common for computer scientists to
+use powers of 1024 = 2<sup>10</sup>. In other words, sometimes bytes are
+measured like this:
+
+* 1,024 bytes is a kilobyte
+* 1,024 kilobytes is a megabyte
+* 1,024 megabytes is a gigabyte
+* 1,024 gigabytes is a terabyte
+
+It is confusing. And it gets worse. Recall how the formatting of the data in the
+previous section reduced the number of bytes we could use to store information.
+Even though we had eight bytes, we could only use six after the formatting was
+done. Similarly, a computer component might be advertised as being able to store
+a terabyte of information, but due to formatting several gigabytes can't be used
+to store anything. Tricky!
+
+<aside class="exercises">
+I haven't thought of any yet.
+</aside>
