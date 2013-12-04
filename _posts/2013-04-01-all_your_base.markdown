@@ -213,7 +213,7 @@ hexadecimal digits and their binary equivalents:
 Each hexadecimal digit can be represented with four bits. This mathematical
 trick lets us read and write bytes as pairs of hexadecimal digits:
 
-![Binary to Decimal](/images/hex.png)
+![Binary to Decimal]({{ site.baseurl }}/images/hex.png)
 
 Being able to read and write numbers in hexadecimal is a handy skill for
 computer scientists. It is very succinct to read and write but also not hard to
