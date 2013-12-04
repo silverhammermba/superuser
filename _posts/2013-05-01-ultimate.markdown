@@ -86,9 +86,13 @@ an incredibly advanced and complicated computer all working inside your simple
 Turing machine.
 
 <aside class="definition">
-When a machine is abstract enough that it can perform any computation (and thus
-compute any other computer), we call it **Turing complete**. "Complete" is a
-good word to use here because once a machine is Turing complete it's basically
-done - we don't need to make it any more complex. Any further complexity can be
-added by making the computer simulate more complex computers.
+When a machine is abstract enough that it can simulate a Turing machine, we
+call it **Turing complete**.
 </aside>
+
+If a machine can simulate a Turing machine, then it can also perform any
+computation. Thus it is a computer. Thus it can simulate any other type of
+computer. So "complete" is a good word to use here because once a machine is
+Turing complete it's basically done; we don't need to make it any more complex.
+Any further complexity can be added by making the computer simulate more
+complex computers.

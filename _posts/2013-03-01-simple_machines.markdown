@@ -287,7 +287,7 @@ In the vernacular of superusers, you could call the list of instructions an "Add
 <ol>
 <li>
 Create a list of Turing machine instructions (i.e. a program) for subtracting
-one from a number.  Test your instructions using 4 as input and again using 100.
+one from a number.  Test your program using 4 as input and again using 100.
 Now try subtracting 1 from 0. What will happen? Think about different ways you
 might avoid this problem.
 </li>

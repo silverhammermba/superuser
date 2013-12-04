@@ -11,7 +11,7 @@ complicated. So we're going to skip over a whole lot of details (yay!) because
 frankly most superusers don't know this stuff anyway and often don't need to.
 
 <aside class="note">
-BUT that doesn't mean you shouldn't care about learning those omitted details!
+But that doesn't mean you shouldn't care about learning those omitted details!
 Remember: every tidbit of knowledge about computers is of interest to a
 superuser. Some tidbits are just more interesting than others.
 </aside>
