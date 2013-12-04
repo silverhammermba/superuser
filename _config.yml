@@ -1,3 +1,4 @@
 name: From Simpleton to Superuser
 markdown: redcarpet
 pygments: true
+baseurl: /superuser
