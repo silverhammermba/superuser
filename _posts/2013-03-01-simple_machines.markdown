@@ -36,6 +36,8 @@ now by inventing a machine that can add two numbers with much less chance of
 human fallibity mucking it up. We're going to work our way up to this machine by
 making much simpler machines first.
 
+![Add 1 Machine]({{ site.baseurl }}/images/add1.png)
+
 We'll start with a wheel attached to the surface of a table. Around this wheel
 we'll evenly write the digits 0-9. We can attach a handle to rotate the wheel
 and draw a mark on the table to point at the wheel. Tada! We now have a very
@@ -47,12 +49,12 @@ algorithm it uses is as follows:
 2. Turn the wheel so that the mark points at the next biggest digit
 3. The digit pointed to by the mark is the output
 
-![Add 1 Machine]({{ site.baseurl }}/images/add1.png)
+![Overflow]({{ site.baseurl }}/images/overflow.png)
 
 This machine is a bit silly, but it does do the job... kinda. What happens if
 we give it 9 as input? Argh! The wheel circles back around to 0!
 
-![Overflow]({{ site.baseurl }}/images/overflow.png)
+![Carrying Digits]({{ site.baseurl }}/images/carry.png)
 
 We can solve this problem by adding another wheel to our contraption. The
 second wheel is exactly like the first, except rather than turning it directly
@@ -66,8 +68,6 @@ Success!  If we keep turning, the second wheel remains at 1 (giving us 11, 12,
 13, ...) until we get to 19 and it once again advances us to 20.
 
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
-
-![Carrying Digits]({{ site.baseurl }}/images/carry.png)
 
 By now you might realize that we still have a problem. Our new machine works
 all the way up to 99 and then the same error occurs. Turning the rightmost 9
@@ -184,8 +184,6 @@ consists of the following components:
 	   not at all,
 	4. And choose the next state of the machine (again, this could be the same
 	   state it was already in)
-
-![Turing machine]({{ site.baseurl }}/images/turing.png)
 
 Let's compare this to the mechanical adding machine we recently built. The tape
 is a lot like the series of wheels. Each wheel pointed to a single digit, just
