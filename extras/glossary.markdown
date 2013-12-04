@@ -4,37 +4,41 @@ title: Glossary
 ---
 
 <aside class="definition">
-An <strong>algorithm</strong> is a well-defined, step-by-step process.
+**Algorithm**: a well-defined, step-by-step process.
 </aside>
 
 <aside class="definition">
-A <strong>computation</strong> is any function that can be evaluated using an
+**Computation**: a function that can be evaluated using an
 algorithm.
 </aside>
 
 <aside class="definition">
-Given a function and its input, the process of determining its output is called
-<strong>evaluating</strong> the function.
+**Evaluating a function**: determining the output of a function
+given an input.
 </aside>
 
 <aside class="definition">
-A <strong>format</strong> groups bytes together and assigns specific meanings to
-certain bytes and byte values.
+**Format**: a description of how bytes are grouped together and
+what certain bytes or byte values mean.
 </aside>
 
 <aside class="definition">
-A <strong>function</strong> is something that can be given input and will
-return output. And if you give it the same input several times, it must return
-the same output each time.
+**Function**: a relation between input and output, where each
+input has at most one output.
 </aside>
 
 <aside class="definition">
-An algorithm that is read and performed by a computer is called a
-<strong>program</strong>. <strong>Programming</strong> is the process of
-inputting the algorithm into the computer for it to read.
+**Program**: an algorithm that is read and performed by a
+computer.
 </aside>
 
 <aside class="definition">
-When a machine is abstract enough that it can perform any computation (and thus
-compute any other computer), we call it **Turing complete**.
+**Programming**: the process of inputting a program into a
+computer for it to read.
+</aside>
+
+<aside class="definition">
+**Turing complete**: the ability for a machine to simulate a
+Turing machine (and thus perform any calculation). A machine is a computer if
+and only if it is Turing complete.
 </aside>
