@@ -33,9 +33,7 @@ Occasionally you'll see little highlighted blurbs like these.
 
 <aside class="definition">
 Defintions highlight terms that are important to understand. Pay close
-attention! All definitions from the chapters (and a few more) are listed here.
-
-TODO add link
+attention! All definitions from the chapters (and a few more) are listed in the [glossary]({{ site.baseurl }}/extras/glossary.html).
 </aside>
 
 <aside class="note">
