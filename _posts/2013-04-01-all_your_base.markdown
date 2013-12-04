@@ -65,7 +65,7 @@ Most humans tend to think in base 10, so it's useful to be able to convert
 numbers in different bases to base 10. Here's how you convert base 10 to base
 10:
 
-1324<sub>10</sub> = 1 &times; (10<sup>3</sup>) + 3 &times; (10<sup>2</sup>) + 2 &times; (10<sup>1</sup>) + 4 &times; (10<sup>0</sup>) = 1000<sub>10</sub> + 300<sub>10</sub> + 20<sub>10</sub> + 4<sub>10</sub> = 1324<sub>10</sub>
+1324<sub>10</sub> = 1 &times; 10<sup>3</sup> + 3 &times; 10<sup>2</sup> + 2 &times; 10<sup>1</sup> + 4 &times; 10<sup>0</sup> = 1000<sub>10</sub> + 300<sub>10</sub> + 20<sub>10</sub> + 4<sub>10</sub> = 1324<sub>10</sub>
 
 Don't get freaked out by the notation! Think about how you say "1324": one
 thousand three hundred and twenty four. Or to make a slight modification: one
@@ -73,20 +73,19 @@ thousand, three hundreds, two tens, and four ones; this is exactly what the
 formula is doing! Converting from base 5 is similar except now all of the tens
 becomes fives:
 
-1324<sub>5</sub> = 1 &times; (5<sup>3</sup>) + 3 &times; (5<sup>2</sup>) + 2 &times; (5<sup>1</sup>) + 4 &times; (5<sup>0</sup>) = 125<sub>10</sub> + 75<sub>10</sub> + 10<sub>10</sub> + 4<sub>10</sub> = 214<sub>10</sub>
+1324<sub>5</sub> = 1 &times; 5<sup>3</sup> + 3 &times; 5<sup>2</sup> + 2 &times; 5<sup>1</sup> + 4 &times; 5<sup>0</sup> = 125<sub>10</sub> + 75<sub>10</sub> + 10<sub>10</sub> + 4<sub>10</sub> = 214<sub>10</sub>
 
 Previously we split the number up into ones, tens, hundreds, thousands, ... all
 the powers of ten. Now we're splitting up the number by the powers of five.
 
 <aside class="note">
-<p>
-If it's been a while since your last arithmetic class, Here's a crash
-course on exponentiation. Remember that ten to the power of three is
-10<sup>3</sup> = 10 &times; 10 &times; 10 or "three tens multiplied together".
-Two special cases to also keep in mind:
-</p>
-<p>X<sup>1</sup>=X</p>
-<p>X<sup>0</sup> = 1 (if X isn't 0)</p>
+If it's been a while since your last arithmetic class, here's a crash course on
+exponentiation. Remember that "X to the third power" is X<sup>3</sup> = X
+&times; X &times; X. There are two special cases to also keep in mind:
+
+X<sup>1</sup>=X
+
+X<sup>0</sup> = 1 (if X isn't 0)
 </aside>
 
 The important thing to take away from this is that a sequence of digits means
@@ -140,7 +139,7 @@ digits carry over. This binary counting pattern is at the heart of every
 computer, so it's good to have an intuitive grasp of it. Converting from binary
 to decimal is a good skill to have as well:
 
-110101<sub>2</sub> = 1 &times; (2<sup>5</sup>) + 1 &times; (2<sup>4</sup>) + 0 &times; (2<sup>3</sup>) + 1 &times; (2<sup>2</sup>) + 0 &times; (2<sup>1</sup>) + 1 &times; (2<sup>0</sup>) = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
+110101<sub>2</sub> = 1 &times; 2<sup>5</sup> + 1 &times; 2<sup>4</sup> + 0 &times; 2<sup>3</sup> + 1 &times; 2<sup>2</sup> + 0 &times; 2<sup>1</sup> + 1 &times; 2<sup>0</sup> = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
 
 Notice how the method for conversion is the same as before, but wonderfully
 simple: since the only digits are 0 or 1, each power of 2 is either added or not
@@ -157,16 +156,26 @@ repetition among them - but in binary we only need 2:
     (0, 1, 0, L, 0)
 
 Reading and writing binary can be tedious and confusing for humans, but for
-computing machines it makes things so much easier! The fundamental unit of
-information in computers is a binary digit. That being said, a single binary
-digit cannot store very much information: it can only be 0 or 1. It is telling
-of computer scientists' humor that this amount of information (a single binary
-digit) is called a "bit". To make things more convenient for people, modern
-computers usually deal with bits in groups of 8, called "bytes". Thus, small
-binary numbers are usually written with the full 8 bits when dealing with
-computers e.g. 2<sub>10</sub> = 00000010<sub>2</sub>. Large binary numbers that
-require more than 8 digits are usually written as multiple bytes placed
-end-to-end.
+computing machines it makes things so much easier! That's why the fundamental
+unit of information in computers is a binary digit. That being said, a single
+binary digit cannot store very much information: it can only be 0 or 1.
+
+<aside class="definition">
+A single binary digit is called a **bit**.
+</aside>
+
+There's your first taste of computer scientist humor. It doesn't get better.
+To make things more convenient for people, modern computers usually deal with
+bits in groups of 8.
+
+<aside class="definition">
+Eight bits is called a **byte**.
+</aside>
+
+Small binary numbers are usually written with the full 8 bits when dealing with
+computers e.g. rather than 01<sub>2</sub> we write 00000010<sub>2</sub>. Large
+binary numbers that require more than 8 digits are usually written as multiple
+bytes placed end-to-end.
 
 A byte can store the values 00000000<sub>2</sub> to 11111111<sub>2</sub>. Let's
 figure out what this is in decimal. As a little trick, we can do
@@ -210,10 +219,10 @@ hexadecimal digits and their binary equivalents:
     E 1110
     F 1111
 
-Each hexadecimal digit can be represented with four bits. This mathematical
-trick lets us read and write bytes as pairs of hexadecimal digits:
-
 ![Binary to Decimal]({{ site.baseurl }}/images/hex.png)
+
+The single digit hexadecimal numbers correspond to the four bit numbers! This
+mathematical trick lets us read and write bytes as pairs of hexadecimal digits.
 
 Being able to read and write numbers in hexadecimal is a handy skill for
 computer scientists. It is very succinct to read and write but also not hard to
@@ -232,7 +241,7 @@ scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
 0b10111001 = 0271 = 185 = 0xB9
 
-This chapter's exercises are best done with some graph paper.
+You might want some graph paper for some of these exercises.
 
 <aside class="exercises">
 <ol>
