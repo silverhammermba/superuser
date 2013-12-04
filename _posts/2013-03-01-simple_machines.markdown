@@ -159,21 +159,23 @@ the first true computer. In order to create the mother-of-all computing
 machines, Turing distilled computation to its bare essentials. The machine
 consists of the following components:
 
-1. A <strong>tape</strong>, on which we can write a sequence of digits. As with
+![Turing machine]({{ site.baseurl }}/images/turing.png)
+
+1. A **tape**, on which we can write a sequence of digits. As with
    the number of wheels on our adding machine, we assume that the tape is very
    long - long enough for whatever computation we are performing. We assume
    that the tape starts with every position in the sequence set to 0
-2. A <strong>head</strong> which can read and write digits on the tape - but
+2. A **head** which can read and write digits on the tape - but
    only one digit at a time! The head can move along the tape to go from one
    digit to the previous or next, but again only one digit at a time.
-3. A <strong>state register</strong>, which we can think of like a wheel in our
+3. A **state register**, which we can think of like a wheel in our
    adding machine. The wheel has numbers around the edge and a mark pointing at
    a single number. Whatever number is currently pointed to, we call the
    "current state" of the Turing machine. Similar to the tape, we don't care
    how many numbers are around the edge of the wheel. It just needs to be
    enough to perform the computation we're doing. We assume that the machine
    starts in state 0.
-4. A list of <strong>instructions</strong> for the head to follow. However,
+4. A list of **instructions** for the head to follow. However,
    every single instruction must be a rule of the form:
 
     1. Depending on the current tape digit and the current state,
@@ -275,9 +277,9 @@ using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
 <aside class="definition">
-An algorithm that is read and performed by a computer is called a
-<strong>program</strong>. <strong>Programming</strong> is the process of
-inputting the algorithm into the computer for it to read.
+An algorithm that is read and performed by a computer is called a **program**.
+**Programming** is the process of inputting the algorithm into the computer for
+it to read.
 </aside>
 
 In the vernacular of superusers, you could call the list of instructions an "Add

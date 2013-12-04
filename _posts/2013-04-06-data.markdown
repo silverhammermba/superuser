@@ -53,8 +53,8 @@ different bytes, we can store a variety of information just using numbers. These
 agreements have a technical term:
 
 <aside class="definition">
-A <strong>format</strong> groups bytes together and assigns specific meanings to
-certain bytes and byte values.
+A **format** groups bytes together and assigns specific meanings to certain
+bytes and byte values.
 </aside>
 
 Size Matters
