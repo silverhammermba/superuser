@@ -4,13 +4,13 @@ title: 'Part 1: Computers'
 ---
 
 We're going to start by answering a question so fundamental that you might even
-laugh that I ask it at all: what is a computer? This is a funny question since
-you're using one right now. But do you really know what a computer is? What is
-the difference between a computer and a calculator? Other than size and shape,
-what makes different computers different?  What makes one computer better than
-another?
+laugh that I ask it at all: what is a computer? Yes, I know you're using one
+right now, but do you really know what a computer is? What is the difference
+between a computer and a calculator? Other than size and shape, what makes
+different computers different?  What makes one computer better than another?
 
-Let's take a stab at answering that first question.
+We're going to learn the answers to all of these questions eventually. For now,
+let's take a stab at answering that first question.
 
 Q: What is a computer?
 
@@ -44,8 +44,8 @@ on a certain date?" is also a function. With the date as the input, you can
 look backwards or forwards in the calendar to see if that day was "Monday",
 "Tuesday", etc. and that is your output. "What is your favorite color?" is
 _not_ a function! If I ask you now, your output might be green, but if I ask
-later on that could change! The output needs to be the same every time the
-function gets the same input. You can think of the output as depending only on
+later on that could change. The output needs to be the same every time the
+function gets the same input. You could say that the output depends only on
 what the input is.
 
 <aside class="definition">
@@ -61,11 +61,11 @@ An <strong>algorithm</strong> is a well-defined, step-by-step process.
 </aside>
 
 In other words, an algorithm is just a list of instructions. However, the
-instructions must be *completely clear*. There should be no room for
-interpretation! For example, "multiply this number by 2" would work as a step
+instructions must be _completely clear_. There should be no room for
+interpretation. For example, "multiply this number by 2" would work as a step
 in an algorithm since anyone who knows how to multiply will get the exact same
-result. However "draw a pretty picture" would not work in an algorithm since
-it's so ambiguous! What do you mean by "pretty"? What tools can we draw with?
+result. However "draw a pretty picture" would not work in an algorithm because
+it's too ambiguous. What do you mean by "pretty"? What tools can we draw with?
 What should I draw a picture of?
 
 Now read it again: a computation is any function that can be evaluated using an
@@ -78,7 +78,7 @@ You might be wondering: since a computation is a function that can be evaluated
 using an algorithm, does that mean there are functions that
 <strong>can't</strong> be evaluated using any algorithm? Yes! They're both
 really cool and beyond the scope of this book. Search the web for "uncomputable
-function".
+functions".
 </aside>
 
 Now get ready because here comes the first set of exercises. This isn't school

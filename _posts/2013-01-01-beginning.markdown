@@ -44,10 +44,10 @@ being used again or they'll try to clear up a frequent point of confusion.
 </aside>
 
 <aside class="deeper">
-Sometimes I think of something related to the current chapter that is too cool
-for me to not mention - even though it's not necessary. This is how such
-information will show up. Don't feel bad about skipping over these if they go
-over your head.
+Sometimes I think of something related to the current chapter that isn't
+essential for your understanding but is just too cool for me to not mention.
+This is how such information will show up. Don't feel bad about skipping over
+these if they go over your head.
 </aside>
 
 <aside class="exercises">
@@ -69,7 +69,7 @@ computer that you are using to read this guide there is information you cannot
 access and tasks you are not allowed to perform. That is because you are a
 regular user rather than a superuser. And for good reason! Certain information
 on your computer is extremely sensitive. If the information becomes corrupted
-you could lose your personal files, crash the computer, or even cause
+you could lose your personal data, crash the computer, or even cause
 irreversible damage to it! The superuser has no restrictions when using the
 computer, which means an ignorant superuser can easily cause serious damage to a
 computer by acting carelessly. On the flipside, a superuser can tweak and tailor
@@ -77,11 +77,11 @@ a computer's every behavior to suit their needs. Since the superuser has no
 restrictions, she also has the most responsibility!
 
 Technically speaking, it is quite trivial to become the superuser on your
-personal computer. Being able to handle the burden of being superuser is another
-matter entirely! When I refer to "becoming a superuser" in this book, what I
-almost always mean is acquiring the knowledge and skills necessary to be a
-responsible, benevolt one. In order to be a good superuser, you need to have a
-solid understanding of how computers work and the various systems involved in
+personal computer. Being able to handle the burden of being a superuser is
+another matter entirely! When I refer to "becoming a superuser" in this book,
+what I almost always mean is acquiring the knowledge and skills necessary to be
+a responsible, benevolt one. In order to be a good superuser, you need to have
+a solid understanding of how computers work and the various systems involved in
 their operation. When you understand your computer, you are better able to
 operate it as the superuser without causing harm.
 
@@ -97,9 +97,9 @@ the full list on the side. Let's get a few to start:
   seek out an expert to answer your computer questions, but it is essential that
   a superuser be able to acquire knowledge on her own. Just about every bit of
   technology in the world has an associated manual, and most are available for
-  free, though they are sometimes not easy to find. Many experts on the Internet
-  will refuse to answer a question if it's clear that the asker made no effort
-  to figure it out on their own first.
+  free, though they are sometimes not easy to find nor easy to read. Many
+  experts on the Internet will refuse to answer a question if it's clear that
+  the asker made no effort to figure it out on their own first.
 
 * A superuser learns by doing. You can read as much as you want about computers
   and technology, but you haven't learned a thing until you get down and dirty
