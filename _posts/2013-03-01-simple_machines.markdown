@@ -284,23 +284,16 @@ In the vernacular of superusers, you could call the list of instructions an "Add
 1 to a number _program_".
 
 <aside class="exercises">
-<ol>
-<li>
-Create a list of Turing machine instructions (i.e. a program) for subtracting
-one from a number.  Test your program using 4 as input and again using 100.
-Now try subtracting 1 from 0. What will happen? Think about different ways you
-might avoid this problem.
-</li>
-<li>
-The Turing machine I described uses digits and numbers for the tape and state
-register but these were actually an arbitrary choice. What if we upgrade our
-Turing machine to read and write letters in addition to digits? Can this help
-solve the problem in the Exercise 1?
-</li>
-<li>
-The add 1 program is really repetitive. Try to think of a way to change the
-program and input we give the machine so that we don't end up with 9 versions of
-basically the same instruction.
-</li>
-</ol>
+
+1. Create a list of Turing machine instructions (i.e. a program) for
+   subtracting one from a number.  Test your program using 4 as input and again
+   using 100.  Now try subtracting 1 from 0. What will happen? Think about
+   different ways you might avoid this problem.
+2. The Turing machine I described uses digits and numbers for the tape and
+   state register but these were actually an arbitrary choice. What if we
+   upgrade our Turing machine to read and write letters in addition to digits?
+   Can this help solve the problem in the Exercise 1?
+3. The add 1 program is really repetitive. Try to think of a way to change the
+   program and input we give the machine so that we don't end up with 9
+   versions of basically the same instruction.
 </aside>

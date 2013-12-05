@@ -88,22 +88,15 @@ by doing, so at the very least try to think about each question a little bit
 before moving on.
 
 <aside class="exercises">
-<ol>
-<li>
-Come up with three more functions. What is the input? What is the output? How is
-the function evaluated?
-</li>
-<li>
-Come up with something that takes input and produces output, but is
-<strong>not</strong> a function. What makes it not a function? Can you turn your
-non-function into a function by making it require more input?
-</li>
-<li>
-You probably learned how to multiply long numbers by hand in elementary school.
-Did you realize that the method you learned was an algorithm? Try to write out a
-multiplication algorithm for multiplying a three-digit number by a one-digit
-number as step-by-step instructions. Assume that the reader of the instructions
-knows how to multiply and add only single digit numbers.
-</li>
-</ol>
+
+1. Come up with three more functions. What is the input? What is the output?
+   How is the function evaluated?
+2. Come up with something that takes input and produces output, but is **not**
+   a function. What makes it not a function? Can you turn your non-function
+   into a function by making it require more input?
+3. You probably learned how to multiply long numbers by hand in elementary
+   school.  Did you realize that the method you learned was an algorithm? Try
+   to write out a multiplication algorithm for multiplying a three-digit number
+   by a one-digit number as step-by-step instructions. Assume that the reader
+   of the instructions knows how to multiply and add only single digit numbers.
 </aside>

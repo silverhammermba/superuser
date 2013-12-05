@@ -243,31 +243,24 @@ scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
 You might want some graph paper for some of these exercises.
 
+TODO mention "digital"
+
 <aside class="exercises">
-<ol>
-<li>
-Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such that
-they line up with each other. Notice the patterns that emerge.
-</li>
-<li>
-8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
-scientist humor again). Look back at the chart showing how hexadimcal digits
-correspond to binary nibbles. Now count from 0 to 15 in binary, writing out all
-4 bits of each nibble, just like in the chart. Trust me: do it. Do you notice
-any patterns? Do you see a trick for easily counting in binary without needing
-to add 1 and keep track of carrying?
-</li>
-<li>
-Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
-binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a few
-times until you start feeling comfortable with the process.
-</li>
-<li>
-At the last minute I mentioned base 8 AKA octal. And earlier I showed you a
-trick for quickly converting from binary to hexadecimal. Since 16 and 8 are
-both powers of 2, can you find a similar trick for quickly converting from
-binary to octal?  Do you see how this trick could apply to other pairs of
-bases?
-</li>
-</ol>
+
+1. Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
+   that they line up with each other. Notice the patterns that emerge.
+2. 8 bits is called a byte so 4 bits is called a "nibble" (there's that
+   computer scientist humor again). Look back at the chart showing how
+   hexadimcal digits correspond to binary nibbles. Now count from 0 to 15 in
+   binary, writing out all 4 bits of each nibble, just like in the chart. Trust
+   me: do it. Do you notice any patterns? Do you see a trick for easily
+   counting in binary without needing to add 1 and keep track of carrying?
+3. Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
+   binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a
+   few times until you start feeling comfortable with the process.
+4. At the last minute I mentioned base 8 AKA octal. And earlier I showed you a
+   trick for quickly converting from binary to hexadecimal. Since 16 and 8 are
+   both powers of 2, can you find a similar trick for quickly converting from
+   binary to octal?  Do you see how this trick could apply to other pairs of
+   bases?
 </aside>

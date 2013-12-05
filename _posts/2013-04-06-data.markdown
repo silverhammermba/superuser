@@ -90,6 +90,8 @@ done. Similarly, a computer component might be advertised as being able to store
 a terabyte of information, but due to formatting several gigabytes can't be used
 to store anything. Tricky!
 
+TODO mention discrete vs. continuous
+
 <aside class="exercises">
 1. So far, all of the calculations we've toyed around with have used positive
    integers. Those are easy because it's rather obvious how to represent a
