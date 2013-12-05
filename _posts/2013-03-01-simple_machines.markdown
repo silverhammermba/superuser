@@ -161,10 +161,11 @@ consists of the following components:
 
 ![Turing machine]({{ site.baseurl }}/images/turing.png)
 
-1. A **tape**, on which we can write a sequence of digits. As with
-   the number of wheels on our adding machine, we assume that the tape is very
-   long - long enough for whatever computation we are performing. We assume
-   that the tape starts with every position in the sequence set to 0
+1. A **tape**, on which we can write a sequence of digits, which serves as the
+   machine's memory. As with the number of wheels on our adding machine, we
+   assume that the tape is very long - long enough for whatever computation we
+   are performing. We assume that the tape starts with every position in the
+   sequence set to 0
 2. A **head** which can read and write digits on the tape - but
    only one digit at a time! The head can move along the tape to go from one
    digit to the previous or next, but again only one digit at a time.

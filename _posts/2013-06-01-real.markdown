@@ -1,14 +1,15 @@
 ---
 layout: chapter
-title: The Real Deal
+title: Real Computers
 ---
 
 By now you should have a decent grasp of the theory behind computation and what
 makes a computer a computer. But the tiny theoretical machines we've been
 playing with are nothing compared to the fearsome computers we use in this
-modern age. How do those work? Unfortunately the answer is very, very, **very**
-complicated. So we're going to skip over a whole lot of details (yay!) because
-frankly most superusers don't know this stuff anyway and often don't need to.
+information age. How do those work? Unfortunately the answer is very, very,
+**very** complicated. So we're going to skip over a whole lot of details (yay!)
+because frankly most superusers don't know this stuff anyway and often don't
+need to.
 
 <aside class="note">
 But that doesn't mean you shouldn't care about learning those omitted details!
@@ -42,15 +43,31 @@ instructions at once! Some of the duty of the Turing machine's state register
 is performed by special registers in the CPU while other aspects of the state
 are handled by other components (as we'll see later).
 
+While a Turing machine only accepts one type of instruction, CPUs have a wide
+variety of instructions that they understand. This makes the design of the CPU
+more complicated, but makes program design much simpler. The type of
+instructions understood by the CPU vary by model and manufacturer. This means
+that each program needs to be designed for a certain instruction set - and only
+CPUs who know those instructions will be able to run those programs. This is one
+of the big difficulties of program design.
+
 CPUs are measured primarily in three ways: speed, parallelism, and memory. Speed
 is by far the most valued quality. CPUs read instructions following a very rigid
 timer called the "clock". The faster the clock speed, the quicker the CPU can
 finish each calculation. But there are limits to the clock speed: set it too
 fast and the calculations can become error-prone or the CPU can overheat and
-damage its physical components. The usual measure of speed is hertz. A 1 hertz
-CPU can perform one program instruction each second. An average CPU at the time
-of writing is clocked at about 3.5 Gigahertz i.e. 3.5 _billion_ instructions
-per second i.e. rather fast indeed.
+damage its physical components. All CPUs come with the clock speed set at a safe
+value by the manufacturer, but some risk-taking superusers choose to override
+it. The usual measure of speed is hertz. A 1 hertz CPU can perform one program
+instruction each second. An average CPU at the time of writing is clocked at
+about 3.5 Gigahertz i.e. 3.5 _billion_ instructions per second i.e. rather fast
+indeed.
+
+<aside class="note">
+Technically speaking, a hertz is a "per second". So we should really say that
+CPU speed is measured in "instruction hertz" i.e. instructions per second. But
+no one says that. Ever.
+</aside>
 
 The second measure, parallelism, is just a count of how many cores a CPU has.
 Four core CPUs (aka quad-core) are becoming quite common these days. Parallelism
@@ -58,9 +75,9 @@ is a very appealling idea because you might think that it multiplies the speed
 of a CPU: a CPU that performs four instructions at once will finish four times
 faster. But the reality is less exciting. It turns out to be very hard to create
 algorithms that still work when four instructions are processed at once, so many
-algorithms simply ignore additional cores and only use one core at a time.
-Still, we're getting better at taking advantage of multiple cores so single core
-CPUs are becoming less and less common.
+programs simply ignore additional cores and only use one core at a time. Still,
+we're getting better at taking advantage of multiple cores so single core CPUs
+are becoming less and less common.
 
 The final measure, memory, is mentioned much less often but is still crucial.
 With our Turing machines, we were allowed to have as much imaginary tape as we
@@ -83,21 +100,24 @@ gigabytes (remember, that's _billions_ of bytes). However, accesing information
 in the RAM is even slower than accesing the CPU cache. But again, the increase
 in storage capacity makes it worth it. The RAM is where the programs are stored
 before the CPU performs them, and it also performs much of the duty of the
-Turing machine's state register, keeping track of the state of the algorithms
+Turing machine's state register, keeping track of the state of the programs
 as the CPU does all the work.
 
-You might be wondering about that word "random" in the name. It doesn't mean
-what you think it means, first of all. You can imagine the RAM as a bookshelf,
-where the CPU stores the books that it can't carry around with it. What happens
-when the CPU needs its copy of "The Golden Compass", though? The computer could
-start at one end of bookshelf and run its finger along each spine until it
-spots the requested title, presenting it with a flourish. This would be what
-computer scientists call "sequential access" - the computer looking at each book
-_in sequence_ in order to find a specific one. But sequential access is slow;
-the more books you have, the longer it takes to find a particular one.  RAM is
-a much more clever bookshelf. It is designed in such a way that the CPU could
-start calling out book titles _randomly_ and the RAM would retrieve each one
-almost instantly - that's what random access means.
+You might be wondering about that word "random" in the name. Well, imagine the
+information in your computer as a bunch of books. The CPU reads the books in
+order to do its work, but it can only hold a few books at a time. In this
+analogy, the RAM is like a big bookshelf. What happens when the CPU needs its
+copy of "The Golden Compass", though? The computer could start at one end of
+bookshelf and run its finger along each spine until it spots the requested
+title, presenting it with a flourish. This would be what computer scientists
+call "sequential access" - the computer looking at each book _in sequence_ in
+order to find a specific one. But sequential access is slow; the more books you
+have, the longer it takes to find a particular one. If the CPU needs a lot of
+books at once, it can only get them quickly if they happen to be near each
+other. RAM is a much more clever bookshelf. It is designed in such a way that
+the CPU could start calling out book titles _randomly_ and the RAM would be able
+to retrieve them just as quickly as if they were all sitting together at the
+front end of the bookshelf.
 
 RAM is easy to measure: you want a lot of it (about 4-16 Gigabytes at the time
 of writing) and you want it to be fast.
@@ -107,9 +127,9 @@ store information while it is powered by electricity. To continue the previous
 analogy, the RAM is like a bookshelf _without the shelf_. When the CPU hands
 over its copy of "The Amber Spyglass", the RAM dutifully puts it in place, and
 it immediately starts falling to the floor. But the RAM is so very speedy that
-it can grab each book before it hits the ground and put it back in place again,
-over and over again while your computer is running. But as soon as your computer
-is powered off they all clatter to the floor and that beautifully organized
+it can grab each book before it hits the ground and put it back in place, over
+and over again while your computer is running. But as soon as your computer is
+powered off they all clatter to the floor and that beautifully organized
 information is lost.
 
 But what about all of your personal files? Your don't lose all of them when you
@@ -125,7 +145,7 @@ large, persistent data storage. The hard drive fills this role.
 
 There's some confusing terminology here, and to understand we need to quickly
 recount the history of data storage. In days of yore, it was common for personal
-computers to store information on flexible magnetic disks.  By spinning the disk
+computers to store information on flexible magnetic disks. By spinning the disk
 around, the computer could read information from different portions of the disk.
 For example you would store a program on such a disk, plug it into your
 computer, and the program would be transferred to your RAM for the CPU to read.
@@ -160,10 +180,98 @@ And since we're always searching for faster ways of doing things, HDDs are
 currently on their way out of the door. The replacements are called solid-state
 drives or "SSD"s. They perform the same duty as HDDs, but are physically
 smaller, require less electricity to operate, and operate much, much faster.
-SSDs don't use disks or have motors and moving parts like HDDs do but it's still
-quite common for people to call them "disks" or "hard drives". Weird, right?
+SSDs also don't use disks or have motors and moving parts like HDDs do. However,
+despite SSDs' growing popularity, it is still common to refer to the permanent
+storage device in your computer - regardless of its type - as the "disk" or
+"hard drive".
 
 Motherboard
 ===========
 
-The motherboard or "mobo" 
+All of these components need to be able to communicate in order to transfer data
+between them. The motherboard or "mobo" fills this role. Motherboards have a
+variety of connectors to which the CPU, RAM, hard drive, and other computer
+peripherals attach. The CPU connector, or "socket", is often the most important.
+While the RAM and hard drive connectors are generic enough to work with a
+variety of models, the CPU socket usually restricts your choice of CPU to only a
+few types.
+
+Additionally, the motherboard contains the simple programs and data required to
+start your computer. These programs recognize all of the components attached to
+your computer and initiate the loading of more complicated programs and data
+from the hard drive.
+
+<aside class="definition">
+The programs stored on the motherboard that control and initiate the other
+computer components are called the **Basic Input/Output System** or **BIOS**.
+</aside>
+
+Because the motherboard mostly acts as a middleman between more complicated
+components, it is often the cheapest part to buy. But its central role also
+means that a faulty motherboard is one of the more problematic issues a computer
+can have. For this reason, it is recommended to opt for a high-end motherboard
+when building a computer. This also makes motherboards a little tricky to
+compare; one motherboard might have a socket that fits the CPU you want while
+another has faster hard drive connectors or has a greater variety of connections
+for other components. But I digress; choosing components for a custom computer
+build is beyond the scope of this chapter.
+
+Other Components
+================
+
+The components mentioned so far are what I would call the "essential" components
+of a computer. You will find them in almost every computer. However there are a
+number of additional components that many modern computers to have.
+
+Monitor
+-------
+
+Often called the "display" or "screen", the monitor provides a means for the
+computer to create digital images. All monitors display images using a grid of
+tiny colored squares called "pixels". Each pixel can be changed to display a
+different solid color.  If the pixels are small enough, our eyes lose sight of
+the grid and it becomes possible for monitors to display images that look
+smooth. If the monitor can change the color of the pixels quickly enough, a
+series of images can be displayed as an animation - much like a flipbook.
+
+Monitors can be compared in several ways.
+
+<aside class="definition">
+The **resolution** of a digital image is the number of pixels, usually written
+as width&times;height.
+</aside>
+
+High resolution monitors give you more room to work and can display larger
+images. A standard resolution these days is 1920&times;1080 pixels.
+
+<aside class="definition">
+The **dots-per-inch** (or **DPI**) of a digital image is the number of pixels
+that fit in a square inch.
+</aside>
+
+Higher DPI monitors have smaller pixels, which means the physical size of the
+monitor can be smaller and it can display more detailed images.
+
+<aside class="definition">
+The **color depth** of a digital image is the number of colors that can be
+represented.
+</aside>
+
+These days pretty much everything uses 24 bits of data per pixel (24 BPP), which
+is about 16.7 million colors. Not many people need more colors than that.
+
+Graphics Processing Unit
+------------------------
+
+Often called the "graphics card" or "GPU", this component is specifically
+designed to provide image data to the monitor. You might find it odd that such a
+specific component exists, but consider this: on computers, the convention is
+that a monitor needs to display at least 30 images per second in order to
+produce a smooth-looking animation. With a 1920&times;1080, 24 BPP monitor,
+that's about 180 MB of data that your computer needs to output every second - in
+addition to all of the work that the CPU is doing just running your programs.
+
+The GPU makes life easier for the CPU by taking over all image-related
+processing. It's basically a separate computer inside your computer, with its
+own CPU and RAM - both of which are specially designed to quickly perform the
+most common calculations required for producing digital images.
