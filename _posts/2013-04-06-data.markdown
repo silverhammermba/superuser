@@ -91,5 +91,15 @@ a terabyte of information, but due to formatting several gigabytes can't be used
 to store anything. Tricky!
 
 <aside class="exercises">
-I haven't thought of any yet.
+1. So far, all of the calculations we've toyed around with have used positive
+   integers. Those are easy because it's rather obvious how to represent a
+   positive integer using bits and bytes. Come up with a format for storing
+   negative integers as well as positive ones. Then try to make a format for
+   storing numbers with a decimal point e.g. 3.14 or -1.0007.
+2. Computer images are usually displayed using additive color. That means that
+   each color is represented as a mixture of the three primary additive colors:
+   red, green, and blue. Create a format for storing a color in a computer
+   using the additive model. What choices do you get to make when designing this
+   format? Do any of your choices impose limitations on the colors stored using
+   your format?
 </aside>
