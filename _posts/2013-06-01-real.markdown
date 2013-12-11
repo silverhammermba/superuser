@@ -60,7 +60,7 @@ damage its physical components. All CPUs come with the clock speed set at a safe
 value by the manufacturer, but some risk-taking superusers choose to override
 it. The usual measure of speed is hertz. A 1 hertz CPU can perform one program
 instruction each second. An average CPU at the time of writing is clocked at
-about 3.5 Gigahertz i.e. 3.5 _billion_ instructions per second i.e. rather fast
+about 3.5 gigahertz i.e. 3.5 _billion_ instructions per second i.e. rather fast
 indeed.
 
 <aside class="note">
@@ -95,7 +95,7 @@ Random Access Memory
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
-the registers and cache of the CPU, the RAM is **massive** - usually measured in
+the registers and cache of the CPU, the RAM is massive - usually measured in
 gigabytes (remember, that's _billions_ of bytes). However, accesing information
 in the RAM is even slower than accesing the CPU cache. But again, the increase
 in storage capacity makes it worth it. The RAM is where the programs are stored
@@ -103,23 +103,22 @@ before the CPU performs them, and it also performs much of the duty of the
 Turing machine's state register, keeping track of the state of the programs
 as the CPU does all the work.
 
-You might be wondering about that word "random" in the name. Well, imagine the
-information in your computer as a bunch of books. The CPU reads the books in
-order to do its work, but it can only hold a few books at a time. In this
-analogy, the RAM is like a big bookshelf. What happens when the CPU needs its
-copy of "The Golden Compass", though? The computer could start at one end of
-bookshelf and run its finger along each spine until it spots the requested
-title, presenting it with a flourish. This would be what computer scientists
-call "sequential access" - the computer looking at each book _in sequence_ in
-order to find a specific one. But sequential access is slow; the more books you
-have, the longer it takes to find a particular one. If the CPU needs a lot of
-books at once, it can only get them quickly if they happen to be near each
-other. RAM is a much more clever bookshelf. It is designed in such a way that
-the CPU could start calling out book titles _randomly_ and the RAM would be able
-to retrieve them just as quickly as if they were all sitting together at the
-front end of the bookshelf.
+You might be wondering what is "random" about the RAM. Imagine the information
+in your computer as a bunch of books. The CPU reads the books in order to do its
+work, but it can only hold a few books at a time. In this analogy, the RAM is
+like a big bookshelf. What happens when the CPU needs its copy of "The Golden
+Compass"? The computer could find it by starting at one end of bookshelf and
+running its finger along each spine until it spots the requested title. This
+would be what computer scientists call "sequential access" - the computer
+looking at each book _in sequence_ in order to find a specific one. But
+sequential access is slow; the more books you have, the longer it takes to find
+a particular one. If the CPU needs a lot of books at once, it can only get them
+quickly if they happen to be near each other. RAM is a much more clever
+bookshelf. It is designed in such a way that the CPU could start calling out
+book titles _randomly_ and the RAM would be able to retrieve them just as
+quickly as if they were all sitting together at the front end of the bookshelf.
 
-RAM is easy to measure: you want a lot of it (about 4-16 Gigabytes at the time
+RAM is easy to measure: you want a lot of it (about 4-16 gigabytes at the time
 of writing) and you want it to be fast.
 
 Now the RAM has one big deficiency: it's _volatile_. That means it can only
@@ -209,12 +208,7 @@ computer components are called the **Basic Input/Output System** or **BIOS**.
 Because the motherboard mostly acts as a middleman between more complicated
 components, it is often the cheapest part to buy. But its central role also
 means that a faulty motherboard is one of the more problematic issues a computer
-can have. For this reason, it is recommended to opt for a high-end motherboard
-when building a computer. This also makes motherboards a little tricky to
-compare; one motherboard might have a socket that fits the CPU you want while
-another has faster hard drive connectors or has a greater variety of connections
-for other components. But I digress; choosing components for a custom computer
-build is beyond the scope of this chapter.
+can have. 
 
 Other Components
 ================
@@ -228,50 +222,104 @@ Monitor
 
 Often called the "display" or "screen", the monitor provides a means for the
 computer to create digital images. All monitors display images using a grid of
-tiny colored squares called "pixels". Each pixel can be changed to display a
-different solid color.  If the pixels are small enough, our eyes lose sight of
-the grid and it becomes possible for monitors to display images that look
-smooth. If the monitor can change the color of the pixels quickly enough, a
-series of images can be displayed as an animation - much like a flipbook.
-
-Monitors can be compared in several ways.
+tiny pixels.
 
 <aside class="definition">
-The **resolution** of a digital image is the number of pixels, usually written
-as width&times;height.
+A **pixel** is a square with a solid color.
 </aside>
 
-High resolution monitors give you more room to work and can display larger
-images. A standard resolution these days is 1920&times;1080 pixels.
+If the pixels are small enough, our eyes lose sight of the grid and it
+becomes possible for monitors to display images that look smooth. If the monitor
+can change the color of the pixels quickly enough, a series of images can be
+displayed as an animation - much like a flipbook.
 
-<aside class="definition">
-The **dots-per-inch** (or **DPI**) of a digital image is the number of pixels
-that fit in a square inch.
-</aside>
+Monitors can vary in many ways:
 
-Higher DPI monitors have smaller pixels, which means the physical size of the
-monitor can be smaller and it can display more detailed images.
-
-<aside class="definition">
-The **color depth** of a digital image is the number of colors that can be
-represented.
-</aside>
-
-These days pretty much everything uses 24 bits of data per pixel (24 BPP), which
-is about 16.7 million colors. Not many people need more colors than that.
+* The size of the monitor (usually bigger is better)
+* The number of pixels (more is better)
+* The size of the pixels (smaller is better)
+* The number of colors that each pixel can have (more is better)
+* The range of color that each pixel can have (e.g. some monitors can display
+  darker or lighter colors than others)
+* How quickly each pixel can change color (faster is better)
+* The type of connections the monitor can use to connect to the rest of your
+  computer
 
 Graphics Processing Unit
 ------------------------
 
 Often called the "graphics card" or "GPU", this component is specifically
 designed to provide image data to the monitor. You might find it odd that such a
-specific component exists, but consider this: on computers, the convention is
-that a monitor needs to display at least 30 images per second in order to
-produce a smooth-looking animation. With a 1920&times;1080, 24 BPP monitor,
-that's about 180 MB of data that your computer needs to output every second - in
-addition to all of the work that the CPU is doing just running your programs.
+specific component exists, but consider the example of typing an e-mail on the
+computer. We expect to be able to press a key on the keyboard and for the letter
+to instantly appear on the monitor. Humans are perceptive enough that if it
+takes more than a few hundredths of a second for the letter to appear after
+pressing the key, we notice the delay - and this can make the computer very
+frustrating to use. Consequently, your computer is constantly racing to quickly
+display images on the monitor before you notice - in addition to all of the work
+it's doing to run your other programs. For demanding tasks like simulating
+three-dimensional scenes or displaying high-detail videos, the CPU can have a
+hard time keeping up with the workload.
 
 The GPU makes life easier for the CPU by taking over all image-related
 processing. It's basically a separate computer inside your computer, with its
 own CPU and RAM - both of which are specially designed to quickly perform the
-most common calculations required for producing digital images.
+most common calculations required for producing digital images. The GPU's
+complexity can make it one of the most expensive components of the computer.
+
+Sound Card
+----------
+
+Much like the case of the GPU and the monitor, the sound card provides audio
+data to the computer's speakers - allowing for near-instantaneous audio
+responses to our actions. However, due to the relative simplicity of audio
+processing and the rising power of CPUs, it is becoming more common for the
+motherboard to include its own speaker connections and for the CPU to perform
+all audio-related computation.
+
+Dedicated sound cards these day are mainly useful for audio engineers or those
+with advanced computer speakers.
+
+Network Interface Controller
+----------------------------
+
+The ability for computers to communicate with each other is kind of a big deal
+these days. This component, often called the "NIC", "network adapter", or "LAN
+adapter" (LAN being a specific type of network), facilitates such communication.
+It provides the connection with the network - which could be a plug for a wire
+or an antenna for wireless networks - as well as hardware for decoding and
+interpreting the information received over the network.
+
+With the ubiquity of computer networking and the increased power of CPUs, it is
+becoming more common for the motherboard to provide its own network interface
+and for all network-related computation to be performed by the CPU.
+
+Universal Serial Bus
+--------------------
+
+This one isn't actually a component at all, it's a standard. But you're probably
+already familiar with it from its acronym: USB. In the dark ages of computers,
+there was very little standardization among computer components. There were more
+specialized cables and connectors and things were generally not very
+interchangable. With USB, several computer companies collaborated to create a
+computer connection that would be generic enough to work for a variety of
+purposes. These days every motherboard comes with at least a couple USB
+connectors and USB is used to connect keyboards, mice, webcams, printers,
+joysticks, hard drives, phones, cameras, and anything else that doesn't have
+demanding technical requirements.
+
+These components can be absolutely crucial for a computer (especially the mouse
+and keyboard) but there isn't a whole lot to say about them.
+
+Periperhal Component Interconnect
+---------------------------------
+
+While USB is the standard for connecting external components to your computer,
+the peripheral component interconnect or "PCI" connection is the generic
+connector for additional internal components. So while the CPU, RAM, and hard
+drive all use specialized connectors, the GPU, sound card, NIC, and a variety of
+other computer components use PCI.
+
+Technically speaking, PCI is the name for an older, now-obsolete connection.
+It's replacement - peripheral component interconnect express or "PCIe" - is now
+ubiquitous, so we can still get away with calling it just PCI.
