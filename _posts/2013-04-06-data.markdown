@@ -90,18 +90,86 @@ done. Similarly, a computer component might be advertised as being able to store
 a terabyte of information, but due to formatting several gigabytes can't be used
 to store anything. Tricky!
 
-TODO mention discrete vs. continuous
+## Limitations ##
+
+We've taken a look now at how computers compute and how they store information,
+but so far it has all been... well, integers and counting. But aren't there
+other kinds of math? Aren't there are other kinds of information? What about
+&pi;? What about music and paintings? How can we represent such information
+using a computer?
+
+The truth, surprisingly, is that we _can't_ - because computers deal exclusively
+with discrete data.
+
+<aside class="definition">
+**Discrete** data can be counted.
+</aside>
+
+For example, take the number of students in a class. It doesn't make sense to
+have only part of a student in a class, you can only change the number of
+students by whole numbers. Letters are similarly discrete, since a letter must
+be one of the letters of the alphabet; a letter cannot be somewhere between A
+and B. In contrast, lots of things we perceive in real life are continuous.
+
+<aside class="definition">
+**Continuous** data can only be measured.
+</aside>
+
+For example, your height is continuous since you can't suddenly switch from
+being one height to another. The light that we see and the sound waves we hear
+are also continuous since they can transition smoothly from one state to
+another. A good test for something being discrete versus continuous is whether
+the precision of our measurement matters. While you can count the number of
+students in a class and be 100% sure of your answer, your height depends on what
+tool you use to measure it and how precisely you record the value. If you use a
+more precise tool on continuous data, your answer can change.
+
+As you might expect, these limitations on data translate over to the types of
+information we can store with data.
+
+<aside class="definition">
+Discrete data can only produce **digital** information.
+</aside>
+
+<aside class="definition">
+Only continuous data can produce **analog** information.
+</aside>
+
+This surprising distinction is often misunderstood by those unfamiliar with
+computers. The distinction implies that if we want to store any continuous data
+in our computer, or have the computer produce any continuous data, we need to be
+able to convert between digital and analog information. Technically, this is
+impossible. Instead we make do by _approximating_ analog information with
+digital information and then later _reconstructing_ analog information from the
+digital approximation.
+
+Imagine a perfect circle. No matter how far you zoom in to the edge, it's still
+a perfectly smooth curve. The circle represents continuous data. Now imagine
+that I asked you to make a copy of that circle, but you can only use squares.
+The squares represent discrete data. You could try to fill in the outline of the
+circle with squares. The result might have gaps or corners, but if the squares
+are small enough, the result will look a bit like a circle. If I then asked you
+to recreate the circle based on your copy, you could try to trace around the
+edges of the squares. The quality of your result would depend on how well your
+squares approximated the original circle.
+
+Like fitting a square peg into a round hole, the process is by definition
+imperfect.  A huge amount of effort is expended by computer scientists and
+engineers to improve our digital approximations of continuous data.
 
 <aside class="exercises">
+
 1. So far, all of the calculations we've toyed around with have used positive
    integers. Those are easy because it's rather obvious how to represent a
    positive integer using bits and bytes. Come up with a format for storing
    negative integers as well as positive ones. Then try to make a format for
    storing numbers with a decimal point e.g. 3.14 or -1.0007.
-2. Computer images are usually displayed using additive color. That means that
+2. Come up with three examples of digital information and three examples of
+   analog information.
+3. Computer images are usually displayed using additive color. That means that
    each color is represented as a mixture of the three primary additive colors:
    red, green, and blue. Create a format for storing a color in a computer
    using the additive model. What choices do you get to make when designing this
    format? Do any of your choices impose limitations on the colors stored using
-   your format?
+   your format? Can you get around these limitations?
 </aside>

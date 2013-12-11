@@ -243,8 +243,6 @@ scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
 You might want some graph paper for some of these exercises.
 
-TODO mention "digital"
-
 <aside class="exercises">
 
 1. Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
