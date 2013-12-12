@@ -86,7 +86,7 @@ no one says that. Ever.
 </aside>
 
 The second measure, parallelism, is just a count of how many cores a CPU has.
-Four core CPUs (aka quad-core) are becoming quite common these days. Parallelism
+Four core CPUs (AKA quad-core) are becoming quite common these days. Parallelism
 is a very appealling idea because you might think that it multiplies the speed
 of a CPU: a CPU that performs four instructions at once will finish four times
 faster. But the reality is less exciting. It turns out to be very hard to create

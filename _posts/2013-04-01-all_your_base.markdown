@@ -49,7 +49,7 @@ But what do these numbers mean? Let's count "normally" alongside:
 Now we can see that "10" with this new counting system means five, "21" means
 eleven, and so on. Ugh, this is getting really confusing. We need names for this
 stuff. In mathematics, these different ways of counting are called different
-*bases*. When we use 0 through 9, we have ten digits so that's "base 10" A.K.A.
+*bases*. When we use 0 through 9, we have ten digits so that's "base 10" AKA
 "decimal". 0 through 4 is five digits so that would be "base 5". To avoid confusion
 you can put the base next to the number so that it's clear what you mean. For
 example:
@@ -94,7 +94,7 @@ If we are okay with reading and writing in base 5, then we could simplify our
 machines by removing the digits 6-9. Our wheels would be smaller and our
 instruction lists would be shorter. If we remove more digits, we can make things
 simpler still! Let's remove digits until we're left with the bare minimum: 0 and 1.
-We now have 2 digits so this is called base 2 A.K.A. "binary". Counting in
+We now have 2 digits so this is called base 2 AKA "binary". Counting in
 binary works just like it does in other bases, but can get a little confusing
 because we can't count very far before we run out of digits. For an example,
 follow along as we count from 0 to 31 in binary:
