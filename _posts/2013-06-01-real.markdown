@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: Real Computers
+title: Hardware
 ---
 
 By now you should have a decent grasp of the theory behind computation and what
@@ -26,6 +26,8 @@ Now put your hands together as we welcome our players to the stage...
 
 Central Processing Unit
 =======================
+
+![CPU]({{ site.baseurl }}/images/cpu.png)
 
 Often called the "processor" or "CPU", this component is the beating heart of
 your computer.  It performs almost every calculation of the computer, and it
@@ -92,6 +94,8 @@ makes it worth it.
 
 Random Access Memory
 ====================
+
+![RAM]({{ site.baseurl }}/images/ram.png)
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of

@@ -143,6 +143,8 @@ impossible. Instead we make do by _approximating_ analog information with
 digital information and then later _reconstructing_ analog information from the
 digital approximation.
 
+![Continuous vs. Discrete]({{ site.baseurl }}/images/digital.png)
+
 Imagine a perfect circle. No matter how far you zoom in to the edge, it's still
 a perfectly smooth curve. The circle represents continuous data. Now imagine
 that I asked you to make a copy of that circle, but you can only use squares.
