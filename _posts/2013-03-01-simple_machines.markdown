@@ -86,10 +86,11 @@ but enough that we can handle reasonably large numbers without overflowing.
 It's tempting to think of overflow as a problem like I just did. But there's
 another way to look at it. What if we thought of our machine as taking your
 input and output, dividing them by 100 and then only showing you the remainder?
-99 + 1 = 100 = 100 &times; 1 + 0 so the machine tells you zero! Do a few examples and you'll see
-that this always works: 100 + 1 = 101 = 100 &times; 1 + 1 and so on. This trick is called
-"modular arithmetic". It works just like normal arithmetic except that numbers
-always stay smaller than the "modulus" (which is 100, in this case).
+99 + 1 = 100; 100 &divide; 100 = 1 with remainder 0. So the machine tells you
+zero! Do a few examples and you'll see that this always works: 100 + 1 = 101;
+101 &divide; 100 = 1 with remainder 1 and so on. This trick is called "modular
+arithmetic". It works just like normal arithmetic except that numbers always
+stay smaller than the "modulus" (which is 100, in this case).
 </aside>
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
