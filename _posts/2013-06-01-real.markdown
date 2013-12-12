@@ -39,8 +39,7 @@ There is a huge variety of hardware available for computers these days, so in
 this chapter I will focus on only the most common ones. Now put your hands
 together as we welcome our players to the stage...
 
-Central Processing Unit
-=======================
+## Central Processing Unit ##
 
 ![CPU]({{ site.baseurl }}/images/cpu.png)
 
@@ -107,8 +106,7 @@ in the cache for a calculation, it must first be transferred to a register. This
 makes using the cache slightly slower than the registers, but the extra size
 makes it worth it.
 
-Random Access Memory
-====================
+## Random Access Memory ##
 
 ![RAM]({{ site.baseurl }}/images/ram.png)
 
@@ -153,8 +151,7 @@ information is lost.
 But what about all of your personal files? Your don't lose all of them when you
 turn off your computer. Where are they stored?
 
-Hard Drive
-==========
+## Hard Drive ##
 
 People these days have a lot of data. Music, movies, and games can quickly add
 up to be hundreds of gigabytes of information - far too large to even store in
@@ -203,8 +200,7 @@ despite SSDs' growing popularity, it is still common to refer to the permanent
 storage device in your computer - regardless of its type - as the "disk" or
 "hard drive".
 
-Motherboard
-===========
+## Motherboard ##
 
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a
@@ -229,15 +225,13 @@ components, it is often the cheapest part to buy. But its central role also
 means that a faulty motherboard is one of the more problematic issues a computer
 can have. 
 
-Other Components
-================
+## Other Components ##
 
 The components mentioned so far are what I would call the "essential" components
 of a computer. You will find them in almost every computer. However there are a
 number of additional components that many modern computers to have.
 
-Monitor
--------
+### Monitor ###
 
 Often called the "display" or "screen", the monitor provides a means for the
 computer to create digital images. All monitors display images using a grid of
@@ -264,8 +258,7 @@ Monitors can vary in many ways:
 * The type of connections the monitor can use to connect to the rest of your
   computer
 
-Graphics Processing Unit
-------------------------
+### Graphics Processing Unit ###
 
 Often called the "graphics card" or "GPU", this component is specifically
 designed to provide image data to the monitor. You might find it odd that such a
@@ -286,8 +279,7 @@ own CPU and RAM - both of which are specially designed to quickly perform the
 most common calculations required for producing digital images. The GPU's
 complexity can make it one of the most expensive components of the computer.
 
-Sound Card
-----------
+### Sound Card ###
 
 Much like the case of the GPU and the monitor, the sound card provides audio
 data to the computer's speakers - allowing for near-instantaneous audio
@@ -299,8 +291,7 @@ all audio-related computation.
 Dedicated sound cards these day are mainly useful for audio engineers or those
 with advanced computer speakers.
 
-Network Interface Controller
-----------------------------
+### Network Interface Controller ###
 
 The ability for computers to communicate with each other is kind of a big deal
 these days. This component, often called the "NIC", "network adapter", or "LAN
@@ -313,8 +304,7 @@ With the ubiquity of computer networking and the increased power of CPUs, it is
 becoming more common for the motherboard to provide its own network interface
 and for all network-related computation to be performed by the CPU.
 
-Universal Serial Bus
---------------------
+### Universal Serial Bus ###
 
 This one isn't actually a component at all, it's a standard. But you're probably
 already familiar with it from its acronym: USB. In the dark ages of computers,
@@ -330,8 +320,7 @@ demanding technical requirements.
 These components can be absolutely crucial for a computer (especially the mouse
 and keyboard) but there isn't a whole lot to say about them.
 
-Periperhal Component Interconnect
----------------------------------
+### Periperhal Component Interconnect ###
 
 While USB is the standard for connecting external components to your computer,
 the peripheral component interconnect or "PCI" connection is the generic

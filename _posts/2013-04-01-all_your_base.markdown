@@ -13,8 +13,7 @@ We're getting _sooo_ close to talking about real life computers. I promise!
 There's just a couple more topics which we must cover before we're ready to talk
 about real computers. First up:
 
-Binary
-======
+## Binary ##
 
 The machines we learned about previously counted the way we're used to: 0,
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ... and you get the idea. The wheels we
@@ -183,8 +182,7 @@ figure out what this is in decimal. As a little trick, we can do
 256<sub>10</sub> = 255<sub>10</sub> + 1<sub>10</sub>. Thus a byte can store
 the values 0<sub>10</sub> to 255<sub>10</sub>.
 
-All Your Base
-=============
+## All Your Base ##
 
 Putting bits in groups of 8 makes some things more convenient, but it's still
 annoying to read and write all of those binary digits. To solve this problem,

@@ -3,8 +3,7 @@ layout: chapter
 title: The Ultimate Computer
 ---
 
-Disclaimer
-==========
+## Disclaimer ##
 
 Originally this chapter was just going to be a "Thinking Deeper" blurb, since
 the topic is quite brain-bending. However I couldn't think of even a basic
@@ -12,8 +11,7 @@ explanation that would fit in a blurb, and the topic is far too cool to simply
 mention with no explanation. Thus I'm including the topic as a mini-chapter
 which you can feel free to skip if things start getting too intense.
 
-Total Recall
-============
+## Total Recall ##
 
 Now that we've learned a good deal about computers, let's recall why they were
 created in the first place. Humans can compute things by hand, but that's
@@ -66,8 +64,7 @@ But wait, why do we need a metacomputer for this stuff? It's the same old
 "input + algorithm &rarr; computer &rarr; answer" as before, just rebranded.
 **Our fancy metacomputer is just a computer**. Did I just blow your mind?
 
-So What?
-========
+## So What? ##
 
 This is one of the most powerful properties of computation: any computer can
 simulate any other computer. You can simulate the operation of a Turing machine

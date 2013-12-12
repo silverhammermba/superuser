@@ -139,8 +139,7 @@ machine.
 
 [wp]: http://en.wikipedia.org/wiki/Enigma_machine
 
-Computers
-=========
+## Computers ##
 
 The capability to break the Enigma code was thanks in part to a brilliant
 English mathematician who had dreamed up a new sort of computing machine. He

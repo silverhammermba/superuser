@@ -9,8 +9,7 @@ willingness to read long, boring documents to acquire said knowledge is an
 important trait of any superuser. I'll do my best to minimize the boringness so
 long as you keep up the knowledge thirstiness.
 
-How to Read This Book
-=====================
+## How to Read This Book ##
 
 This guide is broken into four parts.
 
@@ -26,8 +25,7 @@ These parts build upon each other and are written to be read in order but if
 you have a particular interest you can easily skip forward to a specific
 chapter using the table of contents.
 
-Notation
-========
+## Notation ##
 
 Occasionally you'll see little highlighted blurbs like these.
 
@@ -58,8 +56,7 @@ TODO add link
 
 So anyway...
 
-What is a Superuser?
-====================
+## What is a Superuser? ##
 
 On a computer system, the superuser is the one user with complete control over
 the system. You might not realize this, but chances are that on the very

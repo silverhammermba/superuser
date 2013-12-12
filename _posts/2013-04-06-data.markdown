@@ -57,8 +57,7 @@ A **format** groups bytes together and assigns specific meanings to certain
 bytes and byte values.
 </aside>
 
-Size Matters
-============
+## Size Matters ##
 
 As I mentioned before, computers can have many, many bytes. Luckily we've got
 easier ways to refer to the huge numbers of bytes that come into play when it
