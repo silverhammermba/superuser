@@ -202,6 +202,8 @@ storage device in your computer - regardless of its type - as the "disk" or
 
 ## Motherboard ##
 
+![Motherboard]({{ site.baseurl }}/images/mobo.png)
+
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a
 variety of connectors to which the CPU, RAM, hard drive, and other computer
