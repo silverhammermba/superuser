@@ -18,11 +18,26 @@ superuser. Some tidbits are just more interesting than others.
 </aside>
 
 Virtually every modern computer is made of several interconnected and swappable
-pieces. Each piece has a different responsibility. This is nice because if a
+pieces. Each piece has a different responsibility. This is handy because if a
 piece breaks or isn't working well, we don't need to throw out the whole
-computer - we can just swap out the offending component. For some less important
-pieces, the computer might even continue operating in the event of a failure.
-Now put your hands together as we welcome our players to the stage...
+computer - we can instead swap out the offending component. For some less
+important pieces, the computer might even continue operating in the event of a
+failure.  Like so many other things, we have special computer lingo for these
+pieces:
+
+<aside class="definition">
+The physical components of a computer are called the computer's **hardware**.
+</aside>
+
+This is in contrast to the other essential components of a computer:
+
+<aside class="definition">
+The programs run by a computer are called the computer's **software**.
+</aside>
+
+There is a huge variety of hardware available for computers these days, so in
+this chapter I will focus on only the most common ones. Now put your hands
+together as we welcome our players to the stage...
 
 Central Processing Unit
 =======================
@@ -79,7 +94,7 @@ faster. But the reality is less exciting. It turns out to be very hard to create
 algorithms that still work when four instructions are processed at once, so many
 programs simply ignore additional cores and only use one core at a time. Still,
 we're getting better at taking advantage of multiple cores so single core CPUs
-are becoming less and less common.
+are becoming less common.
 
 The final measure, memory, is mentioned much less often but is still crucial.
 With our Turing machines, we were allowed to have as much imaginary tape as we
