@@ -333,3 +333,26 @@ other computer components use PCI.
 Technically speaking, PCI is the name for an older, now-obsolete connection.
 It's replacement - peripheral component interconnect express or "PCIe" - is now
 ubiquitous, so we can still get away with calling it just PCI.
+
+## Even More Components ##
+
+So far I've talked about the components of your computer that actually do the
+work and number-crunching. Those components are usually the most interesting
+ones and the ones that superusers primarily concern themselves with. However
+there are other components concerned more with the practical matters of
+computers.
+
+The components of a computer all communicate with each other using electrical
+signals, so naturally there must be a power supply for these components. Usually
+the power supply directly supplies power to the hard drive and the motherboard,
+and the motherboard then parcels out power to all the other components
+connected to it.
+
+Like all electrical devices, computer components generate heat as a byproduct of
+their operation. Particularly power-hungry components like the CPU and GPU
+require their own cooling devices in order to continue operating correctly and
+not damage themselves during operation. Computers also often come with several
+fans to keep cool air circulating among all of the components.
+
+Computers also have a variety of cases (sometimes called "towers" after the
+traditional monolothic design) to which the parts attach and are enclosed by.
