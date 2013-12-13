@@ -354,5 +354,31 @@ require their own cooling devices in order to continue operating correctly and
 not damage themselves during operation. Computers also often come with several
 fans to keep cool air circulating among all of the components.
 
-Computers also have a variety of cases (sometimes called "towers" after the
-traditional monolothic design) to which the parts attach and are enclosed by.
+Computers also have a variety of cases to which the parts attach and are
+enclosed by. Because of the traditional monolith-like case designs, computer
+cases are often called "towers".
+
+<aside class="exercises">
+
+1. [newegg.com](http://www.newegg.com) is an online shop catering to those who
+   assemble their own computers. Try to put together a shopping list of
+   components for building your own computer. Take care to ensure that the
+   components you select are compatible with each other! Here's a checklist of
+   what you'll need:
+	* Case
+	* Motherboard
+	* CPU
+	* CPU heatsink (often included with CPU)
+	* RAM
+	* HDD/SSD
+	* GPU
+	* Optical drive (CD/DVD/Blu-Ray)
+	* Power supply
+	* Case fans
+
+2. If you've finished the previous exercise, try it again but restricted to a
+   budget of $1,000. This is a reasonable budget for a decently powerful
+   computer. Try to come up with the most powerful components for that budget.
+   What decisions do you get to make regarding the sort of computer you're
+   building?
+</aside>
