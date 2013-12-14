@@ -36,7 +36,7 @@ now by inventing a machine that can add two numbers with much less chance of
 human fallibity mucking it up. We're going to work our way up to this machine by
 making much simpler machines first.
 
-![Add 1 Machine]({{ site.baseurl }}/images/add1.png)
+![Add 1 Machine]({{ site.baseurl }}/img/add1.png)
 
 We'll start with a wheel attached to the surface of a table. Around this wheel
 we'll evenly write the digits 0-9. We can attach a handle to rotate the wheel
@@ -49,12 +49,12 @@ algorithm it uses is as follows:
 2. Turn the wheel so that the mark points at the next biggest digit
 3. The digit pointed to by the mark is the output
 
-![Overflow]({{ site.baseurl }}/images/overflow.png)
+![Overflow]({{ site.baseurl }}/img/overflow.png)
 
 This machine is a bit silly, but it does do the job... kinda. What happens if
 we give it 9 as input? Argh! The wheel circles back around to 0!
 
-![Carrying Digits]({{ site.baseurl }}/images/carry.png)
+![Carrying Digits]({{ site.baseurl }}/img/carry.png)
 
 We can solve this problem by adding another wheel to our contraption. The
 second wheel is exactly like the first, except rather than turning it directly
@@ -159,7 +159,7 @@ the first true computer. In order to create the mother-of-all computing
 machines, Turing distilled computation to its bare essentials. The machine
 consists of the following components:
 
-![Turing machine]({{ site.baseurl }}/images/turing.png)
+![Turing machine]({{ site.baseurl }}/img/turing.png)
 
 1. A **tape**, on which we can write a sequence of digits, which serves as the
    machine's memory. As with the number of wheels on our adding machine, we

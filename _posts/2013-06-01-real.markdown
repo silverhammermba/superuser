@@ -41,7 +41,7 @@ together as we welcome our players to the stage...
 
 ## Central Processing Unit ##
 
-![CPU]({{ site.baseurl }}/images/cpu.png)
+![CPU]({{ site.baseurl }}/img/cpu.png)
 
 Often called the "processor" or "CPU", this component is the beating heart of
 your computer.  It performs almost every calculation of the computer, and it
@@ -108,7 +108,7 @@ makes it worth it.
 
 ## Random Access Memory ##
 
-![RAM]({{ site.baseurl }}/images/ram.png)
+![RAM]({{ site.baseurl }}/img/ram.png)
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
@@ -202,7 +202,7 @@ storage device in your computer - regardless of its type - as the "disk" or
 
 ## Motherboard ##
 
-![Motherboard]({{ site.baseurl }}/images/mobo.png)
+![Motherboard]({{ site.baseurl }}/img/mobo.png)
 
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a
@@ -225,7 +225,7 @@ computer components are called the **Basic Input/Output System** or **BIOS**.
 Because the motherboard mostly acts as a middleman between more complicated
 components, it is often the cheapest part to buy. But its central role also
 means that a faulty motherboard is one of the more problematic issues a computer
-can have. 
+can have.
 
 ## Other Components ##
 

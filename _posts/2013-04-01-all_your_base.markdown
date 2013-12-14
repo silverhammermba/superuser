@@ -217,7 +217,7 @@ hexadecimal digits and their binary equivalents:
     E 1110
     F 1111
 
-![Binary to Decimal]({{ site.baseurl }}/images/hex.png)
+![Binary to Decimal]({{ site.baseurl }}/img/hex.png)
 
 The single digit hexadecimal numbers correspond to the four bit numbers! This
 mathematical trick lets us read and write bytes as pairs of hexadecimal digits.
