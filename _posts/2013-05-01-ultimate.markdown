@@ -82,10 +82,10 @@ simply simulate them using the Turing machine. Rinse and repeat until you have
 an incredibly advanced and complicated computer all working inside your simple
 Turing machine.
 
-<aside class="definition">
+<div class="alert alert-warning">
 When a machine is abstract enough that it can simulate a Turing machine, we
-call it **Turing complete**.
-</aside>
+call it <strong>Turing complete</strong>.
+</div>
 
 If a machine can simulate a Turing machine, then it can also perform any
 computation. Thus it is a computer. Thus it can simulate any other type of

@@ -82,7 +82,7 @@ special term for it: "overflow". As is common in computer science, from now on
 we'll just assume that we have lots and lots of wheels - not inifinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
-<aside class="deeper">
+<div class="alert alert-success">
 It's tempting to think of overflow as a problem like I just did. But there's
 another way to look at it. What if we thought of our machine as taking your
 input and output, dividing them by 100 and then only showing you the remainder?
@@ -91,7 +91,7 @@ zero! Do a few examples and you'll see that this always works: 100 + 1 = 101;
 101 &divide; 100 = 1 with remainder 1 and so on. This trick is called "modular
 arithmetic". It works just like normal arithmetic except that numbers always
 stay smaller than the "modulus" (which is 100, in this case).
-</aside>
+</div>
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
@@ -209,7 +209,7 @@ Now we need to give it a list of instructions. Remember that all Turing machine
 instructions look something like, "If the current state is 1 and you read a 0,
 write a 3, move to the left, and change the current state to 2." Another
 instruction might be, "If the current state is 1 and you read a 1, write a 0,
-don't move, and change the current state to 10." Notice that of all those words,
+don't move, and change the current state to 9." Notice that of all those words,
 instructions can only differ in a few ways. To keep things brief we'll write
 instructions in shorthand:
 
@@ -217,8 +217,8 @@ instructions in shorthand:
 
 In our shorthand those last two instructions would look like this:
 
-    (1, 0, 3, L,  2)
-    (1, 1, 0, N, 10)
+    (1, 0, 3, L, 2)
+    (1, 1, 0, N, 9)
 
 Back to the add 1 machine, here is our list of instructions:
 
@@ -275,26 +275,29 @@ them special meaning. You could write different Turing machine instructions also
 using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
-<aside class="definition">
-An algorithm that is read and performed by a computer is called a **program**.
-**Programming** is the process of inputting the algorithm into the computer for
+<div class="alert alert-warning">
+An algorithm that is read and performed by a computer is called a <strong>program</strong>.
+<strong>Programming</strong> is the process of inputting the algorithm into the computer for
 it to read.
-</aside>
+</div>
 
 In the vernacular of superusers, you could call the list of instructions an "Add
 1 to a number _program_".
 
-<aside class="exercises">
-
-1. Create a list of Turing machine instructions (i.e. a program) for
-   subtracting one from a number.  Test your program using 4 as input and again
-   using 100.  Now try subtracting 1 from 0. What will happen? Think about
-   different ways you might avoid this problem.
-2. The Turing machine I described uses digits and numbers for the tape and
-   state register but these were actually an arbitrary choice. What if we
-   upgrade our Turing machine to read and write letters in addition to digits?
-   Can this help solve the problem in the Exercise 1?
-3. The add 1 program is really repetitive. Try to think of a way to change the
-   program and input we give the machine so that we don't end up with 9
-   versions of basically the same instruction.
-</aside>
+<div class="alert alert-info">
+<ol><li>
+Create a list of Turing machine instructions (i.e. a program) for
+subtracting one from a number.  Test your program using 4 as input and again
+using 100.  Now try subtracting 1 from 0. What will happen? Think about
+different ways you might avoid this problem.
+</li><li>
+The Turing machine I described uses digits and numbers for the tape and
+state register but these were actually an arbitrary choice. What if we
+upgrade our Turing machine to read and write letters in addition to digits?
+Can this help solve the problem in the Exercise 1?
+</li><li>
+The add 1 program is really repetitive. Try to think of a way to change the
+program and input we give the machine so that we don't end up with 9
+versions of basically the same instruction.
+</li></ol>
+</div>

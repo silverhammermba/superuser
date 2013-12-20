@@ -1,13 +1,16 @@
 ---
 layout: chapter
-title: "Beginning the Journey"
+title: "Introduction"
 ---
 
-Congratulations! By starting to read this guide you have already set yourself
-apart from so many simpletons out there. A healthy thirst for knowledge and the
-willingness to read long, boring documents to acquire said knowledge is an
-important trait of any superuser. I'll do my best to minimize the boringness so
-long as you keep up the knowledge thirstiness.
+This is a book to set you on course to becoming an accomplished computer user
+or - as I like to call it - a superuser.
+
+First of all: congratulations! By starting to read this guide you have already
+set yourself apart from so many simpletons out there. A healthy thirst for
+knowledge and the willingness to read long, boring documents to acquire said
+knowledge is an important trait of any superuser. I'll do my best to minimize
+the boringness so long as you keep up the knowledge thirstiness.
 
 ## How to Read This Book ##
 
@@ -23,36 +26,35 @@ This guide is broken into four parts.
 
 These parts build upon each other and are written to be read in order but if
 you have a particular interest you can easily skip forward to a specific
-chapter using the table of contents.
+chapter using the list of chapters at the top.
 
 ## Notation ##
 
 Occasionally you'll see little highlighted blurbs like these.
 
-<aside class="definition">
-Defintions highlight terms that are important to understand. Pay close
-attention! All definitions from the chapters (and a few more) are listed in the [glossary]({{ site.baseurl }}/extras/glossary.html).
-</aside>
+<div class="alert alert-warning">
+<strong>Definitions</strong> highlight terms that are important to understand. Pay close
+attention! All definitions from the chapters (and a few more) are listed in the
+<a href="{{ site.baseurl }}/extras/glossary.html" class="alert-link">glossary</a>.
+</div>
 
-<aside class="note">
+<div class="alert alert-danger">
 Notes are little reminders. They might remind you of older material that is
 being used again or they'll try to clear up a frequent point of confusion.
-</aside>
+</div>
 
-<aside class="deeper">
-Sometimes I think of something related to the current chapter that isn't
-essential for your understanding but is just too cool for me to not mention.
-This is how such information will show up. Don't feel bad about skipping over
-these if they go over your head.
-</aside>
+<div class="alert alert-success">
+"Thinking deeper" blurbs set aside optional material. Sometimes I think of
+something related to the current chapter that isn't essential for your
+understanding but is just too cool for me to not mention. Don't feel bad about
+skipping over these if they go over your head.
+</div>
 
-<aside class="exercises">
+<div class="alert alert-info">
 Most chapters have a few exercises at the end to help you grasp concepts from
 the chapter. They're not graded, but you should still consider them. And yes
-there are selected answers in the back.
-
-TODO add link
-</aside>
+there are selected answers <a class="alert-link" href="{{ site.baseurl }}/extras/answers.html">in the back</a>.
+</div>
 
 So anyway...
 

@@ -52,10 +52,10 @@ You see? By grouping bytes in different ways and agreeing on the meanings of
 different bytes, we can store a variety of information just using numbers. These
 agreements have a technical term:
 
-<aside class="definition">
-A **format** groups bytes together and assigns specific meanings to certain
+<div class="alert alert-warning">
+A <strong>format</strong> groups bytes together and assigns specific meanings to certain
 bytes and byte values.
-</aside>
+</div>
 
 ## Size Matters ##
 
@@ -100,9 +100,9 @@ using a computer?
 The truth, surprisingly, is that we _can't_ - because computers deal exclusively
 with discrete data.
 
-<aside class="definition">
-**Discrete** data can be counted.
-</aside>
+<div class="alert alert-warning">
+<strong>Discrete</strong> data can be counted.
+</div>
 
 For example, take the number of students in a class. It doesn't make sense to
 have only part of a student in a class, you can only change the number of
@@ -110,9 +110,9 @@ students by whole numbers. Letters are similarly discrete, since a letter must
 be one of the letters of the alphabet; a letter cannot be somewhere between A
 and B. In contrast, lots of things we perceive in real life are continuous.
 
-<aside class="definition">
-**Continuous** data can only be measured.
-</aside>
+<div class="alert alert-warning">
+<strong>Continuous</strong> data can only be measured.
+</div>
 
 For example, your height is continuous since you can't suddenly switch from
 being one height to another. The light that we see and the sound waves we hear
@@ -126,13 +126,13 @@ more precise tool on continuous data, your answer can change.
 As you might expect, these limitations on data translate over to the types of
 information we can store with data.
 
-<aside class="definition">
-Discrete data can only produce **digital** information.
-</aside>
+<div class="alert alert-warning">
+Discrete data can only produce <strong>digital</strong> information.
+</div>
 
-<aside class="definition">
-Only continuous data can produce **analog** information.
-</aside>
+<div class="alert alert-warning">
+Only continuous data can produce <strong>analog</strong> information.
+</div>
 
 This surprising distinction is often misunderstood by those unfamiliar with
 computers. The distinction implies that if we want to store any continuous data
@@ -158,19 +158,22 @@ Like fitting a square peg into a round hole, the process is by definition
 imperfect.  A huge amount of effort is expended by computer scientists and
 engineers to improve our digital approximations of continuous data.
 
-<aside class="exercises">
-
-1. So far, all of the calculations we've toyed around with have used positive
-   integers. Those are easy because it's rather obvious how to represent a
-   positive integer using bits and bytes. Come up with a format for storing
-   negative integers as well as positive ones. Then try to make a format for
-   storing numbers with a decimal point e.g. 3.14 or -1.0007.
-2. Come up with three examples of digital information and three examples of
-   analog information.
-3. Computer images are usually displayed using additive color. That means that
-   each color is represented as a mixture of the three primary additive colors:
-   red, green, and blue. Create a format for storing a color in a computer
-   using the additive model. What choices do you get to make when designing this
-   format? Do any of your choices impose limitations on the colors stored using
-   your format? Can you get around these limitations?
-</aside>
+<div class="alert alert-info">
+<ol><li>
+So far, all of the calculations we've toyed around with have used positive
+integers. Those are easy because it's rather obvious how to represent a
+positive integer using bits and bytes. Come up with a format for storing
+negative integers as well as positive ones. Then try to make a format for
+storing numbers with a decimal point e.g. 3.14 or -1.0007.
+</li><li>
+Come up with three examples of digital information and three examples of
+analog information.
+</li><li>
+Computer images are usually displayed using additive color. That means that
+each color is represented as a mixture of the three primary additive colors:
+red, green, and blue. Create a format for storing a color in a computer
+using the additive model. What choices do you get to make when designing this
+format? Do any of your choices impose limitations on the colors stored using
+your format? Can you get around these limitations?
+</li></ol>
+</div>
