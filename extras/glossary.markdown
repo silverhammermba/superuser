@@ -3,55 +3,45 @@ layout: chapter
 title: Glossary
 ---
 
-<aside class="definition">
-**Algorithm**: a well-defined, step-by-step process.
-</aside>
+<dl>
+<dt>Algorithm</dt>
+<dd>A well-defined, step-by-step process.</dd>
 
-<aside class="definition">
-**Bit**: a binary digit.
-</aside>
+<dt>Bit</dt>
+<dd>A binary digit.</dd>
 
-<aside class="definition">
-**Byte**: eight bits.
-</aside>
+<dt>Byte</dt>
+<dd>Eight bits.</dd>
 
-<aside class="definition">
-**Computation**: a function that can be evaluated using an algorithm.
-</aside>
+<dt>Computation</dt>
+<dd>A function that can be evaluated using an algorithm.</dd>
 
-<aside class="definition">
-**Evaluating a function**: determining the output of a function given an input.
-</aside>
+<dt>Evaluating a function</dt>
+<dd>Determining the output of a function given an input.</dd>
 
-<aside class="definition">
-**Format**: a description of how bytes are grouped together and what certain
-bytes or byte values mean.
-</aside>
+<dt>Format</dt>
+<dd>A description of how bytes are grouped together and what certain
+bytes or byte values mean.</dd>
 
-<aside class="definition">
-**Function**: a relation between input and output, where each input has at most
-one output.
-</aside>
+<dt>Function</dt>
+<dd>A relation between input and output, where each input has at most
+one output.</dd>
 
-<aside class="definition">
-**Nibble**: four bits. Half of a byte.
-</aside>
+<dt>Nibble</dt>
+<dd>Four bits.</dd>
+<dd>Half of a byte.</dd>
 
-<aside class="definition">
-**Program**: an algorithm that is read and performed by a computer.
-</aside>
+<dt>Program</dt>
+<dd>An algorithm that is read and performed by a computer.</dd>
 
-<aside class="definition">
-**Programming**: the process of inputting a program into a computer for it to
-read.
-</aside>
+<dt>Programming</dt>
+<dd>The process of inputting a program into a computer for it to read.</dd>
 
-<aside class="definition">
-**Turing complete**: the ability for a machine to simulate a Turing machine
-(and thus perform any calculation). A machine is a computer if and only if it
-is Turing complete.
-</aside>
+<dt>Turing complete</dt>
+<dd>The ability for a machine to simulate a Turing machine (and thus perform
+any calculation). A machine is a computer if and only if it is Turing
+complete.</dd>
 
-<aside class="definition">
-**Turing machine**: a simple, theoretical computer.
-</aside>
+<dt>Turing machine</dt>
+<dd>A simple, theoretical computer.</dd>
+</dl>
