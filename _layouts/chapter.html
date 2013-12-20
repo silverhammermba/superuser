@@ -3,22 +3,25 @@ layout: default
 ---
 
 <article>
+	<ul class="pager">
 	{% if page.previous.url %}
-	<header>
-		<nav>
-			<a href="{{ site.baseurl }}{{ page.previous.url }}">Previously: {{ page.previous.title }}</a>
-		</nav>
-	</header>
+		<li><a href="{{ site.baseurl }}{{ page.previous.url }}">&larr; {{ page.previous.title }}</a></li>
 	{% endif %}
+	{% if page.next.url %}
+		<li><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} &rarr;</a></li>
+	{% endif %}
+	</ul>
+
 	<h1>{{ page.title }}</h1>
 
 	{{ content }}
 
-	{% if page.next.url %}
-	<footer>
-		<nav>
-			<a href="{{ site.baseurl }}{{ page.next.url }}">Next Chapter: {{ page.next.title }}</a>
-		</nav>
-	</footer>
+	<ul class="pager">
+	{% if page.previous.url %}
+		<li><a href="{{ site.baseurl }}{{ page.previous.url }}">&larr; {{ page.previous.title }}</a></li>
 	{% endif %}
+	{% if page.next.url %}
+		<li><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} &rarr;</a></li>
+	{% endif %}
+	</ul>
 </article>
