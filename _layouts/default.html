@@ -11,25 +11,35 @@
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
-		<header>
-			<h1><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-			<a class="extra" href="{{ site.baseurl }}/">home</a>
-		</header>
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-items">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
+			</div>
 
-		<section id="main">
-			<aside id="toc">
-				<h1>Table of Contents</h1>
-				<nav>
-					<ul>
-					{% for post in site.posts reversed %}
-						<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-					{% endfor %}
-					</ul>
-				</nav>
-			</aside>
+			<div class="collapse navbar-collapse" id="navbar-items">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chapters <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							{% for post in site.posts reversed %}
+								<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+					<li><a href="{{ site.baseurl }}/extras/glossary.html">Glossary</a></li>
+					<li><a href="#">Exercise Answers</a></li>
+				</ul>
+			</div>
+		</nav>
 
+		<section id="main" class="container">
 			{{ content }}
-
 		</section>
 
 		<footer>
