@@ -11,7 +11,7 @@
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-static-top">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-items">
 					<span class="sr-only">Toggle navigation</span>
@@ -26,9 +26,13 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chapters <b class="caret"></b></a>
-						<ul class="dropdown-menu">
+						<ul id="toc" class="dropdown-menu">
 							{% for post in site.posts reversed %}
-								<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+								{% if page.url == post.url %}
+							<li class="active"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+								{% else %}
+							<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+								{% endif %}
 							{% endfor %}
 						</ul>
 					</li>
