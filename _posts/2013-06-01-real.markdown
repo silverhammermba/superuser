@@ -262,18 +262,18 @@ Monitors can vary in many ways:
 
 ### Graphics Processing Unit ###
 
-Often called the "graphics card" or "GPU", this component is specifically
-designed to provide image data to the monitor. You might find it odd that such a
-specific component exists, but consider the example of typing an e-mail on the
-computer. We expect to be able to press a key on the keyboard and for the letter
-to instantly appear on the monitor. Humans are perceptive enough that if it
-takes more than a few hundredths of a second for the letter to appear after
-pressing the key, we notice the delay - and this can make the computer very
-frustrating to use. Consequently, your computer is constantly racing to quickly
-display images on the monitor before you notice - in addition to all of the work
-it's doing to run your other programs. For demanding tasks like simulating
-three-dimensional scenes or displaying high-detail videos, the CPU can have a
-hard time keeping up with the workload.
+Often called the "graphics card", "video card", or "GPU", this component is
+specifically designed to provide image data to the monitor. You might find it
+odd that such a specific component exists, but consider the example of typing
+an e-mail on the computer. We expect to be able to press a key on the keyboard
+and for the letter to instantly appear on the monitor. Humans are perceptive
+enough that if it takes more than a few hundredths of a second for the letter
+to appear after pressing the key, we notice the delay - and this can make the
+computer very frustrating to use. Consequently, your computer is constantly
+racing to quickly display images on the monitor before you notice - in addition
+to all of the work it's doing to run your other programs. For demanding tasks
+like simulating three-dimensional scenes or displaying high-detail videos, the
+CPU can have a hard time keeping up with the workload.
 
 The GPU makes life easier for the CPU by taking over all image-related
 processing. It's basically a separate computer inside your computer, with its
@@ -343,10 +343,10 @@ there are other components concerned more with the practical matters of
 computers.
 
 The components of a computer all communicate with each other using electrical
-signals, so naturally there must be a power supply for these components. Usually
-the power supply directly supplies power to the hard drive and the motherboard,
-and the motherboard then parcels out power to all the other components
-connected to it.
+signals, so naturally there must be a power supply for these components.
+Usually the power supply directly supplies power to the hard drive, GPU, and
+motherboard, and the motherboard then parcels out power to all the other
+components connected to it.
 
 Like all electrical devices, computer components generate heat as a byproduct of
 their operation. Particularly power-hungry components like the CPU and GPU
