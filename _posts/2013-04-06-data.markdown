@@ -86,16 +86,16 @@ It is confusing. And it gets worse. Recall how the formatting of the data in the
 previous section reduced the number of bytes we could use to store information.
 Even though we had eight bytes, we could only use six after the formatting was
 done. Similarly, a computer component might be advertised as being able to store
-a terabyte of information, but due to formatting several gigabytes can't be used
-to store anything. Tricky!
+a terabyte of data, but due to formatting several gigabytes can't be used to
+store anything. Tricky!
 
 ## Limitations ##
 
 We've taken a look now at how computers compute and how they store information,
-but so far it has all been... well, integers and counting. But aren't there
-other kinds of math? Aren't there are other kinds of information? What about
-&pi;? What about music and paintings? How can we represent such information
-using a computer?
+but so far every example has boiled down to integers and counting. But aren't
+there other kinds of math? Aren't there are other kinds of information? What
+about numbers like &pi;? What about information like music and paintings? How
+can we represent such things using a computer?
 
 The truth, surprisingly, is that we _can't_ - because computers deal exclusively
 with discrete data.
@@ -118,13 +118,22 @@ For example, your height is continuous since you can't suddenly switch from
 being one height to another. The light that we see and the sound waves we hear
 are also continuous since they can transition smoothly from one state to
 another. A good test for something being discrete versus continuous is whether
-the precision of our measurement matters. While you can count the number of
-students in a class and be 100% sure of your answer, your height depends on what
-tool you use to measure it and how precisely you record the value. If you use a
-more precise tool on continuous data, your answer can change.
+the precision of the measurement matters. While you can count the number of
+students in a class and be 100% sure of your answer, your height depends on
+what tool you use to measure it and how precisely you record the value. If you
+use a more precise tool on continuous data, your answer can change.
 
 As you might expect, these limitations on data translate over to the types of
 information we can store with data.
+
+<div class="alert alert-success">
+<p>The words "data" and "information" are used almost interchangably these
+days, but there's a subtle difference between them. To put it simply,
+information has meaning whereas data are just cold, hard facts.</p>
+
+<p>In a computer, the bits and bytes are data. The interpretations of those
+data create information.</p>
+</div>
 
 <div class="alert alert-warning">
 Discrete data can only produce <strong>digital</strong> information.
