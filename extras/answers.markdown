@@ -59,5 +59,41 @@ title: Selected Exercise Answers
    are for converting between base 3 and base 9 or base 6 and base 36, etc.
 
 ## Formatting ##
-## The Ultimate Computer ##
+
+1. The simplest format for storing negative numbers is to devote the first bit
+   to storing the sign of the number (e.g. 0 for positive, 1 for negative). How
+   would you use this format? What sort of algorithm would you need to make in
+   order to perform arithmetic with positive a negative numbers?
+
+   <div class="alert alert-success">
+   Actual computers use a much more clever format called "two's complement". This
+   format takes advantage of modular arithmetic to represent negative numbers in a
+   way so that you can add, subtract, and multiply them using the <em>same</em>
+   algorithm you use for positive numbers!
+   </div>
+
+   One format for storing decimal numbers would be to use two bytes X and Y.
+   Then each number is defined as X &times; 10<sup>Y</sup>. That way X and Y can
+   be normal integers, but by making Y negative we can represent small numbers
+   e.g. X = 205, Y = -1, 205 &times; 10<sup>-1</sup> = 2.05.
+
+2. The amount of money you have is digital information. Temperature is analog
+   information. Other examples you should figure out on your own.
+
+3. The color format often used by computers has three bytes representing red,
+   blue, and green respectively. Each byte is an integer where 0 means the
+   absence of that component, and 255 means that part of light is strongest. In
+   this format (in hexadecimal), 000000 is black, <span style="color: #5A0000">5A0000</span>
+   is dark red, <span style="color: #f0f">FF00FF</span> is bright purple, and
+   <span style="color: #fff; text-shadow: 1px 1px 1px black">FFFFFF</span> is white.
+
+   Since this format uses three bytes, it can represent only about 16.7 million
+   distinct colors. You can use more or fewer bits per color component if you
+   want to represent more or fewer colors.
+
+   Color is analog information, which means that we can never create a color
+   format that represents all colors.
+
 ## Hardware ##
+
+Not provided.
