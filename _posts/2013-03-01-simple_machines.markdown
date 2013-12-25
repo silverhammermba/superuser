@@ -91,9 +91,9 @@ input and output, dividing them by 100 and then only showing you the remainder?<
 see that this always works:</p>
 <p>100 + 1 = 101; 101 &divide; 100 = 1 with remainder 1</p>
 <p>101 + 1 = 102; 102 &divide; 100 = 1 with remainder 2</p>
-<p>And so on. This trick is called "modular arithmetic". It works just like
-normal arithmetic except that numbers always stay smaller than the "modulus"
-(which is 100, in this case).
+<p>And so on. This trick is called "modular arithmetic". You can add, subtract,
+and multiply just like in normal arithmetic except that numbers always stay
+smaller than the "modulus" (which is 100, in this case).
 </div>
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
