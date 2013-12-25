@@ -1,4 +1,6 @@
 name: From Simpleton to Superuser
-markdown: redcarpet
 pygments: true
 baseurl: /superuser
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]

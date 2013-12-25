@@ -4,7 +4,7 @@ title: "Introduction"
 ---
 
 This is a book to set you on course to becoming an accomplished computer user
-or - as I like to call it - a superuser.
+or -- as I like to call it -- a superuser.
 
 First of all: congratulations! By starting to read this guide you have already
 set yourself apart from so many simpletons out there. A healthy thirst for
