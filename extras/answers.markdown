@@ -63,7 +63,7 @@ title: Selected Exercise Answers
 1. The simplest format for storing negative numbers is to devote the first bit
    to storing the sign of the number (e.g. 0 for positive, 1 for negative). How
    would you use this format? What sort of algorithm would you need to make in
-   order to perform arithmetic with positive a negative numbers?
+   order to perform arithmetic with positive and negative numbers?
 
    <div class="alert alert-success">
    Actual computers use a much more clever format called "two's complement". This
