@@ -64,8 +64,8 @@ variety of instructions that they understand. This makes the design of the CPU
 more complicated, but makes program design much simpler. The type of
 instructions understood by the CPU vary by model and manufacturer. This means
 that each program needs to be designed for a certain instruction set - and only
-CPUs who know those instructions will be able to run those programs. This is one
-of the big difficulties of program design.
+CPUs that know those instructions will be able to run those programs. This is
+one of the big difficulties of program design.
 
 CPUs are measured primarily in three ways: speed, parallelism, and memory. Speed
 is by far the most valued quality. CPUs read instructions following a very rigid
@@ -231,7 +231,7 @@ can have.
 
 The components mentioned so far are what I would call the "essential" components
 of a computer. You will find them in almost every computer. However there are a
-number of additional components that many modern computers to have.
+number of additional components that we expect many modern computers to have.
 
 ### Monitor ###
 
@@ -357,6 +357,10 @@ fans to keep cool air circulating among all of the components.
 Computers also have a variety of cases to which the parts attach and are
 enclosed by. Because of the traditional monolith-like case designs, computer
 cases are often called "towers".
+
+Lastly, remember that computer components come in all shapes and sizes. Your
+desktop computer, laptop, phone, tablet, video game console, and music player
+may all look and behave very differently but they are all computers at heart.
 
 <div class="alert alert-info">
 <ol><li>
