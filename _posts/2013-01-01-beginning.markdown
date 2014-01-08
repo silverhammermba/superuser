@@ -1,6 +1,6 @@
 ---
 layout: chapter
-title: "Introduction"
+title: Introduction
 ---
 
 This is a book to set you on course to becoming an accomplished computer user

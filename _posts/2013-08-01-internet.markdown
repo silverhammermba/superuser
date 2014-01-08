@@ -1,0 +1,60 @@
+---
+layout: chapter
+title: 'Part 2: The Internet'
+---
+
+Almost everyone uses the Internet these days: at home, at work, and even on the
+go with their cell phones. Consequently, most people have a vague idea of what
+the Internet is. But I think that many people would be surprised at how far from
+reality their vague ideas are.
+
+For that reason, we are going to take a similar approach as we did for Part 1
+and start by digging down deep to understand the fundamentals before building up
+to a complete picture. Let's do it!
+
+You probably are aware that the Internet lets your computer communicate with
+other computers around the world. Let's forget about that complicated "around
+the world" part and focus just on "computers communicating".
+
+## Protocols ##
+
+We will first consider the simplest possible example of inter-computer
+communication: two computers connected with a cable. Each computer can send data
+across the cable using electrical signals and each computer can interpret
+electrical signals from the cable to get the data out again. Don't worry about
+the technical details here, all this means is that each computer can send bytes
+to the other one.
+
+But now we're facing a problem similar to one we've faced before. If one
+computer recieves a bunch of bytes from the other, how does it know what those
+bytes mean? This is just like the issue we faced when we were learning about
+data: bytes can mean very different things depending on how they are
+interpreted. The solution there was to agree on different formats for different
+data, but this can prove problematic for inter-computer communication.
+
+The current list of digital data formats is **huge** and new formats are being
+invented all the time! It is quite common for one computer to understand a
+different set of formats than another one. If we simply sent formatted data
+across a wire to another computer that doesn't know the format, it would have no
+idea how to read the data it receives. At the very least it wouldn't know which
+bytes say how many bytes were sent and so wouldn't know which bytes are supposed
+to be grouped together!
+
+Another problem that occurs with inter-computer communication is unreliable
+connections. For _intra_-computer communication - like transferring data from the
+hard drive to the RAM - we usually assume that the connection is perfect and the
+data will get to its destination intact. On the other hand, when data is being
+transmitted to other computers via cables or wireless signals, problems often
+occur. Cables can break and signals can get garbled. Even if the receiving
+computer understands the data format, it needs to know when a problem is
+occuring with the connection so that at the very least it knows that the data it
+gets might not be correct. Ideally when a problem occurs we would like to be
+able to try again until the data makes it across successfully.
+
+To solve this problem, we agree on certain rules for computer communications.
+This agreement has a special term:
+
+<div class="alert alert-warning">
+A <strong>protocol</strong> defines the rules for exchanging messages between
+computers, including the data formats that will be used.
+</div>
