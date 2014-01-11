@@ -6,7 +6,13 @@ title: Introduction
 This is a book to set you on course to becoming an accomplished computer user
 or -- as I like to call it -- a superuser.
 
-First of all: congratulations! By starting to read this guide you have already
+First a disclaimer: this is not a complete idiot's guide nor is it written for
+dummies. Computers are tricky things, and you will need some cleverness to get
+through this. However you should not need any special knowledge or prerequisites
+to understand this book. I will try my best to explain all concepts and
+terminology before using them.
+
+Still reading? Congratulations! By starting to read this guide you have already
 set yourself apart from so many simpletons out there. A healthy thirst for
 knowledge and the willingness to read long, boring documents to acquire said
 knowledge is an important trait of any superuser. I'll do my best to minimize
@@ -14,15 +20,17 @@ the boringness so long as you keep up the knowledge thirstiness.
 
 ## How to Read This Book ##
 
-This guide is broken into four parts.
+This guide is broken into four parts and is not yet complete.
 
 1. Computers: learn about the fundamentals of computation and how modern
    computers work.
-2. The Internet: learn about how computers communicate with each other and the
-   mechanisms that make the Internet tick.
-3. Computers in Depth: learn how to assemble a computer from scratch, how to
-   install and customize an operating system, and create your own software.
-4. The Internet in Depth: learn about network security and web applications.
+2. The Internet (not complete): learn about how computers communicate with each
+   other, the basics of computer security, and the mechanisms that make the
+   Internet tick.
+3. Computers in Depth (planned): learn how to install and customize an
+   operating system, and create your own software.
+4. The Internet in Depth (planned): learn about the internals of web
+   applications
 
 These parts build upon each other and are written to be read in order but if
 you have a particular interest you can easily skip forward to a specific
@@ -83,12 +91,12 @@ their operation. When you understand your computer, you are better able to
 operate it as the superuser without causing harm.
 
 There are many skills that I consider essential to being a superuser. I will
-mention them throughout this guide as they become relevant, or you can look at
-the full list on the side. Let's get a few to start:
+mention them throughout this guide as they become relevant but here are a few to
+start:
 
-* A superuser is always thirsty for knowledge (I got excited and mentioned this
-  earlier). Every tidbit of computer knowledge is of interest to a superuser -
-  though some tidbits are of more interest than others.
+* A superuser is always thirsty for knowledge. Every tidbit of computer
+  knowledge is of interest to a superuser - though some tidbits are of more
+  interest than others.
 
 * RTFM (three of the letters stand for Read The Manual). It is often tempting to
   seek out an expert to answer your computer questions, but it is essential that
@@ -118,5 +126,5 @@ are there to being a true superuser?
   at hand, your possessions precisely arranged for ease of access, pleasing
   decor, comfort, familiarity, etc.
 
-By now you are hopefully excited. If not, consider taking an invigorating walk
-or something. We begin with Part 1.
+By now you are hopefully excited. If not, consider taking an invigorating walk.
+We begin with Part 1.
