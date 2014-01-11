@@ -1,0 +1,19 @@
+---
+layout: chapter
+title: End of Part 1
+---
+
+Congratulations are in order! You've finished part 1, which means you have a
+general knowledge of the workings of real computers and a better grasp of
+theoretical computation than most self-styled computer geeks! You might be a
+little frustrated by the lack of hands-on material in part 1, but trust me that
+this sort of foundational knowledge is essential to your understanding when we
+get to later material.
+
+Next up, we're going to learn about the fundamentals of inter-computer
+communication. You should be excited because after part 2, you're never going to
+look at the internet the same way again.
+
+That being said, part 2 (like part 1) is also mostly conceptual. If you
+absolutely can't wait to get your hands dirty, you could skip ahead to part 3
+where we'll revisit computers and I'll put you to work.
