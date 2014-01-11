@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: Simple Machines
+category: part1
 ---
 
 Now we know what a computation is, but how is that related to the computers we

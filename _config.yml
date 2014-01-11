@@ -2,5 +2,6 @@ name: From Simpleton to Superuser
 pygments: true
 baseurl: /superuser
 markdown: rdiscount
+permalink: /:categories/:title/
 rdiscount:
   extensions: [smart]

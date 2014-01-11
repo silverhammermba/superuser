@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: End of Part 1
+category: part1
 ---
 
 Congratulations are in order! You've finished part 1, which means you have a

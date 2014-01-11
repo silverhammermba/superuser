@@ -1,0 +1,7 @@
+---
+layout: chapter
+title: 'Part 3: Computers In Depth'
+category: part3
+---
+
+I haven't written this part yet!

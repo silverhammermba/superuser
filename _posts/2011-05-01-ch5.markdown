@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: The Ultimate Computer
+category: part1
 ---
 
 ## Disclaimer ##

@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: Hardware
+category: part1
 ---
 
 By now you should have a decent grasp of the theory behind computation and what

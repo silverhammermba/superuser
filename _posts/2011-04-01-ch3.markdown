@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: Bases
+category: part1
 ---
 
 You have now constructed (in your mind) a true, modern computer! Given enough

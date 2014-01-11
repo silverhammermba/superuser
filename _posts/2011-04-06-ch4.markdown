@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: Formatting
+category: part1
 ---
 
 Last chapter we learned how computers do everything in binary... but that's just

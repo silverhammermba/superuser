@@ -1,6 +1,7 @@
 ---
 layout: chapter
 title: 'Part 2: The Internet'
+category: part2
 ---
 
 Almost everyone uses the Internet these days: at home, at work, and even on the
