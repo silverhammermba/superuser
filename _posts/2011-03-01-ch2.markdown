@@ -66,7 +66,7 @@ diagram shows a crude example of this, but if you want to see how this is done
 for real check out this [video][yt]). Now when we give an input of 09, turning
 the handle changes the 9 to 0, which advances the 0 to 1 and we get 10!
 Success!  If we keep turning, the second wheel remains at 1 (giving us 11, 12,
-13, ...) until we get to 19 and it once again advances us to 20.
+13, ...) until we get to 19 and it once again advances to 20.
 
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
 

@@ -28,7 +28,7 @@ First let's think about how we count normally. We use single digits up to 9, but
 then for ten we don't have a single digit. So instead the 9 becomes a 0 and we
 put a 1 to its left. Then we can continue counting normally until we get to 19
 and once again the 9 becomes a 0 and the digit to the left changes. It's just
-like how our adding machine worked. So now imagine that we *don't* have the
+like how our adding machine worked. So now imagine that we _don't_ have all the
 digits 0 through 9. What if we only have 0 through 4? Let's count:
 
     0, 1, 2, 3, 4, ...
