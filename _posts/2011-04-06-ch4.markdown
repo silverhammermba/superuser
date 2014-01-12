@@ -7,7 +7,7 @@ category: part1
 Last chapter we learned how computers do everything in binary... but that's just
 a bunch of numbers. It seems like a far cry from the complex information we
 store in computers these days. How does something like a game, or a song, or a
-slideshow get turned into a bunch of numbers? This is a big topic that we'll
+slide show get turned into a bunch of numbers? This is a big topic that we'll
 discuss later on, but the basic idea is not too difficult.
 
 Let's start with eight bytes. Remember, computers work with bytes rather than
@@ -129,7 +129,7 @@ As you might expect, these limitations on data translate over to the types of
 information we can store with data.
 
 <div class="alert alert-success">
-<p>The words "data" and "information" are used almost interchangably these
+<p>The words "data" and "information" are used almost interchangeably these
 days, but there's a subtle difference between them. To put it simply,
 information has meaning whereas data are just cold, hard facts.</p>
 

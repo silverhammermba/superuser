@@ -34,8 +34,8 @@ effort.
 The next big breakthrough in computation came with computing machines. This was
 a crucial stepping stone to modern computers, so we're going to relive it right
 now by inventing a machine that can add two numbers with much less chance of
-human fallibity mucking it up. We're going to work our way up to this machine by
-making much simpler machines first.
+human fallibility mucking it up. We're going to work our way up to this machine
+by making much simpler machines first.
 
 ![Add 1 Machine]({{ site.baseurl }}/img/add1.png)
 
@@ -80,7 +80,7 @@ at the moment to handle the input we have. You might be surprised to know that -
 as simple as our little machine is - it shares this problem with every modern
 computer. It's such a common problem that computer scientists even have a
 special term for it: "overflow". As is common in computer science, from now on
-we'll just assume that we have lots and lots of wheels - not inifinitely many,
+we'll just assume that we have lots and lots of wheels - not infinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
 <div class="alert alert-success">
@@ -105,9 +105,9 @@ subtract 1 from a number" machine! By turning the handle in the opposite
 direction, it counts in the opposite direction from what it did before. As you
 might expect, this machine now has an "underflow" problem: if we subtract 1 from
 0, the rightmost 0 turns to a 9, which turns the wheel to its left from 0 to 9,
-which turns the wheel to its left from 0 to 9, which... ends up with 9999...9
-(the largest number we can have with the wheels in our machine). Again, this
-problem is unavoidable.
+which turns the wheel to its left from 0 to 9, until every wheel is set to 9
+(giving the largest number the machine can display). Again, this problem is
+unavoidable.
 
 We are now ready to construct our number adding machine. To construct it, we
 take *two* of our add/subtract 1 machines and connect them such that the two
@@ -115,9 +115,9 @@ wheels with handles turn each other in opposite directions. Now when we add 1
 on one machine, it subtracts 1 on the other machine and vice versa. Operating
 this machine is quite simple:
 
-1. manually turn the wheels of each machine to display the two input numbers
-2. turn the handle until one of the machines is all zeroes
-3. the other machine now shows the sum
+1. Manually turn the wheels of each machine to display the two input numbers
+2. Turn the handle until one of the machines is all zeroes
+3. The other machine now shows the sum
 
 This machine solves a lot of the problems with human computation. Short of
 inputting the numbers incorrectly or misreading the output, it's virtually
@@ -130,7 +130,7 @@ limit is, so we know which numbers it isn't able to handle.
 
 We do have some new problems though. Building a physical machine out of gears
 and levers is no simple task, especially since a high degree of precision is
-required for good operation. With use this machine would slowly deteriote and
+required for good operation. With use this machine would slowly deteriorate and
 need to be serviced and supplied with replacement parts. Also while humans can
 be taught and trained to perform any kind of computation, this machine had to be
 specially designed to perform our one, specific kind of computation. If you
@@ -139,7 +139,7 @@ exponents, you would need to design and manufacture a whole new machine from
 scratch. Ugh. Still, for a while these sorts of machines were quite widely used.
 The German [Enigma encryption machine][wp] used in World War II is a
 particularly famous machine of this class. The Enigma used electricity to power
-lightbulbs, but otherwise functioned similarly to our wheel-based adding
+light bulbs, but otherwise functioned similarly to our wheel-based adding
 machine.
 
 [wp]: http://en.wikipedia.org/wiki/Enigma_machine

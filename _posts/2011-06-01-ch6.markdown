@@ -88,7 +88,7 @@ no one says that. Ever.
 
 The second measure, parallelism, is just a count of how many cores a CPU has.
 Four core CPUs (AKA quad-core) are becoming quite common these days. Parallelism
-is a very appealling idea because you might think that it multiplies the speed
+is a very appealing idea because you might think that it multiplies the speed
 of a CPU: a CPU that performs four instructions at once will finish four times
 faster. But the reality is less exciting. It turns out to be very hard to create
 algorithms that still work when four instructions are processed at once, so many
@@ -114,8 +114,8 @@ makes it worth it.
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
 the registers and cache of the CPU, the RAM is massive - usually measured in
-gigabytes (remember, that's _billions_ of bytes). However, accesing information
-in the RAM is even slower than accesing the CPU cache. But again, the increase
+gigabytes (remember, that's _billions_ of bytes). However, accessing information
+in the RAM is even slower than accessing the CPU cache. But again, the increase
 in storage capacity makes it worth it. The RAM is where the programs are stored
 before the CPU performs them, and it also performs much of the duty of the
 Turing machine's state register, keeping track of the state of the programs
@@ -247,7 +247,7 @@ A <strong>pixel</strong> is a square with a solid color.
 If the pixels are small enough, our eyes lose sight of the grid and it
 becomes possible for monitors to display images that look smooth. If the monitor
 can change the color of the pixels quickly enough, a series of images can be
-displayed as an animation - much like a flipbook.
+displayed as an animation - much like a flip book.
 
 Monitors can vary in many ways:
 
@@ -313,17 +313,17 @@ This one isn't actually a component at all, it's a standard. But you're probably
 already familiar with it from its acronym: USB. In the dark ages of computers,
 there was very little standardization among computer components. There were more
 specialized cables and connectors and things were generally not very
-interchangable. With USB, several computer companies collaborated to create a
+interchangeable. With USB, several computer companies collaborated to create a
 computer connection that would be generic enough to work for a variety of
 purposes. These days every motherboard comes with at least a couple USB
-connectors and USB is used to connect keyboards, mice, webcams, printers,
+connectors and USB is used to connect keyboards, mice, web cams, printers,
 joysticks, hard drives, phones, cameras, and anything else that doesn't have
 demanding technical requirements.
 
 These components can be absolutely crucial for a computer (especially the mouse
 and keyboard) but there isn't a whole lot to say about them.
 
-### Periperhal Component Interconnect ###
+### Peripheral Component Interconnect ###
 
 While USB is the standard for connecting external components to your computer,
 the peripheral component interconnect or "PCI" connection is the generic
@@ -377,7 +377,7 @@ Motherboard
 </li><li>
 CPU
 </li><li>
-CPU heatsink (often included with CPU)
+CPU heat sink (often included with CPU)
 </li><li>
 RAM
 </li><li>

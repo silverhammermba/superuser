@@ -85,7 +85,7 @@ Technically speaking, it is quite trivial to become the superuser on your
 personal computer. Being able to handle the burden of being a superuser is
 another matter entirely! When I refer to "becoming a superuser" in this book,
 what I almost always mean is acquiring the knowledge and skills necessary to be
-a responsible, benevolt one. In order to be a good superuser, you need to have
+a responsible, benevolent one. In order to be a good superuser, you need to have
 a solid understanding of how computers work and the various systems involved in
 their operation. When you understand your computer, you are better able to
 operate it as the superuser without causing harm.

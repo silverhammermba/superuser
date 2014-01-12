@@ -27,7 +27,7 @@ the technical details here, all this means is that each computer can send bytes
 to the other one.
 
 But now we're facing a problem similar to one we've faced before. If one
-computer recieves a bunch of bytes from the other, how does it know what those
+computer receives a bunch of bytes from the other, how does it know what those
 bytes mean? This is just like the issue we faced when we were learning about
 data: bytes can mean very different things depending on how they are
 interpreted. The solution there was to agree on different formats for different
@@ -50,7 +50,7 @@ data will get to its destination intact. On the other hand, when data is being
 transmitted to other computers via cables or wireless signals, problems often
 occur. Cables can break and signals can get garbled. Even if the receiving
 computer understands the data format, it needs to know when a problem is
-occuring with the connection so that at the very least it knows that the data it
+occurring with the connection so that at the very least it knows that the data it
 gets might not be correct. Ideally when a problem occurs we would like to be
 able to try again until the data makes it across successfully.
 

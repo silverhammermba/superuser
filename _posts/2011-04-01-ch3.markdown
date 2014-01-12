@@ -245,12 +245,12 @@ You might want some graph paper for some of these exercises.
 Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
 that they line up with each other. Notice the patterns that emerge.
 </li><li>
-8 bits is called a byte so 4 bits is called a "nibble" (there's that
-computer scientist humor again). Look back at the chart showing how
-hexadimcal digits correspond to binary nibbles. Now count from 0 to 15 in
-binary, writing out all 4 bits of each nibble, just like in the chart. Trust
-me: do it. Do you notice any patterns? Do you see a trick for easily
-counting in binary without needing to add 1 and keep track of carrying?
+8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
+scientist humor again). Look back at the chart showing how hexadecimal digits
+correspond to binary nibbles. Now count from 0 to 15 in binary, writing out all
+4 bits of each nibble, just like in the chart. Trust me: do it. Do you notice
+any patterns? Do you see a trick for easily counting in binary without needing
+to add 1 and keep track of carrying?
 </li><li>
 Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
 binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a

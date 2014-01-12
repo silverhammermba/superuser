@@ -33,11 +33,11 @@ input + algorithm &rarr; Turing machine &rarr; answer
 
 Earlier I described computers as machines that compute computing machines. Now
 let's try to apply that principle once more to get one level of abstraction
-higher: a machine that computes computers, a sort of metacomputer. We'd want it
+higher: a machine that computes computers, a sort of meta-computer. We'd want it
 to be able to act like any kind of computer, just like a computer can act like
 any kind of computing machine - something like this:
 
-input + algorithm + computer &rarr; metacomputer &rarr; answer
+input + algorithm + computer &rarr; meta-computer &rarr; answer
 
 But here's the kicker. Recall how a Turing machine operates - how it's various
 components interact. Predicting what a Turing machine will do given certain
@@ -49,19 +49,19 @@ And what do you get when you combine a function with an algorithm? A
 **computable** function!
 
 Did you catch that? Turing machines _are computable functions_, which means they
-can be described with algorithms. That means we can rewrite our metacomputer
+can be described with algorithms. That means we can rewrite our meta-computer
 diagram. The "computer" that we were providing is really just another
 algorithm.
 
-input + algorithm + computer algorithm &rarr; metacomputer &rarr; answer
+input + algorithm + computer algorithm &rarr; meta-computer &rarr; answer
 
 There's another trick too: we can group the old input and algorithm together
 and call it our new input. "new input = input + algorithm" so the diagram now
 looks like this:
 
-new input + computer algorithm &rarr; metacomputer &rarr; answer
+new input + computer algorithm &rarr; meta-computer &rarr; answer
 
-But wait, why do we need a metacomputer for this stuff? It's the same old
+But wait, why do we need a meta-computer for this stuff? It's the same old
 "input + algorithm &rarr; computer &rarr; answer" as before, just rebranded.
 **Our fancy metacomputer is just a computer**. Did I just blow your mind?
 
@@ -71,7 +71,7 @@ This is one of the most powerful properties of computation: any computer can
 simulate any other computer. You can simulate the operation of a Turing machine
 _using a Turing machine_. And even better, by the law of mathematical
 induction you can repeat this process of abstraction arbitrarily many times.
-You can simulate a Turing macine inside a Turing machine being simulated by a
+You can simulate a Turing machine inside a Turing machine being simulated by a
 Turing machine and so on. The possibilities are literally endless.
 
 Modern computers take advantage of this endless abstraction to make computers
