@@ -29,7 +29,7 @@ to the other one.
 But now we're facing a problem similar to one we've faced before. If one
 computer receives a bunch of bytes from the other, how does it know what those
 bytes mean? This is just like the issue we faced when we were learning about
-data: bytes can mean very different things depending on how they are
+binary data: bytes can mean very different things depending on how they are
 interpreted. The solution there was to agree on different formats for different
 data, but this can prove problematic for inter-computer communication.
 
@@ -44,15 +44,15 @@ across a wire to another computer that doesn't know the format, it would have no
 idea how to read the data it receives.
 
 Another problem that occurs with inter-computer communication is unreliable
-connections. For _intra_-computer communication - like transferring data from the
-hard drive to the RAM - we usually assume that the connection is perfect and the
-data will get to its destination intact. On the other hand, when data is being
-transmitted to other computers via cables or wireless signals, problems often
-occur. Cables can break and signals can get garbled. Even if the receiving
+connections. For _intra_-computer communication - like transferring data from
+the hard drive to the RAM - we usually assume that the connection is perfect and
+the data will get to their destination intact. On the other hand, when data are
+being transmitted to other computers via cables or wireless signals, problems
+often occur. Cables can break and signals can get garbled. Even if the receiving
 computer understands the data format, it needs to know when a problem is
-occurring with the connection so that at the very least it knows that the data it
-gets might not be correct. Ideally when a problem occurs we would like to be
-able to try again until the data makes it across successfully.
+occurring with the connection so that at the very least it knows that the data
+it gets might not be correct. Ideally when a problem occurs we would like to be
+able to try again until the data make it across successfully.
 
 To solve this problem, we agree on certain rules for computer communications.
 This agreement has a special term:
@@ -61,3 +61,16 @@ This agreement has a special term:
 A <strong>protocol</strong> defines the rules for exchanging messages between
 computers, including the data formats that will be used.
 </div>
+
+To get a handle on protocols, we're going to build a protocol bit-by-bit. Our
+task will be to transmit a text message of some arbitrary length from one
+computer to another. Let's start with a very simple protocol
+
+1. Send the entire message at once using the following format:
+
+    * The first four bytes indicate the total number of bytes
+	* All remaining bytes are the message, with one byte for each letter. 00 is
+	  A, 01 is B, 02 is C, etc. (and 1A and up can be for punctuation, but the
+	  details aren't super important here)
+
+This certainly satisfies our basic goal.
