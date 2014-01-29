@@ -54,7 +54,7 @@ occurring with the connection so that at the very least it knows that the data
 it gets might not be correct. Ideally when a problem occurs we would like to be
 able to try again until the data make it across successfully.
 
-To solve this problem, we agree on certain rules for computer communications.
+To solve these problems, we agree on certain rules for computer communications.
 This agreement has a special term:
 
 <div class="alert alert-warning">
@@ -62,142 +62,218 @@ A <strong>protocol</strong> defines the rules for exchanging messages between
 computers, including the data formats that will be used.
 </div>
 
-To get a handle on protocols, we're going to build a protocol bit-by-bit. Our
-task will be to transmit a text message of some arbitrary length from one
-computer to another. Each step in the protocol will be preceded by a letter,
-indicating which computer must complete that step. Let's start with a very
-simple protocol
+To get a handle on protocols, we're going to build a protocol bit-by-bit. The
+purpose of the protocol will be to allow one computer to send another one some
+data while overcoming the various challenges of inter-computer communication:
 
-1. A: Every 5 seconds, send the entire message at once using the following
-   format:
-    * The first four bytes indicate the total number of bytes
-	* All remaining bytes are the message, with one byte for each letter. 00 is
-	  A, 01 is B, 02 is C, etc. (and 1A and up can be for punctuation, but the
-	  details aren't super important here)
-2. B: Upon receiving a message, respond with a single byte set to 01.
-3. A: Upon receiving a single 01 byte from B, stop sending the message.
+1. The receiving computer must understand what information is being sent
+2. The receiving computer must know when the information it received is
+   incomplete
+3. The receiving computer must know when the information it received is
+   incorrect
+4. It should be possible to send information even when the connection is
+   unreliable
 
-This protocol provides basic error protection. If the connection is interrupted
-and the message doesn't make it across, A will keep trying to send the message
-until it knows for sure that B got it. Usually in situations like this we
-additionally define some "give up" condition. The most common would be to give
-up after sending the message a certain number of times or after we've been
-sending the message repeatedly for a certain amount of time. We'll add that to
-the next iteration of the protocol.
+I don't want to get bogged down in technical details, so I will frequently
+switch to analogy during this section. Let's imagine the sending and receiving
+computers as two people: Alice and Bob, respectively. We can imagine the
+information as a copy of book that Alice wishes to send Bob.
 
-## Error Checking ##
+### Packaging ###
 
-One thing this protocol doesn't handle well is errors in transmission that still
-allow the message to be received. For example, if we are transmitting wirelessly
-atmospheric conditions can garble some of the data, causing B to receive an
-altered version of the message. We want to know when such problems occur and
-still resend the data. We can solve this by adding a checksum.
+In our analogy, Alice would probably give the book to the postal service to
+deliver to Bob. This leads to the following rephrasing of our first challenge:
+
+> How can Alice give the book to the postal service?
+
+If she simply puts the book in a mailbox, it will almost certainly be lost. She
+needs to provide information about who the book is for and where they live. But
+she can't simply write this information on the book; how would the postal
+service know where to look for it?
+
+The solution is to use a <strong>package</strong>. Let's consider how this
+solves the problem:
+
+* A package provides standard addressing. The postal service knows how to get
+  the information it needs
+* The package removes the need to know what exactly Alice is sending. If it is
+  possible to send Bob a package, then it is also possible to send Bob
+  <em>anything that fits in a package</em> - be it a book, photograph, CD, etc.
+
+The computer equivalent of package provides these same benefits.
 
 <div class="alert alert-warning">
-A <strong>checksum</strong> is a function (usually some kind of sum) that takes
-a set of data as input and produces a smaller datum as output. The output of
-such a function is often also called the <strong>checksum</strong>.
+A <strong>packet</strong> is a data format that wraps other data formats. It
+provides information such as the amount of data being sent and where it is being
+sent to. A protocol must specify what packet format is used to transmit data.
 </div>
 
-Now let's add a checksum to the message format for our protocol:
+Remember that with computers, Bob needs to know how to read any information that
+Alice sends him. By wrapping the data being sent in a single, standardized
+packet format, Alice can send Bob any kind of information at all using a single
+format. For example, a packet format might look like this:
 
-* The first four bytes indicate the total number of bytes, N
-* The next N - 5 bytes are the message, with one byte for each letter. 00 is
-  A, 01 is B, 02 is C, etc. 1A and above are used for punctuation.
-* The final byte is the checksum. It equals the sum of all other bytes, ignoring
-  overflow.
+* 4 bytes for the sender
+* 4 bytes for the intended recipient
+* 4 bytes indicating the length of the next section:
+* N bytes of data
 
-Now we can beef up the protocol.
+<div class="alert alert-danger">
+Don't worry about what exactly we mean by "sender" and "recipient" here. For now
+just think of them as return address and address, respectively. But they will
+come in to play later.
+</div>
 
-1. A: Every 5 seconds, send the entire message
-2. B: Upon receiving a message, compute the checksum (i.e. add up all bytes in
-   the message other than the last one). If it equals the last byte in the
-   message, respond with 01. Otherwise respond with 00.
-3. A: Upon receiving 01 from B, stop sending the message.
-4. A: Upon receiving 00 from B, immediately resend the message.
-5. A: After sending the message 30 times, give up.
+Then Alice and Bob would use this format for all information exchanged between
+them. If Alice wants to send Bob a picture, she first adds these 12 bytes in
+front of the image format. Then Bob can receive that information without knowing
+anything about the image format Alice used - he gets everything he needs from
+the first 12 bytes.
 
-Now B only responds if it calculates a matching checksum. This doesn't give us a
-_guarantee_ that the message is correct, but it's pretty close. Recall that a
-byte has 256 possible values. Only one of those values is the correct checksum.
-That means that if a message gets randomly scrambled in transit, there is only a
-1/256 (0.39%) chance that the checksum will still match. Those are pretty good
-odds.
+From now on, whenever we talk about sending data between computers, we will
+assume that the data are enclosed in a packet.
 
-Note that the error-checking of B's response is automatic. A knows that B can
-only respond with 00 or 01, so the chance of the response being garbled and
-still appearing valid is again only 1/256.
+### ACK ###
 
-B's error-checking also offers an improvement over the last protocol. Rather
-than A only resending the message every 5 seconds (in case the message is lost),
-B can tell A that the message was garbled in transit. Then A can immediately
-resend the message, possibly resulting in a faster successful transmission than
-before.
+Now Alice has packaged up her book and sent it to Bob. What is the next
+challenge? Well, if our postal service can make mistakes, it's this:
 
-Let's make things even worse. Suppose that the connection is really unreliable
-and we expect 1% of transmitted bytes to be garbled. Now our fancy error
-checking is of no use. If we ever send a message longer than 100 bytes, we
-expect it to arrive incorrectly. Our error checking will probably detect that,
-but we also expect all of the resent messages to be garbled too.
+> How does Alice know that Bob received the package?
 
-If you think about it, our current protocol is rather naive. By sending the
-entire message at once, each transmission is extremely sensitive to errors. If
-even a single letter is messed up, we need to resend the _entire message_! The
-solution is to break up the message into small pieces. Then each piece has a
-higher chance of being transmitted without errors and if an error does occur,
-there are fewer data to resend.
+In our analogy, we're assuming that the postal service is the only method for
+Alice and Bob to communicate (because this represents the connection between the
+computers). In other words, how can we use an unreliable connection (the postal
+service) to send something reliably?
 
-We need a new message format for this:
+Here is where the protocol really comes into play. Alice and Bob can agree ahead
+of time that if Bob receives a package from Alice, he will immediately reply
+with a package of his own telling Alice that he got the package. Now each person
+has a role to play:
 
-* Break up the message into chunks of 13 bytes. If the last chunk has fewer than
-  13 bytes, pad it out to 13 bytes with FF (we will reserve this byte value to
-  mean that these bytes are not part of the actual message). For each chunk,
-* Precede the chunk with two bytes indicating that chunk's number in the
-  sequence i.e. the first chunk has 00 00, then 00 01, then 00 10, etc.
-* Follow the chunk with a single byte checksum. Again this is equal to the sum
-  of the rest of the bytes in that chunk.
-* Add a final chunk where all 13 bytes of message are FF.
+* Alice sends Bob a copy of the book
+* Every time Bob receives a package from Alice, he replies with a package of his
+  own as confirmation
+* If a week goes by without Alice getting the confirmation package from Bob, she
+  sends him another copy of the book
 
-Note that with this format, each transmission is 16 bytes (13 bytes of message +
-2 bytes for the chunk number + 1 byte checksum). Thus we no longer need bytes
-describing the length of each transmission. However we do need some way to
-indicate to B that the message is over. Thus we add the "all padding" chunk at
-the end of the message. Upon receiving this chunk, B will know that the message
-is complete.
+Once Alice receives a confirmation package from Bob, she knows for sure that he
+received it. Of course, if the postal service is really crappy and frequently
+loses packages, this exchange could take quite a while - but it's the only way
+to be sure. And if the postal service is slow and takes over a week to deliver
+packages, Alice might end up sending Bob several copies even though he's
+receiving them without issue. But Alice really wants Bob to get that book, it's
+worth the extra effort.
 
-We now adapt our protocol to handle the new format:
+With computers, these resends can occur several times per second and the
+messages are all sent and received at the speed of light. So even with a
+terrible connection, the delay can often be hard to notice. The standard
+terminology for a confirmation from Bob is an "acknowledgment" or "ACK" for
+short.
 
-1. A: Begin with the first 16 byte chunk of message. Every 5 seconds transmit
-   the chunk
-2. B: Upon receiving a chunk, compute the checksum and check the chunk number.
-   If both are correct, respond with 01. Otherwise respond with 00.
-3. A: Upon receiving 01 from B, proceed to sending the next chunk of message
-   every 5 seconds.
-4. A: Upon receiving 00 from B, immediately resend the chunk.
-5. A: After sending any chunk of message 30 times, give up.
+### Checksums ###
 
-One notable feature of this protocol is that B now has additional error checking
-in the form of the chunk numbers. If it receives a chunk with a number that
-isn't one greater than the last chunk, it knows something is wrong.
+With computers it is possible for a transmission to become garbled in transit -
+for bits in the data to be randomly changed. With our analogy, that would kind
+of be like the postal service accidentally opening the package, accidentally
+tearing out or changing some pages of the book, accidentally sealing it up
+again, and delivering it to Bob. Worst postal service ever, right?
 
-Alternatively, we could use the chunk numbers to create a protocol with
-different strengths. Here's a sketch of a protocol:
+> How does Alice know that Bob received the correct copy of her book?
 
-1. A: send each chunk once.
-2. B: for each received chunk, check the checksum. Keep a list of the chunk
-   numbers and whether the checksum was correct.
-3. B: after receiving chunks, find N: the largest chunk number that had a valid
-   checksum with its chunk. Respond with N and a list of chunk numbers that had
-   invalid checksums.
-4. A: after receiving B's response, resend all chunks with numbers greater than
-   N and all chunks that had invalid checksums
+The protocol from the previous version doesn't help here. If Bob receives a
+garbled version of the book, he will reply with an ACK and Alice will be non the
+wiser.
 
-This protocol would be much more complicated to operate, but the advantage for B
-is that it doesn't need to respond for every single chunk. If every chunk gets
-across successfully, B only needs to respond once at the end saying that it
-received the final chunk. This could require a lot less back-and-forth than the
-previous protocol.
+The solution here is that Alice can provide some additional information with the
+package. Suppose that Alice carefully counts the number of times the letter 'e'
+appears in her book and writes this number on the package. Then when Bob
+receives the book, he can also count the letter 'e' and see if it matches the
+number on the package. If the postal service randomly changes Alice's book,
+it is extremely unlikely that the numbers would still match.
 
-The chunk numbers can also be used to start assembling the message chunks before
-all of them have been received. If B receives chunks 1, 2, 3, 5, 6, and 7 it
-might still be able to make use of them before receiving chunk 4 successfully.
+In such a situation, Bob could send Alice an ACK along the lines of "I got your
+book, but those morons at the postal service accidentally screwed it up." Alice
+can then immediately send Bob a new copy (and hope it doesn't run into the same
+problem).
+
+This double check would be agreed upon ahead of time as part of the protocol.
+The analogy isn't very good here because the check depends on Alice sending Bob
+a book, but with computers we don't have this problem.
+
+Remember that all digital information essentially amounts to numbers, so we can
+easily come up with a check that works for any packet - regardless of its
+contents. For example, simply interpet each byte of data as a non-negative
+integer and add them all up (ignoring overflow).  Alice and Bob can both perform
+this check on the packet without knowing what is inside it.
+
+<div class="alert alert-warning">
+A <strong>checksum</strong> is a function that takes an arbitrary number of bytes as
+input and outputs a fixed number of bytes as output. Usually this function
+involves some kind of sum and is used for error checking.
+</div>
+
+The checksum value would be included in the packet format since it doesn't
+depend on the kind of data being sent. Note that - like counting 'e's - the
+checksum doesn't provide absolute certainty that the data are correct. A byte
+has 1 of 256 possible values, so if a message is randomly garbled there is a
+1/256 (0.39%) chance that the checksum will still match. Those odds seem pretty
+good, but real computer communications usually use even more complicated
+checksums that have an even smaller chance of missing an error.
+
+Again, if the connection is really bad, this can involves lots and lots of
+resends, but it's still worth it. You would be surprised at how much damage a
+single erroneous bit can cause to a computer.
+
+### Dissassembly ###
+
+Now let's suppose that our postal service is really unreliable and that there is
+high chance of them either delivering the book in an altered state or not at
+all. Suppose also that - for some reason - the bigger the book is, the higher
+the chance is that they'll mess up.
+
+<div class="alert alert-danger">
+Yes, that doesn't make sense in the analogy but that's how it works for
+computers. I'll explain later.
+</div>
+
+Our protocol lets Alice and Bob know when the book hasn't made it, but if the
+book is really long the postal service becomes really unreliable. Suppose
+there's a 95% chance of them messing up: statistically, that would end up taking
+quite a lot of shipments before Bob gets the book successfully. Furthermore, all
+of those resent shipments would seem really wasteful. What if the postal service
+only removed the last page? Why resend the entire book?
+
+> How can Alice decrease the amount of redundant shipping required when the postal
+> service is really unreliable?
+
+What if Alice sends Bob the book one page at a time - each with its own
+packaging and checksum? This provides some nice advantages:
+
+* Each package is smaller, reducing the chance of the postal service messing up
+* Even if some pages don't make it, Bob can start reading the book before he's
+  gotten the whole thing
+* Once Bob receives a page with a valid checksum, Alice never has to resend that
+  page
+
+The protocol that Alice and Bob agree on would have to be a little more complex,
+however.
+
+* Alice sends each page in its own package
+* Whenever Bob receives a package with a valid checksum, he sends Alice an ACK
+  saying he got the page
+* Alice must keep track of which pages Bob has ACKed, so she can resend the
+  un-ACKed pages each week
+* As he receives pages, Bob must reassemble them into the complete book using
+  page numbers
+
+To prove that this extra work is worth it, imagine that the Book is 100 pages
+long and we expect the postal service to screw up 95% of the time. If we send
+the whole book at once, we would expect to need to send the book 20 times before
+Bob gets it intact - that's 2000 total pages sent.
+
+If we instead use the newer protocol, we still expect to send each package about
+20 times before Bob gets it but now we no longer need to resend pages once Bob
+receives them.
+
+TODO explain garbles in terms of book length to show how shorter packages is
+worth it
