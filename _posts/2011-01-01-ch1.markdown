@@ -66,8 +66,8 @@ instructions must be _completely clear_. There should be no room for
 interpretation. For example, "multiply this number by 2" would work as a step
 in an algorithm since anyone who knows how to multiply will get the exact same
 result. However "draw a pretty picture" would not work in an algorithm because
-it's too ambiguous. What do you mean by "pretty"? What tools can we draw with?
-What should I draw a picture of?
+it's ambiguous. What do you mean by "pretty"? What tools can I draw with? What
+should I draw a picture of?
 
 Now read it again: a computation is any function that can be evaluated using an
 algorithm. A computation takes input and produces output by following a clear,
@@ -76,7 +76,7 @@ Good.
 
 <div class="alert alert-success">
 You might be wondering: since a computation is a function that can be evaluated
-using an algorithm, does that mean there are functions that
+using an algorithm, does that mean that there are functions that
 <strong>can't</strong> be evaluated using any algorithm? Yes! They're both
 really cool and beyond the scope of this book. Search the web for "uncomputable
 functions".

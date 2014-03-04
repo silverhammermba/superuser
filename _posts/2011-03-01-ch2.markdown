@@ -158,10 +158,12 @@ Such a machine would - in a sense - be the last computing machine you would ever
 need; it could be adapted to solve any computable problem simply by changing its
 input.
 
-The machine he created, and which now bears his name, is the Turing machine:
-the first true computer. In order to create the mother-of-all computing
-machines, Turing distilled computation to its bare essentials. The machine
+The machine he created, and which now bears his name, is the Turing machine: the
+first true computer. In order to create the mother-of-all computing machines,
+[Dr. Alan Turing][tu] distilled computation to its bare essentials. The machine
 consists of the following components:
+
+[tu]: http://en.wikipedia.org/wiki/Alan_Turing
 
 ![Turing machine]({{ site.baseurl }}/img/turing.png)
 
@@ -239,12 +241,11 @@ Now we can imagine how our Turing machine will operate. Suppose we give it 4 as
 input:
 
 1. The machine starts in state 0 and reads a 4. This matches the rule
-   (0, 4, 5, N, 1) so it writes a 5, doesn't move the head, and changes to state
-   1.
+   (0, 4, 5, N, 1) so it writes a 5, doesn't move the head, and changes to state 1.
 2. The machine is in state 1 and reads a 5. There are no rules that start with
    (1, 5, ...) so the machine stops.
 
-Lo and behold there is now a 5 on the tape! Amazing! Okay, maybe not that
+Lo and behold there is now a 5 on the tape! Amazing! Okay, maybe not _that_
 amazing. Perhaps an input of 299 will be more mind-blowing:
 
 1. The machine starts in state 0 and reads a 9. This matches the rule
