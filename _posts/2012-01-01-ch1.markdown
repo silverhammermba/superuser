@@ -79,7 +79,7 @@ switch to analogy during this section. Let's imagine the sending and receiving
 computers as two people: Alice and Bob, respectively. We can imagine the
 information as a copy of book that Alice wishes to send Bob.
 
-### Packaging ###
+### <a name="pak"></a>Packaging ###
 
 In our analogy, Alice would probably give the book to the postal service to
 deliver to Bob. This leads to the following rephrasing of our first challenge:
@@ -113,22 +113,21 @@ Alice sends him. By wrapping the data being sent in a single, standardized
 packet format, Alice can send Bob any kind of information at all using a single
 format. For example, a packet format might look like this:
 
-* 4 bytes for the sender
-* 4 bytes for the intended recipient
 * 4 bytes indicating the length of the next section:
 * N bytes of data
 
-<div class="alert alert-danger">
-Don't worry about what exactly we mean by "sender" and "recipient" here. For now
-just think of them as return address and address, respectively. But they will
-come in to play later.
-</div>
-
 Then Alice and Bob would use this format for all information exchanged between
-them. If Alice wants to send Bob a picture, she first adds these 12 bytes in
+them. If Alice wants to send Bob a picture, she first adds these 4 bytes in
 front of the image format. Then Bob can receive that information without knowing
 anything about the image format Alice used - he gets everything he needs from
-the first 12 bytes.
+the first 4 bytes.
+
+<div class="alert alert-danger">
+Of course we probably want to have something like an address and return address
+in the packet format, so that the postal service knows where to deliver the
+package. But right now we're considering the case of two computers connected
+only to each other, so we'll ignore this for the time being.
+</div>
 
 From now on, whenever we talk about sending data between computers, we will
 assume that the data are enclosed in a packet.
@@ -201,7 +200,7 @@ The analogy isn't very good here because the check depends on Alice sending Bob
 a book, but with computers we don't have this problem. Remember that all digital
 information essentially amounts to numbers, so we can easily come up with a
 check that works for any packet - regardless of its contents. For example,
-simply interpet each byte of data as a non-negative integer and add them all up
+simply interpret each byte of data as a non-negative integer and add them all up
 (ignoring overflow).  Alice and Bob can both perform this check on the packet
 without knowing what is inside it.
 
@@ -223,7 +222,7 @@ Again, if the connection is really bad, this can involves lots and lots of
 resends, but it's still worth it. You would be surprised at how much damage a
 single erroneous bit can cause to a computer.
 
-### Dissassembly ###
+### <a name="dis"></a>Disassembly ###
 
 When it comes to errors in transmission between computers, it is uncommon that
 each and every byte transmitted has the same probability of being lost or
@@ -238,20 +237,18 @@ there are, the longer this process will take.
 
 Suppose now that this connection is unreliable in a way that we expect around 2
 seconds of each minute to be in a period of low reliability i.e. bytes sent
-during those 2 seconds will be lost or garbled. If the book's packet is so large
-that it takes over a minute to transmit, we would expect it to take a _very_,
-_very_ long time for Bob to receive the packet successfully.
-
-Why? Since it takes over a minute to transmit, we would expect that at least a
-few bytes would have been sent during the 2 second period of unreliability and
-thus had a high chance of being lost or garbled. Since Bob performs the checksum
-on the entire packet, we would expect the checksum to almost always fail -
-unless we got really lucky and nothing bad happened during the period of high
+during those 2 seconds have a high chance of being lost or garbled. If the
+book's packet is so large that it takes a minute to transmit, we're in serious
+trouble. Why? Since it takes a minute to transmit, we would expect that some of
+the bytes were sent during the 2 second period of unreliability and thus had a
+high chance of being lost or garbled. Since Bob performs the checksum on the
+entire packet, we would expect the checksum to almost always fail - unless we
+got really lucky and nothing bad happened during the period of high
 unreliability.
 
-With our current protocol, we would need to resend the packet many, many times.
-Furthermore, these resends would seem extremely wasteful since we would expect
-only 2 bytes of every 60 to be bad.
+With our current protocol, we would need to resend the whole packet many, many
+times.  Furthermore, these resends would be extremely wasteful since we would
+expect only 2 bytes of every 60 to be bad.
 
 > How can Alice decrease redundancy when retransmitting large packets?
 
@@ -277,5 +274,44 @@ however.
   page numbers
 
 However, this extra work is definitely worth it. Going back to the previous
-example where 2 seconds out of 60 are unreliable, we would expect Bob to get
-every page successfully in less than two minutes.
+example where 2 seconds out of 60 are unreliable, we would expect Bob to receive
+the entire book ungarbled in less than two minutes.
+
+While splitting up a book by its pages works only for books, digital data can be
+split up regardless of the data being sent. For example, we might use the
+following format for our packets:
+
+* 1 byte for the packet number
+* 1 byte for the checksum
+* 14 bytes of data
+
+Notice that we no longer specify the size of the packet - every packet is fixed
+at 16 bytes. How do we adapt our protocol to use this format? It requires a bit
+of preparation when Alice wants to send something:
+
+1. Alice counts the number of bytes of data being sent
+2. She then splits up the data into 14-byte chunks. If the size of the data isn't
+   divisible by 14, she can add 00 bytes to the end to make it so.
+3. Each 14-byte chunk of data is numbered in order starting from 1 and put in its
+   own packet
+4. The number of bytes of the data (as originally recorded) is stored in the data for
+   packet 0.
+
+Then once Bob receives packet 0 he knows the total number of data bytes being
+sent to him. This tells him two things: the total number of packets he expects
+to receive (bytes &div; 14 rounded up), and the number of 00 bytes that Alice
+added on to the end of the last packet (remainder of bytes &div; 14). He then has
+everything he needs to reassemble the data once he gets all of the packets.
+
+<div class="alert alert-info">
+<ol><li>
+Both example packet formats in this chapter (in the <a class="alert-link" href="#pak">Packaging</a>
+and <a class="alert-link" href="#dis">Disassembly</a> sections) impose
+restrictions on the total number of bytes that can be sent.  What are these
+limits?
+</li><li>
+Consider a new situation where Alice and Bob want to have a conversation. Adapt
+the example protocol (or design a new one) which will allow them to do so. What
+new challenges does this situation pose?
+</li></ol>
+</div>
