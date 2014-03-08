@@ -1,0 +1,70 @@
+---
+layout: chapter
+title: 'Layers'
+category: part2
+---
+
+You are probably sick of protocols by now but hopefully I can convince you that
+at least all of that effort was worth it. When you're dealing with computer
+networks, there are some terms that you'll see popping up quite often:
+
+* IP
+* TCP
+* UDP
+* DHCP
+* HTTP
+* FTP
+* IMAP
+* SMTP
+
+Notice anything? They all end with the letter P! And wouldn't you be surprised
+to find that all of those Ps stand for protocol? It's a good thing you just
+spent a chapter becoming a protocol master. Now it is time to put these
+protocols to work.
+
+In the previous chapter we saw an example of a concept that's going to get a lot
+of use moving forward.
+
+<div class="alert alert-warning">
+A <strong>layer</strong> is a protocol that allows for the transmission of
+arbitrary data.
+</div>
+
+For example, the protocols from the previous chapter could be described as
+layers since the data formats can contain any kind of data. The advantage of
+layers is that they allow us to split up the complicated task of communication
+into bite-sized pieces.
+
+## TCP ##
+
+In the previous chapter, when we only needed to communicate between two
+computers, one protocol (one layer) was all that was needed. If a computer sent
+a packet, there was only one choice of recipient. Thus the protocol mostly
+concerned itself with matters like error checking, packet ordering,
+acknowledgement, etc.
+
+The protocol we developed has a lot in common with the real-world Transmission
+Control Protocol (TCP). More generically, TCP is a protocol for packaging and
+transmitting information; but it is by no means the only such protocol.  The
+User Datagram Protocol (UDP) performs a similar function. While TCP emphasizes
+reliability of the transmission, UDP emphasizes simplicity and speed.
+
+If I'm overloading your brain, don't worry. You can forget about these little
+details because - as I said - both of these protocols do basically the same
+thing.
+
+<div class="alert alert-warning">
+The <strong>transport layer</strong> is the protocol that is in charge of
+packaging data for transmission.
+</div>
+
+## IP ##
+
+Now comes the interesting bit. We've packaged our data in the transport layer,
+but how does it actually get where it needs to go? This is where the Internet
+Protocol (IP) comes in.
+
+The protocol itself is conceptually simple. It wraps the packet from the
+transport layer in an additional packet describing who is sending the data, who
+the recipient should be, and possibly some instructions regarding how the packet
+should be delivered.
