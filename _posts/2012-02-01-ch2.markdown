@@ -58,13 +58,51 @@ The <strong>transport layer</strong> is the protocol that is in charge of
 packaging data for transmission.
 </div>
 
+To return to the analogy in the previous chapter, the transport layer tells you
+how to package your data and how the sender and receiver should handle those
+packages, but it doesn't mention how those packages will actually get to their
+desination.
+
 ## IP ##
 
 Now comes the interesting bit. We've packaged our data in the transport layer,
 but how does it actually get where it needs to go? This is where the Internet
 Protocol (IP) comes in.
 
-The protocol itself is conceptually simple. It wraps the packet from the
-transport layer in an additional packet describing who is sending the data, who
-the recipient should be, and possibly some instructions regarding how the packet
-should be delivered.
+The protocol itself is conceptually simple. In essence, it wraps the packet from
+the transport layer in an additional packet describing who is sending the data,
+and who the recipient should be. Then it simply sends it off to be delivered.
+
+But who is it sending it to? How do they deliver it? To understand this we first
+need to make a little digression.
+
+When you sign up for an Internet service with your cable company, what you're
+really buying is the privilege of connecting your computer to a special kind of
+computer called a _router_. That's it. It's just as simple as in the previous
+chapter where we had two computers connected directly to each other. What's
+special about a router is that it's also connected to a bunch of other computers
+in addition to yours - and a bunch of other routers as well. These
+interconnected routers - which could be owned by different cable companies or
+governments or even individuals - make up the backbone of the Internet.
+
+Again, the system is very similar to a postal service. Each router is like a
+local post office. Each one knows how to deliver to places nearby and for
+faraway places they can send the packages over to another post office.
+
+Just like the post office knows how to deliver to your address, a router can
+deliver data to you using your IP address (often called IP).
+
+<div class="alert alert-warning">
+An <strong>IP address</strong> is a 4 byte number identifying a computer on a
+network. By convention, each byte is written in decimal with periods separating
+bytes e.g. 192.168.1.1 or 255.255.255.0
+</div>
+
+<div class="alert alert-success">
+Since an IP address has 4 bytes, that means that there are only 2<sup>32</sup> =
+4,294,967,296 different IP addresses. Since every device connected to the
+Internet needs an IP address, we're actually running out of them! Because of
+this we're currently trying to transition to a new version of IP (version 6)
+which has 128 bit addresses. IPv6 addresses are written in hexadecimal with
+pairs of bytes separated by colons e.g. 2001:0db8:85a3:0042:1000:8a2e:0370:7334.
+</div>
