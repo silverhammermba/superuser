@@ -42,7 +42,9 @@ together as we welcome our players to the stage...
 
 ## Central Processing Unit ##
 
-![CPU]({{ site.baseurl }}/img/cpu.png)
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/cpu.png" alt="CPU"/>
+</div>
 
 Often called the "processor" or "CPU", this component is the beating heart of
 your computer.  It performs almost every calculation of the computer, and it
@@ -109,7 +111,9 @@ makes it worth it.
 
 ## Random Access Memory ##
 
-![RAM]({{ site.baseurl }}/img/ram.png)
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/ram.png" alt="RAM"/>
+</div>
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
@@ -203,7 +207,9 @@ storage device in your computer - regardless of its type - as the "disk" or
 
 ## Motherboard ##
 
-![Motherboard]({{ site.baseurl }}/img/mobo.png)
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/mobo.png" alt="Motherboard"/>
+</div>
 
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a

@@ -76,6 +76,10 @@ and who the recipient should be. Then it simply sends it off to be delivered.
 But who is it sending it to? How do they deliver it? To understand this we first
 need to make a little digression.
 
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/isp.png" alt='The connection to your ISP'/>
+</div>
+
 When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
 computer called a _router_. That's it. It's just as simple as in the previous

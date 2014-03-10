@@ -145,6 +145,10 @@ Discrete data can only produce <strong>digital</strong> information.
 Only continuous data can produce <strong>analog</strong> information.
 </div>
 
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/digital.png" alt="Continuous vs. Discrete"/>
+</div>
+
 This surprising distinction is often misunderstood by those unfamiliar with
 computers. The distinction implies that if we want to store any continuous data
 in our computer, or have the computer produce any continuous data, we need to be
@@ -152,8 +156,6 @@ able to convert between digital and analog information. Technically, this is
 impossible. Instead we make do by _approximating_ analog information with
 digital information and then later _reconstructing_ analog information from the
 digital approximation.
-
-![Continuous vs. Discrete]({{ site.baseurl }}/img/digital.png)
 
 Imagine a perfect circle. No matter how far you zoom in to the edge, it's still
 a perfectly smooth curve. The circle represents continuous data. Now imagine
@@ -169,7 +171,7 @@ Like fitting a square peg into a round hole, the process is by definition
 imperfect.  A huge amount of effort is expended by computer scientists and
 engineers to improve our digital approximations of continuous data.
 
-<div class="alert alert-info">
+<div class="alert alert-info" style="clear: right">
 <ol><li>
 So far, all of the calculations we've toyed around with have used positive
 integers. Those are easy because it's rather obvious how to represent a

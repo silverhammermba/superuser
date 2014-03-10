@@ -19,6 +19,10 @@ the world" part and focus just on "computers communicating".
 
 ## Protocols ##
 
+<div class="well pull-right">
+<img src="{{ site.baseurl }}/img/simpnet.png" alt='A simple "network"'/>
+</div>
+
 We will first consider the simplest possible example of inter-computer
 communication: two computers connected with a cable. Each computer can send data
 across the cable using electrical signals and each computer can interpret
