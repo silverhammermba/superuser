@@ -113,29 +113,24 @@ Not provided.
    increasing the number of bytes used to store the packet number?</p>
    </div>
 
-2. Firstly, since Alice and Bob will both be sending and receiving messages,
-   they will both be ACKing the other's messages. Thus our packet format will
-   need an additional field saying whether a packet is an ACK or a message.
+2. Here are some new challenges of this situation:
 
-   Secondly, suppose that Bob sends Alice two messages back-to-back but the
-   second message is delayed. If Alice responds after only seeing the first
-   message, how does Bob know what she is replying to? From his point of view,
-   he sent two messages and got only one response. One possible solution would
-   be to include a "message number" field in the packet format. Just like the
-   packet numbers number packets in each message, the message numbers would
-   number each message in the conversation. Each message could then include
-   the message number of the message it is in reply to, allowing the receiver to
-   correctly reconstruct the order of the conversation.
-
-   Another problem that could occur is if Bob sends two messages back-to-back
-   and the first is delayed such that it gets to Alice _after_ the second
-   message. How would you solve this?
+   * Both Alice and Bob will be sending, receiving, and ACKing messages. How
+	 will they differentiate a message and an ACK?
+   * Messages are broken into small packets, but packets are subject to delays.
+	 What if one person sends two messages back-to-back, and the packets end up
+	 intermingled on the receiver's end? What if all of the packets of the
+	 second messages arrive before any of the packets of the first?
+   * If Alice and Bob are to have a conversation, the order of messages is
+	 important. What if Bob sends Alice two messages back-to-back and Alice
+	 responds after only receiving the first message? How will Bob get the
+	 correct order of messages on his end?
 
    <div class="alert alert-success">
-   <p>If you are very forward-thinking, you might have considered the challenge
-   of _privacy_. If Alice is simply sending Bob a book, who cares if it is
-   accidentally delivered to someone else? But what if Alice and Bob are
-   discussing their super-secret computer enthusiast club!? How can they stop
+   <p>If you are very forward-thinking, you might have also considered the
+   challenge of _privacy_. If Alice is simply sending Bob a book, who cares if
+   it is accidentally delivered to someone else? But what if Alice and Bob are
+   discussing their super-secret computer enthusiast club? How can they stop
    their clandestine correspondence from falling into the wrong hands?</p>
    <p>This is an incredibly important topic, but one which we will tackle much
    later.</p>
