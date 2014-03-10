@@ -17,7 +17,7 @@ bits for convenience. To keep things short, we'll write things in hexadecimal.
 
 Right now the bytes are all zero, but we want to store information in these
 bytes. Eight bytes is 64 bits. That means we can store values from 0 to
-2<sup>64</sup> - 1. But can we really use all eight bytes? Real computers have
+2<sup>64</sup> &minus; 1. But can we really use all eight bytes? Real computers have
 much more memory than just eight bytes; they can have hundreds of thousands of
 bytes. With thousands of bytes around, how do you tell the computer that we
 only want to use eight? One way would be to agree that the first byte says how
@@ -26,7 +26,7 @@ many bytes we're grouping together:
     08 00 00 00 00 00 00 00
 
 We have seven bytes leftover to actually store information, so we can store
-values up to 2<sup>56</sup> - 1. Let's store a nice big number in there. How
+values up to 2<sup>56</sup> &minus; 1. Let's store a nice big number in there. How
 about 4,240,876,579,651,596? That fills out the last seven bytes nicely:
 
     08 0F 11 0E 06 11 00 0C
@@ -177,7 +177,7 @@ So far, all of the calculations we've toyed around with have used positive
 integers. Those are easy because it's rather obvious how to represent a
 positive integer using bits and bytes. Come up with a format for storing
 negative integers as well as positive ones. Then try to make a format for
-storing numbers with a decimal point e.g. 3.14 or -1.0007.
+storing numbers with a decimal point e.g. 3.14 or &minus;1.0007.
 </li><li>
 Come up with three examples of digital information and three examples of
 analog information.

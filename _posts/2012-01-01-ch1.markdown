@@ -117,7 +117,7 @@ Alice sends him. By wrapping the data being sent in a single, standardized
 packet format, Alice can send Bob any kind of information at all using a single
 format. For example, a packet format might look like this:
 
-* 4 bytes indicating the length of the next section:
+* 4 bytes indicating the number of bytes in the next section:
 * N bytes of data
 
 Then Alice and Bob would use this format for all information exchanged between
