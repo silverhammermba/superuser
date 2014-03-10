@@ -75,7 +75,7 @@ title: Selected Exercise Answers
    One format for storing decimal numbers would be to use two bytes X and Y.
    Then each number is defined as X &times; 10<sup>Y</sup>. That way X and Y can
    be normal integers, but by making Y negative we can represent small numbers
-   e.g. X = 205, Y = -1, 205 &times; 10<sup>-1</sup> = 2.05.
+   e.g. X = 205, Y = &minus;1, 205 &times; 10<sup>&minus;1</sup> = 2.05.
 
 2. The amount of money you have is digital information. Temperature is analog
    information. Other examples you should figure out on your own.
@@ -97,3 +97,46 @@ title: Selected Exercise Answers
 ## Hardware ##
 
 Not provided.
+
+## Part 2: The Internet ##
+
+1. For the first protocol, the most data we could send is
+   2<sup>4&times;8</sup>&minus;1=4,294,967,295 bytes. For the second protocol, each
+   packet can hold 14 bytes of data. Each packet needs a unique packet number,
+   so we can have at most 255 of them (the first packet isn't used to send
+   data). That's 255&times;14=3,570 bytes total.
+
+   <div class="alert alert-success">
+   <p>How can we make the first protocol capable of sending more data without
+   increasing the number of bytes used to store the data size?</p>
+   <p>How can we make the second protocol capable of sending more data without
+   increasing the number of bytes used to store the packet number?</p>
+   </div>
+
+2. Firstly, since Alice and Bob will both be sending and receiving messages,
+   they will both be ACKing the other's messages. Thus our packet format will
+   need an additional field saying whether a packet is an ACK or a message.
+
+   Secondly, suppose that Bob sends Alice two messages back-to-back but the
+   second message is delayed. If Alice responds after only seeing the first
+   message, how does Bob know what she is replying to? From his point of view,
+   he sent two messages and got only one response. One possible solution would
+   be to include a "message number" field in the packet format. Just like the
+   packet numbers number packets in each message, the message numbers would
+   number each message in the conversation. Each message could then include
+   the message number of the message it is in reply to, allowing the receiver to
+   correctly reconstruct the order of the conversation.
+
+   Another problem that could occur is if Bob sends two messages back-to-back
+   and the first is delayed such that it gets to Alice _after_ the second
+   message. How would you solve this?
+
+   <div class="alert alert-success">
+   <p>If you are very forward-thinking, you might have considered the challenge
+   of _privacy_. If Alice is simply sending Bob a book, who cares if it is
+   accidentally delivered to someone else? But what if Alice and Bob are
+   discussing their super-secret computer enthusiast club!? How can they stop
+   their clandestine correspondence from falling into the wrong hands?</p>
+   <p>This is an incredibly important topic, but one which we will tackle much
+   later.</p>
+   </div>
