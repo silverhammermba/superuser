@@ -24,7 +24,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
+     inkscape:zoom="1"
      inkscape:cx="302.85251"
      inkscape:cy="657.34179"
      inkscape:document-units="px"
@@ -45,6 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,9 +56,16 @@
     <path
        style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
        d="m 272.92954,540.48718 0,3 c 10.45422,0 13.86591,1.90467 16.46875,3.875 2.60284,1.97033 4.91548,4.5 11.21875,4.5 l 23.78125,0 c 7.16982,0 10.02665,-2.50769 12.4375,-4.5625 2.41085,-2.05481 4.51431,-3.8125 12.3125,-3.8125 l 0,-3 c -8.31784,0 -11.7479,2.39866 -14.25,4.53125 -2.5021,2.13259 -3.94016,3.84375 -10.5,3.84375 l -23.78125,0 c -5.59969,0 -6.47745,-1.68918 -9.40625,-3.90625 -2.9288,-2.21707 -7.43388,-4.46875 -18.28125,-4.46875 z"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       id="path3126"
+       inkscape:export-filename="/home/max/proj/superuser/img/isp.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
-       id="g4332">
+       id="g4332"
+       inkscape:export-filename="/home/max/proj/superuser/img/isp.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          y="428.86218"
          x="223.5"
@@ -110,7 +118,10 @@
     </g>
     <g
        id="g4320"
-       transform="translate(-0.75000003,-1)">
+       transform="translate(-0.75000003,-1)"
+       inkscape:export-filename="/home/max/proj/superuser/img/isp.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          transform="scale(-1,1)"
          style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
@@ -199,21 +210,30 @@
        inkscape:connector-curvature="0"
        d="m 275.28241,352.39678 0,3 c 10.45422,0 13.86591,1.90467 16.46875,3.875 2.60284,1.97033 4.91548,4.5 11.21875,4.5 l 23.78125,0 c 7.16982,0 10.02665,-2.50769 12.4375,-4.5625 2.41085,-2.05481 4.51431,-3.8125 12.3125,-3.8125 l 0,-3 c -8.31784,0 -11.7479,2.39866 -14.25,4.53125 -2.5021,2.13259 -3.94016,3.84375 -10.5,3.84375 l -23.78125,0 c -5.59969,0 -6.47745,-1.68918 -9.40625,-3.90625 -2.9288,-2.21707 -7.43388,-4.46875 -18.28125,-4.46875 z"
        style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       id="path4440" />
+       id="path4440"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        y="240.77179"
        x="223.5"
        height="123"
        width="63"
        id="rect4444"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        y="253.77179"
        x="229.5"
        height="38"
        width="51"
        id="rect4446"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1" />
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        d="m 281.25,435.48718 a 2.125,2.125 0 1 1 -4.25,0 2.125,2.125 0 1 1 4.25,0 z"
        sodipodi:ry="2.125"
@@ -223,29 +243,44 @@
        id="path4448"
        style="fill:#39b740;fill-opacity:1;stroke:none"
        sodipodi:type="arc"
-       transform="translate(0,-188.0904)" />
+       transform="translate(0,-188.0904)"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path4450"
        d="m 229.80971,266.43847 50.29297,0"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
        d="m 229.80971,279.10509 50.29297,0"
        id="path4452"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
        d="m 229.80971,253.77178 50.29297,0"
        id="path4454"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        sodipodi:linespacing="125%"
        id="text4456"
        y="237.35225"
        x="222.82108"
        style="font-size:22.90267372px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          y="237.35225"
          x="222.82108"
          id="tspan4458"
@@ -256,14 +291,20 @@
        width="63"
        height="123"
        x="346.81906"
-       y="240.77179" />
+       y="240.77179"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
        id="rect4486"
        width="51"
        height="38"
        x="352.81906"
-       y="253.77179" />
+       y="253.77179"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="fill:#446bf3;fill-opacity:1;stroke:none"
@@ -273,29 +314,44 @@
        sodipodi:rx="2.125"
        sodipodi:ry="2.125"
        d="m 281.25,435.48718 a 2.125,2.125 0 1 1 -4.25,0 2.125,2.125 0 1 1 4.25,0 z"
-       transform="translate(123.31907,-188.0904)" />
+       transform="translate(123.31907,-188.0904)"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
        d="m 353.12878,266.43847 50.29297,0"
        id="path4490"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path4492"
        d="m 353.12878,279.10509 50.29297,0"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        inkscape:connector-curvature="0"
        id="path4494"
        d="m 353.12878,253.77178 50.29297,0"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        xml:space="preserve"
        style="font-size:22.90267372px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
        x="353.48734"
        y="237.30029"
        id="text4496"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/max/proj/superuser/img/simpnet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan4498"
          x="353.48734"
