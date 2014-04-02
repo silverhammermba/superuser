@@ -58,5 +58,15 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script>
+			var os_name = "unknown";
+			if (navigator.appVersion.indexOf("Win")!=-1) os_name = "windows";
+			if (navigator.appVersion.indexOf("Mac")!=-1) os_name = "osx";
+			if (navigator.appVersion.indexOf("X11")!=-1) os_name = "linux";
+			if (navigator.appVersion.indexOf("Linux")!=-1) os_name = "linux";
+
+			$('.os').hide();
+			$('.' + os_name).show();
+		</script>
 	</body>
 </html>
