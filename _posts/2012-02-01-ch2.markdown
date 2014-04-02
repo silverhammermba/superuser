@@ -245,7 +245,7 @@ knows of the name, you will see the corresponding IP address in <span class="os
 osx linux">parentheses</span><span class="os windows">brackets</span>.
 Give it a go:
 <pre><code>ping whatever.com</code></pre>
-If the domain name is invalid, you will get an <span class="os osx linux"><code>unknown
-host</code></span><span class="os windows"><code>could not find host</code></span>
+If the domain name is invalid, you will get <span class="os osx linux">an <code>unknown
+host</code></span><span class="os windows">a <code>could not find host</code></span>
 message.
 </div>
