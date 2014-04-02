@@ -234,7 +234,7 @@ something that even I don't understand.</p>
 into subdomains administered by different companies. You can see this
 organization by reading the domain names from right to left. For example
 <code>com</code> is a top-level domain with <code>google.com</code> and
-<code>e-bay.com</code> as two of its subdomains.  In turn,
+<code>ebay.com</code> as two of its subdomains.  In turn,
 <code>maps.google.com</code> and <code>calendar.google.com</code> are two
 subdomains of <code>google.com</code> and so on.</p>
 </div>
