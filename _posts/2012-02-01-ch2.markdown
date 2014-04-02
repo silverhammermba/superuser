@@ -120,7 +120,7 @@ state: they simply forward the package to another post office that might know.
 This is the essence of the Internet - a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
-<div class="alert alert-warning">
+<div class="alert alert-danger">
 I say "essence" because of course the reality is much more complicated than
 that. To mention a few complications, there are heirarchies of routers
 established to ensure efficient routing of network packets, there are special
