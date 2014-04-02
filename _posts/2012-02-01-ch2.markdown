@@ -84,22 +84,50 @@ When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
 computer called a _router_. That's it. It's just as simple as in the previous
 chapter where we had two computers connected directly to each other. What's
-special about a router is that it's also connected to a bunch of other computers
-in addition to yours - and a bunch of other routers as well. These
-interconnected routers - which could be owned by different cable companies or
-governments or even individuals - make up the backbone of the Internet.
+special about a router is that it is designed to be connnected to many computers
+at once.
 
-Again, the system is very similar to a postal service. Each router is like a
-local post office. Each one knows how to deliver to places nearby and for
-faraway places they can send the packages over to another post office.
-
-Just like the post office knows how to deliver to your address, a router can
-deliver data to you using your IP address (often called IP).
+All of the computers connected to a router are assigned _addresses_ which
+identify them to the router - just like how the addresses of the homes in your
+neighborhood identify them to the local post office. These computer addresses
+have a very specific form.
 
 <div class="alert alert-warning">
 An <strong>IP address</strong> is a 4 byte number identifying a computer on a
 network. By convention, each byte is written in decimal with periods separating
 bytes e.g. 192.168.1.1 or 255.255.255.0
+</div>
+
+This situation - many computers connected to a single router - is called a local
+network. The router (again, like a post office) acts as a mediator for messages
+between other computers. If two computers in the network wish to communicate,
+they don't need to be directly connected, instead they can hand their messages
+off to the router and it will perform the exchange.
+
+The situation starts becoming amazing when your router is connected to the
+router of a different local network. Now computers in both local networks can
+communicate! Imagine that you want to send a message to a computer in the other
+network. First you send the message to your router as usual, the router thinks
+"I'm not connected to that computer" so it sends it on to the other router. That
+router _is_ connected to the other computer, so it can deliver the message. The
+beauty of this system is that each router only needs to know two things:
+
+1. The addresses of the computers connected to it
+2. The addresses of the other routers connected to it
+
+Again, this system functions very similar to the postal service. Your local post
+office doesn't know (or care) how to deliver a package to an address in another
+state: they simply forward the package to another post office that might know.
+This is the essence of the Internet - a network of interconnected routers all
+serving their own local networks and forwarding data to each other.
+
+<div class="alert alert-warning">
+I say "essence" because of course the reality is much more complicated than
+that. To mention a few complications, there are heirarchies of routers
+established to ensure efficient routing of network packets, there are special
+provisions for the assignment of IP addresses, there are specialized routers in
+the network for handling certain types of messages, and there is the complicated
+matter of who owns all of these interlocking pieces.
 </div>
 
 <div class="alert alert-success">
