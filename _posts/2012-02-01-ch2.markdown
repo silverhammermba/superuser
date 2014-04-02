@@ -138,7 +138,7 @@ which has 128 bit addresses. IPv6 addresses are written in hexadecimal with
 pairs of bytes separated by colons e.g. 2001:0db8:85a3:0042:1000:8a2e:0370:7334.
 </div>
 
-Now let's poke around the internet and see these principles in action.
+Now let's poke around the Internet and see these principles in action.
 
 <div class="alert alert-info">
 <p>
@@ -168,7 +168,7 @@ Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the program.
 </p>
 
 <p>
-Wow! We're totally using the internet! Well, actually I just played a bit of a
+Wow! We're totally using the Internet! Well, actually I just played a bit of a
 trick on you. 127.0.0.1 is a special address: it is the IP version of "myself".
 You've been sending your own computer messages! Now try it with a "real" IP.
 Here are some good ones:
@@ -185,4 +185,67 @@ mean several things: there is no computer with that IP address, your computer
 couldn't find a router that delivers to that address, or the computer at that
 address is configured to ignore pings.
 </p>
+</div>
+
+## DNS ##
+
+Now we know that the Internet works using routers and IP addresses, but how does
+this link up with the Internet that we know and love? There is one final piece
+to the puzzle.
+
+Here is a link to the popular Google search engine: <a href="http://www.google.com">www.google.com</a>.
+Now here is a link to an IP address (from the previous exercise):
+<a href="http://74.125.228.242">74.125.228.242</a>. Try opening both of them.
+
+What is going on here? You might think that the second link was some kind of
+trick, when in fact the opposite is closer to the truth. The Google search
+engine is a program running on a computer (probably several computers, actually)
+somewhere in the United States. When you want to search for something with
+Google, you need to send Google information (your search query) and receive
+information in return (the search results). As we just learned, this is all done
+using the IP addresses of your home computer and the computer running the Google
+program.
+
+But IP addresses are not very human-friendly. They are hard to remember
+and, what's worse, they can change when the hardware of the computer or the
+infrastructure of the Internet changes. If Google wants to move their search
+engine to another computer (and thus a new IP) they definitely don't want to
+have to notify all of their customers of the new IP address. Another likely
+scenario is that Google might have many computers running their search engine
+around the world. Connecting to a computer nearby is generally faster than
+connecting to one far away, so Google can offer a faster service by placing
+computers near their customers. But then customers would need to remember all of
+the different Google IP addresses based on their location!
+
+The solution is the Domain Name System (DNS). The DNS acts like a kind of phone
+book for the Internet, associating human-readable domain names (www.google.com)
+with unmemorable IP addresses (74.125.228.242). Whenever your computer tries to
+send a message to a human readable name, your request first goes to a special
+computer called a name server which finds the right IP address. Then your
+request is sent through the network of routers to its actual destination. One of
+the things your Internet service provider gives you is the IP address of a name
+server to use.
+
+<div class="alert alert-success">
+<p>Like the Internet itself, the DNS is incredibly complicated. The system of
+ownership, distribution, assignment, and maintenance of domain names is
+something that even I don't understand.</p>
+<p>One basic fact is that the DNS is heirarchical, with each domain being split
+into subdomains administered by different companies. You can see this
+organization by reading the domain names from right to left. For example
+<code>com</code> is a top-level domain with <code>google.com</code> and
+<code>e-bay.com</code> as two of its subdomains.  In turn,
+<code>maps.google.com</code> and <code>calendar.google.com</code> are two
+subdomains of <code>google.com</code> and so on.</p>
+</div>
+
+<div class="alert alert-info">
+You can investigate the DNS yourself by simply pinging domain names. If the DNS
+knows of the name, you will see the corresponding IP address in <span class="os
+osx linux">parentheses</span><span class="os windows">brackets</span>.
+Give it a go:
+<pre><code>ping whatever.com</code></pre>
+If the domain name is invalid, you will get an <span class="os osx linux"><code>unknown
+host</code></span><span class="os windows"><code>could not find host</code></span>
+message.
 </div>
