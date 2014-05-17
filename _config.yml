@@ -1,7 +1,7 @@
 name: From Simpleton to Superuser
-pygments: true
+highlighter: pygments
 baseurl: /superuser
-markdown: rdiscount
+markdown: kramdown
 permalink: /:categories/:title/
 rdiscount:
   extensions: [smart]
