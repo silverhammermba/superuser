@@ -55,8 +55,9 @@ title: Selected Exercise Answers
 3. Not provided.
 4. Hexadecimal digits correspond to quadruplets of binary digits, and octal
    digits correspond to triplets of binary digits. Note that 16 = 2<sup>4</sup>
-   and 8 = 2<sup>3</sup>. From there it should be easy to guess what the tricks
-   are for converting between base 3 and base 9 or base 6 and base 36, etc.
+   and 8 = 2<sup>3</sup>. From there you should be able to figoure out what the
+   tricks are for converting between base 3 and base 9 or base 6 and base 36,
+   etc.
 
 ## Formatting ##
 
@@ -75,7 +76,7 @@ title: Selected Exercise Answers
    One format for storing decimal numbers would be to use two bytes X and Y.
    Then each number is defined as X &times; 10<sup>Y</sup>. That way X and Y can
    be normal integers, but by making Y negative we can represent small numbers
-   e.g. X = 205, Y = &minus;1, 205 &times; 10<sup>&minus;1</sup> = 2.05.
+   e.g. X = 205, Y = &minus;2, 205 &times; 10<sup>&minus;2</sup> = 2.05.
 
 2. The amount of money you have is digital information. Temperature is analog
    information. Other examples you should figure out on your own.
@@ -128,10 +129,10 @@ Not provided.
 
    <div class="alert alert-success">
    <p>If you are very forward-thinking, you might have also considered the
-   challenge of _privacy_. If Alice is simply sending Bob a book, who cares if
-   it is accidentally delivered to someone else? But what if Alice and Bob are
-   discussing their super-secret computer enthusiast club? How can they stop
-   their clandestine correspondence from falling into the wrong hands?</p>
+   challenge of <em>privacy</em>. If Alice is simply sending Bob a book, who
+   cares if it is accidentally delivered to someone else? But what if Alice and
+   Bob are discussing their super-secret computer enthusiast club? How can they
+   stop their clandestine correspondence from falling into the wrong hands?</p>
    <p>This is an incredibly important topic, but one which we will tackle much
    later.</p>
    </div>
