@@ -17,11 +17,10 @@ information age. How do those work? Unfortunately the answer is very, very,
 because frankly most superusers don't know this stuff anyway and often don't
 need to.
 
-<div class="alert alert-danger">
 But that doesn't mean you shouldn't care about learning those omitted details!
 Remember: every tidbit of knowledge about computers is of interest to a
 superuser. Some tidbits are just more interesting than others.
-</div>
+{: note}
 
 Virtually every modern computer is made of several interconnected and swappable
 pieces. Each piece has a different responsibility. This is handy because if a
@@ -31,15 +30,13 @@ important pieces, the computer might even continue operating in the event of a
 failure.  Like so many other things, we have special computer lingo for these
 pieces:
 
-<div class="alert alert-warning">
-The physical components of a computer are called the computer's <strong>hardware</strong>.
-</div>
+The physical components of a computer are called the computer's **hardware**.
+{: definition}
 
 This is in contrast to the other essential components of a computer:
 
-<div class="alert alert-warning">
-The programs run by a computer are called the computer's <strong>software</strong>.
-</div>
+The programs run by a computer are called the computer's **software**.
+{: definition}
 
 There is a huge variety of hardware available for computers these days, so in
 this chapter I will focus on only the most common ones. Now put your hands
@@ -47,9 +44,8 @@ together as we welcome our players to the stage...
 
 ## Central Processing Unit ##
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/cpu.png" alt="CPU"/>
-</div>
+![CPU]({{ site.baseurl }}/img/cpu.png)
+{: .well .pull-right}
 
 Often called the "processor" or "CPU", this component is the beating heart of
 your computer.  It performs almost every calculation of the computer, and it
@@ -87,11 +83,10 @@ instruction each second. An average CPU at the time of writing is clocked at
 about 3.5 gigahertz i.e. 3.5 _billion_ instructions per second i.e. rather fast
 indeed.
 
-<div class="alert alert-danger">
 Technically speaking, a hertz is a "per second". So we should really say that
 CPU speed is measured in "instruction hertz" i.e. instructions per second. But
 no one says that. Ever.
-</div>
+{: note}
 
 The second measure, parallelism, is just a count of how many cores a CPU has.
 Four core CPUs (AKA quad-core) are becoming quite common these days. Parallelism
@@ -116,9 +111,8 @@ makes it worth it.
 
 ## Random Access Memory ##
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/ram.png" alt="RAM"/>
-</div>
+![RAM]({{ site.baseurl }}/img/ram.png)
+{: .well .pull-right}
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
@@ -212,9 +206,8 @@ storage device in your computer - regardless of its type - as the "disk" or
 
 ## Motherboard ##
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/mobo.png" alt="Motherboard"/>
-</div>
+![Motherboard]({{ site.baseurl }}/img/mobo.png)
+{: .well .pull-right}
 
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a
@@ -229,10 +222,9 @@ start your computer. These programs recognize all of the components attached to
 your computer and initiate the loading of more complicated programs and data
 from the hard drive.
 
-<div class="alert alert-warning">
 The programs stored on the motherboard that control and initiate the other
-computer components are called the <strong>Basic Input/Output System</strong> or <strong>BIOS</strong>.
-</div>
+computer components are called the **Basic Input/Output System** or **BIOS**.
+{: definition}
 
 Because the motherboard mostly acts as a middleman between more complicated
 components, it is often the cheapest part to buy. But its central role also
@@ -251,9 +243,8 @@ Often called the "display" or "screen", the monitor provides a means for the
 computer to create digital images. All monitors display images using a grid of
 tiny pixels.
 
-<div class="alert alert-warning">
-A <strong>pixel</strong> is a square with a solid color.
-</div>
+A **pixel** is a square with a solid color.
+{: definition}
 
 If the pixels are small enough, our eyes lose sight of the grid and it
 becomes possible for monitors to display images that look smooth. If the monitor
@@ -374,39 +365,26 @@ Lastly, remember that computer components come in all shapes and sizes. Your
 desktop computer, laptop, phone, tablet, video game console, and music player
 may all look and behave very differently but they are all computers at heart.
 
-<div class="alert alert-info">
-<ol><li>
-<a class="alert-link" href="http://www.newegg.com">newegg.com</a> is an online
-shop catering to those who assemble their own computers. Try to put together a
-shopping list of components for building your own computer. Take care to ensure
-that the components you select are compatible with each other! Here's a
-checklist of what you'll need:
-<ul><li>
-Case
-</li><li>
-Motherboard
-</li><li>
-CPU
-</li><li>
-CPU heat sink (often included with CPU)
-</li><li>
-RAM
-</li><li>
-HDD/SSD
-</li><li>
-GPU
-</li><li>
-Optical drive (CD/DVD/Blu-Ray)
-</li><li>
-Power supply
-</li><li>
-Case fans
-</li></ul>
-</li><li>
-If you've finished the previous exercise, try it again but restricted to a
-budget of $1,000. This is a reasonable budget for a decently powerful
-computer. Try to come up with the most powerful components for that budget.
-What decisions do you get to make regarding the sort of computer you're
-building?
-</li></ol>
+<div>
+1. [newegg.com](http://www.newegg.com){: .alert-link} is an online shop catering to those who
+   assemble their own computers. Try to put together a shopping list of
+   components for building your own computer. Take care to ensure that the
+   components you select are compatible with each other! Here's a checklist of
+   what you'll need:
+	 * Case
+     * Motherboard
+     * CPU
+     * CPU heat sink (often included with CPU)
+     * RAM
+     * HDD/SSD
+     * GPU
+     * Optical drive (CD/DVD/Blu-Ray)
+     * Power supply
+     * Case fans
+2. If you've finished the previous exercise, try it again but restricted to a
+   budget of $1,000. This is a reasonable budget for a decently powerful
+   computer. Try to come up with the most powerful components for that budget.
+   What decisions do you get to make regarding the sort of computer you're
+   building?
 </div>
+{: exercise}

@@ -29,10 +29,9 @@ Now it is time to put these protocols to work.
 In the previous chapter we saw an example of a concept that's going to get a lot
 of use moving forward.
 
-<div class="alert alert-warning">
-A <strong>layer</strong> is a protocol that allows for the transmission of
+A **layer** is a protocol that allows for the transmission of
 arbitrary data.
-</div>
+{: definition}
 
 For example, the protocols from the previous chapter could be described as
 layers since the data formats can contain any kind of data. The advantage of
@@ -57,10 +56,9 @@ If I'm overloading your brain, don't worry. You can forget about these little
 details because - as I said - both of these protocols do basically the same
 thing.
 
-<div class="alert alert-warning">
-The <strong>transport layer</strong> is the protocol that is in charge of
+The **transport layer** is the protocol that is in charge of
 packaging data for transmission.
-</div>
+{: definition}
 
 To return to the analogy in the previous chapter, the transport layer tells you
 how to package your data and how the sender and receiver should handle those
@@ -80,9 +78,8 @@ and who the recipient should be. Then it simply sends it off to be delivered.
 But who is it sending it to? How do they deliver it? To understand this we first
 need to make a little digression.
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/isp.png" alt='The connection to your ISP'/>
-</div>
+![The connection to your ISP]({{ site.baseurl }}/img/isp.png)
+{: .well .pull-right}
 
 When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
@@ -96,11 +93,10 @@ identify them to the router - just like how the addresses of the homes in your
 neighborhood identify them to the local post office. These computer addresses
 have a very specific form.
 
-<div class="alert alert-warning">
-An <strong>IP address</strong> is a 4 byte number identifying a computer on a
-network. By convention, each byte is written in decimal with periods separating
-bytes e.g. 192.168.1.1 or 255.255.255.0
-</div>
+An **IP address** is a 4 byte number identifying a computer on a network. By
+convention, each byte is written in decimal with periods separating bytes e.g.
+`192.168.1.1` or `255.255.255.0`.
+{: definition}
 
 This situation - many computers connected to a single router - is called a local
 network. The router (again, like a post office) acts as a mediator for messages
@@ -125,33 +121,32 @@ state: they simply forward the package to another post office that might know.
 This is the essence of the Internet - a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
-<div class="alert alert-danger">
 I say "essence" because of course the reality is much more complicated than
 that. To mention a few complications, there are heirarchies of routers
 established to ensure efficient routing of network packets, there are special
 provisions for the assignment of IP addresses, there are specialized routers in
 the network for handling certain types of messages, and there is the complicated
 matter of who owns all of these interlocking pieces.
-</div>
+{: note}
 
-<div class="alert alert-success">
 Since an IP address has 4 bytes, that means that there are only 2<sup>32</sup> =
 4,294,967,296 different IP addresses. Since every device connected to the
 Internet needs an IP address, we're actually running out of them! Because of
 this we're currently trying to transition to a new version of IP (version 6)
 which has 128 bit addresses. IPv6 addresses are written in hexadecimal with
-pairs of bytes separated by colons e.g. 2001:0db8:85a3:0042:1000:8a2e:0370:7334.
-</div>
+pairs of bytes separated by colons e.g. `2001:0db8:85a3:0042:1000:8a2e:0370:7334`.
+{: deeper}
 
 Now let's poke around the Internet and see these principles in action.
 
-<div class="alert alert-info">
-<p>
-For these exercises, we will be working in <span class="os linux osx">a terminal</span> <span class="os windows">the command prompt</span> - an
-interface designed for running text-based programs on your computer.
+<div>
+For these exercises, we will be working in
+<span class="os linux osx">a terminal</span>
+<span class="os windows">the command prompt</span> -
+an interface designed for running text-based programs on your computer.
 <span class="os windows">
 To open it, press <kbd>Win</kbd>+<kbd>R</kbd> to open the Run dialog, type
-<code>cmd</code>, and hit OK.
+`cmd`, and hit OK.
 </span>
 <span class="os linux">
 Depending on your computer, you might be able to open a terminal by pressing
@@ -160,37 +155,33 @@ Depending on your computer, you might be able to open a terminal by pressing
 <span class="os osx">
 In Finder, you can find the terminal under Applications &rarr; Utilities.
 </span>
-</p>
 
-<p>
-The first program we're going to use is called <code>ping</code>. It sends a
+The first program we're going to use is called `ping`. It sends a
 simple request to an IP address: ping me back! This is commonly used to test a
 network connection. Type in the following and press <kbd>Enter</kbd>.
-</p>
-<pre><code>ping 127.0.0.1</code></pre>
-<p class="os osx linux">
-Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the program.
-</p>
 
-<p>
+    ping 127.0.0.1
+
+Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the program.
+
 Wow! We're totally using the Internet! Well, actually I just played a bit of a
 trick on you. 127.0.0.1 is a special address: it is the IP version of "myself".
 You've been sending your own computer messages! Now try it with a "real" IP.
 Here are some good ones:
-</p>
-<ul>
-<li>192.168.1.1</li>
-<li>74.125.228.242</li>
-<li>192.30.252.131</li>
-</ul>
-<p>You can also try random IP addresses. For some of those you might get
-<span class="os osx linux">no output</span><span class="os windows"><code>Request
-timed out.</code></span> and an ending summary showing 100% packet loss. This could
-mean several things: there is no computer with that IP address, your computer
-couldn't find a router that delivers to that address, or the computer at that
-address is configured to ignore pings.
-</p>
+
+* `192.168.1.1`
+* `74.125.228.242`
+* `192.30.252.131`
+
+You can also try random IP addresses. For some of those you might get
+<span class="os osx linux">no output</span>
+<span class="os windows">`Request timed out.`</span>
+and an ending summary showing 100% packet loss. This could mean several things:
+there is no computer with that IP address, your computer couldn't find a router
+that delivers to that address, or the computer at that address is configured to
+ignore pings.
 </div>
+{: exercise}
 
 ## DNS ##
 
@@ -198,18 +189,18 @@ Now we know that the Internet works using routers and IP addresses, but how does
 this link up with the Internet that we know and love? There is one final piece
 to the puzzle.
 
-Here is a link to the popular Google search engine: <a href="http://www.google.com">www.google.com</a>.
-Now here is a link to an IP address (from the previous exercise):
-<a href="http://74.125.228.242">74.125.228.242</a>. Try opening both of them.
+Here is a link to the popular Google search engine:
+[www.google.com](http://www.google.com). Now here is a link to an IP address
+(from the previous exercise): [74.125.228.242](http://74.125.228.242). Try
+opening both of them.
 
 What is going on here? You might think that the second link was some kind of
 trick, when in fact the opposite is closer to the truth. The Google search
-engine is a program running on a computer (probably several computers, actually)
-somewhere in the United States. When you want to search for something with
-Google, you need to send Google information (your search query) and receive
-information in return (the search results). As we just learned, this is all done
-using the IP addresses of your home computer and the computer running the Google
-program.
+engine is a program running on a computer somewhere. When you want to search for
+something with Google, you need to send Google information (your search query)
+and receive information in return (the search results). As we just learned, this
+is all done using the IP addresses of your home computer and the computer
+running the Google program.
 
 But IP addresses are not very human-friendly. They are hard to remember
 and, what's worse, they can change when the hardware of the computer or the
@@ -231,26 +222,32 @@ request is sent through the network of routers to its actual destination. One of
 the things your Internet service provider gives you is the IP address of a name
 server to use.
 
-<div class="alert alert-success">
-<p>Like the Internet itself, the DNS is incredibly complicated. The system of
+<div>
+Like the Internet itself, the DNS is incredibly complicated. The system of
 ownership, distribution, assignment, and maintenance of domain names is
-something that even I don't understand.</p>
-<p>One basic fact is that the DNS is heirarchical, with each domain being split
-into subdomains administered by different companies. You can see this
-organization by reading the domain names from right to left. For example
-<code>com</code> is a top-level domain with <code>google.com</code> and
-<code>ebay.com</code> as two of its subdomains.  In turn,
-<code>maps.google.com</code> and <code>calendar.google.com</code> are two
-subdomains of <code>google.com</code> and so on.</p>
-</div>
+something that even I don't understand.
 
-<div class="alert alert-info">
+One basic fact is that the DNS is heirarchical, with each domain being split
+into subdomains administered by different companies. You can see this
+organization by reading the domain names from right to left. For example `com`
+is a top-level domain with `google.com` and `ebay.com` as two of its subdomains.
+In turn, `maps.google.com` and `calendar.google.com` are two subdomains of
+`google.com` and so on.
+</div>
+{: deeper}
+
+<div>
 You can investigate the DNS yourself by simply pinging domain names. If the DNS
-knows of the name, you will see the corresponding IP address in <span class="os
-osx linux">parentheses</span><span class="os windows">brackets</span>.
+knows of the name, you will see the corresponding IP address in
+<span class="os osx linux">parentheses</span>
+<span class="os windows">brackets</span>.
 Give it a go:
-<pre><code>ping whatever.com</code></pre>
-If the domain name is invalid, you will get <span class="os osx linux">an <code>unknown
-host</code></span><span class="os windows">a <code>could not find host</code></span>
+
+    ping google.com
+
+If the domain name is invalid, you will get
+<span class="os osx linux">an `unknown host`</span>
+<span class="os windows">a `could not find host`</span>
 message.
 </div>
+{: exercise}

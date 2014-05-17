@@ -24,9 +24,8 @@ the world" part and focus just on "computers communicating".
 
 ## Protocols ##
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/simpnet.png" alt='A simple "network"'/>
-</div>
+![A simple "network"]({{ site.baseurl }}/img/simpnet.png)
+{: .well .pull-right}
 
 We will first consider the simplest possible example of inter-computer
 communication: two computers connected with a cable. Each computer can send data
@@ -66,10 +65,9 @@ able to try again until the data make it across successfully.
 To solve these problems, we agree on certain rules for computer communications.
 This agreement has a special term:
 
-<div class="alert alert-warning">
-A <strong>protocol</strong> defines the rules for exchanging messages between
-computers, including the data formats that will be used.
-</div>
+A **protocol** defines the rules for exchanging messages between computers,
+including the data formats that will be used.
+{: definition}
 
 To get a handle on protocols, we're going to build a protocol bit-by-bit. The
 purpose of the protocol will be to allow one computer to send another one some
@@ -88,7 +86,7 @@ switch to analogy during this section. Let's imagine the sending and receiving
 computers as two people: Alice and Bob, respectively. We can imagine the
 information as a copy of book that Alice wishes to send Bob.
 
-### <a name="pak"></a>Packaging ###
+### Packaging ###
 
 In our analogy, Alice would probably give the book to the postal service to
 deliver to Bob. This leads to the following rephrasing of our first challenge:
@@ -100,22 +98,21 @@ needs to provide information about who the book is for and where they live. But
 she can't simply write this information on the book; how would the postal
 service know where to look for it?
 
-The solution is to use a <strong>package</strong>. Let's consider how this
-solves the problem:
+The solution is to use a **package**. Let's consider how this solves the
+problem:
 
 * A package provides standard addressing. The postal service knows how to get
   the information it needs
 * The package removes the need to know what exactly Alice is sending. If it is
   possible to send Bob a package, then it is also possible to send Bob
-  <em>anything that fits in a package</em> - be it a book, photograph, CD, etc.
+  _anything that fits in a package_ - be it a book, photograph, CD, etc.
 
 The computer equivalent of package provides these same benefits.
 
-<div class="alert alert-warning">
-A <strong>packet</strong> is a data format that wraps other data formats. It
-provides information such as the amount of data being sent and where it is being
-sent to. A protocol must specify what packet format is used to transmit data.
-</div>
+A **packet** is a data format that wraps other data formats. It provides
+information such as the amount of data being sent and where it is being sent to.
+A protocol must specify what packet format is used to transmit data.
+{: definition}
 
 Remember that with computers, Bob needs to know how to read any information that
 Alice sends him. By wrapping the data being sent in a single, standardized
@@ -131,12 +128,11 @@ front of the image format. Then Bob can receive that information without knowing
 anything about the image format Alice used - he gets everything he needs from
 the first 4 bytes.
 
-<div class="alert alert-danger">
 Of course we probably want to have something like an address and return address
 in the packet format, so that the postal service knows where to deliver the
 package. But right now we're considering the case of two computers connected
 only to each other, so we'll ignore this for the time being.
-</div>
+{: note}
 
 From now on, whenever we talk about sending data between computers, we will
 assume that the data are enclosed in a packet.
@@ -213,11 +209,10 @@ simply interpret each byte of data as a non-negative integer and add them all up
 (ignoring overflow).  Alice and Bob can both perform this check on the packet
 without knowing what is inside it.
 
-<div class="alert alert-warning">
-A <strong>checksum</strong> is a function that takes an arbitrary number of bytes as
+A **checksum** is a function that takes an arbitrary number of bytes as
 input and outputs a fixed number of bytes as output. Usually this function
 involves some kind of sum and is used for error checking.
-</div>
+{: definition}
 
 The checksum value would be included in the packet format since it doesn't
 depend on the kind of data being sent. Note that - like counting 'e's - the
@@ -231,7 +226,7 @@ Again, if the connection is really bad, this can involves lots and lots of
 resends, but it's still worth it. You would be surprised at how much damage a
 single erroneous bit can cause to a computer.
 
-### <a name="dis"></a>Disassembly ###
+### Disassembly ###
 
 When it comes to errors in transmission between computers, it is uncommon that
 each and every byte transmitted has the same probability of being lost or
@@ -312,15 +307,12 @@ to receive (bytes &div; 14 rounded up), and the number of 00 bytes that Alice
 added on to the end of the last packet (remainder of bytes &div; 14). He then has
 everything he needs to reassemble the data once he gets all of the packets.
 
-<div class="alert alert-info">
-<ol><li>
-Both example packet formats in this chapter (in the <a class="alert-link" href="#pak">Packaging</a>
-and <a class="alert-link" href="#dis">Disassembly</a> sections) impose
-restrictions on the total number of bytes that can be sent.  What are these
-limits?
-</li><li>
-Consider a new situation where Alice and Bob want to have a conversation. Adapt
-the example protocol (or design a new one) which will allow them to do so. What
-new challenges does this situation pose?
-</li></ol>
+<div>
+1. Both example packet formats in this chapter (in the [Packaging](#packaging){: .alert-link}
+   and [Disassembly](#disassembly){: .alert-link} sections) impose restrictions
+   on the total number of bytes of data that can be sent.  What are these limits?
+2. Consider a new situation where Alice and Bob want to have a conversation.
+   Adapt the example protocol (or design a new one) which will allow them to do
+   so. What new challenges does this situation pose?
 </div>
+{: exercise}
