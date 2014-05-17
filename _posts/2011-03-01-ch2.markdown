@@ -4,6 +4,11 @@ title: Simple Machines
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 Now we know what a computation is, but how is that related to the computers we
 know today?
 
@@ -37,9 +42,8 @@ now by inventing a machine that can add two numbers with much less chance of
 human fallibility mucking it up. We're going to work our way up to this machine
 by making much simpler machines first.
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/add1.png" alt="Add 1 Machine"/>
-</div>
+![Add 1 Machine]({{ site.baseurl }}/img/add1.png)
+{: .well .pull-right}
 
 We'll start with a wheel attached to the surface of a table. Around this wheel
 we'll evenly write the digits 0-9. We can attach a handle to rotate the wheel
@@ -55,9 +59,8 @@ algorithm it uses is as follows:
 This machine is a bit silly, but it does do the job... kinda. What happens if
 we give it 9 as input? Argh! The wheel circles back around to 0!
 
-<div class="well pull-left">
-<img src="{{ site.baseurl }}/img/overflow.png" alt="Overflow"/>
-</div>
+![Overflow]({{ site.baseurl }}/img/overflow.png)
+{: .well .pull-left}
 
 We can solve this problem by adding another wheel to our contraption. The
 second wheel is exactly like the first, except rather than turning it directly
@@ -70,11 +73,10 @@ the handle changes the 9 to 0, which advances the 0 to 1 and we get 10!
 Success!  If we keep turning, the second wheel remains at 1 (giving us 11, 12,
 13, ...) until we get to 19 and it once again advances to 20.
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/carry.png" alt="Carrying Digits"/>
-</div>
-
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
+
+![Carrying Digits]({{ site.baseurl }}/img/carry.png)
+{: .well .pull-right}
 
 By now you might realize that we still have a problem. Our new machine works
 all the way up to 99 and then the same error occurs. Turning the rightmost 9
@@ -89,19 +91,25 @@ special term for it: "overflow". As is common in computer science, from now on
 we'll just assume that we have lots and lots of wheels - not infinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
-<div class="alert alert-success">
-<p>It's tempting to think of overflow as a problem like I just did. But there's
+<div>
+It's tempting to think of overflow as a problem like I just did. But there's
 another way to look at it. What if we thought of our machine as taking your
-input and output, dividing them by 100 and then only showing you the remainder?</p>
-<p>99 + 1 = 100; 100 &divide; 100 = 1 with remainder 0</p>
-<p>So 00 is a sensible output from the machine. Do a few examples and you'll
-see that this always works:</p>
-<p>100 + 1 = 101; 101 &divide; 100 = 1 with remainder 1</p>
-<p>101 + 1 = 102; 102 &divide; 100 = 1 with remainder 2</p>
-<p>And so on. This trick is called "modular arithmetic". You can add, subtract,
+input and output, dividing them by 100 and then only showing you the remainder?
+
+99 + 1 = 100; 100 &divide; 100 = 1 with remainder 0
+
+So 00 is a sensible output from the machine. Do a few examples and you'll
+see that this always works:
+
+100 + 1 = 101; 101 &divide; 100 = 1 with remainder 1
+
+101 + 1 = 102; 102 &divide; 100 = 1 with remainder 2
+
+And so on. This trick is called "modular arithmetic". You can add, subtract,
 and multiply just like in normal arithmetic except that numbers always stay
 smaller than the "modulus" (which is 100, in this case).
 </div>
+{: deeper}
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
@@ -171,9 +179,8 @@ consists of the following components:
 
 [tu]: http://en.wikipedia.org/wiki/Alan_Turing
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/turing.png" alt="Turing machine"/>
-</div>
+![Turing machine]({{ site.baseurl }}/img/turing.png)
+{: .well .pull-right}
 
 1. A **tape**, on which we can write a sequence of digits, which serves as the
    machine's memory. As with the number of wheels on our adding machine, we
@@ -288,29 +295,25 @@ them special meaning. You could write different Turing machine instructions also
 using states 0 and 1, but with completely different meanings than they had in
 our last example.
 
-<div class="alert alert-warning">
-An algorithm that is read and performed by a computer is called a <strong>program</strong>.
-<strong>Programming</strong> is the process of inputting the algorithm into the computer for
+An algorithm that is read and performed by a computer is called a **program**.
+**Programming** is the process of inputting the algorithm into the computer for
 it to read.
-</div>
+{: definition}
 
 In the vernacular of superusers, you could call the list of instructions an "Add
 1 to a number _program_".
 
-<div class="alert alert-info">
-<ol><li>
-Create a list of Turing machine instructions (i.e. a program) for
-subtracting one from a number.  Test your program using 4 as input and again
-using 100.  Now try subtracting 1 from 0. What will happen? Think about
-different ways you might avoid this problem.
-</li><li>
-The Turing machine I described uses digits and numbers for the tape and
-state register but these were actually an arbitrary choice. What if we
-upgrade our Turing machine to read and write letters in addition to digits?
-Can this help solve the problem in the Exercise 1?
-</li><li>
-The add 1 program is really repetitive. Try to think of a way to change the
-program and input we give the machine so that we don't end up with 9
-versions of basically the same instruction.
-</li></ol>
+<div>
+1. Create a list of Turing machine instructions (i.e. a program) for
+   subtracting one from a number.  Test your program using 4 as input and again
+   using 100.  Now try subtracting 1 from 0. What will happen? Think about
+   different ways you might avoid this problem.
+2. The Turing machine I described uses digits and numbers for the tape and
+   state register but these were actually an arbitrary choice. What if we
+   upgrade our Turing machine to read and write letters in addition to digits?
+   Can this help solve the problem in the Exercise 1?
+3. The add 1 program is really repetitive. Try to think of a way to change the
+   program and input we give the machine so that we don't end up with 9
+   versions of basically the same instruction.
 </div>
+{: exercise}

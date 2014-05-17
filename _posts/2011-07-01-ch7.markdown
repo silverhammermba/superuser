@@ -4,6 +4,11 @@ title: End of Part 1
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 Congratulations are in order! You've finished part 1, which means you have a
 general knowledge of the workings of real computers and a better grasp of
 theoretical computation than most self-styled computer geeks! You might be a

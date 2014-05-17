@@ -4,6 +4,11 @@ title: The Ultimate Computer
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 ## Disclaimer ##
 
 Originally this chapter was just going to be a "Thinking Deeper" blurb, since

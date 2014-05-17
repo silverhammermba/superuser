@@ -4,6 +4,11 @@ title: Bases
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 You have now constructed (in your mind) a true, modern computer! Given enough
 tape, a big enough state register, and the right program, you can perform any
 computation! There's still a big gap between the simple, theoretical Turing
@@ -78,13 +83,16 @@ becomes fives:
 Previously we split the number up into ones, tens, hundreds, thousands, ... all
 the powers of ten. Now we're splitting up the number by the powers of five.
 
-<div class="alert alert-danger">
-<p>If it's been a while since your last arithmetic class, here's a crash course on
+<div>
+If it's been a while since your last arithmetic class, here's a crash course on
 exponentiation. Remember that "X to the third power" is X<sup>3</sup> = X
-&times; X &times; X. There are two special cases to also keep in mind:</p>
-<p>X<sup>1</sup> = X</p>
-<p>X<sup>0</sup> = 1 (if X isn't 0)</p>
+&times; X &times; X. There are two special cases to also keep in mind:
+
+X<sup>1</sup> = X
+
+X<sup>0</sup> = 1 (if X isn't 0)
 </div>
+{: note}
 
 The important thing to take away from this is that a sequence of digits means
 different things depending on the base it's written in.
@@ -158,17 +166,15 @@ computing machines it makes things so much easier! That's why the fundamental
 unit of information in computers is a binary digit. That being said, a single
 binary digit cannot store very much information: it can only be 0 or 1.
 
-<div class="alert alert-warning">
-A single binary digit is called a <strong>bit</strong>.
-</div>
+A single binary digit is called a **bit**.
+{: definition}
 
 There's your first taste of computer scientist humor. It doesn't get better.
 To make things more convenient for people, modern computers usually deal with
 bits in groups of 8.
 
-<div class="alert alert-warning">
-Eight bits is called a <strong>byte</strong>.
-</div>
+Eight bits is called a **byte**.
+{: definition}
 
 Small binary numbers are usually written with the full 8 bits when dealing with
 computers e.g. rather than 01<sub>2</sub> we write 00000010<sub>2</sub>. Large
@@ -219,9 +225,8 @@ hexadecimal digits and their binary equivalents:
 The single digit hexadecimal numbers correspond to the four bit numbers! This
 mathematical trick lets us read and write bytes as pairs of hexadecimal digits.
 
-<div class="well pull-right">
-<img src="{{ site.baseurl }}/img/hex.png" alt="Binary to Decimal"/>
-</div>
+![Binary to Decimal]({{ site.baseurl }}/img/hex.png)
+{: .well .pull-right}
 
 Being able to read and write numbers in hexadecimal is a handy skill for
 computer scientists. It is very succinct to read and write but also not hard to
@@ -242,26 +247,22 @@ scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
 You might want some graph paper for some of these exercises.
 
-<div class="alert alert-info">
-<ol><li>
-Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
-that they line up with each other. Notice the patterns that emerge.
-</li><li>
-8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
-scientist humor again). Look back at the chart showing how hexadecimal digits
-correspond to binary nibbles. Now count from 0 to 15 in binary, writing out all
-4 bits of each nibble, just like in the chart. Trust me: do it. Do you notice
-any patterns? Do you see a trick for easily counting in binary without needing
-to add 1 and keep track of carrying?
-</li><li>
-Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
-binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a
-few times until you start feeling comfortable with the process.
-</li><li>
-At the last minute I mentioned base 8 AKA octal. And earlier I showed you a
-trick for quickly converting from binary to hexadecimal. Since 16 and 8 are
-both powers of 2, can you find a similar trick for quickly converting from
-binary to octal?  Do you see how this trick could apply to other pairs of
-bases?
-</li></ol>
+<div>
+1. Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
+   that they line up with each other. Notice the patterns that emerge.
+2. 8 bits is called a byte so 4 bits is called a "nibble" (there's that computer
+   scientist humor again). Look back at the chart showing how hexadecimal digits
+   correspond to binary nibbles. Now count from 0 to 15 in binary, writing out all
+   4 bits of each nibble, just like in the chart. Trust me: do it. Do you notice
+   any patterns? Do you see a trick for easily counting in binary without needing
+   to add 1 and keep track of carrying?
+3. Write out a random sequence of 16 ones and zeroes. Now convert your 16-bit
+   binary number to hexadecimal by breaking it into 4-bit groups. Repeat this a
+   few times until you start feeling comfortable with the process.
+4. At the last minute I mentioned base 8 AKA octal. And earlier I showed you a
+   trick for quickly converting from binary to hexadecimal. Since 16 and 8 are
+   both powers of 2, can you find a similar trick for quickly converting from
+   binary to octal?  Do you see how this trick could apply to other pairs of
+   bases?
 </div>
+{: exercise}

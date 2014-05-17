@@ -4,6 +4,11 @@ title: 'Part 2: The Internet'
 category: part2
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 Almost everyone uses the Internet these days: at home, at work, and even on the
 go with their cell phones. Consequently, most people have a vague idea of what
 the Internet is. But I think that many people would be surprised at how far from

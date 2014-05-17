@@ -3,5 +3,5 @@ highlighter: pygments
 baseurl: /superuser
 markdown: kramdown
 permalink: /:categories/:title/
-rdiscount:
-  extensions: [smart]
+kramdown:
+  parse_block_html: true

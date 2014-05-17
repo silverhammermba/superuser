@@ -4,6 +4,11 @@ title: 'Layers'
 category: part2
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 You are probably sick of protocols by now but hopefully I can convince you that
 at least all of that effort was worth it. When you're dealing with computer
 networks, there are some terms that you'll see popping up quite often:

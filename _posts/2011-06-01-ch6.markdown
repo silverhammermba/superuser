@@ -4,6 +4,11 @@ title: Hardware
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 By now you should have a decent grasp of the theory behind computation and what
 makes a computer a computer. But the tiny theoretical machines we've been
 playing with are nothing compared to the fearsome computers we use in this

@@ -4,6 +4,11 @@ title: Formatting
 category: part1
 ---
 
+{:definition: .alert .alert-warning }
+{:note: .alert .alert-danger }
+{:deeper: .alert .alert-success }
+{:exercise: .alert .alert-info }
+
 Last chapter we learned how computers do everything in binary... but that's just
 a bunch of numbers. It seems like a far cry from the complex information we
 store in computers these days. How does something like a game, or a song, or a
