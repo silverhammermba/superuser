@@ -3,45 +3,41 @@ layout: chapter
 title: Glossary
 ---
 
-<dl>
-<dt>Algorithm</dt>
-<dd>A well-defined, step-by-step process.</dd>
+Algorithm
+: A well-defined, step-by-step process.
 
-<dt>Bit</dt>
-<dd>A binary digit.</dd>
+Bit
+: A binary digit.
 
-<dt>Byte</dt>
-<dd>Eight bits.</dd>
+Byte
+: Eight bits.
 
-<dt>Computation</dt>
-<dd>A function that can be evaluated using an algorithm.</dd>
+Computation
+: A function that can be evaluated using an algorithm.
 
-<dt>Evaluating a function</dt>
-<dd>Determining the output of a function given an input.</dd>
+Evaluating a function
+: Determining the output of a function given an input.
 
-<dt>Format</dt>
-<dd>A description of how bytes are grouped together and what certain
-bytes or byte values mean.</dd>
+Format
+: A description of how bytes are grouped together and what certain bytes or byte
+  values mean.
 
-<dt>Function</dt>
-<dd>A relation between input and output, where each input has at most
-one output.</dd>
+Function
+: A relation between input and output, where each input has at most one output.
 
-<dt>Nibble</dt>
-<dd>Four bits.</dd>
-<dd>Half of a byte.</dd>
+Nibble
+: Four bits.
+: Half of a byte.
 
-<dt>Program</dt>
-<dd>An algorithm that is read and performed by a computer.</dd>
+Program
+: An algorithm that is read and performed by a computer.
 
-<dt>Programming</dt>
-<dd>The process of inputting a program into a computer for it to read.</dd>
+Programming
+: The process of inputting a program into a computer for it to read.
 
-<dt>Turing complete</dt>
-<dd>The ability for a machine to simulate a Turing machine (and thus perform
-any calculation). A machine is a computer if and only if it is Turing
-complete.</dd>
+Turing complete
+: The ability for a machine to simulate a Turing machine (and thus perform any
+  calculation). A machine is a computer if and only if it is Turing complete.
 
-<dt>Turing machine</dt>
-<dd>A simple, theoretical computer.</dd>
-</dl>
+Turing machine
+: A simple, theoretical computer.

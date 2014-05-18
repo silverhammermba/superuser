@@ -3,6 +3,8 @@ layout: chapter
 title: Selected Exercise Answers
 ---
 
+{:deeper: .alert .alert-success}
+
 ## Part 1: Computers ##
 
 1. Not provided.
@@ -66,12 +68,11 @@ title: Selected Exercise Answers
    would you use this format? What sort of algorithm would you need to make in
    order to perform arithmetic with positive and negative numbers?
 
-   <div class="alert alert-success">
    Actual computers use a much more clever format called "two's complement". This
    format takes advantage of modular arithmetic to represent negative numbers in a
-   way so that you can add, subtract, and multiply them using the <em>same</em>
+   way so that you can add, subtract, and multiply them using the _same_
    algorithm you use for positive numbers!
-   </div>
+   {: deeper}
 
    One format for storing decimal numbers would be to use two bytes X and Y.
    Then each number is defined as X &times; 10<sup>Y</sup>. That way X and Y can
@@ -107,12 +108,14 @@ Not provided.
    so we can have at most 255 of them (the first packet isn't used to send
    data). That's 255&times;14=3,570 bytes total.
 
-   <div class="alert alert-success">
-   <p>How can we make the first protocol capable of sending more data without
-   increasing the number of bytes used to store the data size?</p>
-   <p>How can we make the second protocol capable of sending more data without
-   increasing the number of bytes used to store the packet number?</p>
+   <div>
+   How can we make the first protocol capable of sending more data without
+   increasing the number of bytes used to store the data size?
+
+   How can we make the second protocol capable of sending more data without
+   increasing the number of bytes used to store the packet number?
    </div>
+   {: deeper}
 
 2. Here are some new challenges of this situation:
 
@@ -127,12 +130,14 @@ Not provided.
 	 responds after only receiving the first message? How will Bob get the
 	 correct order of messages on his end?
 
-   <div class="alert alert-success">
-   <p>If you are very forward-thinking, you might have also considered the
-   challenge of <em>privacy</em>. If Alice is simply sending Bob a book, who
-   cares if it is accidentally delivered to someone else? But what if Alice and
-   Bob are discussing their super-secret computer enthusiast club? How can they
-   stop their clandestine correspondence from falling into the wrong hands?</p>
-   <p>This is an incredibly important topic, but one which we will tackle much
-   later.</p>
+   <div>
+   If you are very forward-thinking, you might have also considered the
+   challenge of _privacy_. If Alice is simply sending Bob a book, who cares if
+   it is accidentally delivered to someone else? But what if Alice and Bob are
+   discussing their super-secret computer enthusiast club? How can they stop
+   their clandestine correspondence from falling into the wrong hands?
+
+   This is an incredibly important topic, but one which we will tackle much
+   later.
    </div>
+   {: deeper}
