@@ -3,7 +3,7 @@ layout: chapter
 title: Selected Exercise Answers
 ---
 
-{:deeper: .alert .alert-success}
+{% include defs.markdown %}
 
 ## Part 1: Computers ##
 
