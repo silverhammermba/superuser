@@ -66,11 +66,18 @@ desination.
 
 Now comes the interesting bit. We've packaged our data in the transport layer,
 but how does it actually get where it needs to go? This is where the Internet
-Protocol (IP) comes in.
+layer comes in.
 
-The protocol itself is conceptually simple. In essence, it wraps the packet from
-the transport layer in an additional packet describing who is sending the data,
-and who the recipient should be. Then it simply sends it off to be delivered.
+The **Internet layer** is the protocol that is in charge of getting data from
+its source to its destination.
+{: definition}
+
+As with the transport layer, there are multiple protocols that can be used in
+this layer. As far as we're concerned, the eponymous Internet protocol (IP) is
+the only one that matters right now. The protocol itself is conceptually simple.
+In essence, it wraps the packet from the transport layer in an additional packet
+describing who is sending the data, and who the recipient should be. Then it
+simply sends it off to be delivered.
 
 But who is it sending it to? How do they deliver it? To understand this we first
 need to make a little digression.
@@ -182,9 +189,9 @@ ignore pings.
 
 ## DNS ##
 
-Now we know that the Internet works using routers and IP addresses, but how does
-this link up with the Internet that we know and love? There is one final piece
-to the puzzle.
+Now we know that the Internet works using routers and IP addresses, but this
+picture still seems slightly different from the Internet that we know and love.
+There is one final piece to the puzzle.
 
 Here is a link to the popular Google search engine:
 [www.google.com](http://www.google.com). Now here is a link to an IP address

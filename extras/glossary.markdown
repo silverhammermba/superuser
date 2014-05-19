@@ -55,9 +55,14 @@ Hardware
 Information
 : Meaning. Can be encoded/stored as data using an appropriate format.
 
+Internet layer
+: The protocol in charge of getting data from one computer to another. In most
+  cases, this is the Internet protocol (IP)
+
 IP address
-: A number uniquely representing a computer on a network. Most commonly 4 bytes
-  long, though newer addresses have 16 bytes.
+: A number uniquely representing a computer on a network for use with the
+  Internet protocol. Most commonly 4 bytes long, though newer addresses have 16
+  bytes.
 
 Layer
 : A protocol that allows for transmission of arbitrary data.
@@ -92,7 +97,7 @@ Software
 : A program or programs.
 
 Transport Layer
-: The protocol in charge of packing data for transmission and unpacking it
+: The protocol in charge of packaging data for transmission and unpacking it
   afterwards. TCP and UDP are protocols that are often used for this layer.
 
 Turing complete
