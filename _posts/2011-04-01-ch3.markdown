@@ -4,10 +4,7 @@ title: Bases
 category: part1
 ---
 
-{:definition: .alert .alert-warning }
-{:note: .alert .alert-danger }
-{:deeper: .alert .alert-success }
-{:exercise: .alert .alert-info }
+{% include defs.markdown %}
 
 You have now constructed (in your mind) a true, modern computer! Given enough
 tape, a big enough state register, and the right program, you can perform any

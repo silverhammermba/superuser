@@ -3,10 +3,7 @@ layout: chapter
 title: Introduction
 ---
 
-{:definition: .alert .alert-warning }
-{:note: .alert .alert-danger }
-{:deeper: .alert .alert-success }
-{:exercise: .alert .alert-info }
+{% include defs.markdown %}
 
 This is a book to set you on course to becoming an accomplished computer user
 or -- as I like to call it -- a superuser.

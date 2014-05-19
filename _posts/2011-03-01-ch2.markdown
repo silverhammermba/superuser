@@ -4,10 +4,7 @@ title: Simple Machines
 category: part1
 ---
 
-{:definition: .alert .alert-warning }
-{:note: .alert .alert-danger }
-{:deeper: .alert .alert-success }
-{:exercise: .alert .alert-info }
+{% include defs.markdown %}
 
 Now we know what a computation is, but how is that related to the computers we
 know today?

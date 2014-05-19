@@ -4,10 +4,7 @@ title: Formatting
 category: part1
 ---
 
-{:definition: .alert .alert-warning }
-{:note: .alert .alert-danger }
-{:deeper: .alert .alert-success }
-{:exercise: .alert .alert-info }
+{% include defs.markdown %}
 
 Last chapter we learned how computers do everything in binary... but that's just
 a bunch of numbers. It seems like a far cry from the complex information we
