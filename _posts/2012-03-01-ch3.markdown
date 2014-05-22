@@ -1,0 +1,24 @@
+---
+layout: chapter
+title: 'HTTP'
+category: part2
+---
+
+{% include defs.markdown %}
+
+In the previous chapter, I mentioned the large number of application protocols
+that exist. You probably make use of many such protocols when you use the
+Internet, but in this chapter we're going to focus on the king of application
+protocols: the HyperText Transfer Protocol (HTTP).
+
+Remember that thanks to the transport and Internet layers, we don't have to
+worry at all about the technical details we discussed in the previous chapters.
+When discussing the application layer, we can pretend that computers magically
+send formatted data to each other just as easily as you might talk to another
+person in the same room as you.
+{: note}
+
+You might know good ol' HTTP from your browser's address bar, where it is often
+seen just ahead of the domain name. That's because HTTP is the backbone of the
+_World Wide Web_: the interlinked multimedia web pages you view in your web
+browser.

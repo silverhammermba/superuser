@@ -60,7 +60,7 @@ packaging data for transmission.
 To return to the analogy in the previous chapter, the transport layer tells you
 how to package your data and how the sender and receiver should handle those
 packages, but it doesn't mention how those packages will actually get to their
-desination.
+destination.
 
 ## IP ##
 
@@ -89,7 +89,7 @@ When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
 computer called a _router_. That's it. It's just as simple as in the previous
 chapter where we had two computers connected directly to each other. What's
-special about a router is that it is designed to be connnected to many computers
+special about a router is that it is designed to be connected to many computers
 at once.
 
 All of the computers connected to a router are assigned _addresses_ which
@@ -126,7 +126,7 @@ This is the essence of the Internet - a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
 I say "essence" because of course the reality is much more complicated than
-that. To mention a few complications, there are heirarchies of routers
+that. To mention a few complications, there are hierarchies of routers
 established to ensure efficient routing of network packets, there are special
 provisions for the assignment of IP addresses, there are specialized routers in
 the network for handling certain types of messages, and there is the complicated
@@ -231,7 +231,7 @@ Like the Internet itself, the DNS is incredibly complicated. The system of
 ownership, distribution, assignment, and maintenance of domain names is
 something that even I don't understand.
 
-One basic fact is that the DNS is heirarchical, with each domain being split
+One basic fact is that the DNS is hierarchical, with each domain being split
 into subdomains administered by different companies. You can see this
 organization by reading the domain names from right to left. For example `com`
 is a top-level domain with `google.com` and `ebay.com` as two of its subdomains.
@@ -255,3 +255,29 @@ If the domain name is invalid, you will get
 message.
 </div>
 {: exercise}
+
+## Now What? ##
+
+The Internet layer lets us communicate across the world and the transport layer
+makes sure that our data will get to where we want, but what data are we
+actually sending? Well... anything!
+
+The **application layer** is the protocol that actually communicates meaningful
+information.
+{: definition}
+
+In other words, the Internet layer and transport layer have done all of the
+menial work and all that's left is the interesting stuff. Consequently, there
+are a huge number of protocols to choose from in the application layer. One
+reason for this is that standardization is far more important to the Internet
+and transport layers. Without those two layers, inter-computer communication
+would be essentially impossible; thus it is extremely important that every
+computer on the Internet agree on them.
+
+However, once two computers do agree on those layers, agreeing on the
+application layer is less important. For example, as long the computers have
+**one** application protocol in common, they can use it to send each other
+information about other application protocols and thus expand their application
+layer repertoire.
+
+We will discuss application protocols in greater detail in the next chapter.
