@@ -51,11 +51,12 @@ title: Selected Exercise Answers
 ## Bases ##
 
 1. Not provided.
-2. The trick is to look at columns. The rightmost column alternates 010101...,
+2. 2843<sub>9</sub> = 2145<sub>10</sub>, 3A02<sub>13</sub> = 8283<sub>10</sub>
+3. The trick is to look at columns. The rightmost column alternates 010101...,
    the next alternates in twos 00110011.., the next in fours 000011110000...,
    and so on.
-3. Not provided.
-4. Hexadecimal digits correspond to quadruplets of binary digits, and octal
+4. Not provided.
+5. Hexadecimal digits correspond to quadruplets of binary digits, and octal
    digits correspond to triplets of binary digits. Note that 16 = 2<sup>4</sup>
    and 8 = 2<sup>3</sup>. From there you should be able to figoure out what the
    tricks are for converting between base 3 and base 9 or base 6 and base 36,
