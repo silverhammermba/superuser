@@ -9,6 +9,10 @@ Algorithm
 Analog
 : Information which can be perfectly represented only by continuous data.
 
+Application layer
+: The protocol underneath the transport layer which communicates the actual
+  information. HTTP is the most famous example.
+
 BIOS
 : Basic Input/Output System.
 : Simple programs stored in the motherboard which initiate other hardware and
@@ -51,6 +55,14 @@ Function
 
 Hardware
 : The physical components of a computer.
+
+HTML
+: HyperText Markup Language
+: The textual language that describes the contents of a web page
+
+HTTP
+: HyperText Transfer Protocol
+: An application protocol which allows transmission of web pages and multimedia
 
 Information
 : Meaning. Can be encoded/stored as data using an appropriate format.

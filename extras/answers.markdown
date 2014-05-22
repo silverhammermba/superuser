@@ -58,7 +58,7 @@ title: Selected Exercise Answers
 4. Not provided.
 5. Hexadecimal digits correspond to quadruplets of binary digits, and octal
    digits correspond to triplets of binary digits. Note that 16 = 2<sup>4</sup>
-   and 8 = 2<sup>3</sup>. From there you should be able to figoure out what the
+   and 8 = 2<sup>3</sup>. From there you should be able to figure out what the
    tricks are for converting between base 3 and base 9 or base 6 and base 36,
    etc.
 
