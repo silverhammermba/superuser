@@ -174,7 +174,7 @@ Eight bits is called a **byte**.
 {: definition}
 
 Small binary numbers are usually written with the full 8 bits when dealing with
-computers e.g. rather than 01<sub>2</sub> we write 00000010<sub>2</sub>. Large
+computers e.g. rather than 10<sub>2</sub> we write 00000010<sub>2</sub>. Large
 binary numbers that require more than 8 digits are usually written as multiple
 bytes placed end-to-end.
 

@@ -300,8 +300,8 @@ of preparation when Alice wants to send something:
 
 Then once Bob receives packet 0 he knows the total number of data bytes being
 sent to him. This tells him two things: the total number of packets he expects
-to receive (bytes &div; 14 rounded up), and the number of 00 bytes that Alice
-added on to the end of the last packet (remainder of bytes &div; 14). He then has
+to receive (bytes &divide; 14 rounded up), and the number of 00 bytes that Alice
+added on to the end of the last packet (remainder of bytes &divide; 14). He then has
 everything he needs to reassemble the data once he gets all of the packets.
 
 <div>
