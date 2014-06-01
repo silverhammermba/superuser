@@ -173,3 +173,120 @@ of ASCII as we move on. I just wanted to give you an idea of how computers
 handle all of the text we'll be seeing later on.
 
 ## HTML ##
+
+Now that we know how computers read text, this opens up a world of text formats.
+Just like how a data format agrees on the meaning of binary data, a text format
+agrees on the meaning of text (which itself might be stored in a binary data
+format like ASCII).
+
+HyperText Markup Language (HTML) is one such text format. The purpose of HTML is
+to enrich plain text with additional meaning. For example, consider this text:
+
+    The rare original heartsbleed goes,
+    Spends in the earthen hide, in the folds and wizenings, flows
+    In the gutters of the banked and staring eyes. He lies
+    As still as if he would return to stone,
+
+    Richard Wilbur, The Death of a Toad
+
+From the context you can probably tell that this is a quotation, but computers
+aren't so good at guessing such things. They like to have things all spelled
+out. Let's _mark up_ this text with HTML to make the meaning explicit.
+
+    <!DOCTYPE html>
+    <html>
+      <body>
+        The rare original heartsbleed goes,
+        Spends in the earthen hide, in the folds and wizenings, flows
+        In the gutters of the banked and staring eyes. He lies
+        As still as if he would return to stone,
+
+        Richard Wilbur, The Death of a Toad
+      </body>
+    </html>
+
+It's easy to spot the HTML parts because they are all wrapped in angled brackets
+`<like this>`. These bracketed bits are called "tags". The tags we've added are
+the bare minimum to identify this as an HTML document. Let's examine each tag's
+meaning.
+
+The `DOCTYPE` tag at the top lets the computer know that this is an HTML
+document. Next is an `<html>` tag.  You will notice another similar tag at the
+bottom: `</html>`. The `/` at the beginning of the tag tells us that these two
+tags are a pair. This tells us that everything between `<html>` and `</html>`
+is HTML. These two tags always wrap the contents of an HTML document. Next we
+see another pair of tags: `<body>` and `</body>`. These tags enclose the body of
+our text.
+
+As I said, this is just the bare minimum. Let's add interesting stuff.
+
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <p>
+          The rare original heartsbleed goes,<br/>
+          Spends in the earthen hide, in the folds and wizenings, flows<br/>
+          In the gutters of the banked and staring eyes. He lies<br/>
+          As still as if he would return to stone,
+        </p>
+        Richard Wilbur, The Death of a Toad
+      </body>
+    </html>
+
+Here we've identified the stanza of the poem as a **p**aragraph using `<p>` tags
+and we've added `<br/>` tags and the end of each line to indicate line
+**br**eaks. The `/` at the _end_ of the `br` tag indicates that each tag is on
+its own and doesn't have a matching `</br>` later in the document. This teaches
+us an important lesson about HTML.
+
+**HyperText Markup Language** (HTML) is a language for describing the
+_structure_ and _meaning_ of text, with no regard to its appearance.
+{: definition}
+
+We humans understand the difference in meaning between line breaks in a
+paragraph and line breaks in a poem. We understand from context how the name
+following a quoted paragraph is not part of the quotation itself but a citation.
+HTML needs all of these implicit meanings to be made clear: line breaks are
+assumed to be meaningless unless specified; text is assumed to be grouped
+together unless separated into paragraphs.
+
+HTML also provides tags for marking up quotations:
+
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <blockquote>
+          <p>
+            The rare original heartsbleed goes,<br/>
+            Spends in the earthen hide, in the folds and wizenings, flows<br/>
+            In the gutters of the banked and staring eyes. He lies<br/>
+            As still as if he would return to stone,
+          </p>
+          <cite>Richard Wilbur, The Death of a Toad</cite>
+        </blockquote>
+      </body>
+    </html>
+
+Now the association between the quotation and citation is clear. You might have
+wondered earlier at the point of the `<body>` tag. What isn't part of the body
+of text? Well, HTML provides another tag `<head>` in which you can place
+information _about_ the document that isn't part of the document itself.
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>My Favorite Poem</title>
+      </head>
+      <body>
+        <blockquote>
+          <p>
+            The rare original heartsbleed goes,<br/>
+            Spends in the earthen hide, in the folds and wizenings, flows<br/>
+            In the gutters of the banked and staring eyes. He lies<br/>
+            As still as if he would return to stone,
+          </p>
+          <cite>Richard Wilbur, The Death of a Toad</cite>
+        </blockquote>
+      </body>
+    </html>
+
