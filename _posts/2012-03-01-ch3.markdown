@@ -290,3 +290,52 @@ information _about_ the document that isn't part of the document itself.
       </body>
     </html>
 
+Now this is looking like a proper HTML document. But there's one notable HTML
+tag which is missing:
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>My Favorite Poem</title>
+      </head>
+      <body>
+        <blockquote>
+          <p>
+            The rare original heartsbleed goes,<br/>
+            Spends in the earthen hide, in the folds and wizenings, flows<br/>
+            In the gutters of the banked and staring eyes. He lies<br/>
+            As still as if he would return to stone,
+          </p>
+          <cite>
+            <a href="http://en.wikipedia.org/wiki/Richard_Wilbur">Richard Wilbur</a>,
+            The Death of a Toad
+          </cite>
+        </blockquote>
+      </body>
+    </html>
+
+We have added the mighty **a**nchor tag or, as you probably know it, a
+hyperlink! This tag looks a little different because it includes an _attribute_.
+An attribute goes inside a start tag after the tag name and looks like
+`name="value"`. One way you could read this is "Richard Wilbur is an anchor with
+an href value of http://en.wikipedia.org/wiki/Richard_Wilbur". An anchor's href
+describes the Internet address of another HTML document that our HTML document
+links to.
+
+## Behind the Scenes ##
+
+We've created a wonderful HTML document, but now what can we do with it? Well
+the real magic of HTML occurs when you give an HTML document to a web browser
+(like the one you're using right now!). The browser reads the document,
+interprets the various tags, and turns it into an interactive web page for you
+to browse! Check out the document we just made by clicking [here][ex].
+
+[ex]: {{ site.baseurl }}/extras/example.html
+
+Pretty cool, huh? To prove that there's no trickery going on here, try right
+clicking on that page. The menu that pops up should have an option like "View
+page source". This shows you exactly what HTML your browser is interpreting to
+create the page. "Interpreting" is a very important word here since different
+people might want to interpret HTML differently. For example a blind person
+might use a web browser that interprets HTML into a medium of touch and sound so
+that they can still interact with it.
