@@ -258,9 +258,9 @@ message.
 
 ## Now What? ##
 
-The Internet layer lets us communicate across the world and the transport layer
-makes sure that our data will get to where we want, but what data are we
-actually sending? Well... anything!
+The Internet layer gets your data where it needs to go and the transport layer
+makes sure that it arrives intact without errors, but what data are we actually
+sending? Well... anything!
 
 The **application layer** is the protocol that actually communicates meaningful
 information.
