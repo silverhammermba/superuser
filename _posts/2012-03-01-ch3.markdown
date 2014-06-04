@@ -161,13 +161,6 @@ it is understood so widely that it doesn't bother with such things. Instead it
 is common for a computer to simply scan the bytes of data and, if they all fall
 within the ASCII range (less than 0x80), assume that the data are ASCII.
 
-<div>
-Translate the following bytes into text using the ASCII format:
-
-    55 73 69 6e 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
-</div>
-{: exercise}
-
 Those are the basics of ASCII. Again, you don't need to worry about the details
 of ASCII as we move on. I just wanted to give you an idea of how computers
 handle all of the text we'll be seeing later on.
@@ -334,8 +327,25 @@ to browse! Check out the document we just made by clicking [here][ex].
 
 Pretty cool, huh? To prove that there's no trickery going on here, try right
 clicking on that page. The menu that pops up should have an option like "View
-page source". This shows you exactly what HTML your browser is interpreting to
-create the page. "Interpreting" is a very important word here since different
-people might want to interpret HTML differently. For example a blind person
-might use a web browser that interprets HTML into a medium of touch and sound so
-that they can still interact with it.
+page source" (if you're reading this on your phone, you might have to dig around
+a bit to find this option). This shows you exactly what HTML your browser is
+interpreting to create the page. "Interpreting" is a very important word here
+since different people might want to interpret HTML differently. For example a
+blind person might use a web browser that interprets HTML into a medium of touch
+and sound so that they can still interact with it.
+
+<div>
+1. Translate the following bytes into text using the ASCII format:
+
+      55 73 69 6e 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
+
+2. View the page source of _this_ page; it's written in HTML! Try to match up
+   the HTML tags with what you actually see in your browser.
+3. Find some small text document somewhere: an article in a magazine, a
+   restaurant menu, something like that. Try adding HTML markup like we did to
+   the quotation. There are a lot more tags to choose from than the few I showed
+   you. Check out the full list of HTML tags [here][moz]{: .alert-link}.
+</div>
+{: exercise}
+
+[moz]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
