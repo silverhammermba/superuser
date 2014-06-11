@@ -121,15 +121,15 @@ Not provided.
 2. Here are some new challenges of this situation:
 
    * Both Alice and Bob will be sending, receiving, and ACKing messages. How
-	 will they differentiate a message and an ACK?
+     will they differentiate a message and an ACK?
    * Messages are broken into small packets, but packets are subject to delays.
-	 What if one person sends two messages back-to-back, and the packets end up
-	 intermingled on the receiver's end? What if all of the packets of the
-	 second messages arrive before any of the packets of the first?
+     What if one person sends two messages back-to-back, and the packets end up
+     intermingled on the receiver's end? What if all of the packets of the
+     second messages arrive before any of the packets of the first?
    * If Alice and Bob are to have a conversation, the order of messages is
-	 important. What if Bob sends Alice two messages back-to-back and Alice
-	 responds after only receiving the first message? How will Bob get the
-	 correct order of messages on his end?
+     important. What if Bob sends Alice two messages back-to-back and Alice
+     responds after only receiving the first message? How will Bob get the
+     correct order of messages on his end?
 
    <div>
    If you are very forward-thinking, you might have also considered the
@@ -142,3 +142,48 @@ Not provided.
    later.
    </div>
    {: deeper}
+
+## Layers ##
+
+Note provided.
+
+## HTTP ##
+
+1. Using ASCII is easy!
+
+   I'm not taunting you, that's what it says.
+
+2. Not provided.
+3. Here's my approach. Since HTML is about the meaning of text, there is rarely
+   a single correct HTML version of plain text. Different interpreations can
+   lead to different valid results.
+
+        <!DOCTYPE html>
+        <html>
+          <head><title>My favorite recipe</title></head>
+          <body>
+            <h1>Pesto</h1>
+            <p>
+              This family recipe is simple, yet I have rarely tasted a
+              restaurant's pesto that bested it.
+            </p>
+            
+            <h2>Ingredients</h2>
+            <ul>
+              <li>2/3 cup basil leaves (approx.)</li>
+              <li>1/3 cup olive oil</li>
+              <li>1/3 cup parmesan cheese</li>
+              <li>2 tbsp pine nuts or walnuts</li>
+              <li>1/8 tsp (white) pepper</li>
+              <li>2-3 cloves garlic</li>
+            </ul>
+            
+            <h2>Directions</h2>
+            <ol>
+              <li>Put all ingredients in blender</li>
+              <li>Blend</li>
+            </ol>
+            <p>Serves 4-6</p>
+          </body>
+        </html>
+

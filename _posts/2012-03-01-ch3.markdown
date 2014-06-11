@@ -37,7 +37,7 @@ ASCII.
 **ASCII** is a simple text format where each byte represents a single character.
 {: definition}
 
-Well this isn't a play, so what do we mean by "character"?
+What does "character" mean here?
 
 A **character** is a single textual symbol. For example, upper and lower case
 letters and punctuation symbols are all characters.
@@ -149,11 +149,11 @@ A few observations of this table:
 * You can convert letters from upper case to lower case and vice versa by adding
   or subtracting 0x20
 * There are a bunch of missing byte values: 0x00-0x1F and 0x7F-0xFF. The reason
-  for some of these (0x80-0xFF) is because ASCII only uses 7 bits of each byte
-  so only the first 128 byte values can be used. The other missing characters
-  are "unprintable ASCII". They include characters representing line breaks and
-  indentation or even "control characters" that can have special meaning to the
-  program using the ASCII text
+  for some of these (0x80-0xFF) is because ASCII only uses the first 7 bits of
+  each byte so only the first 2<sup>7</sup>=128 byte values can be used. The
+  other missing characters are "unprintable ASCII". They include characters
+  representing line breaks and indentation or even "control characters" that can
+  have special meaning to the program using the ASCII text
 
 You might recall from the chapter on data formats that one goal of a format is
 to identify the type of data to the computer. ASCII is such a simple format and
@@ -206,10 +206,10 @@ meaning.
 The `DOCTYPE` tag at the top lets the computer know that this is an HTML
 document. Next is an `<html>` tag.  You will notice another similar tag at the
 bottom: `</html>`. The `/` at the beginning of the tag tells us that these two
-tags are a pair. This tells us that everything between `<html>` and `</html>`
-is HTML. These two tags always wrap the contents of an HTML document. Next we
-see another pair of tags: `<body>` and `</body>`. These tags enclose the body of
-our text.
+tags are a pair. This means that everything between `<html>` and `</html>` is
+HTML. These two tags always wrap the contents of an HTML document. Next we see
+another pair of tags: `<body>` and `</body>`. These tags enclose the body of our
+text.
 
 As I said, this is just the bare minimum. Let's add interesting stuff.
 
@@ -227,7 +227,7 @@ As I said, this is just the bare minimum. Let's add interesting stuff.
     </html>
 
 Here we've identified the stanza of the poem as a **p**aragraph using `<p>` tags
-and we've added `<br/>` tags and the end of each line to indicate line
+and we've added `<br/>` tags at the end of each line to indicate line
 **br**eaks. The `/` at the _end_ of the `br` tag indicates that each tag is on
 its own and doesn't have a matching `</br>` later in the document. This teaches
 us an important lesson about HTML.
@@ -240,8 +240,8 @@ We humans understand the difference in meaning between line breaks in a
 paragraph and line breaks in a poem. We understand from context how the name
 following a quoted paragraph is not part of the quotation itself but a citation.
 HTML needs all of these implicit meanings to be made clear: line breaks are
-assumed to be meaningless unless specified; text is assumed to be grouped
-together unless separated into paragraphs.
+assumed to be meaningless unless specified with tags; text is assumed to be
+grouped together unless separated by tags.
 
 HTML also provides tags for marking up quotations:
 
@@ -329,10 +329,17 @@ Pretty cool, huh? To prove that there's no trickery going on here, try right
 clicking on that page. The menu that pops up should have an option like "View
 page source" (if you're reading this on your phone, you might have to dig around
 a bit to find this option). This shows you exactly what HTML your browser is
-interpreting to create the page. "Interpreting" is a very important word here
-since different people might want to interpret HTML differently. For example a
-blind person might use a web browser that interprets HTML into a medium of touch
-and sound so that they can still interact with it.
+interpreting to create the page.
+
+"Interpreting" is definitely the correct word to use here. In most web browsers,
+you will probably see "Richard Wilbur" underlined and colored in blue and the
+whole citation typeset in italics. But nowhere in our HTML does it say "make
+this blue and underlined"! Your browser has styled the HTML according to its
+interpretation in order to pass along the meaning of the tags to _you_.
+
+One advantage of HTML is that it allows for alternative interpretations. For
+example a blind person might use a web browser that interprets HTML into a
+medium of touch and sound so that they can still interact with it.
 
 <div>
 1. Translate the following bytes into text using the ASCII format:
@@ -341,10 +348,35 @@ and sound so that they can still interact with it.
 
 2. View the page source of _this_ page; it's written in HTML! Try to match up
    the HTML tags with what you actually see in your browser.
-3. Find some small text document somewhere: an article in a magazine, a
-   restaurant menu, something like that. Try adding HTML markup like we did to
-   the quotation. There are a lot more tags to choose from than the few I showed
-   you. Check out the full list of HTML tags [here][moz]{: .alert-link}.
+3. Here is one of my favorite recipes written in plain text. Give it an HTML
+   treatment like we did to the quotation above.
+
+        Pesto
+        =====
+        
+        This family recipe is simple, yet I have rarely tasted a restaurant's
+        pesto that bested it.
+        
+        Ingredients
+        -----------
+        * 2/3 cup basil leaves (approx.)
+        * 1/3 cup olive oil
+        * 1/3 cup parmesan cheese
+        * 2 tbsp pine nuts or walnuts
+        * 1/8 tsp (white) pepper
+        * 2-3 cloves garlic
+        
+        Directions
+        ----------
+        1. Put all ingredients in blender
+        2. Blend
+        
+        Serves 4-6
+
+   There are a lot more tags to choose from than the few I showed you. Check out
+   the full list of HTML tags [here][moz]{: .alert-link}. Note that you don't
+   have to keep all of the text from the original if it doesn't seem important
+   to the meaning of the document.
 </div>
 {: exercise}
 
