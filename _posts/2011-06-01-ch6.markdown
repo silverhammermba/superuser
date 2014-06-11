@@ -363,11 +363,12 @@ desktop computer, laptop, phone, tablet, video game console, and music player
 may all look and behave very differently but they are all computers at heart.
 
 <div>
-1. [newegg.com](http://www.newegg.com){: .alert-link} is an online shop catering to those who
-   assemble their own computers. Try to put together a shopping list of
-   components for building your own computer. Take care to ensure that the
-   components you select are compatible with each other! Here's a checklist of
-   what you'll need:
+1. [newegg.com](http://www.newegg.com){: .alert-link} and
+   [pcpartpicker.com](http://pcpartpicker.com){: .alert-link} are online shops
+   catering to those who assemble their own computers. Try to put together a
+   shopping list of components for building your own computer. Take care to
+   ensure that the components you select are compatible with each other! Here's
+   a checklist of what you'll need:
 	 * Case
      * Motherboard
      * CPU

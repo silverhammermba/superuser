@@ -243,6 +243,12 @@ HTML needs all of these implicit meanings to be made clear: line breaks are
 assumed to be meaningless unless specified with tags; text is assumed to be
 grouped together unless separated by tags.
 
+A side effect of HTML being very explicit and ignoring line breaks and
+indentation is that we can use these tools to try to make HTML a little more
+readable. Notice how I use identation to make it clearer where tags start and
+end.
+{: note}
+
 HTML also provides tags for marking up quotations:
 
     <!DOCTYPE html>
