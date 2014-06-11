@@ -99,7 +99,37 @@ title: Selected Exercise Answers
 
 ## Hardware ##
 
-Not provided.
+Here's a computer I recently built to use as a home media center and server.
+
+* Case: Fractal Design Node 304
+* Motherboard: MSI B85I Intel Motherboard
+* CPU: Intel Core i5-4570S
+* RAM: G.SKILL Ares DDR3-1600 (2x8GB)
+* SSD: Samsung 840 Pro MZ-7PD 128GB
+* HDD: Western Digital 2TB Green (x2)
+* Power supply: Rosewill SilentNight-500
+
+Notice the ridiculous, confusing names for everything. Every computer is
+different and this one was built with a very specific idea in mind:
+
+* The case is exceptional small, letting it fit under my TV next to my Blu-Ray
+  player
+* The CPU is a special low power model - usually found in laptops - which
+  requires less cooling than a usual CPU. The CPU can also act as a decently
+  powerful GPU, removing the need for a separate expensive, power-hungry,
+  overheated GPU
+* With 16GB total in RAM, the computer can run a lot of programs at once
+  without slowing down
+* The three hard drives (one SSD, two HDDs) make the computer very versatile.
+  Programs can be stored on the SSD, making the computer start very quickly.
+  Data like music and movies are duplicated and stored on each HDD. If one HDD
+  breaks, no data will be lost. The "green" HDDs are also especially power
+  efficient - turning themselves off when not in use
+* The power supply is exceptionally quiet while still providing a large amount
+  of power. This will make it easy to add more power-hungry components to the
+  computer later if I decide to upgrade
+
+The end result is a small, quiet computer that draws very little electricity!
 
 ## Part 2: The Internet ##
 
@@ -145,7 +175,7 @@ Not provided.
 
 ## Layers ##
 
-Note provided.
+Not provided.
 
 ## HTTP ##
 
@@ -186,4 +216,3 @@ Note provided.
             <p>Serves 4-6</p>
           </body>
         </html>
-
