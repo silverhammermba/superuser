@@ -1,0 +1,118 @@
+---
+layout: chapter
+title: 'The Browser'
+category: part2
+---
+
+{% include defs.markdown %}
+
+In the last chapter we talked about how HTTP sends HTML documents to your
+web browser, which interprets them to create web pages. This chapter focuses
+more on that incredible piece of software: the web browser.
+
+Your web browser is a program running on your computer. It has the enormous
+responsibility of constructing web pages from HTML documents. Why is that such a
+big responsibility? Well, consider the wide variety of [tags available in
+HTML][moz].
+
+[moz]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+If an HTML document says
+
+    <img src="./family_picture.png"/>
+
+Your web browser needs to display a picture on your screen. If a document says
+
+    <input type="date" name="Birthday">
+
+Your browser needs to provide some interface on your computer screen for picking
+a date (my browser draws a little calendar that I can click on). If it says
+
+    <form method="post">
+
+Your browser needs to create a form for you to fill out and - when you've
+finished - package up your data and send it across the internet using HTTP. If
+it says
+
+    <video src="home_movie.ogg">
+      <track kind="subtitles" src="home_movie.en.vtt" srclang="en" label="English">
+    </video>
+
+Your browser needs to be able to play a video with subtitles! If HTML says
+"Jump!", your browser says "How high?"
+
+Since the way a web page appears and functions depends on the browser
+constructing it, choosing a good web browser to use on your computer is a very
+important choice.
+
+## Choosing Software ##
+
+There are many different web browsers available on the internet, so how do you
+choose the best one to use? This is a general problem that superusers often
+face: how to choose the right software for a job when several pieces of software
+all work? And that question is just a twist on the even more general problem:
+how do you choose the best solution to a computer problem when there are
+multiple options?
+
+Let's focus on just the matter of choosing software. Before we solve this
+problem, let's think about _why_ we need to choose carefully.
+
+1. Technology standards change. In 2008 the standard describing HTML was
+   significantly updated, adding new responsibilities for web browsers to handle
+   in order to create web pages. These responsibilities continue to change over
+   the years. Old web browser software can't handle some of these new changes,
+   causing some web pages to function or appear differently than the authors
+   intended.
+2. Flaws are often found in software. As you now know, the Internet is a
+   complicated, layered beast. Tiny, unintentional problems can pop up in these
+   layers because of poorly designed software or even poorly thought out
+   technology standards. Newer software often fixes such issues.
+3. The Internet is important. If you're an average Internet user these days,
+   chances are that you make credit card purchases online, manage a public
+   identity on at least one social networking site, access private
+   correspondance like chat and e-mail, and maybe even control a bank account.
+   When you log in to each of these Internet services - before any information
+   goes out into the Internet - you put your personal information into your
+   browser. If some malicious programmer created your web browser, they might be
+   misusing your personal information! For software so deeply intertwined with
+   your personal life, it's important to get it from a source that you trust.
+
+Luckily these rules boil down to these simple guidelines:
+
+1. Get your browser from a large, well-known source
+2. Keep your web browser up to date by periodically downloading the latest
+   version
+
+There are only a few web browsers that satisfy number 1:
+
+<div class="browser-choice os windows osx">
+![Google Chrome]({{ site.baseurl }}/img/google_chrome.png)
+[Google Chrome](https://www.google.com/chrome/browser/)
+</div>
+
+<div class="browser-choice os linux">
+![Chromium]({{ site.baseurl }}/img/chromium.png)
+[Chromium](http://www.chromium.org/Home/)
+</div>
+
+[ci]: /img/200px-Chromium_11_Logo.svg.png
+
+<div class="browser-choice os windows">
+![Internet Explorer]({{ site.baseurl }}/img/ie.png)
+[Internet Explorer](http://ie.microsoft.com/)
+</div>
+
+<div class="browser-choice">
+![Firefox]({{ site.baseurl }}/img/firefox.png)
+[Firefox](http://www.mozilla.org/firefox/)
+</div>
+
+<div class="browser-choice os osx">
+![Safari]({{ site.baseurl }}/img/safari.png)
+[Safari](https://www.apple.com/safari/)
+</div>
+
+<div class="browser-choice">
+![Opera]({{ site.baseurl }}/img/opera.png)
+[Opera](http://www.opera.com/)
+</div>

@@ -74,3 +74,8 @@ article aside {
 pre {
 	background-color: #b9b9b9;
 }
+
+/* TODO this don't work! */
+.browser-choice {
+	display: inline-block;
+}
