@@ -325,7 +325,7 @@ links to.
 
 We've created a wonderful HTML document, but now what can we do with it? Well
 the real magic of HTML occurs when you give an HTML document to a web browser
-(like the one you're using right now!). The browser reads the document,
+(like the one you're using right now). The browser reads the document,
 interprets the various tags, and turns it into an interactive web page for you
 to browse! Check out the document we just made by clicking [here][ex].
 
@@ -350,7 +350,7 @@ medium of touch and sound so that they can still interact with it.
 <div>
 1. Translate the following bytes into text using the ASCII format:
 
-      55 73 69 6e 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
+        55 73 69 6E 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
 
 2. View the page source of _this_ page; it's written in HTML! Try to match up
    the HTML tags with what you actually see in your browser.
