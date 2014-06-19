@@ -41,6 +41,13 @@ it says
 Your browser needs to be able to play a video with subtitles! If HTML says
 "Jump!", your browser says "How high?"
 
+If your web browser is not very well made, it might not understand some of these
+tags and will simply ignore them - possibly impairing your experience of the web
+page. Or it might understand the tag but do a poor job of interpreting it; for
+example, at the time of this writing many browsers don't provide a simple
+interpretation of `<input type="date">` and make you type in a date yourself
+rather than presenting a calendar for you to choose from.
+
 Since the way a web page appears and functions depends on the browser
 constructing it, choosing a good web browser to use on your computer is a very
 important choice.
@@ -77,42 +84,66 @@ problem, let's think about _why_ we need to choose carefully.
    misusing your personal information! For software so deeply intertwined with
    your personal life, it's important to get it from a source that you trust.
 
-Luckily these rules boil down to these simple guidelines:
+Luckily from this motivation we get these simple guidelines:
 
-1. Get your browser from a large, well-known source
+1. Get your browser from a well-known source
 2. Keep your web browser up to date by periodically downloading the latest
    version
 
-There are only a few web browsers that satisfy number 1:
+There are only a few web browsers that satisfy number 1. All of these browsers
+are free of cost and work very well. Which one you choose is largely a matter of
+personal preference so feel free to try out a few.
 
-<div class="browser-choice os windows osx">
-![Google Chrome]({{ site.baseurl }}/img/google_chrome.png)
-[Google Chrome](https://www.google.com/chrome/browser/)
+{::options parse_block_html="false" /}
+
+<section class="browsers">
+<a class="panel panel-default browser os windows osx" href="https://www.google.com/chrome/browser/">
+<img src="{{ site.baseurl }}/img/google_chrome.png"
+alt="The most popular browser in the world, developed mainly by Google."/>
+Google Chrome
+</a>
+
+<a class="panel panel-default browser os linux" href="http://www.chromium.org/Home/">
+<img src="{{ site.baseurl }}/img/chromium.png"
+alt="The community-developed browser that Google Chrome is based on."/>
+Chromium
+</a>
+
+<a class="panel panel-default browser os windows" href="http://ie.microsoft.com/">
+<img src="{{ site.baseurl }}/img/ie.png"
+alt="Microsoft's browser. Older versions have a bad reputation, but version 9 and up are respectable."/>
+Internet Explorer
+</a>
+
+<a class="panel panel-default browser" href="http://www.mozilla.org/firefox/">
+<img src="{{ site.baseurl }}/img/firefox.png"
+alt="The most popular community-developed browser."/>
+Firefox</a>
+
+<a class="panel panel-default browser os osx" href="https://www.apple.com/safari/">
+<img src="{{ site.baseurl }}/img/safari.png"
+alt="Apple's browser. An easy choice if you use a Macintosh computer."/>
+Safari
+</a>
+
+<a class="panel panel-default browser" href="http://www.opera.com/">
+<img src="{{ site.baseurl }}/img/opera.png"
+alt="A solid underdog among the top browsers with some interesting design features."/>
+Opera
+</a>
+</section>
+
+<div class="well" id="desc" style="display: none">
+<p>Description!</p>
 </div>
 
-<div class="browser-choice os linux">
-![Chromium]({{ site.baseurl }}/img/chromium.png)
-[Chromium](http://www.chromium.org/Home/)
-</div>
+{::options parse_block_html="true" /}
 
-[ci]: /img/200px-Chromium_11_Logo.svg.png
-
-<div class="browser-choice os windows">
-![Internet Explorer]({{ site.baseurl }}/img/ie.png)
-[Internet Explorer](http://ie.microsoft.com/)
-</div>
-
-<div class="browser-choice">
-![Firefox]({{ site.baseurl }}/img/firefox.png)
-[Firefox](http://www.mozilla.org/firefox/)
-</div>
-
-<div class="browser-choice os osx">
-![Safari]({{ site.baseurl }}/img/safari.png)
-[Safari](https://www.apple.com/safari/)
-</div>
-
-<div class="browser-choice">
-![Opera]({{ site.baseurl }}/img/opera.png)
-[Opera](http://www.opera.com/)
-</div>
+<script>
+$('.browser').hover(function(event) {
+	$('#desc p').text($(this).children().prop('alt'));
+	$('#desc').show();
+}, function(event) {
+	$('#desc').hide();
+});
+</script>
