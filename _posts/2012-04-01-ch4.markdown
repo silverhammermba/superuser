@@ -137,8 +137,6 @@ Opera
 <p>Description!</p>
 </div>
 
-{::options parse_block_html="true" /}
-
 <script>
 $('.browser').hover(function(event) {
 	$('#desc p').text($(this).children().prop('alt'));
@@ -147,3 +145,5 @@ $('.browser').hover(function(event) {
 	$('#desc').hide();
 });
 </script>
+
+{::options parse_block_html="true" /}
