@@ -92,7 +92,7 @@ Luckily from this motivation we get these simple guidelines:
 
 There are only a few web browsers that satisfy number 1. All of these browsers
 are free of cost and work very well. Which one you choose is largely a matter of
-personal preference so feel free to try out a few.
+personal preference so feel free to try out several.
 
 {::options parse_block_html="false" /}
 

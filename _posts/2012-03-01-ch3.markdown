@@ -46,101 +46,30 @@ letters and punctuation symbols are all characters.
 Here is a table translating between hexadecimal byte values and ASCII
 characters:
 
-    20  
-    21 !
-    22 "
-    23 #
-    24 $
-    25 %
-    26 &
-    27 '
-    28 (
-    29 )
-    2A *
-    2B +
-    2C ,
-    2D -
-    2E .
-    2F /
-    30 0
-    31 1
-    32 2
-    33 3
-    34 4
-    35 5
-    36 6
-    37 7
-    38 8
-    39 9
-    3A :
-    3B ;
-    3C <
-    3D =
-    3E >
-    3F ?
-    40 @
-    41 A
-    42 B
-    43 C
-    44 D
-    45 E
-    46 F
-    47 G
-    48 H
-    49 I
-    4A J
-    4B K
-    4C L
-    4D M
-    4E N
-    4F O
-    50 P
-    51 Q
-    52 R
-    53 S
-    54 T
-    55 U
-    56 V
-    57 W
-    58 X
-    59 Y
-    5A Z
-    5B [
-    5C \
-    5D ]
-    5E ^
-    5F _
-    60 `
-    61 a
-    62 b
-    63 c
-    64 d
-    65 e
-    66 f
-    67 g
-    68 h
-    69 i
-    6A j
-    6B k
-    6C l
-    6D m
-    6E n
-    6F o
-    70 p
-    71 q
-    72 r
-    73 s
-    74 t
-    75 u
-    76 v
-    77 w
-    78 x
-    79 y
-    7A z
-    7B {
-    7C |
-    7D }
-    7E ~
+{::options parse_block_html="false" /}
+
+<section id="ASCII">
+<table>
+<tr><th>20</th><td>&nbsp;</td><th>30</th><td>0</td><th>40</th><td>@</td><th>50</th><td>P</td><th>60</th><td>`</td><th>70</th><td>p</td></tr>
+<tr><th>21</th><td>!</td><th>31</th><td>1</td><th>41</th><td>A</td><th>51</th><td>Q</td><th>61</th><td>a</td><th>71</th><td>q</td></tr>
+<tr><th>22</th><td>"</td><th>32</th><td>2</td><th>42</th><td>B</td><th>52</th><td>R</td><th>62</th><td>b</td><th>72</th><td>r</td></tr>
+<tr><th>23</th><td>#</td><th>33</th><td>3</td><th>43</th><td>C</td><th>53</th><td>S</td><th>63</th><td>c</td><th>73</th><td>s</td></tr>
+<tr><th>24</th><td>$</td><th>34</th><td>4</td><th>44</th><td>D</td><th>54</th><td>T</td><th>64</th><td>d</td><th>74</th><td>t</td></tr>
+<tr><th>25</th><td>%</td><th>35</th><td>5</td><th>45</th><td>E</td><th>55</th><td>U</td><th>65</th><td>e</td><th>75</th><td>u</td></tr>
+<tr><th>26</th><td>&</td><th>36</th><td>6</td><th>46</th><td>F</td><th>56</th><td>V</td><th>66</th><td>f</td><th>76</th><td>v</td></tr>
+<tr><th>27</th><td>'</td><th>37</th><td>7</td><th>47</th><td>G</td><th>57</th><td>W</td><th>67</th><td>g</td><th>77</th><td>w</td></tr>
+<tr><th>28</th><td>(</td><th>38</th><td>8</td><th>48</th><td>H</td><th>58</th><td>X</td><th>68</th><td>h</td><th>78</th><td>x</td></tr>
+<tr><th>29</th><td>)</td><th>39</th><td>9</td><th>49</th><td>I</td><th>59</th><td>Y</td><th>69</th><td>i</td><th>79</th><td>y</td></tr>
+<tr><th>2A</th><td>*</td><th>3A</th><td>:</td><th>4A</th><td>J</td><th>5A</th><td>Z</td><th>6A</th><td>j</td><th>7A</th><td>z</td></tr>
+<tr><th>2B</th><td>+</td><th>3B</th><td>;</td><th>4B</th><td>K</td><th>5B</th><td>[</td><th>6B</th><td>k</td><th>7B</th><td>{</td></tr>
+<tr><th>2C</th><td>,</td><th>3C</th><td><</td><th>4C</th><td>L</td><th>5C</th><td>\</td><th>6C</th><td>l</td><th>7C</th><td>|</td></tr>
+<tr><th>2D</th><td>-</td><th>3D</th><td>=</td><th>4D</th><td>M</td><th>5D</th><td>]</td><th>6D</th><td>m</td><th>7D</th><td>}</td></tr>
+<tr><th>2E</th><td>.</td><th>3E</th><td>></td><th>4E</th><td>N</td><th>5E</th><td>^</td><th>6E</th><td>n</td><th>7E</th><td>~</td></tr>
+<tr><th>2F</th><td>/</td><th>3F</th><td>?</td><th>4F</th><td>O</td><th>5F</th><td>_</td><th>6F</th><td>o</td></tr>
+</table>
+</section>
+
+{::options parse_block_html="true" /}
 
 A few observations of this table:
 
