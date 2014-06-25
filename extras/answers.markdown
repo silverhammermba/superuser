@@ -112,7 +112,7 @@ Here's a computer I recently built to use as a home media center and server.
 Notice the ridiculous, confusing names for everything. Every computer is
 different and this one was built with a very specific idea in mind:
 
-* The case is exceptional small, letting it fit under my TV next to my Blu-Ray
+* The case is exceptionally small, letting it fit under my TV next to my Blu-Ray
   player
 * The CPU is a special low power model - usually found in laptops - which
   requires less cooling than a usual CPU. The CPU can also act as a decently
@@ -185,34 +185,37 @@ Not provided.
 
 2. Not provided.
 3. Here's my approach. Since HTML is about the meaning of text, there is rarely
-   a single correct HTML version of plain text. Different interpreations can
+   a single correct HTML version of plain text. Different interpretations can
    lead to different valid results.
 
-        <!DOCTYPE html>
-        <html>
-          <head><title>My favorite recipe</title></head>
-          <body>
-            <h1>Pesto</h1>
-            <p>
-              This family recipe is simple, yet I have rarely tasted a
-              restaurant's pesto that bested it.
-            </p>
-            
-            <h2>Ingredients</h2>
-            <ul>
-              <li>2/3 cup basil leaves (approx.)</li>
-              <li>1/3 cup olive oil</li>
-              <li>1/3 cup parmesan cheese</li>
-              <li>2 tbsp pine nuts or walnuts</li>
-              <li>1/8 tsp (white) pepper</li>
-              <li>2-3 cloves garlic</li>
-            </ul>
-            
-            <h2>Directions</h2>
-            <ol>
-              <li>Put all ingredients in blender</li>
-              <li>Blend</li>
-            </ol>
-            <p>Serves 4-6</p>
-          </body>
-        </html>
+<!-- TODO not inside li, but whatever -->
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head><title>My favorite recipe</title></head>
+  <body>
+    <h1>Pesto</h1>
+    <p>
+      This family recipe is simple, yet I have rarely tasted a
+      restaurant's pesto that bested it.
+    </p>
+    
+    <h2>Ingredients</h2>
+    <ul>
+      <li>2/3 cup basil leaves (approx.)</li>
+      <li>1/3 cup olive oil</li>
+      <li>1/3 cup parmesan cheese</li>
+      <li>2 tbsp pine nuts or walnuts</li>
+      <li>1/8 tsp (white) pepper</li>
+      <li>2-3 cloves garlic</li>
+    </ul>
+    
+    <h2>Directions</h2>
+    <ol>
+      <li>Put all ingredients in blender</li>
+      <li>Blend</li>
+    </ol>
+    <p>Serves 4-6</p>
+  </body>
+</html>
+{% endhighlight %}

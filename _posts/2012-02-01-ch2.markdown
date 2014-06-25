@@ -83,7 +83,7 @@ But who is it sending it to? How do they deliver it? To understand this we first
 need to make a little digression.
 
 ![The connection to your ISP]({{ site.baseurl }}/img/isp.png)
-{: .well .pull-right}
+{: .well .pull-right .diagram}
 
 When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
@@ -126,6 +126,7 @@ This is the essence of the Internet - a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
 ![A little network with computers communicating through routers]({{ site.baseurl }}/img/network.png){: .well }
+{: #network }
 
 I say "essence" because of course the reality is much more complicated than
 that. To mention a few complications, there are hierarchies of routers

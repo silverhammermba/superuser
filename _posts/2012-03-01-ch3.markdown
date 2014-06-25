@@ -115,24 +115,30 @@ From the context you can probably tell that this is a quotation, but computers
 aren't so good at guessing such things. They like to have things all spelled
 out. Let's _mark up_ this text with HTML to make the meaning explicit.
 
-    <!DOCTYPE html>
-    <html>
-      <body>
-        The rare original heartsbleed goes,
-        Spends in the earthen hide, in the folds and wizenings, flows
-        In the gutters of the banked and staring eyes. He lies
-        As still as if he would return to stone,
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <body>
+    The rare original heartsbleed goes,
+    Spends in the earthen hide, in the folds and wizenings, flows
+    In the gutters of the banked and staring eyes. He lies
+    As still as if he would return to stone,
 
-        Richard Wilbur, The Death of a Toad
-      </body>
-    </html>
+    Richard Wilbur, The Death of a Toad
+  </body>
+</html>
+{% endhighlight %}
+
+I have added special text colors and styles to these sections to make the HTML
+easier to read.
+{: note}
 
 It's easy to spot the HTML parts because they are all wrapped in angled brackets
 `<like this>`. These bracketed bits are called "tags". The tags we've added are
 the bare minimum to identify this as an HTML document. Let's examine each tag's
 meaning.
 
-The `DOCTYPE` tag at the top lets the computer know that this is an HTML
+The `!DOCTYPE` tag at the top lets the computer know that this is an HTML
 document. Next is an `<html>` tag.  You will notice another similar tag at the
 bottom: `</html>`. The `/` at the beginning of the tag tells us that these two
 tags are a pair. This means that everything between `<html>` and `</html>` is
@@ -142,18 +148,20 @@ text.
 
 As I said, this is just the bare minimum. Let's add interesting stuff.
 
-    <!DOCTYPE html>
-    <html>
-      <body>
-        <p>
-          The rare original heartsbleed goes,<br/>
-          Spends in the earthen hide, in the folds and wizenings, flows<br/>
-          In the gutters of the banked and staring eyes. He lies<br/>
-          As still as if he would return to stone,
-        </p>
-        Richard Wilbur, The Death of a Toad
-      </body>
-    </html>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>
+      The rare original heartsbleed goes,<br/>
+      Spends in the earthen hide, in the folds and wizenings, flows<br/>
+      In the gutters of the banked and staring eyes. He lies<br/>
+      As still as if he would return to stone,
+    </p>
+    Richard Wilbur, The Death of a Toad
+  </body>
+</html>
+{% endhighlight %}
 
 Here we've identified the stanza of the poem as a **p**aragraph using `<p>` tags
 and we've added `<br/>` tags at the end of each line to indicate line
@@ -162,7 +170,8 @@ its own and doesn't have a matching `</br>` later in the document. This teaches
 us an important lesson about HTML.
 
 **HyperText Markup Language** (HTML) is a language for describing the
-_structure_ and _meaning_ of text, with no regard to its appearance.
+_structure_ and _meaning_ of text, with no regard to its appearance or
+presentation.
 {: definition}
 
 We humans understand the difference in meaning between line breaks in a
@@ -180,75 +189,81 @@ end.
 
 HTML also provides tags for marking up quotations:
 
-    <!DOCTYPE html>
-    <html>
-      <body>
-        <blockquote>
-          <p>
-            The rare original heartsbleed goes,<br/>
-            Spends in the earthen hide, in the folds and wizenings, flows<br/>
-            In the gutters of the banked and staring eyes. He lies<br/>
-            As still as if he would return to stone,
-          </p>
-          <cite>Richard Wilbur, The Death of a Toad</cite>
-        </blockquote>
-      </body>
-    </html>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <blockquote>
+      <p>
+        The rare original heartsbleed goes,<br/>
+        Spends in the earthen hide, in the folds and wizenings, flows<br/>
+        In the gutters of the banked and staring eyes. He lies<br/>
+        As still as if he would return to stone,
+      </p>
+      <cite>Richard Wilbur, The Death of a Toad</cite>
+    </blockquote>
+  </body>
+</html>
+{% endhighlight %}
 
 Now the association between the quotation and citation is clear. You might have
 wondered earlier at the point of the `<body>` tag. What isn't part of the body
 of text? Well, HTML provides another tag `<head>` in which you can place
 information _about_ the document that isn't part of the document itself.
 
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>My Favorite Poem</title>
-      </head>
-      <body>
-        <blockquote>
-          <p>
-            The rare original heartsbleed goes,<br/>
-            Spends in the earthen hide, in the folds and wizenings, flows<br/>
-            In the gutters of the banked and staring eyes. He lies<br/>
-            As still as if he would return to stone,
-          </p>
-          <cite>Richard Wilbur, The Death of a Toad</cite>
-        </blockquote>
-      </body>
-    </html>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Favorite Poem</title>
+  </head>
+  <body>
+    <blockquote>
+      <p>
+        The rare original heartsbleed goes,<br/>
+        Spends in the earthen hide, in the folds and wizenings, flows<br/>
+        In the gutters of the banked and staring eyes. He lies<br/>
+        As still as if he would return to stone,
+      </p>
+      <cite>Richard Wilbur, The Death of a Toad</cite>
+    </blockquote>
+  </body>
+</html>
+{% endhighlight %}
 
 Now this is looking like a proper HTML document. But there's one notable HTML
 tag which is missing:
 
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>My Favorite Poem</title>
-      </head>
-      <body>
-        <blockquote>
-          <p>
-            The rare original heartsbleed goes,<br/>
-            Spends in the earthen hide, in the folds and wizenings, flows<br/>
-            In the gutters of the banked and staring eyes. He lies<br/>
-            As still as if he would return to stone,
-          </p>
-          <cite>
-            <a href="http://en.wikipedia.org/wiki/Richard_Wilbur">Richard Wilbur</a>,
-            The Death of a Toad
-          </cite>
-        </blockquote>
-      </body>
-    </html>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Favorite Poem</title>
+  </head>
+  <body>
+    <blockquote>
+      <p>
+        The rare original heartsbleed goes,<br/>
+        Spends in the earthen hide, in the folds and wizenings, flows<br/>
+        In the gutters of the banked and staring eyes. He lies<br/>
+        As still as if he would return to stone,
+      </p>
+      <cite>
+        <a href="http://en.wikipedia.org/wiki/Richard_Wilbur">Richard Wilbur</a>,
+        The Death of a Toad
+      </cite>
+    </blockquote>
+  </body>
+</html>
+{% endhighlight %}
 
 We have added the mighty **a**nchor tag or, as you probably know it, a
 hyperlink! This tag looks a little different because it includes an _attribute_.
 An attribute goes inside a start tag after the tag name and looks like
 `name="value"`. One way you could read this is "Richard Wilbur is an anchor with
-an href value of http://en.wikipedia.org/wiki/Richard_Wilbur". An anchor's href
-describes the Internet address of another HTML document that our HTML document
-links to.
+an href value of `http://en.wikipedia.org/wiki/Richard_Wilbur`". An anchor's
+href describes the Internet address of another HTML document that our HTML
+document links to.
 
 ## Behind the Scenes ##
 
@@ -279,34 +294,42 @@ medium of touch and sound so that they can still interact with it.
 <div>
 1. Translate the following bytes into text using the ASCII format:
 
-        55 73 69 6E 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
+       55 73 69 6E 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
 
 2. View the page source of _this_ page; it's written in HTML! Try to match up
    the HTML tags with what you actually see in your browser.
+
+   Well... I don't actually write this book in HTML. I write it in a different
+   textual language called Markdown. A program then turns my Markdown text into
+   HTML. You can see how I actually write the book [here][gh]{: .alert-link}.
+   {: deeper}
+
+   [gh]: https://github.com/silverhammermba/superuser
+
 3. Here is one of my favorite recipes written in plain text. Give it an HTML
    treatment like we did to the quotation above.
 
-        Pesto
-        =====
-        
-        This family recipe is simple, yet I have rarely tasted a restaurant's
-        pesto that bested it.
-        
-        Ingredients
-        -----------
-        * 2/3 cup basil leaves (approx.)
-        * 1/3 cup olive oil
-        * 1/3 cup parmesan cheese
-        * 2 tbsp pine nuts or walnuts
-        * 1/8 tsp (white) pepper
-        * 2-3 cloves garlic
-        
-        Directions
-        ----------
-        1. Put all ingredients in blender
-        2. Blend
-        
-        Serves 4-6
+       Pesto
+       =====
+       
+       This family recipe is simple, yet I have rarely tasted a restaurant's
+       pesto that bested it.
+       
+       Ingredients
+       -----------
+       * 2/3 cup basil leaves (approx.)
+       * 1/3 cup olive oil
+       * 1/3 cup parmesan cheese
+       * 2 tbsp pine nuts or walnuts
+       * 1/8 tsp (white) pepper
+       * 2-3 cloves garlic
+       
+       Directions
+       ----------
+       1. Put all ingredients in blender
+       2. Blend
+       
+       Serves 4-6
 
    There are a lot more tags to choose from than the few I showed you. Check out
    the full list of HTML tags [here][moz]{: .alert-link}. Note that you don't
