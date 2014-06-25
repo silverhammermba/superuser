@@ -6163,6 +6163,34 @@ button.close {
     display: none !important;
   }
 }
+.pager .previous span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pager .previous span:before {
+  content: "\e079";
+}
+.pager .next span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pager .next span:before {
+  content: "\e080";
+}
 .definition {
   padding: 15px;
   margin-bottom: 20px;

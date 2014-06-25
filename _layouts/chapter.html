@@ -5,10 +5,10 @@ layout: default
 <article>
 	<ul class="pager">
 	{% if page.previous.url %}
-		<li><a href="{{ site.baseurl }}{{ page.previous.url }}"><span class="glyphicon glyphicon-chevron-left"></span> {{ page.previous.title }}</a></li>
+		<li class="previous"><a href="{{ site.baseurl }}{{ page.previous.url }}"><span></span> {{ page.previous.title }}</a></li>
 	{% endif %}
 	{% if page.next.url %}
-		<li><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+		<li class="next"><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} <span></span></a></li>
 	{% endif %}
 	</ul>
 
@@ -18,10 +18,10 @@ layout: default
 
 	<ul class="pager">
 	{% if page.previous.url %}
-		<li><a href="{{ site.baseurl }}{{ page.previous.url }}"><span class="glyphicon glyphicon-chevron-left"></span> {{ page.previous.title }}</a></li>
+		<li class="previous"><a href="{{ site.baseurl }}{{ page.previous.url }}"><span></span> {{ page.previous.title }}</a></li>
 	{% endif %}
 	{% if page.next.url %}
-		<li><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+		<li class="next"><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} <span></span></a></li>
 	{% endif %}
 	</ul>
 </article>
