@@ -3,8 +3,6 @@ layout: chapter
 title: Introduction
 ---
 
-{% include defs.markdown %}
-
 This is a book to set you on course to becoming an accomplished computer user
 or -- as I like to call it -- a superuser.
 
@@ -44,25 +42,25 @@ Occasionally you'll see little highlighted blurbs like these.
 
 **Definitions** highlight terms that are important to understand. Pay close
 attention! All definitions from the chapters (and a few more) are listed in the
-[glossary][gl]{: .alert-link}.
-{: definition}
+[glossary][gl].
+{: .definition}
 
 [gl]: {{ site.baseurl }}/extras/glossary.html
 
 Notes are little reminders. They might remind you of older material that is
 being used again or they'll try to clear up a frequent point of confusion.
-{: note}
+{: .note}
 
 "Thinking deeper" blurbs set aside optional material. Sometimes I think of
 something related to the current chapter that isn't essential for your
 understanding but is just too cool for me to not mention. Don't feel bad about
 skipping over these if they go over your head.
-{: deeper}
+{: .deeper}
 
 Most chapters have a few exercises at the end to help you grasp concepts from
 the chapter. They're not graded, but you should still consider them. And yes
-there are selected answers [in the back][ans]{: .alert-link}.
-{: exercise}
+there are selected answers [in the back][ans].
+{: .exercise}
 
 [ans]: {{ site.baseurl }}/extras/answers.html
 

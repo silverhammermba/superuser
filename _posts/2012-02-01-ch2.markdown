@@ -4,7 +4,7 @@ title: 'Layers'
 category: part2
 ---
 
-{% include defs.markdown %}
+
 
 You are probably sick of protocols by now but hopefully I can convince you that
 at least all of that effort was worth it. When you're dealing with computer
@@ -28,7 +28,7 @@ of use moving forward.
 
 A **layer** is a protocol that allows for the transmission of
 arbitrary data.
-{: definition}
+{: .definition}
 
 For example, the protocols from the previous chapter could be described as
 layers since the data formats can contain any kind of data. The advantage of
@@ -55,7 +55,7 @@ thing.
 
 The **transport layer** is the protocol that is in charge of
 packaging data for transmission.
-{: definition}
+{: .definition}
 
 To return to the analogy in the previous chapter, the transport layer tells you
 how to package your data and how the sender and receiver should handle those
@@ -70,7 +70,7 @@ layer comes in.
 
 The **Internet layer** is the protocol that is in charge of getting data from
 its source to its destination.
-{: definition}
+{: .definition}
 
 As with the transport layer, there are multiple protocols that can be used in
 this layer. As far as we're concerned, the eponymous Internet protocol (IP) is
@@ -100,7 +100,7 @@ have a very specific form.
 An **IP address** is a 4 byte number identifying a computer on a network. By
 convention, each byte is written in decimal with periods separating bytes e.g.
 `192.168.1.1` or `255.255.255.0`.
-{: definition}
+{: .definition}
 
 This situation - many computers connected to a single router - is called a local
 network. The router (again, like a post office) acts as a mediator for messages
@@ -134,7 +134,7 @@ established to ensure efficient routing of network packets, there are special
 provisions for the assignment of IP addresses, there are specialized routers in
 the network for handling certain types of messages, and there is the complicated
 matter of who owns all of these interlocking pieces.
-{: note}
+{: .note}
 
 Since an IP address has 4 bytes, that means that there are only 2<sup>32</sup> =
 4,294,967,296 different IP addresses. Since every device connected to the
@@ -142,11 +142,11 @@ Internet needs an IP address, we're actually running out of them! Because of
 this we're currently trying to transition to a new version of IP (version 6)
 which has 128 bit addresses. IPv6 addresses are written in hexadecimal with
 pairs of bytes separated by colons e.g. `2001:0db8:85a3:0042:1000:8a2e:0370:7334`.
-{: deeper}
+{: .deeper}
 
 Now let's poke around the Internet and see these principles in action.
 
-<div>
+<div class="exercise">
 For these exercises, we will be working in
 <span class="os linux osx">a terminal</span>
 <span class="os windows">the command prompt</span> -
@@ -188,7 +188,6 @@ there is no computer with that IP address, your computer couldn't find a router
 that delivers to that address, or the computer at that address is configured to
 ignore pings.
 </div>
-{: exercise}
 
 ## DNS ##
 
@@ -229,7 +228,7 @@ request is sent through the network of routers to its actual destination. One of
 the things your Internet service provider gives you is the IP address of a name
 server to use.
 
-<div>
+<div class="deeper">
 Like the Internet itself, the DNS is incredibly complicated. The system of
 ownership, distribution, assignment, and maintenance of domain names is
 something that even I don't understand.
@@ -241,9 +240,8 @@ is a top-level domain with `google.com` and `ebay.com` as two of its subdomains.
 In turn, `maps.google.com` and `calendar.google.com` are two subdomains of
 `google.com` and so on.
 </div>
-{: deeper}
 
-<div>
+<div class="exercise">
 You can investigate the DNS yourself by simply pinging domain names. If the DNS
 knows of the name, you will see the corresponding IP address in
 <span class="os osx linux">parentheses</span>
@@ -257,7 +255,6 @@ If the domain name is invalid, you will get
 <span class="os windows">a `could not find host`</span>
 message.
 </div>
-{: exercise}
 
 ## Now What? ##
 
@@ -267,7 +264,7 @@ sending? Well... anything!
 
 The **application layer** is the protocol that actually communicates meaningful
 information.
-{: definition}
+{: .definition}
 
 In other words, the Internet layer and transport layer have done all of the
 menial work and all that's left is the interesting stuff. Consequently, there

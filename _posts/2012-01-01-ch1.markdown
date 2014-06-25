@@ -4,7 +4,7 @@ title: 'Part 2: The Internet'
 category: part2
 ---
 
-{% include defs.markdown %}
+
 
 Almost everyone uses the Internet these days: at home, at work, and even on the
 go with their cell phones. Consequently, most people have a vague idea of what
@@ -64,7 +64,7 @@ This agreement has a special term:
 
 A **protocol** defines the rules for exchanging messages between computers,
 including the data formats that will be used.
-{: definition}
+{: .definition}
 
 To get a handle on protocols, we're going to build a protocol bit-by-bit. The
 purpose of the protocol will be to allow one computer to send another one some
@@ -109,7 +109,7 @@ The computer equivalent of package provides these same benefits.
 A **packet** is a data format that wraps other data formats. It provides
 information such as the amount of data being sent and where it is being sent to.
 A protocol must specify what packet format is used to transmit data.
-{: definition}
+{: .definition}
 
 Remember that with computers, Bob needs to know how to read any information that
 Alice sends him. By wrapping the data being sent in a single, standardized
@@ -129,7 +129,7 @@ Of course we probably want to have something like an address and return address
 in the packet format, so that the postal service knows where to deliver the
 package. But right now we're considering the case of two computers connected
 only to each other, so we'll ignore this for the time being.
-{: note}
+{: .note}
 
 From now on, whenever we talk about sending data between computers, we will
 assume that the data are enclosed in a packet.
@@ -209,7 +209,7 @@ without knowing what is inside it.
 A **checksum** is a function that takes an arbitrary number of bytes as
 input and outputs a fixed number of bytes as output. Usually this function
 involves some kind of sum and is used for error checking.
-{: definition}
+{: .definition}
 
 The checksum value would be included in the packet format since it doesn't
 depend on the kind of data being sent. Note that - like counting 'e's - the
@@ -304,7 +304,7 @@ to receive (bytes &divide; 14 rounded up), and the number of 00 bytes that Alice
 added on to the end of the last packet (remainder of bytes &divide; 14). He then has
 everything he needs to reassemble the data once he gets all of the packets.
 
-<div>
+<div class="exercise">
 1. Both example packet formats in this chapter (in the [Packaging](#packaging){: .alert-link}
    and [Disassembly](#disassembly){: .alert-link} sections) impose restrictions
    on the total number of bytes of data that can be sent.  What are these limits?
@@ -312,4 +312,3 @@ everything he needs to reassemble the data once he gets all of the packets.
    Adapt the example protocol (or design a new one) which will allow them to do
    so. What new challenges does this situation pose?
 </div>
-{: exercise}

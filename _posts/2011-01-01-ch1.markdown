@@ -4,7 +4,7 @@ title: 'Part 1: Computers'
 category: part1
 ---
 
-{% include defs.markdown %}
+
 
 We're going to start by answering a question so fundamental that you might even
 laugh that I ask it at all: what is a computer? Yes, I know you're using one
@@ -30,14 +30,14 @@ So what is this definition?
 
 A **computation** is any function that can be evaluated using an
 algorithm.
-{: definition}
+{: .definition}
 
 Woah, terminology alert! Let's break it down:
 
 A **function** is something that can be given input and will
 return output. And if you give it the same input several times, it must return
 the same output each time.
-{: definition}
+{: .definition}
 
 For example, "Given two integers, what is their sum?" is a function. Its input
 is two numbers and its output is a single number. "What day of the week was it
@@ -51,13 +51,13 @@ what the input is.
 
 Given a function and its input, the process of determining its output is called
 **evaluating** the function.
-{: definition}
+{: .definition}
 
 For my previous example of what day of the week a certain date was, looking up
 the date in a calendar would be "evaluating" the function.
 
 An **algorithm** is a well-defined, step-by-step process.
-{: definition}
+{: .definition}
 
 In other words, an algorithm is just a list of instructions. However, the
 instructions must be _completely clear_. There should be no room for
@@ -77,7 +77,7 @@ using an algorithm, does that mean that there are functions that
 **can't** be evaluated using any algorithm? Yes! They're both
 really cool and beyond the scope of this book. Search the web for "uncomputable
 functions".
-{: deeper}
+{: .deeper}
 
 Now get ready because here comes the first set of exercises. This isn't school
 so you don't _have_ to do them and some problems are tricky enough that I don't
@@ -85,7 +85,7 @@ expect you to figure them out very easily. But remember that a superuser learns
 by doing, so at the very least try to think about each question a little bit
 before moving on.
 
-<div>
+<div class="exercise">
 1. Come up with three more functions. What is the input? What is the output? How
    is the function evaluated?
 2. Come up with something that takes input and produces output, but is **not** a
@@ -97,4 +97,3 @@ before moving on.
    a one-digit number as step-by-step instructions. Assume that the reader of
    the instructions knows how to multiply and add only single digit numbers.
 </div>
-{: exercise}

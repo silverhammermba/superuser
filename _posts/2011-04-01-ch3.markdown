@@ -4,7 +4,7 @@ title: Bases
 category: part1
 ---
 
-{% include defs.markdown %}
+
 
 You have now constructed (in your mind) a true, modern computer! Given enough
 tape, a big enough state register, and the right program, you can perform any
@@ -80,7 +80,7 @@ becomes fives:
 Previously we split the number up into ones, tens, hundreds, thousands, ... all
 the powers of ten. Now we're splitting up the number by the powers of five.
 
-<div>
+<div class="note">
 If it's been a while since your last arithmetic class, here's a crash course on
 exponentiation. Remember that "X to the third power" is X<sup>3</sup> = X
 &times; X &times; X. There are two special cases to also keep in mind:
@@ -89,7 +89,6 @@ X<sup>1</sup> = X
 
 X<sup>0</sup> = 1 (if X isn't 0)
 </div>
-{: note}
 
 The important thing to take away from this is that a sequence of digits means
 different things depending on the base it's written in.
@@ -164,14 +163,14 @@ unit of information in computers is a binary digit. That being said, a single
 binary digit cannot store very much information: it can only be 0 or 1.
 
 A single binary digit is called a **bit**.
-{: definition}
+{: .definition}
 
 There's your first taste of computer scientist humor. It doesn't get better.
 To make things more convenient for people, modern computers usually deal with
 bits in groups of 8.
 
 Eight bits is called a **byte**.
-{: definition}
+{: .definition}
 
 Small binary numbers are usually written with the full 8 bits when dealing with
 computers e.g. rather than 10<sub>2</sub> we write 00000010<sub>2</sub>. Large
@@ -244,7 +243,7 @@ scientists are concerned, 2, 8, 10, and 16 are the only bases that matter.
 
 You might want some graph paper for some of these exercises.
 
-<div>
+<div class="exercise">
 1. Count from 0 to 10 in bases 2, 3, 4, 5, and 6. Write out the numbers such
    that they line up with each other. Notice the patterns that emerge.
 2. Write 2843<sub>9</sub> and 3A02<sub>13</sub> in base 10.
@@ -263,4 +262,3 @@ You might want some graph paper for some of these exercises.
    binary to octal?  Do you see how this trick could apply to other pairs of
    bases?
 </div>
-{: exercise}

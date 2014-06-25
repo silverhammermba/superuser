@@ -4,7 +4,7 @@ title: 'HTTP'
 category: part2
 ---
 
-{% include defs.markdown %}
+
 
 In the previous chapter, I mentioned the large number of application protocols
 that exist. You probably make use of many such protocols when you use the
@@ -16,7 +16,7 @@ worry at all about the technical details we discussed in the previous chapters.
 When discussing the application layer, we can pretend that computers magically
 send formatted data to each other just as easily as you might talk to another
 person in the same room as you.
-{: note}
+{: .note}
 
 You might know good ol' HTTP from your browser's address bar, where it is often
 seen just ahead of the domain name. That's because HTTP is the backbone of the
@@ -35,13 +35,13 @@ ASCII.
 [fm]: {% post_url 2011-04-06-ch4 %}
 
 **ASCII** is a simple text format where each byte represents a single character.
-{: definition}
+{: .definition}
 
 What does "character" mean here?
 
 A **character** is a single textual symbol. For example, upper and lower case
 letters and punctuation symbols are all characters.
-{: definition}
+{: .definition}
 
 Here is a table translating between hexadecimal byte values and ASCII
 characters:
@@ -131,7 +131,7 @@ out. Let's _mark up_ this text with HTML to make the meaning explicit.
 
 I have added special text colors and styles to these sections to make the HTML
 easier to read.
-{: note}
+{: .note}
 
 It's easy to spot the HTML parts because they are all wrapped in angled brackets
 `<like this>`. These bracketed bits are called "tags". The tags we've added are
@@ -172,7 +172,7 @@ us an important lesson about HTML.
 **HyperText Markup Language** (HTML) is a language for describing the
 _structure_ and _meaning_ of text, with no regard to its appearance or
 presentation.
-{: definition}
+{: .definition}
 
 We humans understand the difference in meaning between line breaks in a
 paragraph and line breaks in a poem. We understand from context how the name
@@ -185,7 +185,7 @@ A side effect of HTML being very explicit and ignoring line breaks and
 indentation is that we can use these tools to try to make HTML a little more
 readable. Notice how I use identation to make it clearer where tags start and
 end.
-{: note}
+{: .note}
 
 HTML also provides tags for marking up quotations:
 
@@ -291,7 +291,7 @@ One advantage of HTML is that it allows for alternative interpretations. For
 example a blind person might use a web browser that interprets HTML into a
 medium of touch and sound so that they can still interact with it.
 
-<div>
+<div class="exercise">
 1. Translate the following bytes into text using the ASCII format:
 
        55 73 69 6E 67 20 41 53 43 49 49 20 69 73 20 65 61 73 79 21
@@ -302,7 +302,7 @@ medium of touch and sound so that they can still interact with it.
    Well... I don't actually write this book in HTML. I write it in a different
    textual language called Markdown. A program then turns my Markdown text into
    HTML. You can see how I actually write the book [here][gh]{: .alert-link}.
-   {: deeper}
+   {: .deeper}
 
    [gh]: https://github.com/silverhammermba/superuser
 
@@ -336,6 +336,5 @@ medium of touch and sound so that they can still interact with it.
    have to keep all of the text from the original if it doesn't seem important
    to the meaning of the document.
 </div>
-{: exercise}
 
 [moz]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element

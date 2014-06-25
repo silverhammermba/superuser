@@ -4,7 +4,7 @@ title: 'The Browser'
 category: part2
 ---
 
-{% include defs.markdown %}
+
 
 In the last chapter we talked about how HTTP sends HTML documents to your
 web browser, which interprets them to create web pages. This chapter focuses

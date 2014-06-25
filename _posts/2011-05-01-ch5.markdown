@@ -4,7 +4,7 @@ title: The Ultimate Computer
 category: part1
 ---
 
-{% include defs.markdown %}
+
 
 ## Disclaimer ##
 
@@ -87,7 +87,7 @@ Turing machine.
 
 When a machine is abstract enough that it can simulate a Turing machine, we call
 it **Turing complete**.
-{: definition}
+{: .definition}
 
 If a machine can simulate a Turing machine, then it can also perform any
 computation. Thus it is a computer. Thus it can simulate any other type of

@@ -4,7 +4,7 @@ title: Simple Machines
 category: part1
 ---
 
-{% include defs.markdown %}
+
 
 Now we know what a computation is, but how is that related to the computers we
 know today?
@@ -88,7 +88,7 @@ special term for it: "overflow". As is common in computer science, from now on
 we'll just assume that we have lots and lots of wheels - not infinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
-<div>
+<div class="deeper">
 It's tempting to think of overflow as a problem like I just did. But there's
 another way to look at it. What if we thought of our machine as taking your
 input and output, dividing them by 100 and then only showing you the remainder?
@@ -106,7 +106,6 @@ And so on. This trick is called "modular arithmetic". You can add, subtract,
 and multiply just like in normal arithmetic except that numbers always stay
 smaller than the "modulus" (which is 100, in this case).
 </div>
-{: deeper}
 
 If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
@@ -297,12 +296,12 @@ our last example.
 An algorithm that is read and performed by a computer is called a **program**.
 **Programming** is the process of inputting the algorithm into the computer for
 it to read.
-{: definition}
+{: .definition}
 
 In the vernacular of superusers, you could call the list of instructions an "Add
 1 to a number _program_".
 
-<div>
+<div class="exercise">
 1. Create a list of Turing machine instructions (i.e. a program) for
    subtracting one from a number.  Test your program using 4 as input and again
    using 100.  Now try subtracting 1 from 0. What will happen? Think about
@@ -315,4 +314,3 @@ In the vernacular of superusers, you could call the list of instructions an "Add
    program and input we give the machine so that we don't end up with 9
    versions of basically the same instruction.
 </div>
-{: exercise}
