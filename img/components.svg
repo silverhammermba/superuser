@@ -41,14 +41,14 @@
   </defs>
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#606060"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="584.79389"
-     inkscape:cy="517.07025"
+     inkscape:cx="288.94539"
+     inkscape:cy="594.82064"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -9743,15 +9743,15 @@
     </g>
     <g
        id="g64008"
-       transform="matrix(0.78192567,0,0,0.78192567,172.89816,52.670355)"
-       inkscape:export-filename="/home/max/superuser/images/ram.png"
+       transform="matrix(0,0.46693413,-0.46693363,0,357.81667,193.3745)"
+       inkscape:export-filename="D:\share\ram.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
          inkscape:connector-curvature="0"
          id="rect63074"
          d="m 4.968612,453.31203 0,52.34498 9.074153,0 c 4.83895,0 8.727999,3.80892 8.727999,8.54309 0,4.73417 -3.889049,8.5431 -8.727999,8.5431 l -9.074153,0 0,11.35787 9.074153,0 c 4.83895,0 8.727999,3.80893 8.727999,8.54309 0,4.73417 -3.889049,8.5431 -8.727999,8.5431 l -9.074153,0 0,33.40695 353.966128,0 0,-11.75292 c 0,-3.24971 2.49669,-5.87647 5.5879,-5.87647 3.09121,0 5.56317,2.62676 5.56317,5.87647 l 0,11.75292 279.12291,0 0,-33.40695 -7.09613,0 c -4.83895,0 -8.728,-3.80893 -8.728,-8.5431 0,-4.73416 3.88905,-8.54309 8.728,-8.54309 l 7.09613,0 0,-11.35787 -7.09613,0 c -4.83895,0 -8.728,-3.80893 -8.728,-8.5431 0,-4.73417 3.88905,-8.54309 8.728,-8.54309 l 7.09613,0 0,-52.34498 -644.240108,0 z m 11.695025,112.91206 c 3.39884,0 6.131853,2.75392 6.131853,6.14807 0,3.39414 -2.733013,6.14806 -6.131853,6.14806 -3.39884,0 -6.156578,-2.75392 -6.156578,-6.14806 0,-3.39415 2.757738,-6.14807 6.156578,-6.14807 z m 620.998413,0 c 3.39884,0 6.15658,2.75392 6.15658,6.14807 0,3.39414 -2.75774,6.14806 -6.15658,6.14806 -3.39884,0 -6.15658,-2.75392 -6.15658,-6.14806 0,-3.39415 2.75774,-6.14807 6.15658,-6.14807 z"
-         style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.17411971;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+         style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.64077258;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
       <g
          transform="matrix(0.79120677,0,0,0.79011281,-466.72712,95.094637)"
          inkscape:tile-y0="466.87778"
@@ -10258,7 +10258,7 @@
              id="use63378" />
         </g>
         <rect
-           style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.61750257;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+           style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.70866346;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
            id="rect63076"
            width="60.63961"
            height="112.03658"
@@ -10342,7 +10342,7 @@
          height="12.710292"
          width="6.2940111"
          id="rect63586"
-         style="color:#000000;fill:none;stroke:#000000;stroke-width:0.63944697;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+         style="color:#000000;fill:none;stroke:#000000;stroke-width:1.07081556;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
       <use
          height="1052.3622"
          width="744.09448"

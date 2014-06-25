@@ -67,31 +67,31 @@ CPUs that know those instructions will be able to run those programs. This is
 one of the big difficulties of program design.
 
 CPUs are measured primarily in three ways: speed, parallelism, and memory. Speed
-is by far the most valued quality. CPUs read instructions following a very rigid
-timer called the "clock". The faster the clock speed, the quicker the CPU can
-finish each calculation. But there are limits to the clock speed: set it too
+is the one you'll hear about most often. CPUs read instructions following a very
+rigid timer called the "clock". The faster the clock speed, the quicker the CPU
+can finish each calculation. But there are limits to the clock speed: set it too
 fast and the calculations can become error-prone or the CPU can overheat and
 damage its physical components. All CPUs come with the clock speed set at a safe
-value by the manufacturer, but some risk-taking superusers choose to override
-it. The usual measure of speed is hertz. A 1 hertz CPU can perform one program
-instruction each second. An average CPU at the time of writing is clocked at
-about 3.5 gigahertz i.e. 3.5 _billion_ instructions per second i.e. rather fast
-indeed.
+value by the manufacturer, but some risk-taking superusers choose to override it
+and "overclock" the CPU to perform faster. The usual measure of speed is hertz.
+A 1 hertz CPU can perform one program instruction each second. An average CPU at
+the time of writing is clocked at about 3.5 gigahertz; that's 3.5 _billion_
+instructions per second. That is rather fast indeed.
 
 Technically speaking, a hertz is a "per second". So we should really say that
-CPU speed is measured in "instruction hertz" i.e. instructions per second. But
-no one says that. Ever.
+CPU speed is measured in "instruction hertz" - instructions per second. But no
+one says that. Ever.
 {: .note}
 
 The second measure, parallelism, is just a count of how many cores a CPU has.
 Four core CPUs (AKA quad-core) are becoming quite common these days. Parallelism
-is a very appealing idea because you might think that it multiplies the speed
-of a CPU: a CPU that performs four instructions at once will finish four times
-faster. But the reality is less exciting. It turns out to be very hard to create
-algorithms that still work when four instructions are processed at once, so many
-programs simply ignore additional cores and only use one core at a time. Still,
-we're getting better at taking advantage of multiple cores so single core CPUs
-are becoming less common.
+is a very appealing idea because you might think that it multiplies the speed of
+a CPU: a CPU that performs four instructions at once will run a program four
+times faster. But the reality is less exciting. It turns out to be very hard to
+create algorithms that still work when four instructions are processed at once,
+thus many programs ignore additional cores and use only one core at a time.
+However, we're constantly getting better at taking advantage of multiple cores
+so single core CPUs are becoming less common.
 
 The final measure, memory, is mentioned much less often but is still crucial.
 With our Turing machines, we were allowed to have as much imaginary tape as we
