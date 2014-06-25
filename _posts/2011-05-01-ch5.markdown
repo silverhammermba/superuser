@@ -4,8 +4,6 @@ title: The Ultimate Computer
 category: part1
 ---
 
-
-
 ## Disclaimer ##
 
 Originally this chapter was just going to be a "Thinking Deeper" blurb, since

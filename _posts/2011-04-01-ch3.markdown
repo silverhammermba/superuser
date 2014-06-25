@@ -4,8 +4,6 @@ title: Bases
 category: part1
 ---
 
-
-
 You have now constructed (in your mind) a true, modern computer! Given enough
 tape, a big enough state register, and the right program, you can perform any
 computation! There's still a big gap between the simple, theoretical Turing
@@ -222,7 +220,7 @@ The single digit hexadecimal numbers correspond to the four bit numbers! This
 mathematical trick lets us read and write bytes as pairs of hexadecimal digits.
 
 ![Binary to Decimal]({{ site.baseurl }}/img/hex.png)
-{: .well .pull-right}
+{: .pull-right}
 
 Being able to read and write numbers in hexadecimal is a handy skill for
 computer scientists. It is very succinct to read and write but also not hard to

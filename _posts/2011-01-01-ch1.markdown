@@ -4,8 +4,6 @@ title: 'Part 1: Computers'
 category: part1
 ---
 
-
-
 We're going to start by answering a question so fundamental that you might even
 laugh that I ask it at all: what is a computer? Yes, I know you're using one
 right now, but do you really know what a computer is? What is the difference

@@ -3,8 +3,6 @@ layout: chapter
 title: Selected Exercise Answers
 ---
 
-{% include defs.markdown %}
-
 ## Part 1: Computers ##
 
 1. Not provided.
@@ -73,7 +71,7 @@ title: Selected Exercise Answers
    format takes advantage of modular arithmetic to represent negative numbers in a
    way so that you can add, subtract, and multiply them using the _same_
    algorithm you use for positive numbers!
-   {: deeper}
+   {: .deeper}
 
    One format for storing decimal numbers would be to use two bytes X and Y.
    Then each number is defined as X &times; 10<sup>Y</sup>. That way X and Y can
@@ -146,7 +144,7 @@ The end result is a small, quiet computer that draws very little electricity!
    How can we make the second protocol capable of sending more data without
    increasing the number of bytes used to store the packet number?
    </div>
-   {: deeper}
+   {: .deeper}
 
 2. Here are some new challenges of this situation:
 
@@ -171,7 +169,7 @@ The end result is a small, quiet computer that draws very little electricity!
    This is an incredibly important topic, but one which we will tackle much
    later.
    </div>
-   {: deeper}
+   {: .deeper}
 
 ## Layers ##
 

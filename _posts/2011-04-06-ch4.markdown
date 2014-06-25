@@ -4,8 +4,6 @@ title: Formatting
 category: part1
 ---
 
-
-
 Last chapter we learned how computers do everything in binary... but that's just
 a bunch of numbers. It seems like a far cry from the complex information we
 store in computers these days. How does something like a game, or a song, or a
@@ -143,7 +141,7 @@ Only continuous data can produce **analog** information.
 {: .definition}
 
 ![Continuous vs. Discrete]({{ site.baseurl }}/img/digital.png)
-{: .well .pull-right}
+{: .pull-right}
 
 This surprising distinction is often misunderstood by those unfamiliar with
 computers. The distinction implies that if we want to store any continuous data

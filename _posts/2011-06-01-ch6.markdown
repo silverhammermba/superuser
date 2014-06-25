@@ -4,8 +4,6 @@ title: Hardware
 category: part1
 ---
 
-
-
 By now you should have a decent grasp of the theory behind computation and what
 makes a computer a computer. But the tiny theoretical machines we've been
 playing with are nothing compared to the fearsome computers we use in this
@@ -42,7 +40,7 @@ together as we welcome our players to the stage...
 ## Central Processing Unit ##
 
 ![CPU]({{ site.baseurl }}/img/cpu.png)
-{: .well .pull-right}
+{: .pull-right}
 
 Often called the "processor" or "CPU", this component is the beating heart of
 your computer.  It performs almost every calculation of the computer, and it
@@ -109,7 +107,7 @@ makes it worth it.
 ## Random Access Memory ##
 
 ![RAM]({{ site.baseurl }}/img/ram.png)
-{: .well .pull-right}
+{: .pull-right}
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
@@ -204,7 +202,7 @@ storage device in your computer - regardless of its type - as the "disk" or
 ## Motherboard ##
 
 ![Motherboard]({{ site.baseurl }}/img/mobo.png)
-{: .well .pull-right}
+{: .pull-right}
 
 All of these components need to be able to communicate in order to transfer data
 between them. The motherboard or "mobo" fills this role. Motherboards have a

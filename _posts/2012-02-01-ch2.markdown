@@ -4,8 +4,6 @@ title: 'Layers'
 category: part2
 ---
 
-
-
 You are probably sick of protocols by now but hopefully I can convince you that
 at least all of that effort was worth it. When you're dealing with computer
 networks, there are some terms that you'll see popping up quite often:
@@ -83,7 +81,7 @@ But who is it sending it to? How do they deliver it? To understand this we first
 need to make a little digression.
 
 ![The connection to your ISP]({{ site.baseurl }}/img/isp.png)
-{: .well .pull-right .diagram}
+{: .pull-right}
 
 When you sign up for an Internet service with your cable company, what you're
 really buying is the privilege of connecting your computer to a special kind of
@@ -125,7 +123,7 @@ state: they simply forward the package to another post office that might know.
 This is the essence of the Internet - a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
-![A little network with computers communicating through routers]({{ site.baseurl }}/img/network.png){: .well }
+![A little network with computers communicating through routers]({{ site.baseurl }}/img/network.png)
 {: #network }
 
 I say "essence" because of course the reality is much more complicated than

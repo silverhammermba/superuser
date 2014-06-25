@@ -4,8 +4,6 @@ title: 'Part 2: The Internet'
 category: part2
 ---
 
-
-
 Almost everyone uses the Internet these days: at home, at work, and even on the
 go with their cell phones. Consequently, most people have a vague idea of what
 the Internet is. But I think that many people would be surprised at how far from
@@ -22,7 +20,7 @@ the world" part and focus just on "computers communicating".
 ## Protocols ##
 
 ![A simple "network"]({{ site.baseurl }}/img/simpnet.png)
-{: .well .pull-right}
+{: .pull-right}
 
 We will first consider the simplest possible example of inter-computer
 communication: two computers connected with a cable. Each computer can send data

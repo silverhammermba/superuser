@@ -4,8 +4,6 @@ title: Simple Machines
 category: part1
 ---
 
-
-
 Now we know what a computation is, but how is that related to the computers we
 know today?
 
@@ -40,7 +38,7 @@ human fallibility mucking it up. We're going to work our way up to this machine
 by making much simpler machines first.
 
 ![Add 1 Machine]({{ site.baseurl }}/img/add1.png)
-{: .well .pull-right}
+{: .pull-right}
 
 We'll start with a wheel attached to the surface of a table. Around this wheel
 we'll evenly write the digits 0-9. We can attach a handle to rotate the wheel
@@ -57,7 +55,7 @@ This machine is a bit silly, but it does do the job... kinda. What happens if
 we give it 9 as input? Argh! The wheel circles back around to 0!
 
 ![Overflow]({{ site.baseurl }}/img/overflow.png)
-{: .well .pull-left}
+{: .pull-left}
 
 We can solve this problem by adding another wheel to our contraption. The
 second wheel is exactly like the first, except rather than turning it directly
@@ -73,7 +71,7 @@ Success!  If we keep turning, the second wheel remains at 1 (giving us 11, 12,
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
 
 ![Carrying Digits]({{ site.baseurl }}/img/carry.png)
-{: .well .pull-right}
+{: .pull-right}
 
 By now you might realize that we still have a problem. Our new machine works
 all the way up to 99 and then the same error occurs. Turning the rightmost 9
@@ -176,7 +174,7 @@ consists of the following components:
 [tu]: http://en.wikipedia.org/wiki/Alan_Turing
 
 ![Turing machine]({{ site.baseurl }}/img/turing.png)
-{: .well .pull-right}
+{: .pull-right}
 
 1. A **tape**, on which we can write a sequence of digits, which serves as the
    machine's memory. As with the number of wheels on our adding machine, we

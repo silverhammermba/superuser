@@ -4,8 +4,6 @@ title: 'HTTP'
 category: part2
 ---
 
-
-
 In the previous chapter, I mentioned the large number of application protocols
 that exist. You probably make use of many such protocols when you use the
 Internet, but in this chapter we're going to focus on the king of application

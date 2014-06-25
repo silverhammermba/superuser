@@ -4,8 +4,6 @@ title: 'The Browser'
 category: part2
 ---
 
-
-
 In the last chapter we talked about how HTTP sends HTML documents to your
 web browser, which interprets them to create web pages. This chapter focuses
 more on that incredible piece of software: the web browser.
