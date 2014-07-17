@@ -55,18 +55,14 @@ important choice.
 There are many different web browsers available on the internet, so how do you
 choose the best one to use? This is a general problem that superusers often
 face: how to choose the right software for a job when several pieces of software
-all work? And that question is just a twist on the even more general problem:
-how do you choose the best solution to a computer problem when there are
-multiple options?
-
-Let's focus on just the matter of choosing software. Before we solve this
-problem, let's think about _why_ we need to choose carefully.
+all work? Before we solve this problem, let's think about _why_ we need to
+choose carefully.
 
 1. Technology standards change. In 2008 the standard describing HTML was
    significantly updated, adding new responsibilities for web browsers to handle
    in order to create web pages. These responsibilities continue to change over
    the years. Old web browser software can't handle some of these new changes,
-   causing some web pages to function or appear differently than the authors
+   causing some web pages to function/appear differently than the authors
    intended.
 2. Flaws are often found in software. As you now know, the Internet is a
    complicated, layered beast. Tiny, unintentional problems can pop up in these
@@ -95,53 +91,84 @@ personal preference so feel free to try out several.
 {::options parse_block_html="false" /}
 
 <section class="browsers">
-<a class="panel panel-default browser os windows osx" href="https://www.google.com/chrome/browser/">
+<a class="browser os windows osx" href="https://www.google.com/chrome/browser/">
 <img src="{{ site.baseurl }}/img/google_chrome.png"
 alt="The most popular browser in the world, developed mainly by Google."/>
 Google Chrome
 </a>
 
-<a class="panel panel-default browser os linux" href="http://www.chromium.org/Home/">
+<a class="browser os linux" href="http://www.chromium.org/getting-involved/download-chromium">
 <img src="{{ site.baseurl }}/img/chromium.png"
 alt="The community-developed browser that Google Chrome is based on."/>
 Chromium
 </a>
 
-<a class="panel panel-default browser os windows" href="http://ie.microsoft.com/">
+<a class="browser os windows" href="http://ie.microsoft.com/">
 <img src="{{ site.baseurl }}/img/ie.png"
 alt="Microsoft's browser. Older versions have a bad reputation, but version 9 and up are respectable."/>
 Internet Explorer
 </a>
 
-<a class="panel panel-default browser" href="http://www.mozilla.org/firefox/">
+<a class="browser" href="http://www.mozilla.org/firefox/">
 <img src="{{ site.baseurl }}/img/firefox.png"
 alt="The most popular community-developed browser."/>
 Firefox</a>
 
-<a class="panel panel-default browser os osx" href="https://www.apple.com/safari/">
+<a class="browser os osx" href="https://www.apple.com/safari/">
 <img src="{{ site.baseurl }}/img/safari.png"
 alt="Apple's browser. An easy choice if you use a Macintosh computer."/>
 Safari
 </a>
 
-<a class="panel panel-default browser" href="http://www.opera.com/">
+<a class="browser" href="http://www.opera.com/">
 <img src="{{ site.baseurl }}/img/opera.png"
 alt="A solid underdog among the top browsers with some interesting design features."/>
 Opera
 </a>
-</section>
 
-<div class="well" id="desc" style="display: none">
+<div id="desc" style="display: none">
 <p>Description!</p>
 </div>
+</section>
 
 <script>
-$('.browser').hover(function(event) {
-	$('#desc p').text($(this).children().prop('alt'));
-	$('#desc').show();
-}, function(event) {
-	$('#desc').hide();
-});
+window.onload = function() {
+	$('.browser').hover(function(event) {
+		$('#desc p').text($(this).children().prop('alt'));
+		$('#desc').show();
+	}, function(event) {
+		$('#desc').hide();
+	});
+}
 </script>
 
 {::options parse_block_html="true" /}
+
+Because these browsers are so popular, there are a lot of different websites
+offering downloads for them. Play it safe and use the official download links
+above <span class="os linux">(or your distribution's package manager)</span> to
+get them! Malicious software developers will often offer unofficial downloads of
+popular software but with viruses snuck in.
+{: .note}
+
+## Seriously, Update Your Browser ##
+
+<script type="text/javascript">
+var $buoop = {reminder: 0}; // always remind
+$buoop.ol = window.onload;
+window.onload=function(){
+	try {
+		if ($buoop.ol) $buoop.ol();
+	} catch (e) {}
+	var e = document.createElement("script");
+	e.setAttribute("type", "text/javascript");
+	e.setAttribute("src", "//browser-update.org/update.js");
+	document.body.appendChild(e);
+}
+</script>
+
+If your browser is no good, there should be an annoying bar at the top of your
+screen complaining about it. Clicking it takes you to the excellent
+[browser-update.org](http://www.browser-update.org/update.html): a site created
+by web designers who are tired of people viewing their websites with crappy,
+old, broken web browsers.

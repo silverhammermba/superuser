@@ -204,10 +204,12 @@ HTML also provides tags for marking up quotations:
 </html>
 {% endhighlight %}
 
-Now the association between the quotation and citation is clear. You might have
-wondered earlier at the point of the `<body>` tag. What isn't part of the body
-of text? Well, HTML provides another tag `<head>` in which you can place
-information _about_ the document that isn't part of the document itself.
+Now the association between the quotation and citation is clear.
+
+You might have wondered earlier at the point of the `<body>` tag. What isn't
+part of the body of text? Well, HTML provides another tag `<head>` in which you
+can place information _about_ the document that isn't part of the document
+itself.
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -257,11 +259,12 @@ tag which is missing:
 
 We have added the mighty **a**nchor tag or, as you probably know it, a
 hyperlink! This tag looks a little different because it includes an _attribute_.
-An attribute goes inside a start tag after the tag name and looks like
-`name="value"`. One way you could read this is "Richard Wilbur is an anchor with
-an href value of `http://en.wikipedia.org/wiki/Richard_Wilbur`". An anchor's
-href describes the Internet address of another HTML document that our HTML
-document links to.
+An attribute goes inside a start tag after the tag name and usually looks
+something like `key="value"`. Attributes let us describe additional information
+about a particular instance of a tag.
+
+In our case, the anchor "Richard Wilbur" has a "hypertext reference" (`href`) to
+a Wikipedia article.
 
 ## Behind the Scenes ##
 

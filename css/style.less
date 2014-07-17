@@ -45,7 +45,7 @@
 }
 
 /* images */
-img {
+p img {
 	.well;
 	margin: 20px;
 }
@@ -85,6 +85,8 @@ img {
 
 /* stuff for the interactive browser selection */
 .browser {
+	.panel;
+	.panel-default;
 	display: inline-block;
 	width: 150px;
 	text-align: center;
@@ -97,4 +99,13 @@ img {
 
 .browsers {
 	text-align: center;
+}
+
+.browsers #desc {
+	.well;
+}
+
+/* don't allow the browser-update.org nag to be closed */
+#buorgclose {
+	display: none;
 }
