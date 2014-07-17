@@ -8,9 +8,6 @@
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
@@ -59,12 +56,21 @@
 			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Simpleton to Superuser</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://silverhammermba.github.io/superuser/" property="cc:attributionName" rel="cc:attributionURL">Maxwell Anselm</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 		</footer>
 
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 		<script>
 			var os_name = "unknown";
+			window.os_detected = true;
 			if (navigator.appVersion.indexOf("Win")   != -1) os_name = "windows";
 			if (navigator.appVersion.indexOf("Mac")   != -1) os_name = "osx";
 			if (navigator.appVersion.indexOf("X11")   != -1) os_name = "linux";
 			if (navigator.appVersion.indexOf("Linux") != -1) os_name = "linux";
+
+			if (os_name === "unknown") {
+				window.os_detected = false;
+				os_name = "windows"; // it's better than nothing :\
+			}
 
 			$('.os').hide(); // putting this in CSS makes things really tricky
 			$('.' + os_name).show();
