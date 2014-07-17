@@ -64,6 +64,28 @@ there are selected answers [in the back][ans].
 
 [ans]: {{ site.baseurl }}/extras/answers.html
 
+<section id="os_detect">
+## A Minor Issue ##
+
+Occasionally in the book I use some fancy tricks to change the content based on
+what kind of device you are reading it with. You are seeing this section because
+I could not figure out your specific device! Sorry.
+
+The book should still be 99% useful, but please consider [letting me know][faq]
+about the problem so that I can try to fix it.
+
+For now the book will assume that you are reading this with Windows Internet
+Explorer.
+</section>
+
+<script>
+window.onload = function() {
+	if (window.os_detected) $('#os_detect').hide();
+};
+</script>
+
+[faq]: {{ site.baseurl }}/extras/faq.html
+
 So anyway...
 
 ## What is a Superuser? ##
