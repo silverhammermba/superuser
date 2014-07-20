@@ -124,9 +124,9 @@ a solid understanding of how computers work and the various systems involved in
 their operation. When you understand your computer, you are better able to
 operate it as the superuser without causing harm.
 
-There are many skills that I consider essential to being a superuser. I will
-mention them throughout this guide as they become relevant but here are a few to
-start:
+There are many skills that I consider essential to being a superuser. You will
+pick up most of them as you read through this guide, but here are a few to
+get you started:
 
 * A superuser is always thirsty for knowledge. Every tidbit of computer
   knowledge is of interest to a superuser - though some tidbits are of more
