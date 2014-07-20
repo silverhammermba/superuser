@@ -64,23 +64,35 @@ there are selected answers [in the back][ans].
 
 [ans]: {{ site.baseurl }}/extras/answers.html
 
-<section id="os_detect">
+<section id="issue">
 ## A Minor Issue ##
 
 Occasionally in the book I use some fancy tricks to change the content based on
-what kind of device you are reading it with. You are seeing this section because
-I could not figure out your specific device! Sorry.
+what kind of device you are reading it with.
+<span class="mobile">You are seeing this section because it looks like you are
+using a mobile device. While mobile devices like smartphones are technically
+computers, they aren't the sort of computers this book is focused on.</span>
+<span class="unknown">You are seeing this section because I could not figure out
+your specific device!  Sorry.</span>
 
-The book should still be 99% useful, but please consider [letting me know][faq]
-about the problem so that I can try to fix it.
-
-For now the book will assume that you are reading this with Windows Internet
-Explorer.
+<span class="mobile">That being said, 99% of the book should still be
+informative. Just feel free to ignore stuff that doesn't make sense for the
+particular device you are using. If you are _not_ using a mobile device, please
+[let me know][faq] so that I can fix my code!</span>
+<span class="unknown">The book should still be 99% useful, but please [let me
+know][faq] about your device so that I can fix my code! For now the book will
+assume that you are reading this with Windows Internet Explorer.</span>
 </section>
 
 <script>
 window.onload = function() {
-	if (window.os_detected) $('#os_detect').hide();
+	if (window.is_mobile) {
+		$('.unknown').hide();
+	} else if (window.os_unknown) {
+		$('.mobile').hide();
+	} else {
+		$('#issue').hide();
+	}
 };
 </script>
 
