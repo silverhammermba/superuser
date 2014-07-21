@@ -15,8 +15,8 @@ terminology before using them.
 Still reading? Congratulations! By starting to read this guide you have already
 set yourself apart from so many simpletons out there. A healthy thirst for
 knowledge and the willingness to read long, boring documents to acquire said
-knowledge is an important trait of any superuser. I'll do my best to minimize
-the boringness so long as you keep up the knowledge thirstiness.
+knowledge are important traits of any superuser. I'll do my best to minimize the
+boringness so long as you keep up the knowledge thirstiness.
 
 ## How to Read This Book ##
 
