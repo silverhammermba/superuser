@@ -1,0 +1,120 @@
+---
+layout: chapter
+title: 'Security'
+category: part2
+---
+
+Get ready. This chapter is probably the most important chapter in the book. It's
+also one of the trickiest. We're going to talk about security as it applies to
+information and computers.
+
+## Definition ##
+
+What does it really mean to be "secure"?
+
+**Security** is the... hmm. Well... I can't think of any short way of saying
+this.
+{: .definition}
+
+I'm sure that most people desire and appreciate security, but outside of a gut
+instinct I doubt that the average Joe could tell you exactly what is or is not
+secure - especially when it comes to computer stuff. Part of this difficulty
+comes from Security being quite an overloaded term.
+
+There are probably dozens of contradictory definitions of information security
+out there, but the one I like breaks down security into four components:
+confidentiality, integrity, availability, and non-repudiation.
+
+### Confidentiality ###
+
+Confidentiality is about keeping information secret. This is the aspect of
+security that most people are probably familiar with. Confidentiality is
+especially important with the Internet since every message must pass through
+several intermediate routers before reaching the recipient.
+
+If you make an online purchase that isn't confidential, an intermediary would be
+able to steal your credit card information.
+
+### Integrity ###
+
+Integrity is about ensuring that information cannot be secretly modified or
+modified without authorization. Integrity can be just as important as
+confidentiality, but not many people think about it.
+
+Suppose you make a confidential credit card purchase - so no one can steal your
+credit card information - but the purchase lacks integrity. A third party might
+not be able to read your credit card number but they could substitute a
+different one. Since the transaction does not have integrity, the store you
+purchased from would be unaware of the change and would charge the wrong
+person or deny the transaction.
+
+### Availability ###
+
+What use is information if it isn't available when you need it? You can have a
+perfectly confidential system with integrity, but if some jerk can take your
+system offline it's not going to be much use to you.
+
+### Non-Repudiation ###
+
+Unlike the other components of security, non-repudiation concerns itself with
+the authorized users of the information. It means that the parties involved
+cannot deny their involvement later.
+
+For example, after making a credit card purchase you could attempt to claim that
+you did not authorize the purchase and should be refunded. Alternatively, the
+store could claim that they never received the money and so you must make the
+payment again. Non-repudiation seeks to prevent both kinds of situtations.
+
+## Encryption ##
+
+While those principles are good for conceptually thinking about security, we
+need a way to implement them for computers. That is largely done with one
+complicated, versatile tool: encryption.
+
+Encryption is basically another [format][fm] for encoding information - but with
+one crucial difference. Back when we first started learning about the Internet,
+I compared the act of putting data in packets to putting a letter in a package.
+Encryption is like that, but the package is a metal safe with a lock on it. To
+open it you need a little something extra: a key. That key could be a
+combination of numbers or a physical key for a padlock, but with encryption it's
+just extra information.
+
+[fm]: {% post_url 2011-04-06-ch4 %}
+
+**Encryption** is a data format that can only be decoded using additional
+(usually secret) information.
+{: .definition}
+
+There's a lot of terminology surrounding encryption.
+
+**Plaintext** is unencrypted information.
+{: .definition}
+
+Caesar's cipher is a classic example. The cipher (a fancy word for encryption)
+is over 2000 years old and gets its name from Julius Caesar who supposedly used
+it extensively. First you choose a key, which can be any number. We'll pick 5.
+Then you take your message
+
+    ATTACK AT DAWN
+
+and _encrypt_ it by replacing each letter with the 5th letter after it in the
+alphabet, wrapping around from Z back to A if necessary. For example A becomes
+F, D becomes I, X becomes C, etc. This gives us the _ciphertext_
+
+    FYYFHP FY IFBS
+
+There's our confidentiality! If the recipient of our message knows that we're
+using the Caesar cipher with a key of 5, they can _decrypt_ the message by
+shifting the letters in the opposite direction by that amount. Meanwhile anyone
+who intercepts our message will have no idea what we're saying.
+
+Note that we also get a bit of information integrity for free. Someone could try
+to intercept our message and add false information to it, but without knowing
+the key there is little chance that what they add would make sense once the
+message is decrypted.
+
+## Cryptanalysis ##
+
+But Caesar's cipher - as you might expect for something 2000 years old - doesn't
+stand up too well in the modern day. Consider the fact that using a key of 26 is
+the same as using a key of 0 i.e. 

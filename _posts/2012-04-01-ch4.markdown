@@ -4,9 +4,9 @@ title: 'The Browser'
 category: part2
 ---
 
-In the last chapter we talked about how HTTP sends HTML documents to your
-web browser, which interprets them to create web pages. This chapter focuses
-more on that incredible piece of software: the web browser.
+In the last chapter we talked about how HTTP sends HTML documents to your web
+browser, which interprets them to create web pages. Let's take a little time to
+talk about that incredible piece of software: the web browser.
 
 Your web browser is a program running on your computer. It has the enormous
 responsibility of constructing web pages from HTML documents. Why is that such a
@@ -172,3 +172,10 @@ screen complaining about it. Clicking it takes you to the excellent
 [browser-update.org](http://www.browser-update.org/update.html): a site created
 by web designers who are tired of people viewing their websites with crappy,
 old, broken web browsers.
+
+We're going to talk a little more about browsing the web later on, but before we
+do we need to build some more foundation. Some _secure_ foundation.
+
+<div class="exercise">
+1. Update your browser.
+</div>

@@ -165,6 +165,15 @@ Like fitting a square peg into a round hole, the process is by definition
 imperfect.  A huge amount of effort is expended by computer scientists and
 engineers to improve our digital approximations of continuous data.
 
+Possibly because of the complexity that formats can require to store
+information, formats are sometimes thought of as "codes". Just like our DNA
+encodes the information for our living bodies, formats encode the information we
+store in our computers.
+
+Information can be **encoded** to store it in formatted data. The data can be
+**decoded** to get the information back again.
+{: .definition}
+
 <div class="exercise" style="clear: right">
 1. So far, all of the calculations we've toyed around with have used positive
    integers. Those are easy because it's rather obvious how to represent a
