@@ -65,48 +65,63 @@ you did not authorize the purchase and should be refunded. Alternatively, the
 store could claim that they never received the money and so you must make the
 payment again. Non-repudiation seeks to prevent both kinds of situtations.
 
-## Encryption ##
+## Ciphers ##
 
 While those principles are good for conceptually thinking about security, we
 need a way to implement them for computers. That is largely done with one
-complicated, versatile tool: encryption.
+complicated, versatile tool: ciphers.
 
-Encryption is basically another [format][fm] for encoding information - but with
+A ciphers is basically another [format][fm] for encoding information - but with
 one crucial difference. Back when we first started learning about the Internet,
 I compared the act of putting data in packets to putting a letter in a package.
-Encryption is like that, but the package is a metal safe with a lock on it. To
+Ciphers are like that, but the package is a metal safe with a lock on it. To
 open it you need a little something extra: a key. That key could be a
-combination of numbers or a physical key for a padlock, but with encryption it's
+combination of numbers or a physical key for a padlock, but with a cipher it's
 just extra information.
 
 [fm]: {% post_url 2011-04-06-ch4 %}
 
-**Encryption** is a data format that can only be decoded using additional
-(usually secret) information.
+A **cipher** is a data format that can only be decoded using additional
+(usually secret) information called a key.
 {: .definition}
 
-There's a lot of terminology surrounding encryption.
+Before we talk about a concrete example, let's get some terminology out of the
+way.
 
-**Plaintext** is unencrypted information.
+**Plaintext** is just a fancy word for regular information when people are
+talking about ciphers.
 {: .definition}
 
-Caesar's cipher is a classic example. The cipher (a fancy word for encryption)
-is over 2000 years old and gets its name from Julius Caesar who supposedly used
-it extensively. First you choose a key, which can be any number. We'll pick 5.
-Then you take your message
+**Ciphertext** is the result of using a cipher with plaintext.
+{: .definition}
+
+**Encryption** is the process of producing ciphertext from plaintext. The
+reverse process of getting the plaintext back from the ciphertext (usually using
+the key) is **decryption**.
+{: .definition}
+
+To be honest, encryption is a far more common term than cipher. I'm not entirely
+sure why, but if I had to guess it would be because most folks don't actually
+care what kind of cipher is being used as long as something is encrypted.
+{: .note}
+
+Caesar's cipher is a classic example hailing from the BC years. It was used
+extensively by Julius Caesar himself to relay battle orders. It is very simple
+to use even without a computer. First you choose a key, which can be any number.
+We'll pick 5.  Then you take your message
 
     ATTACK AT DAWN
 
-and _encrypt_ it by replacing each letter with the 5th letter after it in the
+and encrypt it by replacing each letter with the 5th letter after it in the
 alphabet, wrapping around from Z back to A if necessary. For example A becomes
-F, D becomes I, X becomes C, etc. This gives us the _ciphertext_
+F, D becomes I, X becomes C, etc. This gives us the ciphertext
 
     FYYFHP FY IFBS
 
-There's our confidentiality! If the recipient of our message knows that we're
-using the Caesar cipher with a key of 5, they can _decrypt_ the message by
-shifting the letters in the opposite direction by that amount. Meanwhile anyone
-who intercepts our message will have no idea what we're saying.
+There's our confidentiality! If our message is intercepted they will have no
+idea what is actually being said. But since the true recipient of our message
+knows that we're using the Caesar cipher with a key of 5, they can decrypt the
+message by shifting the letters in the opposite direction by that amount.
 
 Note that we also get a bit of information integrity for free. Someone could try
 to intercept our message and add false information to it, but without knowing
@@ -115,6 +130,130 @@ message is decrypted.
 
 ## Cryptanalysis ##
 
-But Caesar's cipher - as you might expect for something 2000 years old - doesn't
-stand up too well in the modern day. Consider the fact that using a key of 26 is
-the same as using a key of 0 i.e. 
+But Caesar's cipher - as you might expect for something over 2,000 years old -
+isn't very strong. Consider the fact that using a key of 26 is the same as using
+a key of 0 i.e. nothing gets shifted and your ciphertext would be identical to
+your plaintext. In other words, there are really only 26 different key values
+and one of them (0) is useless since it does nothing at all. Why is this a
+problem?
+
+Well, suppose our ciphertext _is_ intercepted. If they know that we're fond of
+the Caesar cipher, they can guess that we probably didn't use the key 0 so they
+try the other 25 keys:
+
+    EXXEGO EX HEAR
+    DWWDFN DW GDZQ
+    CVVCEM CV FCYP
+    BUUBDL BU EBXO
+    ATTACK AT DAWN
+    ...
+    IBBIKS IB LIEV
+    HAAHJR HA KHDU
+    GZZGIQ GZ JGCT
+
+The key guess of 1 produces a pretty compelling "EXXEGO EX HEAR", but I think
+they might pick out "ATTACK AT DAWN" which - unlike every other key guess -
+produces three actual English words. If the message were longer, the
+interceptors could be even more confident of their guess since it would be even
+less likely that the wrong key would produce a legible phrase. The interceptors
+now have our plaintext _and_ the key.
+
+**Cryptanalysis** is the study of ciphers, often for the purpose of extracting
+the key or plaintext from ciphertext.
+{: .definition}
+
+With the key in hand, the interceptors have completely compromised the security
+of our cipher. They can read the message or even change it to "FYYFHP FY STTS"
+to completely ruin our battle plan. Is there a better form of encryption?
+
+## One-Time Pad ##
+
+It turns out that there is. In fact there is a _perfect_ cipher - one that is
+completely unbreakable. The key, however, needs to be much larger.  Rather than
+picking just one number, now we pick a random number for _every letter_ in our
+plaintext. After a little work with a 26-sided die, we get
+
+    6 4 5 5 9 12 6 1 0 16 16 0
+
+And now encryption is similar to the Caesar cipher but each letter is shifted by
+the corresponding number in the key. The first A is shifted 6 to become G, the
+first T shifts 4 to become X, the next T shifts 5 to become Y, and so on. The
+result is
+
+    GXYFLW GU DQMN
+
+Why is this suddenly unbreakable? After all, our adversaries can once again try
+every key as they did with the Caesar cipher. Well their first challenge is that
+there are now 26<sup>12</sup> = 95,428,956,661,682,176 keys.  But even ignoring
+the practical challenge of trying that many keys (which would be time-consuming
+even for a computer), there is a much more serious problem. Suppose our
+adversaries guess
+
+    key: 8 1 0 20 10 17 0 19 16 0 15 2
+    plaintext: YWYLBF GB NQXL
+
+This is clearly gibberish, so the key is probably wrong. They try some more keys
+and eventually get
+
+    key: 6 4 5 5 9 12 6 1 0 16 16 0
+    plaintext: ATTACK AT DAWN
+
+Ah ha! This looks legitimate! But then they keep going and get
+
+    key: 6 4 5 5 9 12 6 1 16 2 24 0
+    plaintext: ATTACK AT NOON
+
+or is it
+
+    key: 6 4 5 5 9 12 20 22 18 16 16 0
+    plaintext: ATTACK MY LAWN
+
+and we really can't rule out
+
+    key: 1 9 11 2 0 18 20 22 2 22 19 20
+    plaintext: FONDLE MY BUTT
+
+The point here is that we can produce _any combination of letters_ by trying
+different keys - that includes every single grammatically correct English
+sentence with three words of those lengths. There is no way for our adversaries
+to know which phrase we sent!
+
+This type of encryption has some downsides, however. For one, you need a whole
+lot of key. Suppose you wanted to encrypt an entire book - that would require an
+awful lot of dice rolling! And even if you had that much key, you would need to
+somehow secretly get the key to the recipient ahead of time without it being
+intercepted. Lastly, the security of the cipher relies on the fact that you
+never reuse a key. So even if you go through all of that effort to generate a
+lot of key and get it to the recipient secretly, after one message you have to
+throw it out.
+
+<div class="deeper">
+As for _why_ one should not reuse key with this cipher... that's a little
+trickier.
+
+Suppose you sent a long message each day with this cipher but reused the same
+key each time. A patient adversary could collect all of your messages and
+compare them. If they figure out that you're using the same key each day, then
+they know that the first letter of each message is shifted by the same amount.
+If any of your messages start with a one-letter word, then your adversaries
+would immediately know that the shift needs to be something to give a plaintext
+of A or I in those messages (since these are the only common one-letter words).
+Using those two shifts, they can guess the first letters of the messages
+starting with two-letter words. Since there are only so many two-letter words,
+this helps them guess the shift for the second letter in the message. And so on.
+
+The crucial difference is this: with only one random key and one plaintext,
+correctly guessing _part_ of the key gives you no insight to the rest of the key
+(see "ATTACK MY LAWN"). When you reuse key across multiple messages, it creates
+patterns among the ciphertext that a clever adversary could detect.
+</div>
+
+Because of these limitations, before the age of computers this cipher was
+implemented using mass-produced pads of paper with sheet after sheet of random
+numbers on them. For example, the pads would be distributed to naval vessels
+before a long voyage, with instructions about which page of the pad was to be
+used for key each day. This allowed for secure communication so long as the
+pads never fell into enemy hands. For this reason many pads were designed to
+quickly dissolve in water, so that they would not be recoverable if the vessel
+were to sink. Even when used today in digital communications, this cipher is
+still often referred to as a one-time pad.
