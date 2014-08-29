@@ -267,3 +267,96 @@ pads never fell into enemy hands. For this reason many pads were designed to
 quickly dissolve in water, so that they would not be recoverable if the vessel
 were to sink. Even when used today in digital communications, this cipher is
 often referred to as a one-time pad.
+
+## Going Binary ##
+
+When computers do encryption they follow very similar steps to those we just
+learned about: take your plaintext, add key to it, get your ciphertext. But of
+course now everything needs to be in binary.
+
+Let's start with the simplest possible binary plaintext: a single bit. I pick 1.
+Previously we had one number in our key for each letter in our plaintext, so in
+binary there's only one sensible choice: we'll have one random _bit_ of key for
+each bit of plaintext. Suppose our computer flips a coin and gets the random bit
+1 for our key.
+
+Now we have to add them together. Previously that meant shifting letters in the
+alphabet, but again things are simpler now that it's all binary. We can add the
+bits together mathematically.
+
+    1 + 1 = ?
+
+Now, in binary, that would normally be 10 but we're going to add in a weird sort
+of way. To keep things simple we'll ignore the 1 that is carried over, leaving
+just the 0. For the other possible values of binary addition we don't have to
+carry a digit, so the addition occurs normally. To recap, here's all the cases
+for this weird addition:
+
+    0 + 0 = 0
+    0 + 1 = 1
+    1 + 0 = 1
+    1 + 1 = 0
+
+There are a few different names for this kind of addition. Sometimes it's called
+"addition modulo 2" (or mod 2 addition), which means that we force the answer to
+always be smaller than 2. It is also called "exclusive or" (or xor; pronounced
+"exor") since A + B equals 1 if A is 1 **or** B is 1 **but not both**. You will
+also see people distinguish it from regular addition by putting a circle around
+the plus sign e.g. 1 ⊕ 1 = 0.
+
+If you think way back to the chapter on [adding machines][sm], you might
+recognize this as a sort of overflow. We have only one wheel with 0 and 1 on it,
+so when adding 1 to 1 we loop back to 0 and there are no others wheels to pick
+up the extra 1.
+{: .deeper}
+
+[sm]: {% post_url 2011-03-01-ch2 %}
+
+Using xor, it's very easy to add even long binary numbers by hand since you
+never have to keep track of carried digits. You can look at each pair of digits
+on their own.
+
+In our case, our plaintext is 1, our key is 1, so our ciphertext is 0. As
+before, we have perfect secrecy using this method. Our random key could have
+been 0 or 1, so our adversaries have no idea whether our plaintext was 0 or 1.
+But how do we decrypt? Once again, this proves even easier than before. Note the
+following:
+
+    0 ⊕ 0 = 0
+    1 ⊕ 1 = 0
+
+    0 ⊕ 0 = 0
+    1 ⊕ 0 = 1
+
+In other words, for xor we have the two rules
+
+    X ⊕ X = 0
+    X ⊕ 0 = X
+
+Now recall how encryption worked:
+
+    plaintext ⊕ key = ciphertext
+
+Therefore
+
+    plaintext ⊕ key ⊕ key = ciphertext ⊕ key
+    plaintext ⊕ (key ⊕ key) = ciphertext ⊕ key
+    plaintext ⊕ 0 = ciphertext ⊕ key
+    plaintext = ciphertext ⊕ key
+
+The process for encryption is the _exact same_ as for decryption! Add key to plaintext
+and you get ciphertext, add key to ciphertext and you get plaintext! Cool, huh?
+
+Now perhaps you aren't impressed by any of this since all we encrypted was a
+measely bit, but what is binary data other than a string of bits? All you need
+is a binary format for your data and random bits of key for each of your
+plaintext bits and you're good to go: encrypt each bit individually as we just
+did. Using [ASCII][as] to encode "ATTACK" as binary, and using 48 random bits of
+key, we can encrypt text:
+
+[as]: {% post_url 2012-03-01-ch3 %}#text
+
+       01000001 01010100 01010100 01000001 01000011 01001011 (plaintext)
+     ⊕ 01000000 11101110 11100111 11110101 01101110 00000011 (key)
+    --------------------------------------------------------
+       00000001 10111010 10110011 10110100 00101101 01001000 (ciphertext)
