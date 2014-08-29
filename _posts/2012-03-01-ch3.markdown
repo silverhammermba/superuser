@@ -302,10 +302,10 @@ medium of touch and sound so that they can still interact with it.
 
    Well... I don't actually write this book in HTML. I write it in a different
    textual language called Markdown. A program then turns my Markdown text into
-   HTML. You can see how I actually write the book [here][gh]{: .alert-link}.
+   HTML. [This][gh]{: .alert-link} is what that looks like.
    {: .deeper}
 
-   [gh]: https://github.com/silverhammermba/superuser
+   [gh]: https://raw.githubusercontent.com/silverhammermba/superuser/gh-pages/_posts/2012-03-01-ch3.markdown
 
 3. Here is one of my favorite recipes written in plain text. Give it an HTML
    treatment like we did to the quotation above.

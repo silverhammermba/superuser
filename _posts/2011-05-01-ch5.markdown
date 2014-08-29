@@ -39,7 +39,7 @@ any kind of computing machine - something like this:
 
 input + algorithm + computer &rarr; meta-computer &rarr; answer
 
-But here's the kicker. Recall how a Turing machine operates - how it's various
+But here's the kicker. Recall how a Turing machine operates - how its various
 components interact. Predicting what a Turing machine will do given certain
 input is a simple matter of following the steps as it reads its instructions
 and manipulates the tape. Hm... "following the steps," that sounds like an
