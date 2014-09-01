@@ -514,8 +514,75 @@ trial-and-error so quickly. For security, you need a cipher with a key large
 enough that trying all possible keys would be prohibitive even with a computer.
 At the time of this writing, 80 bits is considered about the bare minimum key
 size you need to still be considered secure. Most ciphers play it safe by using
-even larger keys. So PRNGs still a place: by using one with a key that is just
-big enough to be secure, you can quickly encrypt plaintext that is many times
-larger than your key.
+even larger keys. So PRNGs still have a place: by using one with a key that is
+just big enough to be secure, you can quickly encrypt plaintext that is many
+times larger than your key.
+
+I used linear-feedback shift registers as an example in this section because
+they are very easy to explain. But among PRNGs, they aren't very good: most
+shift registers can be quickly broken using some [clever math][bm].
+{: .note}
+
+[bm]: http://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
 
 ## Public Keys ##
+
+There's a rather large gap in our cipher discussion so far: whether you're using
+a one-time pad with a massive key or a PRNG with a tiny key, you still need a
+way to get the key to the recipient! To figure out this problem, let's go back
+to the analogy of sending actual packages in the mail.
+
+I mentioned earlier that encryption is like locking your package in a safe. Now
+suppose Alice wants to send Bob a package securely. If she locks it in a safe,
+it will certainly be secure from prying eyes, but how will Bob open it? If Alice
+and Bob can meet in person ahead of time, they could exchange the key then. But
+this has obvious limitations:
+
+* What if Bob loses the key? Now the safe is no longer secure and they need to
+  meet in person again to exchange a new key.
+* What if Alice and Bob have never met in person? Shouldn't there still be a way
+  to securely send messages to each other?
+
+The solution is clever and simple. Instead of Alice supplying the key and safe,
+Bob does. Then Bob mails Alice the _unlocked safe_, which she places her package
+in and locks. When Bob receives the safe he can unlock it because he had the key
+to begin with!
+
+This works because of an important difference between real-world locks and the
+ciphers we've talked about so far. For a real lock, you usually don't need a key
+to lock it - you only need one to unlock it - but for our ciphers we encrypted
+and decrypted using the same key.
+
+Ciphers that encrypt and decrypt using the same key are called **symmetric-key
+ciphers**.
+{: .definition}
+
+So now we need a digital lock: a cipher that anyone can use to encrypt, but only
+the key holder can decrypt. Another way to think about it is for the cipher to
+have two keys: one key for encrypting, one key for decrypting. The encryption
+key can be distributed publicly - it's like the unlocked safe that Bob sends in
+the mail. The decryption key the recipient keeps secret.
+
+Ciphers that use different keys for encryption and decryption are often called
+**public-key ciphers** since the encryption key does not need to be kept secret.
+{: .definition}
+
+How do public-key ciphers work? So far, they all rely on tricky math problems.
+For example, what is the product 10,079&times;4,271? Easy (especially with a
+computer): 43,047,409. Now suppose I only gave you 43,047,409 and asked you to
+find the two numbers that it is a product of. Much harder, right? _But_ if I
+then tell you that one of the numbers is 10,079, it's suddenly easy again: you
+can divide.
+
+You might have noticed me try to sneak something by you just then: "find **the**
+two numbers". How do I know that those are the only two numbers that multiply to
+that answer? It's because 10,079 and 4,271 are [prime][prime]. A result of [the
+fundamental theorem of arithmetic][tfa] is that the product of two prime numbers
+cannot be the product of any other integers (ignoring 1, of course).
+{: .deeper}
+
+[prime]: http://en.wikipedia.org/wiki/Prime_number
+[tfa]: http://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic
+
+So, in this case, 43,047,409 would be the public encryption key and 10,079 (or
+4,271) would be the private decryption key.
