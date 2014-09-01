@@ -401,4 +401,121 @@ bits produced by a completely fair coin.
 
 [coin]: http://www.eecs.harvard.edu/~michaelm/coinflipext.pdf
 
+Even with an entropy pool, computers can't produce enough randomness to keep up
+with the demand. Instead they usually rely on pseudorandom numbers.
 
+**Pseudorandom** numbers are numbers that _"look"_ random. A function that
+produces pseudorandom numbers is called a **pseudorandom number generator** or
+**PRNG**.
+{: .definition}
+
+One of the first PRNGs was the linear-feedback shift register. Don't worry about
+the fancy name: they are surprisingly simple. All you need in order to make one
+is to choose the register size in bits, N, and then choose "taps" between 0 and
+N&minus;1.
+
+Operating the shift register is also simple: you choose a starting value called
+the "seed" which has N bits. Then you XOR the bits indicated by the taps, put
+the resulting bit on the end, and shift everything over by one. Let's do an
+example.
+
+We'll operate a 4 bit shift register with taps 2 and 3 using the seed 0100.
+
+        taps:   ..
+    register: 0100
+
+Here I've marked the 2<sup>nd</sup> and 3<sup>rd</sup> bits with dots since
+these are the taps (the leftmost bit is the 0<sup>th</sup>). We XOR the bits
+under the taps and put the result on the end. 0 ⊕ 0 = 0, so...
+
+        taps:    ..
+    register: 00100
+	          ^
+
+Now we shift! You can think of this as the register shifting to the right or the
+taps shifting to the left. Either one works:
+
+        taps:   ..
+    register: 00100
+
+The next step will add 1 ⊕ 0 = 1, so the result is
+
+        taps:   ..
+    register: 100100
+
+Do you have the hang of it? Try to follow along for the next few steps:
+
+        taps:   ..
+    register: 1100100
+
+        taps:   ..
+    register: 01100100
+
+        taps:   ..
+    register: 101100100
+
+        taps:   ..
+    register: 0101100100
+
+        taps:   ..
+    register: 10101100100
+
+        taps:   ..
+    register: 110101100100
+
+        taps:   ..
+    register: 1110101100100
+
+        taps:   ..
+    register: 11110101100100
+
+There are a few key observations we need to make about shift registers.
+
+1. This process can continue forever! We have an infinite number of pseudorandom
+   bits now.
+2. The first four bits are all that matter in determining what comes next -
+   after a bit is shifted past the last tap, it no longer has any effect on
+   later bits.
+3. Since only the first four bits matter, there are only 2<sup>4</sup>=16 different
+   sequences that can be produced by this PRNG.
+4. Most importantly, 1, 2, and 3 together tell us that for every seed, the PRNG
+   will eventually start repeating itself.
+
+For our last example, the full sequence we get is
+
+    0100011110101100100
+
+Notice how the first four bits are the same as the last four bits. If we
+continue generating bits, it will repeat this sequence over and over again.
+However, look at what we've gained! Starting with just 4 bits, we've produced
+over 16 bits that look pretty random! This is the trick of PRNGS: we use a true
+random source (like an entropy pool) to slowly generate a small seed, then the
+PRNG quickly spits out a whole bunch of randomish numbers for us to use as key.
+Larger shift registers do even better: with an 18-bit register and taps 0 and
+11, we get over 250 thousand psuedorandom bits of key!
+
+Before we get too excited, let's make sure this is still secure. PRNGs
+**aren't** secure like one-time pads: they don't have enough key. Suppose we
+encrypt 250 thousand bits using that 18-bit shift register. From our previous
+observations, we know that there are only 2<sup>18</sup> different key sequences
+we can generate. Therefore, if an adversary intercepts our message and knows
+what sort of PRNG we're using they can try all 2<sup>18</sup> until they
+get plaintext that looks legitimate. Using a computer, this sort of
+trial-and-error approach would be nearly instantaneous. This is the same problem
+we had with Caesar's cipher.
+
+The crucial point is this: a one-time pad is perfectly secure because for N
+bits of plaintext, you have N bits of entropy. But PRNGs **can't produce
+entropy**. When you make 250 thousands bits from an 18-bit shift register, they
+still have only 18 bits of entropy among them.
+
+So then all hope is lost? PRNGs are useless? No! Computers can only try keys by
+trial-and-error so quickly. For security, you need a cipher with a key large
+enough that trying all possible keys would be prohibitive even with a computer.
+At the time of this writing, 80 bits is considered about the bare minimum key
+size you need to still be considered secure. Most ciphers play it safe by using
+even larger keys. So PRNGs still a place: by using one with a key that is just
+big enough to be secure, you can quickly encrypt plaintext that is many times
+larger than your key.
+
+## Public Keys ##
