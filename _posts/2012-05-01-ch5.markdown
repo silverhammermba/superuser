@@ -71,18 +71,19 @@ payment again. Non-repudiation seeks to prevent both kinds of situtations.
 ## Ciphers ##
 
 While those principles are good for conceptually thinking about security, we
-need a way to implement them for computers. That is largely done with one
-complicated, versatile tool: ciphers.
+need a way to implement them for computers. That is largely done with a single
+versatile tool: ciphers.
 
 A cipher is basically another [format][fm] for encoding information. Back when
-we first started learning about the Internet, I compared the act of formatting
-data into a packet to putting a letter into a package. Ciphers are similar, but
-the package is a metal safe with a lock on it. To open it you need a little
-something extra: a key. In real life that key could be numbers for a combination
-lock or a physical key for a padlock, but with a cipher it's just extra
-information.
+we first started learning about [the Internet][int], I compared the act of
+formatting data into a packet to putting a letter into a package. Ciphers are
+similar, but the package is a metal safe with a lock on it. To open it you need
+a little something extra: a key. In real life that key could be numbers for a
+combination lock or a physical key for a padlock, but with a cipher it's just
+extra information.
 
 [fm]: {% post_url 2011-04-06-ch4 %}
+[int]: {% post_url 2012-01-01-ch1 %}/#packaging
 
 A **cipher** is a data format that can only be decoded using additional
 (usually secret) information called a key. Ciphers are often called **codes**
@@ -98,7 +99,8 @@ cool and fancy words for talking about them.
 text, image, audio, video, etc.
 {: .definition}
 
-**Ciphertext** is the result of using a cipher with plaintext.
+**Ciphertext** is the result of using a cipher with plaintext. This is the
+padlocked safe.
 {: .definition}
 
 **Encryption** is the process of producing ciphertext from plaintext. The
@@ -114,10 +116,10 @@ study ciphers professionally.
 
 ## Hail Caesar ##
 
-Caesar's cipher is a classic example hailing from the BC years. It was used
-extensively by Julius Caesar himself to relay battle orders. It is very simple
-to use even without a computer. First you choose a key, which can be any number.
-We'll pick 5.  Then you take your message
+Caesar's cipher is a classic example from the BC years. It was used extensively
+by Julius Caesar himself to relay battle orders. It is very simple to use even
+without a computer. First you choose a key, which can be any number.  We'll pick 5.
+Then you take your message
 
     ATTACK AT DAWN
 
@@ -185,6 +187,10 @@ plaintext. "ATTACK AT DAWN" has 12 letters, so after a little work with a
 26-sided die, we get
 
     6 4 5 5 9 12 6 1 0 16 16 0
+
+Note that while a key of zero was useless for the Caesar cipher, now zeros in
+our key are okay!
+{: .note}
 
 Encryption is similar to the Caesar cipher but now each letter is shifted by its
 corresponding number in the key. The first A is shifted 6 to become G, the first
