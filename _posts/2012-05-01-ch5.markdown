@@ -79,8 +79,8 @@ we first started learning about [the Internet][int], I compared the act of
 formatting data into a packet to putting a letter into a package. Ciphers are
 similar, but the package is a metal safe with a lock on it. To open it you need
 a little something extra: a key. In real life that key could be numbers for a
-combination lock or a physical key for a padlock, but with a cipher it's just
-extra information.
+combination lock or a physical key for a padlock, but with a cipher it's extra
+information.
 
 [fm]: {% post_url 2011-04-06-ch4 %}
 [int]: {% post_url 2012-01-01-ch1 %}/#packaging
@@ -305,7 +305,7 @@ for this weird addition:
 
 There are a few different names for this kind of addition. Sometimes it's called
 "addition modulo 2" (or mod 2 addition), which means that we force the answer to
-always be smaller than 2. It is also called "exclusive or" (or xor; pronounced
+always be smaller than 2. It is also called "exclusive or" (or XOR; pronounced
 "exor") since A + B equals 1 if A is 1 **or** B is 1 **but not both**. You will
 also see people distinguish it from regular addition by putting a circle around
 the plus sign e.g. 1 ⊕ 1 = 0.
@@ -318,7 +318,7 @@ up the extra 1.
 
 [sm]: {% post_url 2011-03-01-ch2 %}
 
-Using xor, it's very easy to add even long binary numbers by hand since you
+Using XOR, it's very easy to add even long binary numbers by hand since you
 never have to keep track of carried digits. You can look at each pair of digits
 on their own.
 
@@ -334,7 +334,7 @@ following:
     0 ⊕ 0 = 0
     1 ⊕ 0 = 1
 
-In other words, for xor we have the two rules
+In other words, for XOR we have the two rules
 
     X ⊕ X = 0
     X ⊕ 0 = X
@@ -387,10 +387,9 @@ devices plugged into the computer. However these methods are very slow compared
 to normal computation. For example, on the laptop I'm writing this with, my
 computer can only generate about 3-4 bytes of randomness per second during
 normal use. If I stop using it, it quickly runs out of randomness since I've
-deprived it of a major source of randomness (my input). One way computers get
-around this limitation is that they're _always_ generating randomness, and if
-you don't need it at that moment, they save it for later in something called an
-entropy pool.
+deprived it of a major source (my input). One way computers get around this
+limitation is that they're _always_ generating randomness, and if you don't need
+it at that moment, they save it for later in something called an entropy pool.
 
 Randomness is sometimes referred to as **entropy** - especially when it comes to
 measuring randomness. For example, suppose we generate 16 random bits using an
