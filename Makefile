@@ -2,3 +2,6 @@
 build:
 	jekyll build
 	cp -r _site/css ./
+
+serve:
+	jekyll serve --watch --baseurl=
