@@ -430,7 +430,7 @@ under the taps and put the result on the end. 0 ⊕ 0 = 0, so...
 
         taps:    ..
     register: 00100
-	          ^
+              ^
 
 Now we shift! You can think of this as the register shifting to the right or the
 taps shifting to the left. Either one works:
