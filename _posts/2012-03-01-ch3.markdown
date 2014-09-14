@@ -30,7 +30,7 @@ communication is in the form of human-readable text. But of course we need a
 binary format for storing that text in a computer. One such format is called
 ASCII.
 
-[fm]: {% post_url 2011-04-06-ch4 %}
+[fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
 
 **ASCII** is a simple text format where each byte represents a single character.
 {: .definition}
