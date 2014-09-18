@@ -1,0 +1,17 @@
+---
+layout: chapter
+title: 'Practical Security'
+category: part2
+---
+
+Last chapter got pretty intense with the technical talk, but it was important in
+order to understand the fundamentals of security. Now that that's out of the
+way, we can take a huge leap forward from the basics and talk about the more
+practical dimensions of security and how to stay safe during day-to-day computer
+usage.
+
+## Passwords ##
+
+## Certificates ##
+
+## Viruses ##
