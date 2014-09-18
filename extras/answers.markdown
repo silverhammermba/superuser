@@ -223,3 +223,38 @@ Not provided.
 ## The Browser ##
 
 Not provided.
+
+## Security ##
+
+1. The plaintext is "ENUMERATE BY COLUMN"
+2. The key is 18 and the plaintext is "CRACKED". Do you see how the answer to
+   the previous exercise can help here?
+3. The plaintext is "STILL BROKEN"
+4. This one is tricky.
+
+   The crucial flaw in substitution ciphers is letter frequency. In English (and
+   every other language, for that matter), certain letters appear much more
+   frequently than others. For English, the top three letters in order are E, T,
+   A. Since every E is encrypted to the same letter, it's usually a reasonable
+   assumption that the most frequent letter in your ciphertext decrypts to E,
+   the next most frequent to T, etc.
+
+   After you make a few letter guesses, the next flaw to exploit is that
+   substitution ciphers leave letter patterns in words unaffected. For example,
+   suppose you see the word "XUXXGUSX" in your ciphertext. This could decrypt to
+   any one of the 30 thousand English words that are eight letters long; or can
+   it? We know that all of the Xs decrypt to the same letter, so we're looking
+   for an English word that's eight letters long where the first, third, fourth,
+   and eigth letters are all the same. From almost 30,000 words that narrows the
+   list down to 8. Add in the requirement that the second and sixth letters have
+   to match (because of the U) and we get just one possibility: GIGGLING.
+
+   The general problem with substitution ciphers is that guessing a little bit
+   of the key correctly makes it easier to guess the rest of the key correctly.
+   This makes it much less secure than the 4 septillion keys might make you
+   believe.
+
+   Now how about cracking that encrypted paragraph?
+5. 0x1848
+6. 110011010010000101011101100011111001. Note that the first five bits are the
+   same as the last five, so it repeats.

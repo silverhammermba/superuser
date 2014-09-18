@@ -244,7 +244,7 @@ never reuse a key. So even if you go through all of that effort to generate a
 lot of key and get it to the recipient secretly, after one message you have to
 throw it out.
 
-<div class="deeper">
+<div class="deeper" id="reuse">
 As for _why_ one should not reuse key with this cipher... that's a little
 tricky.
 
@@ -307,9 +307,9 @@ for this weird addition:
 There are a few different names for this kind of addition. Sometimes it's called
 "addition modulo 2" (or mod 2 addition), which means that we force the answer to
 always be smaller than 2. It is also called "exclusive or" (or XOR; pronounced
-"exor") since A + B equals 1 if A is 1 **or** B is 1 **but not both**. You will
-also see people distinguish it from regular addition by putting a circle around
-the plus sign e.g. 1 ⊕ 1 = 0.
+"exor") since A + B equals 1 if A is 1 **or** B is 1 **but not both**. As part
+of an equation, you will often see it written as a plus sign in a circle or as a
+caret e.g. 1 ⊕ 1 = 0, 1 ^ 1 = 0.
 
 If you think way back to the chapter on [adding machines][sm], you might
 recognize this as a sort of overflow. We have only one wheel with 0 and 1 on it,
@@ -392,7 +392,7 @@ deprived it of a major source (my input). One way computers get around this
 limitation is that they're _always_ generating randomness, and if you don't need
 it at that moment, they save it for later in something called an entropy pool.
 
-<section class="definition">
+<div class="definition">
 Randomness is sometimes called **entropy** - especially when measuring how
 random something is.
 
@@ -402,7 +402,7 @@ will be "less random" than if we were to use a fair coin. In fact, using some
 [fancy math][coin] we can calculate that the 16 bits from the unfair coin have
 only 14 bits of entropy. In other words, they have the same "amount" of
 randomness as 14 bits produced by a completely fair coin.
-</section>
+</div>
 
 [coin]: http://www.eecs.harvard.edu/~michaelm/coinflipext.pdf
 
@@ -605,3 +605,37 @@ book. If you want to know more, I recommend reading about [RSA][rsa], one of the
 first public-key ciphers.
 
 [rsa]: http://en.wikipedia.org/wiki/RSA_(cryptosystem)
+
+<div class="exercise">
+1. Decrypt "QZGYQDMFQ NK OAXGYZ" using Caesar's cipher with a key of 12.
+2. Assuming "UJSUCWV" was encrypted using Caesar's cipher, recover the key and
+   plaintext.
+3. Caesar's cipher is no good, but here's a slight improvement: rather than
+   shifting every letter by the same amount, how about we scramble up the whole
+   alphabet? So our key might look like this:
+
+       ABCDEFGHIJKLMNOPQRSTUVWXYZ
+       GEUITYBJSZLAVMKPXDWHRCFQNO
+
+   Which means that every A is replaced with a G, every B is replaced with E,
+   every C with U, etc. This is called a _substitution cipher_. Use the above
+   key to decrypt the ciphertext "WHSAA EDKLTM".
+4. This substitution cipher has over 4 septillion possible keys - that's greater
+   than the "minimum" of 2<sup>80</sup> that I mentioned earlier with PRNGs, and
+   of course much, much greater than the 26 keys we get with Caesar's cipher.
+   But in fact substitution ciphers are only marginally more secure than
+   Caesar's cipher!
+
+   Can you think of how you might be able to crack a subtitution cipher without
+   trying every single key? If you skipped it earlier, read the blurb about [not
+   reusing one-time pads](#reuse) for inspiration. Here's a short paragraph
+   encrypted using a substitution cipher if you want to take a crack at it:
+
+   KWEW AU S EWSUZXSOPD PZXL BSESLESBK. AC UKZJPR OW PZXL WXZJLK CKSC DZJ QSX
+   QESQG CKW QABKWE OD WISYAXAXL CKW EWPSCAVW TEWNJWXQD ZT CKW PWCCWEU SXR
+   YSGAXL S TWM WRJQSCWR LJWUUWU. SU DZJ LJWUU YZEW PWCCWEU AC OWQZYWU WSUAWE CZ
+   YSGW TJECKWE LJWUUWU OD QZYBSEAXL CKW QABKWECWIC CZ GXZMX WXLPAUK MZERU!
+5. Compute 0xB3C7⊕0xAB8F.
+6. Compute the resulting pseudorandom stream from the 5-bit shift register with
+   taps 2 and 4 and a starting value of 0b11001.
+</div>
