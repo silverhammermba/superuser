@@ -168,7 +168,7 @@ they might pick out "ATTACK AT DAWN" which - unlike every other key guess -
 produces three actual English words. If the message were longer, the
 interceptors could be even more confident of their guess since it would be even
 less likely that the wrong key would produce a legible phrase. The interceptors
-now have our plaintext _and_ the key.
+now have our plaintext _and_ the key. We've been cryptanalyzed!
 
 **Cryptanalysis** is the study of ciphers, often for the purpose of extracting
 the key or plaintext from ciphertext.
@@ -176,15 +176,16 @@ the key or plaintext from ciphertext.
 
 With the key in hand, the interceptors have completely compromised the security
 of our cipher. They can read the message or even change it to "FYYFHP FY STTS"
-to ruin our battle plan. Is there a better form of encryption?
+to ruin our battle plan!
 
 ## One-Time Pad ##
 
-It turns out that there is. In fact there is a _perfect_ cipher - one that is
+Caesar's cipher turned out to be a bust, but is there a better form of
+encryption? Luckily there is. In fact there is a _perfect_ cipher - one that is
 completely unbreakable. The key, however, needs to be much larger.  Rather than
-picking just one number, now we pick a random number for _every letter_ in our
-plaintext. "ATTACK AT DAWN" has 12 letters, so after a little work with a
-26-sided die, we get
+picking just one number for the key, now we pick a random number for _every
+letter_ in our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little
+work with a 26-sided die, we get
 
     6 4 5 5 9 12 6 1 0 16 16 0
 
@@ -371,15 +372,15 @@ key, we can encrypt text:
 
 Now that we know how to do perfect encryption in binary, what more could there
 be to discuss? It turns out that there's a lot, because one-time pads are
-extremely impractical when it comes digital encryption. Remember that you need
-just as much key as plaintext, and to maintain security of the one-time pad you
-cannot ever reuse key. Computers regularly encrypt megabytes if not gigabytes of
-information, meaning that you'll need millions or billions of random bits every
-day. Why is that a problem? Recall that computers are machines that compute
-functions: algorithms that give you the same result every time you provide the
-same input. That is exactly what we _don't_ want when it comes to randomness! We
-want the computer to be able to generate different key bits every time it
-encrypts.
+extremely impractical when it comes to digital encryption. Remember that you
+need just as much key as plaintext, and to maintain security of the one-time pad
+you cannot ever reuse key. Computers regularly encrypt megabytes if not
+gigabytes of information, meaning that you'll need millions or billions of
+random bits every day. Why is that a problem? Recall that computers are machines
+that compute functions: algorithms that give you the same result every time you
+provide the same input. That is exactly what we _don't_ want when it comes to
+randomness! We want the computer to be able to generate different key bits every
+time it encrypts.
 
 Luckily, engineers have found a few tricks for getting random numbers out of
 computers - such as timing user input or reading information from the various
@@ -411,13 +412,13 @@ produces pseudorandom numbers is called a **pseudorandom number generator** or
 
 One of the first PRNGs was the linear-feedback shift register. Don't worry about
 the fancy name: they are surprisingly simple. All you need in order to make one
-is to choose the register size in bits, N, and then choose "taps" between 0 and
-N&minus;1.
+is to choose the register size in bits, N, and then choose several "taps"
+between 0 and N&minus;1.
 
 Operating the shift register is also simple: you choose a starting value called
 the "seed" which has N bits. Then you XOR the bits indicated by the taps, put
-the resulting bit on the end, and shift everything over by one. Let's do an
-example.
+the resulting bit on the end, and shift everything over by one. Let's see how
+this works in an exmaple.
 
 We'll operate a 4 bit shift register with taps 2 and 3 using the seed 0100.
 
@@ -491,8 +492,8 @@ However, look at what we've gained! Starting with just 4 bits, we've produced
 over 16 bits that look pretty random! This is the trick of PRNGS: we use a true
 random source (like an entropy pool) to slowly generate a small seed, then the
 PRNG quickly spits out a whole bunch of randomish numbers for us to use as key.
-Larger shift registers do even better: with an 18-bit register and taps 0 and
-11, we get over 250 thousand psuedorandom bits of key!
+The larger the shift register, the better: with an 18-bit register and taps 0 and
+11, we get over 250 thousand psuedorandom bits out!
 
 Before we get too excited, let's make sure this is still secure. PRNGs
 **aren't** secure like one-time pads: they don't have enough key. Suppose we
@@ -538,8 +539,9 @@ it will certainly be secure from prying eyes, but how will Bob open it? If Alice
 and Bob can meet in person ahead of time, they could exchange the key then. But
 this has obvious limitations:
 
-* What if Bob loses the key? Now the safe is no longer secure and they need to
-  meet in person again to exchange a new key.
+* What if Bob loses the key? If someone else finds the key, the security of
+  their communication is compromised. Then they will need to meet again to
+  exchange a new key, which is inconvenient.
 * What if Alice and Bob have never met in person? Shouldn't there still be a way
   to securely send messages to each other?
 
@@ -559,30 +561,43 @@ ciphers**.
 
 So now we need a digital lock: a cipher that anyone can use to encrypt, but only
 the key holder can decrypt. Another way to think about it is for the cipher to
-have two keys: one key for encrypting, one key for decrypting. The encryption
-key can be distributed publicly - it's like the unlocked safe that Bob sends in
-the mail. The decryption key the recipient keeps secret.
+have two keys: one key for encrypting and a different key for decrypting. The
+encryption key can be distributed publicly - it's like the unlocked safe that
+Bob sends in the mail. The decryption key is kept secret by the recipient.
 
 Ciphers that use different keys for encryption and decryption are often called
-**public-key ciphers** since the encryption key does not need to be kept secret.
+**public-key ciphers** since the encryption key does not need to be kept secret
+and can be shared publicly.
 {: .definition}
 
 How do public-key ciphers work? So far, they all rely on tricky math problems.
-For example, what is the product 10,079&times;4,271? Easy (especially with a
-computer): 43,047,409. Now suppose I only gave you 43,047,409 and asked you to
-find the two numbers that it is a product of. Much harder, right? _But_ if I
-then tell you that one of the numbers is 10,079, it's suddenly easy again: you
-can divide.
+In particular, they use math problems that are very hard to solve if you only
+have a little information, but are very easy to solve if you are given some
+extra information.
+
+For example, suppose I ask you to find the two integers X and Y such that
+X&times;Y=43,047,409. This is a rather tricky problem: no one knows a faster way
+of solving it than just trying every possible value for X and Y until you
+stumble on the right ones. Now suppose I tell you that X=10,079 - suddenly the
+extremely difficult problem is extremely easy: you can just divide to get Y. In
+this example, X&times;Y is kind of like a public key encryption key and X is
+like the private decryption key: as long as we keep X secret, we can share
+X&times;Y freely and everyone will have a hard time finding X and Y.
 
 You might have noticed me try to sneak something by you just then: "find **the**
-two numbers". How do I know that those are the only two numbers that multiply to
-that answer? It's because 10,079 and 4,271 are [prime][prime]. A result of [the
-fundamental theorem of arithmetic][tfa] is that the product of two prime numbers
-cannot be the product of any other integers (ignoring 1, of course).
+two integers". How do I know that there are only two numbers that multiply to
+that value? It's because 43,047,409 is the product of two [prime
+numbers][prime]. A result of [the fundamental theorem of arithmetic][tfa] is
+that the product of two prime numbers cannot be the product of any other
+integers (ignoring 1, of course).
 {: .deeper}
 
 [prime]: http://en.wikipedia.org/wiki/Prime_number
 [tfa]: http://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic
 
-So, in this case, 43,047,409 would be the public encryption key and 10,079 (or
-4,271) would be the private decryption key.
+Unfortunately the actual encryption/decryption process is more complicated with
+public-key ciphers (due to the tricky math) and goes beyond the scope of this
+book. If you want to know more, I recommend reading about [RSA][rsa], one of the
+first public-key ciphers.
+
+[rsa]: http://en.wikipedia.org/wiki/RSA_(cryptosystem)
