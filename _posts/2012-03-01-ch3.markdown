@@ -71,7 +71,7 @@ characters:
 
 A few observations of this table:
 
-* The first entry - 0x20 - translates to a space
+* The first entry &ndash; 0x20 &ndash; translates to a space
 * Digits are really easy to translate since 0-9 correspond to 0x30-0x39
 * You can convert letters from upper case to lower case and vice versa by adding
   or subtracting 0x20

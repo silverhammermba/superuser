@@ -20,7 +20,7 @@ superuser. Some tidbits are just more interesting than others.
 Virtually every modern computer is made of several interconnected and swappable
 pieces. Each piece has a different responsibility. This is handy because if a
 piece breaks or isn't working well, we don't need to throw out the whole
-computer - we can instead swap out the offending component. For some less
+computer &ndash; we can instead swap out the offending component. For some less
 important pieces, the computer might even continue operating in the event of a
 failure.  Like so many other things, we have special computer lingo for these
 pieces:
@@ -48,7 +48,7 @@ does so at a mind-bendingly fast speed. The CPU is very much analogous to a
 Turing machine. A Turing machine's memory is the tape on which it writes
 digits; a CPU's memory is its "registers": a collection of numbers each with a
 specific size (32 bit, 64 bit, etc.) and silly names like "EAX" or "XMM0". The
-CPU performs algorithms by following instructions - just like a Turing machine.
+CPU performs algorithms by following instructions &ndash; just like a Turing machine.
 An example of a CPU instruction might be "store the 32-bit value 0xF4285BC0 in
 the register EAX" or "add the value in RBX to the value in EAX and store the
 result in EAX". A Turing machine has a moving head to perform the algorithm's
@@ -62,7 +62,7 @@ While a Turing machine only accepts one type of instruction, CPUs have a wide
 variety of instructions that they understand. This makes the design of the CPU
 more complicated, but makes program design much simpler. The type of
 instructions understood by the CPU vary by model and manufacturer. This means
-that each program needs to be designed for a certain instruction set - and only
+that each program needs to be designed for a certain instruction set &ndash; and only
 CPUs that know those instructions will be able to run those programs. This is
 one of the big difficulties of program design.
 
@@ -79,7 +79,7 @@ the time of writing is clocked at about 3.5 gigahertz; that's 3.5 _billion_
 instructions per second. That is rather fast indeed.
 
 Technically speaking, a hertz is a "per second". So we should really say that
-CPU speed is measured in "instruction hertz" - instructions per second. But no
+CPU speed is measured in "instruction hertz" &ndash; instructions per second. But no
 one says that. Ever.
 {: .note}
 
@@ -97,7 +97,7 @@ The final measure, memory, is mentioned much less often but is still crucial.
 With our Turing machines, we were allowed to have as much imaginary tape as we
 wanted, which was convenient but unrealistic. With a CPU, the number and size of
 available registers is set in stone and the total capacity is not very large. To
-help with this, most modern CPUs have a "cache" - an extra chunk of memory
+help with this, most modern CPUs have a "cache" &ndash; an extra chunk of memory
 (usually a few megabytes) for storing additional information. The limitation
 of the cache is that it can _only_ store information. If we want to use a number
 in the cache for a calculation, it must first be transferred to a register. This
@@ -111,7 +111,7 @@ makes it worth it.
 
 Often called just "memory" or "RAM", this component stores most of the
 information needed while your computer is in operation. Compared to the size of
-the registers and cache of the CPU, the RAM is massive - usually measured in
+the registers and cache of the CPU, the RAM is massive &ndash; usually measured in
 gigabytes (remember, that's _billions_ of bytes). However, accessing information
 in the RAM is even slower than accessing the CPU cache. But again, the increase
 in storage capacity makes it worth it. The RAM is where the programs are stored
@@ -125,7 +125,7 @@ work, but it can only hold a few books at a time. In this analogy, the RAM is
 like a big bookshelf. What happens when the CPU needs its copy of "The Golden
 Compass"? The computer could find it by starting at one end of bookshelf and
 running its finger along each spine until it spots the requested title. This
-would be what computer scientists call "sequential access" - the computer
+would be what computer scientists call "sequential access" &ndash; the computer
 looking at each book _in sequence_ in order to find a specific one. But
 sequential access is slow; the more books you have, the longer it takes to find
 a particular one. If the CPU needs a lot of books at once, it can only get them
@@ -153,7 +153,7 @@ turn off your computer. Where are they stored?
 ## Hard Drive ##
 
 People these days have a lot of data. Music, movies, and games can quickly add
-up to be hundreds of gigabytes of information - far too large to even store in
+up to be hundreds of gigabytes of information &ndash; far too large to even store in
 your RAM (ignoring the problem of volatility).  To solve this problem, we need
 large, persistent data storage. The hard drive fills this role.
 
@@ -186,7 +186,7 @@ Registers &rarr; Cache &rarr; RAM &rarr; HDD
 
 Each transition trades speed of access for increase in capacity. This is one of
 the biggest differences between a theoretical computer like a Turing machine and
-a real computer. In theory, a computer only needs a single type of memory - but
+a real computer. In theory, a computer only needs a single type of memory &ndash; but
 by having multiple types with different speeds and capacities we can make
 computers run faster and more efficiently.
 
@@ -196,7 +196,7 @@ drives or "SSD"s. They perform the same duty as HDDs, but are physically
 smaller, require less electricity to operate, and operate much, much faster.
 SSDs also don't use disks or have motors and moving parts like HDDs do. However,
 despite SSDs' growing popularity, it is still common to refer to the permanent
-storage device in your computer - regardless of its type - as the "disk" or
+storage device in your computer &ndash; regardless of its type &ndash; as the "disk" or
 "hard drive".
 
 ## Motherboard ##
@@ -244,7 +244,7 @@ A **pixel** is a square with a solid color.
 If the pixels are small enough, our eyes lose sight of the grid and it
 becomes possible for monitors to display images that look smooth. If the monitor
 can change the color of the pixels quickly enough, a series of images can be
-displayed as an animation - much like a flip book.
+displayed as an animation &ndash; much like a flip book.
 
 Monitors can vary in many ways:
 
@@ -266,23 +266,23 @@ odd that such a specific component exists, but consider the example of typing
 an e-mail on the computer. We expect to be able to press a key on the keyboard
 and for the letter to instantly appear on the monitor. Humans are perceptive
 enough that if it takes more than a few hundredths of a second for the letter
-to appear after pressing the key, we notice the delay - and this can make the
+to appear after pressing the key, we notice the delay &ndash; and this can make the
 computer very frustrating to use. Consequently, your computer is constantly
-racing to quickly display images on the monitor before you notice - in addition
+racing to quickly display images on the monitor before you notice &ndash; in addition
 to all of the work it's doing to run your other programs. For demanding tasks
 like simulating three-dimensional scenes or displaying high-detail videos, the
 CPU can have a hard time keeping up with the workload.
 
 The GPU makes life easier for the CPU by taking over all image-related
 processing. It's basically a separate computer inside your computer, with its
-own CPU and RAM - both of which are specially designed to quickly perform the
+own CPU and RAM &ndash; both of which are specially designed to quickly perform the
 most common calculations required for producing digital images. The GPU's
 complexity can make it one of the most expensive components of the computer.
 
 ### Sound Card ###
 
 Much like the case of the GPU and the monitor, the sound card provides audio
-data to the computer's speakers - allowing for near-instantaneous audio
+data to the computer's speakers &ndash; allowing for near-instantaneous audio
 responses to our actions. However, due to the relative simplicity of audio
 processing and the rising power of CPUs, it is becoming more common for the
 motherboard to include its own speaker connections and for the CPU to perform
@@ -296,8 +296,8 @@ with advanced computer speakers.
 The ability for computers to communicate with each other is kind of a big deal
 these days. This component, often called the "NIC", "network adapter", or "LAN
 adapter" (LAN being a specific type of network), facilitates such communication.
-It provides the connection with the network - which could be a plug for a wire
-or an antenna for wireless networks - as well as hardware for decoding and
+It provides the connection with the network &ndash; which could be a plug for a wire
+or an antenna for wireless networks &ndash; as well as hardware for decoding and
 interpreting the information received over the network.
 
 With the ubiquity of computer networking and the increased power of CPUs, it is
@@ -329,7 +329,7 @@ drive all use specialized connectors, the GPU, sound card, NIC, and a variety of
 other computer components use PCI.
 
 Technically speaking, PCI is the name for an older, now-obsolete connection.
-It's replacement - peripheral component interconnect express or "PCIe" - is now
+It's replacement &ndash; peripheral component interconnect express or "PCIe" &ndash; is now
 ubiquitous, so we can still get away with calling it just PCI.
 
 ## Even More Components ##

@@ -17,7 +17,7 @@ etc.
 Humans are decent at computation (almost all of pre-college math is
 computation), but they come with some significant drawbacks. The main problem is
 that computation is very boring. Since computation relies on algorithms -
-instructions with no room for interpretation - it can be very uncreative, dull
+instructions with no room for interpretation &ndash; it can be very uncreative, dull
 work. Dull work causes people to zone out; zoning out causes people to make
 silly mistakes. Secondly, humans don't have very good memories for computation.
 We can remember lots and lots of things, but our memory is fuzzy and selective:
@@ -27,7 +27,7 @@ Lastly humans aren't terribly fast at computation. For big companies with lots
 of accounting requirements, humans are not a great solution.
 
 Various computational tools have been invented over the years to assist humans
-with computation - such as the abacus and slide rule - but these essentially
+with computation &ndash; such as the abacus and slide rule &ndash; but these essentially
 amount to fancy book-keeping methods and still require slow, fallible human
 effort.
 
@@ -80,10 +80,10 @@ Dang! We can keep adding more wheels like we did before but that only delays the
 error. How do we solve it? Well... we don't. Without having infinitely many
 wheels, there's nothing we can do other than ensure that we have enough wheels
 at the moment to handle the input we have. You might be surprised to know that -
-as simple as our little machine is - it shares this problem with every modern
+as simple as our little machine is &ndash; it shares this problem with every modern
 computer. It's such a common problem that computer scientists even have a
 special term for it: "overflow". As is common in computer science, from now on
-we'll just assume that we have lots and lots of wheels - not infinitely many,
+we'll just assume that we have lots and lots of wheels &ndash; not infinitely many,
 but enough that we can handle reasonably large numbers without overflowing.
 
 <div class="deeper">
@@ -162,7 +162,7 @@ computation to perform as well. That is, by changing part of the input you could
 have the machine perform a completely different computation on the same numbers.
 Such a machine would solve the biggest problem with previous computing machines:
 the need to design and manufacture a new machine for each type of computation.
-Such a machine would - in a sense - be the last computing machine you would ever
+Such a machine would &ndash; in a sense &ndash; be the last computing machine you would ever
 need; it could be adapted to solve any computable problem simply by changing its
 input.
 
@@ -178,10 +178,10 @@ consists of the following components:
 
 1. A **tape**, on which we can write a sequence of digits, which serves as the
    machine's memory. As with the number of wheels on our adding machine, we
-   assume that the tape is very long - long enough for whatever computation we
+   assume that the tape is very long &ndash; long enough for whatever computation we
    are performing. We assume that the tape starts with every position in the
    sequence set to 0
-2. A **head** which can read and write digits on the tape - but
+2. A **head** which can read and write digits on the tape &ndash; but
    only one digit at a time! The head can move along the tape to go from one
    digit to the previous or next, but again only one digit at a time.
 3. A **state register**, which we can think of like a wheel in our

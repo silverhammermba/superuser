@@ -4,7 +4,7 @@ title: Introduction
 ---
 
 This is a book to set you on the course to becoming an accomplished computer
-user or -- as I like to call it -- a superuser.
+user or &ndash; as I like to call it &ndash; a superuser.
 
 First a disclaimer: this book is not written for [complete idiots][ci]
 or [dummies][du]. Computers are tricky things, and you will need some cleverness
@@ -132,7 +132,7 @@ pick up most of them as you read through this guide, but here are a few to
 get you started:
 
 * A superuser is always thirsty for knowledge. Every tidbit of computer
-  knowledge is of interest to a superuser - though some tidbits are of more
+  knowledge is of interest to a superuser &ndash; though some tidbits are of more
   interest than others.
 * RTFM (three of the letters stand for Read The Manual). It is often tempting to
   seek out an expert to answer your computer questions, but it is essential that

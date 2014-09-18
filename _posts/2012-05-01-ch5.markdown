@@ -18,10 +18,10 @@ this.
 
 I'm sure that most people desire and appreciate security, but outside of a gut
 instinct I doubt that the average Joe could tell you exactly what is or is not
-secure - especially when it comes to computer stuff. Part of this difficulty
+secure &ndash; especially when it comes to computer stuff. Part of this difficulty
 comes from Security being quite an overloaded term.
 
-If something is "secure", we often think of it as "safe" - but safe in what way?
+If something is "secure", we often think of it as "safe" &ndash; but safe in what way?
 
 ### Confidentiality ###
 
@@ -40,8 +40,8 @@ Integrity is about ensuring that information cannot be secretly modified or
 modified without authorization. Integrity can be just as important as
 confidentiality.
 
-Suppose you make a confidential credit card purchase - so no one can steal your
-credit card information - but the purchase lacks integrity. A third party might
+Suppose you make a confidential credit card purchase &ndash; so no one can steal your
+credit card information &ndash; but the purchase lacks integrity. A third party might
 not be able to read your credit card number but they could substitute a
 different one. Since the transaction does not have integrity, the store you
 purchased from would be unaware of the change and would charge the wrong
@@ -141,7 +141,7 @@ message is decrypted.
 
 ## Cryptanalysis ##
 
-But Caesar's cipher - as you might expect for something over 2,000 years old -
+But Caesar's cipher &ndash; as you might expect for something over 2,000 years old -
 isn't very strong. Consider the fact that using a key of 26 is the same as using
 a key of 0 i.e. nothing gets shifted and your ciphertext would be identical to
 your plaintext. Similarly using a key of 27 is the same as a key of 1, using 28
@@ -164,7 +164,7 @@ so they try the other 25 keys:
     GZZGIQ GZ JGCT
 
 The key guess of 1 produces a pretty compelling "EXXEGO EX HEAR", but I think
-they might pick out "ATTACK AT DAWN" which - unlike every other key guess -
+they might pick out "ATTACK AT DAWN" which &ndash; unlike every other key guess -
 produces three actual English words. If the message were longer, the
 interceptors could be even more confident of their guess since it would be even
 less likely that the wrong key would produce a legible phrase. The interceptors
@@ -181,7 +181,7 @@ to ruin our battle plan!
 ## One-Time Pad ##
 
 Caesar's cipher turned out to be a bust, but is there a better form of
-encryption? Luckily there is. In fact there is a _perfect_ cipher - one that is
+encryption? Luckily there is. In fact there is a _perfect_ cipher &ndash; one that is
 completely unbreakable. The key, however, needs to be much larger.  Rather than
 picking just one number for the key, now we pick a random number for _every
 letter_ in our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little
@@ -236,7 +236,7 @@ words of those lengths. There is no way for our adversaries to know which phrase
 we meant!
 
 This type of encryption has some downsides, however. For one, you need a whole
-lot of key. Suppose you wanted to encrypt an entire book - that would require an
+lot of key. Suppose you wanted to encrypt an entire book &ndash; that would require an
 awful lot of dice rolling! And even if you had that much key, you would need to
 somehow secretly get the key to the recipient ahead of time without it being
 intercepted. Lastly, the security of the cipher relies on the fact that you
@@ -383,7 +383,7 @@ randomness! We want the computer to be able to generate different key bits every
 time it encrypts.
 
 Luckily, engineers have found a few tricks for getting random numbers out of
-computers - such as timing user input or reading information from the various
+computers &ndash; such as timing user input or reading information from the various
 devices plugged into the computer. However these methods are very slow compared
 to normal computation. For example, on the laptop I'm writing this with, my
 computer can only generate about 3-4 bytes of randomness per second during
@@ -393,7 +393,7 @@ limitation is that they're _always_ generating randomness, and if you don't need
 it at that moment, they save it for later in something called an entropy pool.
 
 <div class="definition">
-Randomness is sometimes called **entropy** - especially when measuring how
+Randomness is sometimes called **entropy** &ndash; especially when measuring how
 random something is.
 
 For example, suppose we generate 16 random bits using an unfair coin that lands
@@ -556,7 +556,7 @@ to begin with!
 
 This works because of an important difference between real-world locks and the
 ciphers we've talked about so far. For a real lock, you usually don't need a key
-to lock it - you only need one to unlock it - but for our ciphers we encrypted
+to lock it &ndash; you only need one to unlock it &ndash; but for our ciphers we encrypted
 and decrypted using the same key.
 
 Ciphers that encrypt and decrypt using the same key are called **symmetric-key
@@ -566,7 +566,7 @@ ciphers**.
 So now we need a digital lock: a cipher that anyone can use to encrypt, but only
 the key holder can decrypt. Another way to think about it is for the cipher to
 have two keys: one key for encrypting and a different key for decrypting. The
-encryption key can be distributed publicly - it's like the unlocked safe that
+encryption key can be distributed publicly &ndash; it's like the unlocked safe that
 Bob sends in the mail. The decryption key is kept secret by the recipient.
 
 Ciphers that use different keys for encryption and decryption are often called
@@ -582,7 +582,7 @@ extra information.
 For example, suppose I ask you to find the two integers X and Y such that
 X&times;Y=43,047,409. This is a rather tricky problem: no one knows a faster way
 of solving it than just trying every possible value for X and Y until you
-stumble on the right ones. Now suppose I tell you that X=10,079 - suddenly the
+stumble on the right ones. Now suppose I tell you that X=10,079 &ndash; suddenly the
 extremely difficult problem is extremely easy: you can just divide to get Y. In
 this example, X&times;Y is kind of like a public key encryption key and X is
 like the private decryption key: as long as we keep X secret, we can share
@@ -620,7 +620,7 @@ first public-key ciphers.
    Which means that every A is replaced with a G, every B is replaced with E,
    every C with U, etc. This is called a _substitution cipher_. Use the above
    key to decrypt the ciphertext "WHSAA EDKLTM".
-4. This substitution cipher has over 4 septillion possible keys - that's greater
+4. This substitution cipher has over 4 septillion possible keys &ndash; that's greater
    than the "minimum" of 2<sup>80</sup> that I mentioned earlier with PRNGs, and
    of course much, much greater than the 26 keys we get with Caesar's cipher.
    But in fact substitution ciphers are only marginally more secure than
