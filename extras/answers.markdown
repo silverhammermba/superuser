@@ -3,6 +3,8 @@ layout: chapter
 title: Selected Exercise Answers
 ---
 
+<!-- TODO dynamically insert TOC here -->
+
 ## Part 1: Computers ##
 
 1. Not provided.
@@ -217,3 +219,7 @@ Not provided.
   </body>
 </html>
 {% endhighlight %}
+
+## The Browser ##
+
+Not provided.
