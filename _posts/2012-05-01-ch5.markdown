@@ -392,13 +392,17 @@ deprived it of a major source (my input). One way computers get around this
 limitation is that they're _always_ generating randomness, and if you don't need
 it at that moment, they save it for later in something called an entropy pool.
 
-Randomness is sometimes referred to as **entropy** - especially when it comes to
-measuring randomness. For example, suppose we generate 16 random bits using an
-unfair coin that lands on heads 70% of the time. The result will still be
-"random", but using some [fancy math][coin] we can determine that it has only 14
-bits of entropy. In other words, it has the same "amount" of randomness as 14
-bits produced by a completely fair coin.
-{: .definition}
+<section class="definition">
+Randomness is sometimes called **entropy** - especially when measuring how
+random something is.
+
+For example, suppose we generate 16 random bits using an unfair coin that lands
+on heads 70% of the time. The result will still be "random", but intuitively it
+will be "less random" than if we were to use a fair coin. In fact, using some
+[fancy math][coin] we can calculate that the 16 bits from the unfair coin have
+only 14 bits of entropy. In other words, they have the same "amount" of
+randomness as 14 bits produced by a completely fair coin.
+</section>
 
 [coin]: http://www.eecs.harvard.edu/~michaelm/coinflipext.pdf
 
