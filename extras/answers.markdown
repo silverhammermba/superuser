@@ -256,5 +256,7 @@ Not provided.
 
    Now how about cracking that encrypted paragraph?
 5. 0x1848
-6. 110011010010000101011101100011111001. Note that the first five bits are the
-   same as the last five, so it repeats.
+6. Again, we can stop once the first five bits are the same as the last five,
+   since it will repeat.
+
+       110011010010000101011101100011111001
