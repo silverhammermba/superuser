@@ -38,8 +38,7 @@ the stored version. Easy!
 Why is this so awful? It's awful because it presents a single massive point of
 failure for our website: suppose a hacker or a disgruntled employee got access
 to our store of passwords &ndash; they could then access every single account!
-
-It can get even worse. Have you ever reused your username and password on
+And it can get even worse. Have you ever reused your username and password on
 different sites? Well if you did and someone steals your plaintext password on
 one site, they'll now have a much easier time getting access to your account on
 other sites.
@@ -107,7 +106,8 @@ A **cryptographic hash** is a hash where:
 </div>
 
 Again, "difficult" here means that it should take so long for a computer to find
-the solution that the information would be practically useless to the attacker.
+the solution that the information would be practically useless to the attacker
+once they crack it.
 {: .note}
 
 Our first example of a checksum &ndash; adding up the input bytes like positive
@@ -153,7 +153,7 @@ compromised!
 So the last problem is that while hashes do a great job of protecting users who
 have unique passwords, they spill the beans about users who have the same
 password. After all, a hash is a function: if you give it the same input, you
-get the same output. Always.
+_always_ get the same output.
 
 This problem is exacerbated by another feature of cryptographic hashes: they're
 really hard to design. They're so hard to make that pretty much everyone uses
@@ -200,28 +200,31 @@ salts, there's nothing to stop a hacker from simply guessing passwords until
 they get one right.
 
 The only reason why password guessing is a feasible strategy for hackers is
-because so many computers users are stupid and lazy: in one of the largest
-breaches of an improperly secured password database, hackers found that well
-over **2 million users** had "123456", "123456789", or "password" as their
-password. That may not be useful information for breaking into a _specific_
-person's account, but attackers who just want access to _a lot_ of accounts
-(whoever may own them) can usually succeed by programming a computer to try
-every user name against the most common known passwords.
+because so many computers users are lazy: in one of the largest breaches of an
+improperly secured password database, hackers found that well over **2 million
+users** had "123456", "123456789", or "password" as their password. That may not
+be useful information for breaking into a _specific_ person's account, but
+attackers who just want access to _a lot_ of accounts (whoever may own them) can
+usually succeed by programming a computer to try every user name against the
+most common known passwords.
 
-There are two main approaches to password guessing:
-
-1. Guessing known passwords. As I just described, this simply tries the common
-   passwords already released publicly by hackers
-2. Dictionary attacks. A great number of passwords _not_ included in the common
-   password lists nonetheless follow very similar patterns. For example, many
-   passwords consists of an English word possibly followed by a few digits
-   ("password1"). A computer can try every English word in the dictionary
-   combined with any combination of 0-3 digits in a matter of seconds. Even if
-   you really esoteric words like "imprimatur" provide little protection.
+Even if you manage to avoid using a really common password, there is still
+danger in the form of using a really common password _pattern_. Many people
+create passwords using simple patterns such as number sequences like "13579",
+keyboard patterns like "qwerty", or regular English words. Because these
+patterns are so simple, computers can blaze through every possibility for the
+pattern in a matter of seconds. For example, suppose you make a password by
+choosing some English word, adding two random digits on the end, and possibly
+doing some simple letter substitutions like "@" for "a" or "$" for "s", etc.
+Well there are about 173,000 English words, 10&times;10 2-digit numbers, and
+&ndash; being really generous here &ndash; let's say about 20 different ways to
+substitute letters in the word you chose. That means there are about
+173,000&times;10&times;10&times;20=346,000,000 passwords you can make with this
+method. That's not even 30 bits of information! Most computers could crank
+through every possible password of that pattern in no time at all!
 
 And so we come to the real challenge: how do you make a password that is hard
-for a hacker to guess? More importantly, how do you make such a password that is
-also easy to remember?
+for a hacker to guess but still easy for you to remember?
 
 Alternatively, you could use extremely secure but unmemorable passwords like
 long strings of random characters and use a tool like [Password Safe][pw] to
@@ -279,16 +282,9 @@ that look strong and strong passwords that look weak.
 1. In the section on [hashes](#decent-hashes), I briefly mentioned why our
    example checksum is not a cryptographic hash function. Demonstrate this with
    concrete examples for each of the four features of cryptographic hashes.
-2. One way to determine the strength of a method for creating passwords is
-   counting choices. Suppose our password consists of three parts A, B, and C
-   where we can substitute different values for each part. If A can be any
-   single digit, that's 10 choices. If B can be any English word (counting
-   conjugations, etc.), that's about 173,000 choices. If C can be any character
-   on the keyboard, that's 95 choices. So to get the total number of choices we
-   multiply: 10&times;173,000&times;95=164,350,000.
-
-   Come up with a couple different password generation methods and try to count
+2. Come up with a couple different password generation methods and try to count
    their strength in terms of the number of possible password choices. You may
-   have to estimate a few counts. Which methods seem like a good trade-off
-   between strength/memorability?
+   have to estimate a few counts (read the section on [making
+   passwords](#add-entropy) again to see how to count password possibilities).
+   Which methods seem like a good trade-off between strength/memorability?
 </div>
