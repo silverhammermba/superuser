@@ -29,7 +29,7 @@ computer does: it evaluates functions using algorithms. We saw the Turing
 machine as a perfect example of this. You give it input, tell it the algorithm to
 perform, it cranks away and out comes your answer. Let's write that down like this:
 
-input + algorithm &rarr; Turing machine &rarr; answer
+<pre><code>input + algorithm &rarr; Turing machine &rarr; answer</code></pre>
 
 Earlier I described computers as machines that compute computing machines. Now
 let's try to apply that principle once more to get one level of abstraction
@@ -37,7 +37,7 @@ higher: a machine that computes computers, a sort of meta-computer. We'd want it
 to be able to act like any kind of computer, just like a computer can act like
 any kind of computing machine &ndash; something like this:
 
-input + algorithm + computer &rarr; meta-computer &rarr; answer
+<pre><code>input + algorithm + computer &rarr; meta-computer &rarr; answer</code></pre>
 
 But here's the kicker. Recall how a Turing machine operates &ndash; how its various
 components interact. Predicting what a Turing machine will do given certain
@@ -53,13 +53,13 @@ can be described with algorithms. That means we can rewrite our meta-computer
 diagram. The "computer" that we were providing is really just another
 algorithm.
 
-input + algorithm + computer algorithm &rarr; meta-computer &rarr; answer
+<pre><code>input + algorithm + computer algorithm &rarr; meta-computer &rarr; answer</code></pre>
 
 There's another trick too: we can group the old input and algorithm together
 and call it our new input. "new input = input + algorithm" so the diagram now
 looks like this:
 
-new input + computer algorithm &rarr; meta-computer &rarr; answer
+<pre><code>new input + computer algorithm &rarr; meta-computer &rarr; answer</code></pre>
 
 But wait, why do we need a meta-computer for this stuff? It's the same old
 "input + algorithm &rarr; computer &rarr; answer" as before, just rebranded.
