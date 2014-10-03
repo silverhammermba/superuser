@@ -221,11 +221,7 @@ There are two main approaches to password guessing:
 
 And so we come to the real challenge: how do you make a password that is hard
 for a hacker to guess? More importantly, how do you make such a password that is
-also easy to remember? In coming up with such passwords, it can be helpful to
-ask yourself:
-
-> If a hacker knew how I was coming up with my password, how long would it take
-> for them to guess it?
+also easy to remember?
 
 Alternatively, you could use extremely secure but unmemorable passwords like
 long strings of random characters and use a tool like [Password Safe][pw] to
@@ -233,6 +229,11 @@ help you keep track of them.
 {: .deeper}
 
 [pw]: http://passwordsafe.sourceforge.net/
+
+I find it helpful to consider this question:
+
+> If a hacker knew how I was coming up with my password, how long would it take
+> for them to guess it?
 
 For example, if your system for creating passwords is to choose a word from the
 dictionary, the answer is "not very long". There is no silver bullet for coming
