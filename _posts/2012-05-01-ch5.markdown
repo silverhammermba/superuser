@@ -515,13 +515,28 @@ entropy**. When you make 250 thousands bits from an 18-bit shift register, they
 still have only 18 bits of entropy among them.
 
 So then all hope is lost? PRNGs are useless? No! Computers can only try keys by
-trial-and-error so quickly. For security, you need a cipher with a key large
-enough that trying all possible keys would be prohibitive even with a computer.
-At the time of this writing, 80 bits is considered about the bare minimum key
-size you need to still be considered secure. Most ciphers play it safe by using
-even larger keys. So PRNGs still have a place: by using one with a key that is
-just big enough to be secure, you can quickly encrypt plaintext that is many
-times larger than your key.
+trial-and-error so quickly. The trick is to pick a key large enough that it is
+impractical to guess.
+
+A **secure** key is one with so many possible values that even if you could
+guess keys very quickly using a computer, it would take so long to find the
+right one that the information you could decrypt with the key would no longer be
+useful.
+{: .definition}
+
+This definition of "secure" can be a little surprising the first time you hear
+it. It means that nothing is secure forever with computers - a sufficiently
+determined attacker can always keep guessing keys until they stumble on the
+right one. For example, if your credit card number is secured with a key so
+large that it would take 5 years on average for a computer to guess it, that's
+probably "secure enough". In 5 years you probably aren't going to have the same
+credit card number, so by then it won't matter if it's guessed. At the time of
+this writing, 80 bits is considered about the bare minimum key size you need to
+be considered secure for most common purposes &ndash; but that will increase as
+computers get faster. Most ciphers play it safe by using even larger keys. So
+PRNGs still have a place: by using one with a key that is just big enough to be
+secure, you can quickly encrypt plaintext that is many times larger than your
+key.
 
 I used linear-feedback shift registers as an example in this section because
 they are very easy to explain. But among PRNGs, they aren't very good: most
@@ -584,9 +599,9 @@ X&times;Y=43,047,409. This is a rather tricky problem: no one knows a faster way
 of solving it than just trying every possible value for X and Y until you
 stumble on the right ones. Now suppose I tell you that X=10,079 &ndash; suddenly the
 extremely difficult problem is extremely easy: you can just divide to get Y. In
-this example, X&times;Y is kind of like a public key encryption key and X is
-like the private decryption key: as long as we keep X secret, we can share
-X&times;Y freely and everyone will have a hard time finding X and Y.
+this example, X&times;Y is kind of like a public encryption key and X is like
+the private decryption key: as long as we keep X secret, we can share X&times;Y
+freely and everyone will have a hard time finding X and Y.
 
 You might have noticed me try to sneak something by you just then: "find **the**
 two integers". How do I know that there are only two numbers that multiply to
