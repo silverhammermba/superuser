@@ -201,21 +201,22 @@ a book, but with computers we don't have this problem. Remember that all digital
 information essentially amounts to numbers, so we can easily come up with a
 check that works for any packet &ndash; regardless of its contents. For example,
 simply interpret each byte of data as a non-negative integer and add them all up
-(ignoring overflow).  Alice and Bob can both perform this check on the packet
+(ignoring overflow). Alice and Bob can both perform this check on the packet
 without knowing what is inside it.
 
 A **checksum** is a function that takes an arbitrary number of bytes as
-input and outputs a fixed number of bytes as output. Usually this function
+input and outputs a fixed number of bytes as output and which is very unlikely
+to produce the same output given two different inputs. Usually this function
 involves some kind of sum and is used for error checking.
 {: .definition}
 
 The checksum value would be included in the packet format since it doesn't
-depend on the kind of data being sent. Note that &ndash; like counting 'e's &ndash; the
-checksum doesn't provide absolute certainty that the data are correct. A byte
-has 1 of 256 possible values, so if a message is randomly garbled there is a
-1/256 (0.39%) chance that the checksum will still match. Those odds seem pretty
-good, but real computer communications usually use even more complicated
-checksums that have an even smaller chance of missing an error.
+depend on the kind of data being sent. Note that &ndash; like counting 'e's
+&ndash; the checksum doesn't provide absolute certainty that the data are
+correct. A byte has 1 of 256 possible values, so if a message is randomly
+garbled there is a 1/256 (0.39%) chance that the checksum will still match.
+Those odds seem pretty good, but real computer communications usually use even
+more complicated checksums that have an even smaller chance of missing an error.
 
 Again, if the connection is really bad, this can involves lots and lots of
 resends, but it's still worth it. You would be surprised at how much damage a
