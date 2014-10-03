@@ -284,3 +284,6 @@ Not provided.
 	* Do two _nearly_ identical inputs produce _nearly_ identical outputs? Yes
 	  again. Take any input and add 1 to one of the bytes &ndash; the resulting
 	  checksum will also be 1 greater.
+2. Not provided, but here's a tip. To calculate the number of bits in a number,
+   you need to take the **log base 2** of that number. There are online
+   calculators that help you do this.
