@@ -12,6 +12,264 @@ usage.
 
 ## Passwords ##
 
+Probably the most common security feature that users bump up against is
+passwords. Everyone understands the concept: choose a secret phrase initially,
+repeat that phrase later to gain access. Not quite so many people intuitively
+know that passwords like "12345" and "password1" aren't very secure. And far
+fewer people still actually know _why_ such passwords aren't secure.
+
+To understand this topic, we will imagine ourselves as the administrators of
+some website that uses passwords to secure users' accounts.
+
+Like most websites, we will assume that we have some interface where a user can
+choose a password and it is sent to us over the Internet. Later, when that user
+wants to gain access to their account, they can type in a password and again
+send it to us over the Internet. It's then up to us to make sure that that
+password matches the original.
+
+So how should we handle our users' passwords?
+
+### Awful Plaintext ###
+
+Of course the simplest way would be to just store their original password. Then
+when they try to log in later, we can simply compare their password attempt to
+the stored version. Easy!
+
+Why is this so awful? It's awful because it presents a single massive point of
+failure for our website: suppose a hacker or a disgruntled employee got access
+to our store of passwords &ndash; they could then access every single account!
+
+It can get even worse. Have you ever reused your username and password on
+different sites? Well if you did and someone steals your plaintext password on
+one site, they'll now have a much easier time getting access to your account on
+other sites.
+
+**Password Safety Tip #1:** choose unique passwords for each site! If you reuse
+passwords and any of the sites store your password insecurely, it's as if
+_every_ site stores it insecurely!
+{: .note}
+
+Have you ever used one of those "I forgot my password" things where they e-mail
+you to help you get access to your account? Did they help you get into your
+account by e-mailing you the password you chose (rather than making you create a
+new password)? If so, be worried! That is a dead giveaway that the site is
+storing your password in the clear &ndash; practically begging for some hacker
+to steal it. Avoid trusting such sites with sensitive informaiton.
+
+### Decent Hashes ###
+
+So plaintext passwords are out. How can we remember a user's password
+information so that we can compare it later, while not leaving the password
+unprotected? If you thought of encryption, you're on the right track. But
+encryption isn't quite the solution we need: if we encrypt the passwords, we
+still need a key to decrypt them. That would simply move the single point of
+failure from the collection of passwords to the decryption key.
+
+If you have a really good memory, you might realize that we had a similar
+problem [before][cs]: when Alice was sending Bob a book via the worst postal
+service ever, we were concerned that the book Bob received might not match the
+version Alice sent. In that case, we solved our problem using a checksum: a
+small bit of data that acted like a summary of the data being transmitted. If
+the summaries didn't match, it was pretty unlikely that the book matched the
+original, and vice versa. So maybe a checksum is the tool we're looking for!
+When a user chooses their password, we compute a checksum of the password and
+store _that_. Then when they access their account later, we again compute the
+checksum and compare.
+
+[cs]: {{ site.baseurl }}{% post_url 2012-01-01-ch1 %}#checksums
+
+This is getting close to being secure, but again it's not quite what we're
+looking for. A checksum, as it's name implies, is more about checking that data
+are correct. What we need is something that provides _security_.
+
+First, let's take a step back. A checksum is actually a member of a broader
+class of functions called _hashes_.
+
+A **hash** is a function which takes an arbitrary number of bytes as input and
+outputs a fixed number of bytes. The act of putting data in a hash function to
+get output is called **hashing** the data. The output of a hash function is also
+sometimes called a **hash** or **digest**.
+{: .definition}
+
+So whether you give your hash a gigabyte of input or 0 bytes of input, it always
+produces some fixed number of bytes of output. If you look back at our
+definition of checksum, you'll see that a checksum is just a special kind of
+hash. In order to protect our passwords we'll need a different sort of hash.
+
+<div class="definition">
+A **cryptographic hash** is a hash where:
+
+* given an output, it is difficult to find an input that produces it
+* given an input, it is difficult to find another input that produces the same
+  output
+* it is difficult to find two different inputs that produce the same output
+* two _nearly_ identical inputs will produce _significantly_ different outputs
+</div>
+
+Again, "difficult" here means that it should take so long for a computer to find
+the solution that the information would be practically useless to the attacker.
+{: .note}
+
+Our first example of a checksum &ndash; adding up the input bytes like positive
+integers to get a single byte of output &ndash; is decidedly _not_ a
+cryptographic hash:
+
+* it is easy to find any number of inputs producing a given an output
+* it is easy to modify an input such that the output remains the same
+* it is easy to find two different inputs that produce the same output
+* many inputs that differ by only a bit will have outputs that only differ by
+  a bit
+
+With a cryptographic hash, our process is to pass the user's chosen password
+through the hash and store the output. When they log in later, we apply the same
+hash to their password attempt and compare the result. But now, the features of
+cryptographic hashes guard us against attackers. If someone steals the hash
+outputs, to access anyone's account they'll need to find inputs that match the
+outputs they have. Our hash is designed to make that really difficult.
+Furthermore, they have almost no information about the relationships between
+people's passwords. If Alice chooses "password1" and Bob chooses "password2",
+those might produce the two hash outputs:
+
+    10b222970537b97919db36ec757370d2
+    f1f16683f3e0208131b46d37a79c8921
+
+They're totally different! Even if the attackers figure out Alice's password,
+they'll have no idea how close they are to getting Bob's!
+
+You might think we're all set now, but there are still a few flaws with this
+method. For one, what if Alice and Bob _both_ choose "password1"? The hash might
+slow down the attackers, but as soon as they figure out Alice's password they'll
+have Bob's too!
+
+**Password Safety Tip #2:** try to choose really unique passwords &ndash; ones
+that are unlikely to be chosen by any of the thousands of other users of the
+websites you frequent. If you use a really common password, you risk
+compromising your security when someone else with the same password is
+compromised!
+{: .note}
+
+### Add Salt ###
+
+So the last problem is that while hashes do a great job of protecting users who
+have unique passwords, they spill the beans about users who have the same
+password. After all, a hash is a function: if you give it the same input, you
+get the same output. Always.
+
+This problem is exacerbated by another feature of cryptographics hashes: they're
+really hard to design. They're so hard to make that pretty much everyone uses
+the same three or four publicly-available cryptographic hash functions. Now
+imagine that a bunch of websites all use the same hash function to store a
+common password that is shared by a bunch of users. If that password is
+compromised on any one of those sites, suddenly the attackers know who uses that
+password on _all_ of the sites! Terrible!
+
+Luckily, the solution is pretty simple. We add some extra data to the hash
+input.
+
+A **password salt** is a piece of random information which is added to the
+password _before_ it is hashed. The salt does not need to be kept secret and is
+usually stored alongside the hash.
+{: .definition}
+
+For example, suppose Alice and Bob both choose the terrible "password1" as their
+password. For each user, our site generates a random salt:
+
+    Alice: 2884b55c3236fcf1b9a6
+	Bob:   9fc9bddc4efe8e2dd99d
+
+Then we add these to the passwords and hash them
+
+<pre><code>password12884b55c3236fcf1b9a6 &rarr; hash &rarr; dd42a730500e5bf784b9fe5973181328
+password19fc9bddc4efe8e2dd99d &rarr; hash &rarr; c0ac4c8d37d6298310d0477e23670f9b</code></pre>
+
+Then for each user we store the hash output along with the salt
+
+    Alice: dd42a730500e5bf784b9fe5973181328, 2884b55c3236fcf1b9a6
+	Bob:   c0ac4c8d37d6298310d0477e23670f9b, 9fc9bddc4efe8e2dd99d
+
+So now even if lots of people reuse passwords on the same site or across many
+sites, the attackers won't know. This is currently the best way we know of to
+secure passwords.
+
+### Add Entropy ###
+
+But there's _still_ one problem and there's still one thing I haven't
+explained yet: why is "password1" such a bad password? Well even if your
+password storage is completely secured with a fancy cryptographic hash and random
+salts, there's nothing to stop a hacker from simply guessing passwords until
+they get one right.
+
+The only reason why password guessing is a feasible strategy for hackers is
+because so many computers users are stupid and lazy: in one of the largest
+breaches of an improperly secured password database, hackers found that well
+over **2 million users** had "123456", "123456789", or "password" as their
+password. That may not be useful information for breaking into a _specific_
+person's account, but attackers who just want access to _a lot_ of accounts
+(whoever may own them) can usually succeed by programming a computer to try
+every user name against the most common known passwords.
+
+There are two main approaches to password guessing:
+
+1. Guessing known passwords. As I just described, this simply tries the common
+   passwords already released publicly by hackers
+2. Dictionary attacks. A great number of passwords _not_ included in the common
+   password lists nonetheless follow very similar patterns. For example, many
+   passwords consists of an English word possibly followed by a few digits
+   ("password1"). A computer can try every English word in the dictionary
+   combined with any combination of 0-3 digits in a matter of seconds. Even if
+   you really esoteric words like "imprimatur" provide little protection.
+
+And so we come to the real challenge: how do you make a password that is hard
+for a hacker to guess? More importantly, how do you make such a password that is
+also easy to remember? In coming up with such passwords, it can be helpful to
+ask yourself:
+
+> If a hacker knew how I was coming up with my password, how long would it take
+> for them to guess it?
+
+Alternatively, you could use extremely secure but unmemorable passwords like
+long strings of random characters and use a tool like [Password Safe][pw] to
+help you keep track of them.
+{: .deeper}
+
+[pw]: http://passwordsafe.sourceforge.net/
+
+For example, if your system for creating passwords is to choose a word from the
+dictionary, the answer is "not very long". There is no silver bullet for coming
+up with a good password, but one method that I like is to first think of some
+quote or phrase that you will easily remember:
+
+> Joseph's face was black as night<br/>
+> And the pale yellow moon shown in his eyes
+
+and choose a character for each word
+
+    Joseph's face was black as night and the pale yellow moon shown in his eyes
+	J        f    w   b     a  n     &   t   p    Y      0    s     i  h   I
+
+The more creative, the better! Notice "&" for "and", "0" for "moon" and "I" for
+"eyes". So this gives me the password
+
+    Jfwban&tpY0sihI
+
+Now even if an attacker knows the sort of method I'm using, there are way too
+many English phrases and letter substitutions for them to guess quickly. Another
+interesting approach is XKCD's [four random words][xkcd].
+
+[xkcd]: http://xkcd.com/936/
+
+**Password Safety Tip #3:** try to use passwords that would be hard to guess
+even if an attacker knew how you were choosing them! For example, "wPE7T%+G" may
+look like a random, secure password, but if your passwords on other sites are
+"wPE8T%+G" and "wPE9T%+G", you're kinda shooting yourself in the foot.
+{: .note}
+
+And now that you know this, be **extra** cautious about so-called "password
+strength" meters on websites. By definition they cannot measure the actual
+strength of your passwords - only a human adversary can do that. For every
+password strength meter there are false positives and negatives, weak passwords
+that look strong and strong passwords that look weak.
+
 ## Certificates ##
 
 ## Viruses ##
