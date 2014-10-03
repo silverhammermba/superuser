@@ -54,7 +54,7 @@ you to help you get access to your account? Did they help you get into your
 account by e-mailing you the password you chose (rather than making you create a
 new password)? If so, be worried! That is a dead giveaway that the site is
 storing your password in the clear &ndash; practically begging for some hacker
-to steal it. Avoid trusting such sites with sensitive informaiton.
+to steal it. Avoid trusting such sites with sensitive information.
 
 ### Decent Hashes ###
 
@@ -155,7 +155,7 @@ have unique passwords, they spill the beans about users who have the same
 password. After all, a hash is a function: if you give it the same input, you
 get the same output. Always.
 
-This problem is exacerbated by another feature of cryptographics hashes: they're
+This problem is exacerbated by another feature of cryptographic hashes: they're
 really hard to design. They're so hard to make that pretty much everyone uses
 the same three or four publicly-available cryptographic hash functions. Now
 imagine that a bunch of websites all use the same hash function to store a
@@ -273,3 +273,21 @@ that look strong and strong passwords that look weak.
 ## Certificates ##
 
 ## Viruses ##
+
+<div class="exercise">
+1. In the section on [hashes](#decent-hashes), I briefly mentioned why our
+   example checksum is not a cryptographic hash function. Demonstrate this with
+   concrete examples for each of the four features of cryptographic hashes.
+2. One way to determine the strength of a method for creating passwords is
+   counting choices. Suppose our password consists of three parts A, B, and C
+   where we can substitute different values for each part. If A can be any
+   single digit, that's 10 choices. If B can be any English word (counting
+   conjugations, etc.), that's about 173,000 choices. If C can be any character
+   on the keyboard, that's 95 choices. So to get the total number of choices we
+   multiply: 10&times;173,000&times;95=164,350,000.
+
+   Come up with a couple different password generation methods and try to count
+   their strength in terms of the number of possible password choices. You may
+   have to estimate a few counts. Which methods seem like a good trade-off
+   between strength/memorability?
+</div>
