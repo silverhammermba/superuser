@@ -260,3 +260,27 @@ Not provided.
    since it will repeat.
 
        110011010010000101011101100011111001
+
+## Practical Security ##
+
+1. The main reason why the checksum fails as a cryptographic hash is because it
+   is _linear_. That means that it doesn't matter if we checksum a block of data
+   all at once or in little pieces. For example, suppose our data are
+
+       1b 03 2f 13
+
+   That has the checksum output 60 (hex). But we can also checksum `1b 03` and
+   `2f 13` separately to get 1e and 42 and then add _those_ together to 60.
+   We'll see why this is bad in a moment.
+
+    * Given an output, say 40, can we find an input that produces it? Sure
+	  thing, the checksum of 40 is 40.
+	* Given an input, say 1b 03 2f 13, can we find another input that produces
+	  the same output? Sure thing again, just add bytes on the end that checksum
+	  to 00. Since the checksum is linear, the full checksum will be 40 + 00 =
+	  40.
+	* Can we find two inputs that produce the same output? Yep, just compute the
+	  checksum of one input and create the other input like we did previously.
+	* Do two _nearly_ identical inputs produce _nearly_ identical outputs? Yes
+	  again. Take any input and add 1 to one of the bytes &ndash; the resulting
+	  checksum will also be 1 greater.
