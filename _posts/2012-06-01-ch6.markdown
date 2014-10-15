@@ -86,8 +86,8 @@ class of functions called _hashes_.
 
 A **hash** is a function which takes an arbitrary number of bytes as input and
 outputs a fixed number of bytes. The act of putting data in a hash function to
-get output is called **hashing** the data. The output of a hash function is also
-sometimes called a **hash** or **digest**.
+get output is called **hashing** the data. The output of a hash function is
+called a **digest** or sometimes &ndash; confusingly &ndash; a **hash**.
 {: .definition}
 
 So whether you give your hash a gigabyte of input or 0 bytes of input, it always
@@ -244,11 +244,11 @@ up with a good password, but one method that I like is to first think of some
 quote or phrase that you will easily remember:
 
 > Joseph's face was black as night<br/>
-> And the pale yellow moon shown in his eyes
+> And the pale yellow moon shone in his eyes
 
 and choose a character for each word
 
-    Joseph's face was black as night and the pale yellow moon shown in his eyes
+    Joseph's face was black as night and the pale yellow moon shone in his eyes
 	J        f    w   b     a  n     &   t   p    Y      0    s     i  h   I
 
 The more creative, the better! Notice "&" for "and", "0" for "moon" and "I" for
