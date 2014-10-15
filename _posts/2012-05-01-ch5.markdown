@@ -95,8 +95,8 @@ Ciphers might just be a different type of data format, but there are lots of
 cool and fancy words for talking about them.
 
 **Plaintext** is just regular information that will be used with a cipher. The
-"text" part is a misnomer since most ciphers can store any sort of information:
-text, image, audio, video, etc.
+"text" part is a misnomer since most digital ciphers can store any sort of
+information: text, image, audio, video, etc.
 {: .definition}
 
 **Ciphertext** is the result of using a cipher with plaintext. This is the
@@ -261,7 +261,7 @@ this helps them guess the shift for the second letter in the message. And so on.
 
 The crucial difference is this: with only one random key and one plaintext,
 correctly guessing _part_ of the key gives you no insight to the rest of the key
-(see "ATTACK MY LAWN"). When you reuse key across multiple messages, it creates
+(e.g. "ATTACK MY LAWN"). When you reuse key across multiple messages, it creates
 patterns among the ciphertext that a clever adversary could detect.
 </div>
 
@@ -296,7 +296,7 @@ bits together mathematically.
 Now, in binary, that would normally be 10 but we're going to add in a weird sort
 of way. To keep things simple we'll ignore the 1 that is carried over, leaving
 just the 0. For the other possible values of binary addition we don't have to
-carry a digit, so the addition occurs normally. To recap, here's all the cases
+carry a digit, so the addition occurs normally. To recap, here are all the cases
 for this weird addition:
 
     0 + 0 = 0
@@ -326,8 +326,8 @@ on their own.
 In our case, our plaintext is 1, our key is 1, so our ciphertext is 0. As
 before, we have perfect secrecy using this method. Our random key could have
 been 0 or 1, so our adversaries have no idea whether our plaintext was 0 or 1.
-But how do we decrypt? Once again, this proves even easier than before. Note the
-following:
+But how do we decrypt? Once again, this proves even easier than before. Observe
+the following:
 
     0 ⊕ 0 = 0
     1 ⊕ 1 = 0
@@ -344,7 +344,7 @@ Now recall how encryption worked:
 
     plaintext ⊕ key = ciphertext
 
-Therefore
+Now let's monkey around with that encryption equation a bit:
 
     plaintext ⊕ key ⊕ key = ciphertext ⊕ key
     plaintext ⊕ (key ⊕ key) = ciphertext ⊕ key
@@ -363,10 +363,36 @@ key, we can encrypt text:
 
 [as]: {{ site.baseurl }}{% post_url 2012-03-01-ch3 %}#text
 
-       01000001 01010100 01010100 01000001 01000011 01001011 (plaintext)
-     ⊕ 01000000 11101110 11100111 11110101 01101110 00000011 (key)
-    --------------------------------------------------------
-       00000001 10111010 10110011 10110100 00101101 01001000 (ciphertext)
+    01000001 01010100 01010100 01000001 01000011 01001011 (plaintext)
+    01000000 11101110 11100111 11110101 01101110 00000011 (key)
+    -----------------------------------------------------
+    00000001 10111010 10110011 10110100 00101101 01001000 (ciphertext)
+
+This encryption method has a more general name:
+
+A cipher that encrypts each bit independantly &ndash; where each is bit
+unaffected by other bits in the plaintext or key &ndash; is called a **stream
+cipher**. A stream cipher doesn't need to be encrypted or decrypted all at once;
+each bit of the plaintext and key can pass through the cipher bit-by-bit (like
+water flowing through a stream).
+{: .definition}
+
+Notice how a stream cipher doesn't mention how you come up with your key. So a
+one-time pad is just a special kind of stream cipher.
+
+<div class="deeper">
+The nature of stream ciphers can be a disadvantage in some cases. For example,
+if an attacker somehow gets _part_ of your key, they can read _part_ of your
+plaintext &ndash; which might be all they need. A totally different class of
+ciphers called **block ciphers** solves this by scrambling up big chunks of
+plaintext all at once using the key.
+
+Block ciphers are sort of the opposite of stream ciphers: every bit of the
+ciphertext should be dependent on every other bit &ndash; ensuring that the
+entire message must decrypted all at once or not at all. Unfortunately they are
+much more complicated than stream ciphers, so we won't discuss them in this
+chapter.
+</div>
 
 ## Cheating ##
 
@@ -518,10 +544,10 @@ So then all hope is lost? PRNGs are useless? No! Computers can only try keys by
 trial-and-error so quickly. The trick is to pick a key large enough that it is
 impractical to guess.
 
-A **secure** key is one with so many possible values that even if you could
-guess keys very quickly using a computer, it would take so long to find the
-right one that the information you could decrypt with the key would no longer be
-useful.
+A **secure** key is one with so many possible values that even if an adversary
+could guess keys very quickly using a computer, it would take so long to find
+the right one that the information they could decrypt with the key would no
+longer be useful by the time they figure it out.
 {: .definition}
 
 This definition of "secure" can be a little surprising the first time you hear
@@ -594,21 +620,21 @@ In particular, they use math problems that are very hard to solve if you only
 have a little information, but are very easy to solve if you are given some
 extra information.
 
-For example, suppose I ask you to find the two integers X and Y such that
-X&times;Y=43,047,409. This is a rather tricky problem: no one knows a faster way
-of solving it than just trying every possible value for X and Y until you
-stumble on the right ones. Now suppose I tell you that X=10,079 &ndash; suddenly the
-extremely difficult problem is extremely easy: you can just divide to get Y. In
-this example, X&times;Y is kind of like a public encryption key and X is like
-the private decryption key: as long as we keep X secret, we can share X&times;Y
-freely and everyone will have a hard time finding X and Y.
+For example, suppose I ask you to find the two integers X and Y greater than 1
+such that X&times;Y=43,047,409. This is a rather tricky problem: no one knows a
+faster way of solving it than just trying every possible value for X and Y until
+you stumble on the right ones. Now suppose I tell you that X=10,079 &ndash;
+suddenly the extremely difficult problem is extremely easy: you can just divide
+to get Y. In this example, X&times;Y is kind of like a public encryption key and
+X is like the private decryption key: as long as we keep X secret, we can share
+X&times;Y freely and everyone will have a hard time finding X and Y.
 
 You might have noticed me try to sneak something by you just then: "find **the**
 two integers". How do I know that there are only two numbers that multiply to
 that value? It's because 43,047,409 is the product of two [prime
 numbers][prime]. A result of [the fundamental theorem of arithmetic][tfa] is
 that the product of two prime numbers cannot be the product of any other
-integers (ignoring 1, of course).
+integers (greater than 1).
 {: .deeper}
 
 [prime]: http://en.wikipedia.org/wiki/Prime_number
