@@ -174,7 +174,8 @@ by web designers who are tired of people viewing their websites with crappy,
 old, broken web browsers.
 
 We're going to talk a little more about browsing the web later on, but before we
-do we need to build some more foundation. Some _secure_ foundation.
+do we need to build some more foundation. Some _secure_ foundation. Be sure to
+finish the exercises too:
 
 <div class="exercise">
 1. Update your browser.

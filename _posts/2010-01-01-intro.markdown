@@ -8,18 +8,18 @@ user or &ndash; as I like to call it &ndash; a superuser.
 
 First a disclaimer: this book is not written for [complete idiots][ci]
 or [dummies][du]. Computers are tricky things, and you will need some cleverness
-and determination to get through this. However, you won't need any fancy degree
+and determination to get through this. However, you won't need any fancy diploma
 or prior knowledge to understand this book. I try my best to explain all
 concepts and terminology before using them.
 
 [ci]: http://www.amazon.com/Complete-Idiots-Basics-Windows-Edition/dp/1615640673
 [du]: http://www.amazon.com/PCs-Dummies-Dan-Gookin/dp/1118197348
 
-Still reading? Congratulations! By starting to read this guide you have already
-set yourself apart from so many simpletons out there. A healthy thirst for
-knowledge and the willingness to read long, boring documents to acquire said
-knowledge are important traits of any superuser. I'll do my best to minimize the
-boringness so long as you try to stay thirsty.
+Still reading? Great! By starting to read this guide you have demonstrated that
+you have what it takes to become a superuser. A healthy thirst for knowledge and
+the willingness to read long, boring documents to acquire said knowledge are
+important traits of any superuser. I'll do my best to keep things interesting so
+long as you try to stay thirsty for knowledge.
 
 ## How to Read This Book ##
 
