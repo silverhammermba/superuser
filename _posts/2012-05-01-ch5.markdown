@@ -78,9 +78,9 @@ A cipher is basically another [format][fm] for encoding information. Back when
 we first started learning about [the Internet][int], I compared the act of
 formatting data into a packet to putting a letter into a package. Ciphers are
 similar, but the package is a metal safe with a lock on it. To open it you need
-a little something extra: a key. In real life that key could be numbers for a
-combination lock or a physical key for a padlock, but with a cipher it's extra
-information.
+a little something extra: a key. For a locked safe, that key could be numbers
+for a combination lock or a physical key for a padlock, but for a cipher the
+key is extra information.
 
 [fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
 [int]: {{ site.baseurl }}{% post_url 2012-01-01-ch1 %}#packaging
@@ -94,13 +94,13 @@ several other technical meanings.
 Ciphers might just be a different type of data format, but there are lots of
 cool and fancy words for talking about them.
 
-**Plaintext** is just regular information that will be used with a cipher. The
-"text" part is a misnomer since most digital ciphers can store any sort of
-information: text, image, audio, video, etc.
+**Plaintext** is just the regular, understandable information that will be used
+with a cipher. The "text" part is a misnomer since most digital ciphers can
+store any sort of information: text, image, audio, video, etc.
 {: .definition}
 
 **Ciphertext** is the result of using a cipher with plaintext. This is the
-padlocked safe.
+locked safe.
 {: .definition}
 
 **Encryption** is the process of producing ciphertext from plaintext. The
