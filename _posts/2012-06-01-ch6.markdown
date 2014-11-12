@@ -10,6 +10,123 @@ way, we can take a huge leap forward from the basics and talk about the more
 practical dimensions of security and how to stay safe during day-to-day computer
 usage.
 
+## HTTPS ##
+
+The first point of business is to put all of that encryption we just learned
+about to work to secure the Internet. Recall that all information on the
+Internet can pass through several intermediate computers before reaching its
+destination. Without some extra work, _any_ information sent over the Internet
+is susceptible to interception by a third party. In other words, how can you
+ensure that no one other than the intended recipient is receiving your data?
+
+This problem can be broken down into two parts:
+
+1. How can you ensure that your packets are being routed to the correct
+   destination and not to some other site (which could be owned by scammers)?
+2. If your packets are being routed correctly, how can you ensure that
+   intermediate computers aren't reading their contents before passing them on?
+
+For example, if you're trying to do your online banking, scammers might redirect
+your packets to their own site which pretends to be the site of your bank. Or
+maybe you're intentionally connecting to a website that _looks_ like it's owned
+by your bank but actually isn't! Or maybe you are connected to your bank's
+actual site, but some computer on the Internet is recording all of your account
+information as it routes your packets. In terms of the types of security
+mentioned in the last chapter, our concerns here are mainly confidentiality and
+authenticity.
+
+Both of these concerns are resolved by using an application layer protocol
+called HTTPS (rather than HTTP).
+
+**HTTP Secure** (**HTTPS**) is a protocol that wraps HTTP in an additional
+protocol layer called **Transport Layer Security** (**TLS**).
+{: .definition }
+
+In case you've lost track of all the protocols, here's what all of the protocol
+layers would look like when you use HTTPS:
+
+<div class="protocol">
+IP
+
+<div class="protocol">
+TCP
+
+<div class="protocol">
+TLS
+
+<div class="protocol">
+HTTP
+</div>
+</div>
+</div>
+</div>
+
+### Certificates ###
+
+The first thing that TLS does when connecting to a website is request the site's
+"digital certificate". The certificate is some information that your computer
+can use to verify that the site is the one you intended to connect to. This
+verification works using a concept I call "inherited trust".
+
+**Inherited trust** is the idea that if Alice trusts Bob and Bob trusts Charlie,
+Charlie inherits Alice's trust of Bob, so Alice trusts Charlie.
+{: .definition }
+
+So how can you trust the authenticity of the site you're connecting to using
+inherited trust? The solution is to introduce a neutral third party.
+
+A **certificate authority** (**CA**) is a trustworthy, neutral third party
+responsible for verifying the trustworthiness and identity of websites.
+{: .definition }
+
+When the owner of a website wants people to be able to connect to their site
+using HTTPS, they contact a CA to verify their identity. If the CA trusts them,
+it issues them a certificate encoding the site's identity and the CA's identity
+(among other things). When your web browser receives a site's certificate via
+TLS, it checks to see if the site matches the certificate and if the certificate
+was issued by one of the CAs that _the browser_ trusts. If it trusts the CA that
+issued it, the connection protocol proceeds. Otherwise your browser should pop
+up a scary warning.
+
+You (hopefully) trust your browser, so if your browser trusts the CA, and the CA
+trusts the site, you should trust the site.
+
+In order for the certificate to be trusted, it must be impossible for the
+website owner to forge it. This is achieved using a combination of hashing
+(described [later](#hashes)) and a twist on a public key cipher. The twist is
+that the _encryption key is private_ and the _decryption key is public_ (this is
+reversed from the last chapter). The CA encrypts every certificate using their
+secret key. Everyone can read the certificates since the decryption key is
+public, but since only the CA knows the encryption key this verifies that that
+they created the certficate.
+{: .deeper }
+
+### Encryption ###
+
+After the identity of the website has been verified, your browser extracts a
+public encryption key from the certificate and the rest of the communication
+occurs under the confidentiality of encryption (using a key exchange as
+described [previousy][ke]).
+
+[ke]: {{ site.baseurl }}{% post_url 2012-05-01-ch5 %}#public-keys
+
+An important thing to notice here is that the encryption (TLS) is _inside_ the
+Internet and transport layers. That means that even if two computers are using
+HTTPS to hide the _contents_ of their communication, they can't hide the fact
+that they're communicating in the first place. Every message they send will show
+the IP addresses of the sender/receiver in the open.
+{: .note }
+
+Hiding the IP addresses of the sender and receiver _is_ still possible, but it's
+much more complicated (and is rarely needed). One method of doing so is called
+"onion routing".
+{: .deeper }
+
+Whenever you're doing something on the Internet that you wouldn't want someone
+spying on (such as making purchases are checking e-mail), make sure that you're
+using HTTPS. You can tell what protocol your browser is using from the beginning
+of the address: it should be `http://` or `https://`.
+
 ## Passwords ##
 
 Probably the most common security feature that users bump up against is
@@ -29,19 +146,18 @@ password matches the original.
 
 So how should we handle our users' passwords?
 
-### Awful Plaintext ###
+### Plaintext ###
 
 Of course the simplest way would be to just store their original password. Then
 when they try to log in later, we can simply compare their password attempt to
-the stored version. Easy!
+the stored version. Easy! And awful.
 
-Why is this so awful? It's awful because it presents a single massive point of
-failure for our website: suppose a hacker or a disgruntled employee got access
-to our store of passwords &ndash; they could then access every single account!
-And it can get even worse. Have you ever reused your username and password on
-different sites? Well if you did and someone steals your plaintext password on
-one site, they'll now have a much easier time getting access to your account on
-other sites.
+Why is this so awful? Because it presents a single massive point of failure for
+our website: suppose a hacker or a disgruntled employee got access to our store
+of passwords &ndash; they could then access every single account! And it can get
+even worse. Have you ever reused your username and password on different sites?
+Well if you did and someone steals your plaintext password on one site, they'll
+now have a much easier time getting access to your account on other sites.
 
 **Password Safety Tip #1:** choose unique passwords for each site! If you reuse
 passwords and any of the sites store your password insecurely, it's as if
@@ -55,7 +171,7 @@ new password)? If so, be worried! That is a dead giveaway that the site is
 storing your password in the clear &ndash; practically begging for some hacker
 to steal it. Avoid trusting such sites with sensitive information.
 
-### Decent Hashes ###
+### Hashes ###
 
 So plaintext passwords are out. How can we remember a user's password
 information so that we can compare it later, while not leaving the password
@@ -274,112 +390,27 @@ strength of your passwords - only a human adversary can do that. For every
 password strength meter there are false positives and negatives, weak passwords
 that look strong and strong passwords that look weak.
 
-## HTTPS ##
-
-Remember that the data you send out to the Internet rarely goes directly to the
-intended website &ndash; it can jump between several intermediate routers first.
-If your data aren't encrypted, these intermediate routers can see exactly what
-information is changing hands. If that information includes things like
-passwords or credit card numbers, you're in trouble. To fix this problem, we
-wrap HTTP in an additional application protocol called TLS that encrypts the
-data before transmission.
-
-The practice of combining HTTP with TLS for security is so common that it's
-often treated like its own separate application protocol. We call this
-combination **HTTP Secure** or **HTTPS**.
-{: .definition }
-
-TLS uses the same concepts we learned about in the previous chapter (symmetric
-key and public key ciphers) to encrypt all of the HTTP data that is sent. In
-case you're getting lost with all the protocols in the mix, here's how things
-look now:
-
-<div class="protocol">
-IP
-
-<div class="protocol">
-TCP/UDP
-
-<div class="protocol">
-TLS
-
-<div class="protocol">
-HTTP
-</div>
-</div>
-</div>
-</div>
-
-An important thing to notice here is that the encryption (TLS) is _inside_ the
-Internet and transport layers. That means that even if two computers are using
-HTTPS to hide the _contents_ of their communication, they can't hide the fact
-that they're communicating in the first place. Every message they send will show
-the IP addresses of the sender/receiver in the open.
-{: .note }
-
-Hiding the IP addresses of the sender and receiver _is_ still possible, but it's
-much more complicated (and is rarely needed). One method of doing so is called
-"onion routing".
-{: .deeper }
-
-Whenever you're doing something on the Internet that you wouldn't want someone
-spying on (such as making purchases are checking e-mail), make sure that you're
-using HTTPS. You can tell what protocol your browser is using from the beginning
-of the address: it should be `http://` or `https://`.
-
-### Certificates ###
-
-While encrypting HTTP ensures that no one can overhear your communications,
-there is another concern: how do you know who you're communicating with? Suppose
-that you do your banking at the reputable Whatever Bank, Inc. When you visit
-www.whateverbank.com, how do you know that it's actually owned by Whatever Bank,
-Inc.? Perhaps www.whateverbank.com is operated by some criminal organization
-posing as your bank, trying to steal your personal information.
-
-Or maybe www.whateverbank.com _is_ operated by your bank, but you're a victim of
-a "man in the middle" attack, where a malicious third party presents themselves
-as your bank while secretly collecting your information.
-
-For an example of a man in the middle attack, suppose that Alice and Bob want to
-communicate, while Eve wants to overhear. If Eve can intercept Alice's messages
-to Bob, she can do this easily. When intercepting Alice's messages, Eve rewrites
-the return address to be her own and forwards them on to Bob. Then when Bob
-responds to Eve (thinking she's Alice), again Eve rewrites the return address
-to be her own before forwarding them to Alice. In this way Alice and Bob both
-think they're communicating with each other while Eve has access to the whole
-conversation. Encryption does not help here because Alice will unknowingly set
-up the encryption with Eve.
-{: .deeper }
-
-It should be clear that encryption alone isn't enough; we need to verify the
-identity of the website we connect to with HTTPS. The way this is currently done
-is using a collection of companies called certificate authorities. These
-companies are trusted by the general public and national governments and sell
-that trust to websites in the form of digital "certificates".
-
-For example, suppose you own a business and want to create a website that uses
-HTTPS. You can contact a certificate authority to verify your identity. If they
-trust you, they'll give you a certificate indicating that trust. When someone
-connects to your site with HTTPS, you send them your certificate and they check
-it to make sure it matches the site they're connecting to. If it matches,
-they'll continue with the connection. Otherwise their browser should give them a
-big warning message that the site doesn't seem authentic.
-
 ## Viruses ##
 
+TODO
+
 <div class="exercise">
-1. In the section on [hashes](#decent-hashes), I briefly mentioned why our
+1. Find out how your browser indicates that a site's identity is either
+   unverified, verified, or invalid. Many sites let you connect with HTTP or
+   HTTPS so you can see the difference. For example,
+   [http://www.wikipedia.org](http://www.wikipedia.org) and
+   [https://www.wikipedia.org](https://www.wikipedia.org). To see how your
+   browser handles invalid certificates, [this site](https://tv.eurosport.com/)
+   (at the time of writing) has a certificate that doesn't match.
+2. Connect to a site with HTTPS and see what information your browser can tell
+   you about its certificate. At minimum, you should be able to see what CA
+   issued the certificate and when it expires.
+3. In the section on [hashes](#hashes), I briefly mentioned why our
    example checksum is not a cryptographic hash function. Demonstrate this with
    concrete examples for each of the four features of cryptographic hashes.
-2. Come up with a couple different password generation methods and try to count
+4. Come up with a couple different password generation methods and try to count
    their strength in terms of the number of possible password choices. You may
    have to estimate a few counts (read the section on [making
    passwords](#add-entropy) again to see how to count password possibilities).
    Which methods seem like a good trade-off between strength/memorability?
-3. Try to find out how your browser handles certificates to verify sites'
-   identities. Many sites let you connect with HTTP or HTTPS so you can see the
-   difference. For example, [http://www.wikipedia.org](http://www.wikipedia.org)
-   and [https://www.wikipedia.org](https://www.wikipedia.org). To see how your
-   browser handles invalid certificates, [this site](https://tv.eurosport.com/)
-   (at the time of writing) has a non-matching certificate.
 </div>

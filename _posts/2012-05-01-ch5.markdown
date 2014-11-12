@@ -47,6 +47,18 @@ different one. Since the transaction does not have integrity, the store you
 purchased from would be unaware of the change and would charge the wrong
 person or refuse the transaction.
 
+### Authenticity ###
+
+It could be safe from forgery.
+
+Closely related to integrity, authenticity is about ensuring that the source of
+data is correct.
+
+Suppose you make a confidential credit card purchase with integrity, but you
+have no authenticity from the site you purchased from. How do you know that the
+site actually belongs to the store that will ship you your product and not to
+some scammers who will take your money and run?
+
 ### Availability ###
 
 It could be safe from disruption.
@@ -639,6 +651,11 @@ integers (greater than 1).
 
 [prime]: http://en.wikipedia.org/wiki/Prime_number
 [tfa]: http://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic
+
+Public-key ciphers are often used to perform a "key exchange" for a
+symmetric-key cipher. If you want to communicate to someone with a symmetric-key
+cipher, you can choose a random key and send it to them via a public-key cipher.
+This gives you the best of both worlds of public- and symmetric-key ciphers.
 
 Unfortunately the actual encryption/decryption process is more complicated with
 public-key ciphers (due to the tricky math) and goes beyond the scope of this
