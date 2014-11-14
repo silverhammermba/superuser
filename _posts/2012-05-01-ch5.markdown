@@ -664,6 +664,8 @@ first public-key ciphers.
 
 [rsa]: http://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
+## Exercises ##
+
 <div class="exercise">
 1. Decrypt "QZGYQDMFQ NK OAXGYZ" using Caesar's cipher with a key of 12.
 2. Assuming "UJSUCWV" was encrypted using Caesar's cipher, recover the key and

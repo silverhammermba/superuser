@@ -360,6 +360,8 @@ Lastly, remember that computer components come in all shapes and sizes. Your
 desktop computer, laptop, phone, tablet, video game console, and music player
 may all look and behave very differently but they are all computers at heart.
 
+## Exercises ##
+
 <div class="exercise">
 1. [newegg.com](http://www.newegg.com){: .alert-link} and
    [pcpartpicker.com](http://pcpartpicker.com){: .alert-link} are online shops

@@ -83,6 +83,8 @@ expect you to figure them out very easily. But remember that a superuser learns
 by doing, so at the very least try to think about each question a little bit
 before moving on.
 
+## Exercises ##
+
 <div class="exercise">
 1. Come up with three more functions. What is the input? What is the output? How
    is the function evaluated?

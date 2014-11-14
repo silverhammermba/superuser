@@ -292,6 +292,8 @@ One advantage of HTML is that it allows for alternative interpretations. For
 example a blind person might use a web browser that interprets HTML into a
 medium of touch and sound so that they can still interact with it.
 
+## Exercises ##
+
 <div class="exercise">
 1. Translate the following bytes into text using the ASCII format:
 

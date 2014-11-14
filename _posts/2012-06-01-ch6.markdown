@@ -394,6 +394,8 @@ that look strong and strong passwords that look weak.
 
 TODO
 
+## Exercises ##
+
 <div class="exercise">
 1. Find out how your browser indicates that a site's identity is either
    unverified, verified, or invalid. Many sites let you connect with HTTP or

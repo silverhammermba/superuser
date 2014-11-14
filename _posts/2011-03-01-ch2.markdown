@@ -299,6 +299,8 @@ it to read.
 In the vernacular of superusers, you could call the list of instructions an "Add
 1 to a number _program_".
 
+## Exercises ##
+
 <div class="exercise">
 1. Create a list of Turing machine instructions (i.e. a program) for
    subtracting one from a number.  Test your program using 4 as input and again
