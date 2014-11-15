@@ -390,9 +390,27 @@ strength of your passwords - only a human adversary can do that. For every
 password strength meter there are false positives and negatives, weak passwords
 that look strong and strong passwords that look weak.
 
-## Viruses ##
+## Malware ##
 
-TODO
+If you have ever used the Internet, hopefully you have heard about (and have
+worried about) _malware_. If not, maybe you are more familiar with one of the
+many _types_ of malware: worms, Trojans, viruses, adware, spyware, backdoors,
+rootkits, etc. The specific kinds don't really matter to us since our goal is
+always the same: to keep them off of our computers.
+
+**Malware** (**malicious software**) is a program that does something bad to
+your computer &ndash; usually in secret.
+{: .definition }
+
+This definition is intentionally vague because there are a lot of "bad" things
+that a program can do to your computer. It could try to steal your personal
+information, monitor your behavior, take control of your computer, damage your
+computer, use your computer for illegal activities, or simply spread itself to
+other computers. There are also a lot of ways that malware tries to conceal
+itself. It may simply try to lay low and run in a way that you won't notice or
+it may try to disguise itself as a program that you recognize and trust.
+
+
 
 ## Exercises ##
 
