@@ -398,8 +398,8 @@ many _types_ of malware: worms, Trojans, viruses, adware, spyware, backdoors,
 rootkits, etc. The specific kinds don't really matter to us since our goal is
 always the same: to keep them off of our computers.
 
-**Malware** (**malicious software**) is a program that does something bad to
-your computer &ndash; usually in secret.
+**Malware** (short for **malicious software**) is a program that does something
+bad to your computer. Most malware tries to do so secretly.
 {: .definition }
 
 This definition is intentionally vague because there are a lot of "bad" things
@@ -410,7 +410,32 @@ other computers. There are also a lot of ways that malware tries to conceal
 itself. It may simply try to lay low and run in a way that you won't notice or
 it may try to disguise itself as a program that you recognize and trust.
 
+Getting malware off of a computer is a notoriously difficulty problem, and there
+are lots of companies that will try to sell you "antivirus" software that they
+claim can identify and remove malware. I'm not writing this book to debate the
+relative merits of the various antivirus programs out there, but there are a few
+points to keep in mind about them:
 
+* The easiest way for malware to infect a computer is due to user error. Thus
+  many antivirus programs try to "protect" your computer by heavily restricting
+  your control of your own computer. It is not always obvious whether these
+  restrictions are worth the protection
+* New malware programs are frequently released by hackers around the world. Some
+  antivirus programs check for malware by looking at a list of known threats.
+  Such antivirus programs will not be able to detect these new malware programs
+  since they won't be on any list. Instead the antivirus program must be
+  frequently updated to add new malware to the list of known threats. Thus a
+  system can never be _permanently_ secure.
+* Some antivirus programs instead try to find programs acting "suspiciously" and
+  alert the user to determine whether these are actual threats. This can be
+  very disruptive to the user if the antivirus has a lot of false positives. It
+  can also be very ineffective if the user isn't familiar with what is/isn't
+  malware.
+
+Consequently, it is a very bad idea to rely on an antivirus program to
+automatically handle your malware problems. The best defense against malware
+&ndash; by far &ndash; is to educate yourself about malware so that you can
+avoid getting it on your computer at all.
 
 ## Exercises ##
 
