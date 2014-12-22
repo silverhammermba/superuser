@@ -438,13 +438,117 @@ is to educate yourself about malware so that you can avoid getting it on your
 computer in the first place. But having some sort of antivirus as a backup can
 be a good idea too.
 
+There are generally two ways that malware gets onto your computer:
+
+1. By exploiting software that you use
+2. By tricking you into putting it on your computer
+
 ### Exploits ###
 
-Probably the scariest way that malware can get on your computer is via software
-vulnerabilities or "exploits". An exploit is when software can be manipulated to
-do something that it was never intended to do. In many cases these exploits are
-innoculous, but in some cases (especially when the software in question uses the
-Internet) the implications can be catastrophic.
+It is nearly impossible to create a computer program that works correctly 100%
+of the time. If any software developer tells you that their software is totally
+bug-free, they are lying (possibly to themselves). Such bugs can often be
+exploited by hackers to gain access to programs or computers that they should
+not be able to. The [National Vulnerability Database][nvd] maintains a list of
+such bugs, which stands at about 67 _thousand_ at the time of writing. When
+these bugs are in the software that you use and trust every day &ndash; your
+operating system, web browser, e-mail program, etc. &ndash; they can become
+avenues for hackers to install malware on your computer.
+
+[nvd]: https://web.nvd.nist.gov
+
+Unfortunately there is very little that you can do to protect yourself against
+exploits. Your best bet is to hope that the software developers are aware of
+these vulnerabilities and will release newer versions that are fixed. Thus you
+should strive to keep all of your software up-to-date.
+
+If a known vulnerability goes unfixed by the developers, your only real option
+is to get rid of the vulnerable software in order to protect yourself.
+
+### User Error ###
+
+As scary as exploits are, they are actually pretty uncommon sources of malware
+infection when it comes to everyday computer use. That is because many exploits
+can be technically difficult for a hacker to take advantage of. And why bother
+with a difficult solution when it's so much easier to trick a user into
+installing malware themselves?
+
+This is what superusers would call "problem exists between keyboard and chair"
+(PEBKAC, for short). The malware isn't the real issue and removing it won't
+solve anything, because the _real_ problem is that the user is installing
+the malware and will probably continue to do so unintentionally.
+
+Here's how a typical PEBKAC situation might unfold:
+
+1. Bob needs to make some changes to a PDF he received from a client
+2. Bob discovers that he doesn't have any software on his computer for changing
+   a PDF file
+3. So Bob Googles for "free PDF editor download" and clicks a link that looks
+   promising
+4. He downloads a program and starts it, which opens an "Installer". He clicks
+   "Next" a few times to get through some screens with buttons and checkboxes,
+   but finally the PDF editor opens and Bob gets his work done
+
+Did Bob just install some malware on his computer? I would be willing to bet
+that he did. Why? Because Bob just downloaded some random software from the
+Internet without looking into who he was getting it from. Even worse, it was
+_free_.
+
+Remember that phrase "there's no such thing as a free lunch"? That is generally
+true for free software as well. But there are a few kinds of "free" when it
+comes to software, and each carries a different level of risk.
+
+**Open source software** is software that is not only free, but where the
+software developers openly invite members of the public to contribute to the
+development of the software (or at least let them see how the software is made).
+{: .definition }
+
+**Shareware** is software that is free, but is limited in some way unless you
+pay the developers for the "full version". For example shareware might stop
+working after a certain amount of time, or certain key features might be
+disabled.
+{: .definition }
+
+**Freeware** is free software (which is _not_ open source).
+{: .definition }
+
+Open source software is generally very trustworthy and should be preferred when
+possible. You can trust open source because it is very hard to hide malware in a
+program that the public can watch the development of. However it is also the
+least common type of free software on the Internet. Shareware is much more
+common, and is also generally trustworthy (though a little less so since you
+don't get to see how it's made). However shareware can be pretty frustrating due
+to the limitations designed to entice you to pay for it.
+
+Freeware, however, is extremely problematic. It's not open source, so you can't
+verify that it's safe, and the developer's motives for making it free can be
+questionable since they have nothing obvious to gain. Many freeware programs
+will sneak in malware that collects your personal information or monitors your
+web browsing activity so that the developer can sell it to advertisers. Others
+may even take complete control of your computer and hold it ransom until you pay
+the developers. You should always be extremely cautious when downloading
+freeware.
+
+That being said, there is some wonderful freeware on the Internet that has
+earned people's trust through years of malware-free service. It's not a simple
+matter of avoiding freeware entirely.
+
+And of course that doesn't mean that non-free software is guaranteed to be
+malware-free. There are few known instances of companies trying to sneak malware
+into the software they sell.
+
+The Internet isn't the only way that malware can spread. Portable USB thumb
+drives are also a common way for malware to get from computer to computer.
+Really, _any_ method of transferring data from one computer to another could be
+used to transfer malware and should fall under the same scrutiny as a download
+from the Internet.
+{: .note }
+
+### Download Responsibly ###
+
+Clearly, avoiding malware is a complicated issue. There are no hard rules, no
+strict steps to follow. Ultimately you will need to develop "street smarts": an
+intuition for when some software seems "sketchy" or unsafe.
 
 ## Exercises ##
 
