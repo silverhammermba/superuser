@@ -263,7 +263,9 @@ Not provided.
 
 ## Practical Security ##
 
-1. The main reason why the checksum fails as a cryptographic hash is because it
+1. Not provided.
+2. Not provided.
+3. The main reason why the checksum fails as a cryptographic hash is because it
    is _linear_. That means that it doesn't matter if we checksum a block of data
    all at once or in little pieces. For example, suppose our data are
 
@@ -284,6 +286,17 @@ Not provided.
 	* Do two _nearly_ identical inputs produce _nearly_ identical outputs? Yes
 	  again. Take any input and add 1 to one of the bytes &ndash; the resulting
 	  checksum will also be 1 greater.
-2. Not provided, but here's a tip. To calculate the number of bits in a number,
+4. Not provided, but here's a tip. To calculate the number of bits in a number,
    you need to take the **log base 2** of that number. There are online
    calculators that help you do this.
+5. 
+   * Paint.NET is (good) freeware made by dotPDN. The official download page is
+     [www.getpaint.net/download.html](http://www.getpaint.net/download.html) but
+     I often see fake "Download" ads there! Tricky!
+   * Photoshop is shareware made by Adobe. The official download page is
+     [www.photoshop.com/products](http://www.photoshop.com/products) but you need to
+     click the "TRY" button to download the shareware version. "Try" is a
+     keyword often used by shareware.
+   * The GIMP is open source software made by a community of developers as part
+     of the [GNU](https://www.gnu.org/) project. The official download page is
+     [www.gimp.org/downloads/](http://www.gimp.org/downloads)

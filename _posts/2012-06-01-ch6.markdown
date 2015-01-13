@@ -550,6 +550,32 @@ Clearly, avoiding malware is a complicated issue. There are no hard rules, no
 strict steps to follow. Ultimately you will need to develop "street smarts": an
 intuition for when some software seems "sketchy" or unsafe.
 
+When looking to download software from the Internet, there are a few precautions
+you can take that should help to avoid malware:
+
+* Prefer downloading from the "official website" of the software. If you know
+  the particular program you want, try to find out who makes it and what their
+  website is (Wikipedia and news article can be useful for finding it). If the
+  official site doesn't provide the download itself, it should at least tell you
+  the where to acquire the software.
+* The official site should also tell you what kind of software it is. If the
+  official site says it's open source, you can safely ignore any shareware
+  downloads you find since they are probably ripoffs.
+* Avoid websites that just provided freeware downloads of a variety of software
+  (unless the software's official website sends you there). Such downloads are
+  often bundled with malware or do not include the latest updates from the
+  developer.
+* Prefer software with a community to vouch for it. If you Google the software
+  and have a hard time finding people discussing it positively, you might want
+  to find an alternative. There is almost always alternative software that will
+  get the job done.
+* Sites that provide free software downloads often get their revenue by
+  displaying ads on the download page. But these advertisers are tricky: since
+  they know the ads will display on a download page, they make their ads look
+  like the "Download" button so that you will click them accidentally. Be
+  **extra** careful that you are clicking the right link when you download free
+  software.
+
 ## Exercises ##
 
 <div class="exercise">
@@ -559,7 +585,8 @@ intuition for when some software seems "sketchy" or unsafe.
    [http://www.wikipedia.org](http://www.wikipedia.org) and
    [https://www.wikipedia.org](https://www.wikipedia.org). To see how your
    browser handles invalid certificates, [this site](https://tv.eurosport.com/)
-   (at the time of writing) has a certificate that doesn't match.
+   (at the time of writing) has a certificate that doesn't match its identity.
+   For extra credit, try to find the list of CAs that your browser trusts.
 2. Connect to a site with HTTPS and see what information your browser can tell
    you about its certificate. At minimum, you should be able to see what CA
    issued the certificate and when it expires.
@@ -571,4 +598,10 @@ intuition for when some software seems "sketchy" or unsafe.
    have to estimate a few counts (read the section on [making
    passwords](#add-entropy) again to see how to count password possibilities).
    Which methods seem like a good trade-off between strength/memorability?
+5. Try to find the "official" download sites for the following software. Also
+   determine if the software is open source, shareware, freeware, or none of the
+   above.
+    * Paint.NET
+    * Photoshop
+    * The Gimp
 </div>
