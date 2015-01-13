@@ -603,5 +603,5 @@ you can take that should help to avoid malware:
    above.
     * Paint.NET
     * Photoshop
-    * The Gimp
+    * The GIMP
 </div>

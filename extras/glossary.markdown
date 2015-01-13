@@ -24,9 +24,23 @@ Bit
 Byte
 : Eight bits.
 
+CA
+: Certificate Authority
+: A trustworthy, neutral third party which verifies others' identities in order
+  to pass that trust on to users (using inherited trust).
+
 Checksum
 : A function that accepts any number of bytes as input and outputs a fixed
   number of bytes as output.
+
+Cipher
+: Encryption
+: Sometimes called a "code" by the layperson.
+: A data format which can only be decoded/encoded (decrypted/encrypted) using a
+  key.
+
+Ciphertext
+: Encrypted data produced by using a cipher on some plaintext.
 
 Computation
 : A function that can be evaluated using an algorithm.
@@ -34,14 +48,27 @@ Computation
 Continuous
 : Describes data which can only be measured.
 
+Cryptanalysis
+: The study of ciphers for the purpose of extracting key or plaintext from
+  ciphertet
+
 Data
 : Fact. Truth. Can be interpreted to produce information.
+
+Decryption
+: The process of producing plaintext from ciphertext (usually using the key).
+
+Digest
+: The output of a hash function
 
 Digital
 : Information which can be perfectly represented using discrete data.
 
 Discrete
 : Describes data which can be counted.
+
+Encryption
+: The process of producing ciphertext from plaintext.
 
 Evaluate
 : For a function, to determine its output given input.
@@ -50,11 +77,19 @@ Format
 : A description of how bytes are grouped together and what certain bytes or byte
   values mean.
 
+Freeware
+: Software which is completely free but not open source.
+
 Function
 : A relation between input and output, where each input has at most one output.
 
 Hardware
 : The physical components of a computer.
+
+Hash
+: A function which takes an arbitrary number of bytes as input and outputs a
+  fixed numbers of bytes
+: The output of a hash function
 
 HTML
 : HyperText Markup Language
@@ -64,8 +99,16 @@ HTTP
 : HyperText Transfer Protocol
 : An application protocol which allows transmission of web pages and multimedia
 
+HTTPS
+: HTTP Secure
+: The practice of wrapping the HTTP protocol in an additional layer of TLS.
+
 Information
 : Meaning. Can be encoded/stored as data using an appropriate format.
+
+Inherited Trust
+: The idea that if Alice trusts Bob and Bob trusts Charlie, then Alice should
+  trust Charlie. Used by HTTPS to trust websites via certificate authorities.
 
 Internet layer
 : The protocol in charge of getting data from one computer to another. In most
@@ -76,8 +119,14 @@ IP address
   Internet protocol. Most commonly 4 bytes long, though newer addresses have 16
   bytes.
 
+Key
+: For ciphers, the piece of data used to encrypt/decrypt the plaintext.
+
 Layer
 : A protocol that allows for transmission of arbitrary data.
+
+Malware
+: Malicious software that does something bad to your computer
 
 Monitor
 : The screen of a computer, which displays images using pixels.
@@ -86,6 +135,10 @@ Nibble
 : Four bits.
 : Half of a byte.
 
+Open Source
+: Used to describe software that is developed transparently in the public, often
+  with community support
+
 Packet
 : A format that wraps other formats, allowing additional information to be
   attached to the contained data.
@@ -93,6 +146,9 @@ Packet
 Pixel
 : A (small) square of solid color. Used to represent images digitally as on a
   monitor.
+
+Plaintext
+: The plain old data which ciphers protect. Produced by decrypting ciphertext.
 
 Program
 : An algorithm that is read and performed by a computer.
@@ -105,8 +161,43 @@ Protocol
 Programming
 : The process of inputting a program into a computer for it to read.
 
+Public-Key Cipher
+: A cipher that uses different keys for encrypting and decrypting (so one key
+  can be made public).
+
+Psuedorandom Numbers
+: Numbers that "look" random and unpredictable, but which are actually produced
+  in a non-random way.
+
+PRNG
+: PsuedoRandom Number Generator
+: A function which can be used to produce psuedorandom numbers.
+
+Salt
+: For passwords, the practice of adding random information to a password prior
+  to hashing so that duplicate passwords still have different hashes.
+
+Secure (Encryption)
+: A decryption key is secure if it would take so long to guess the key (using a
+  computer) that the plaintext would be worthless by the time it is recovered.
+
+Shareware
+: Software which is free but limited in some way until you pay for the "full
+  version".
+
 Software
 : A program or programs.
+
+Stream Cipher
+: A cipher that can encrypt/decrypt each bit of data independently of the others
+
+Symmetric-Key Cipher
+: A cipher that uses the same key for encrypting and decrypting.
+
+TLS
+: Transport Layer Security
+: An application protocol which both verifies the identities of the communicating
+  parties and encrypts the data to prevent eavesdropping.
 
 Transport Layer
 : The protocol in charge of packaging data for transmission and unpacking it
