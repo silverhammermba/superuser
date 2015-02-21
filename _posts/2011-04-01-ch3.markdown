@@ -62,21 +62,23 @@ example:
 3<sub>5</sub> = 3<sub>10</sub>
 
 Most humans tend to think in base 10, so it's useful to be able to convert
-numbers in different bases to base 10. Here's how you convert base 10 to base
-10:
+numbers in different bases to base 10. First, let's look at base 10 in a
+slightly different way:
 
-1324<sub>10</sub> = 1 &times; 10<sup>3</sup> + 3 &times; 10<sup>2</sup> + 2 &times; 10<sup>1</sup> + 4 &times; 10<sup>0</sup> = 1000<sub>10</sub> + 300<sub>10</sub> + 20<sub>10</sub> + 4<sub>10</sub> = 1324<sub>10</sub>
+1324<sub>10</sub> = 1000<sub>10</sub> + 300<sub>10</sub> + 20<sub>10</sub> + 4<sub>10</sub> = 1 &times; 10<sup>3</sup> + 3 &times; 10<sup>2</sup> + 2 &times; 10<sup>1</sup> + 4 &times; 10<sup>0</sup> = 1324<sub>10</sub>
 
-Don't get freaked out by the notation! Think about how you say "1324": one
-thousand three hundred and twenty four. Or to make a slight modification: one
-thousand, three hundreds, two tens, and four ones; this is exactly what the
-formula is doing! Converting from base 5 is similar except now all of the tens
-becomes fives:
+Don't get too worried about the notation. Just think about how you say "1324" in
+English: one thousand three hundred and twenty four. Or to make a slight
+modification: one thousand, three hundreds, two tens, and four ones. That's what
+the first equality is expressing. The next equality simply observes that these
+numbers all multiples of the powers of 10.
 
-1324<sub>5</sub> = 1 &times; 5<sup>3</sup> + 3 &times; 5<sup>2</sup> + 2 &times; 5<sup>1</sup> + 4 &times; 5<sup>0</sup> = 125<sub>10</sub> + 75<sub>10</sub> + 10<sub>10</sub> + 4<sub>10</sub> = 214<sub>10</sub>
+That formula also works in different bases, except instead of powers of 10 you
+would have powers of whatever the base is:
 
-Previously we split the number up into ones, tens, hundreds, thousands, ... all
-the powers of ten. Now we're splitting up the number by the powers of five.
+1324<sub>5</sub> = 1000<sub>5</sub> + 300<sub>5</sub> + 20<sub>5</sub> + 4<sub>5</sub> = 1 &times; 5<sup>3</sup> + 3 &times; 5<sup>2</sup> + 2 &times; 5<sup>1</sup> + 4 &times; 5<sup>0</sup> = 125<sub>10</sub> + 75<sub>10</sub> + 10<sub>10</sub> + 4<sub>10</sub> = 214<sub>10</sub>
+
+This trick let's us convert numbers in different bases to base 10.
 
 <div class="note">
 If it's been a while since your last arithmetic class, here's a crash course on
@@ -139,7 +141,7 @@ digits carry over. This binary counting pattern is at the heart of every
 computer, so it's good to have an intuitive grasp of it. Converting from binary
 to decimal is a good skill to have as well:
 
-110101<sub>2</sub> = 1 &times; 2<sup>5</sup> + 1 &times; 2<sup>4</sup> + 0 &times; 2<sup>3</sup> + 1 &times; 2<sup>2</sup> + 0 &times; 2<sup>1</sup> + 1 &times; 2<sup>0</sup> = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
+110101<sub>2</sub> = 100000<sub>2</sub> + 10000<sub>2</sub> + 100<sub>2</sub> + 1<sub>2</sub> = 1 &times; 2<sup>5</sup> + 1 &times; 2<sup>4</sup> + 1 &times; 2<sup>2</sup> + 1 &times; 2<sup>0</sup> = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
 
 Notice how the method for conversion is the same as before, but wonderfully
 simple: since the only digits are 0 or 1, each power of 2 is either added or not

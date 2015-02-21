@@ -90,8 +90,8 @@ a CPU: a CPU that performs four instructions at once will run a program four
 times faster. But the reality is less exciting. It turns out to be very hard to
 create algorithms that still work when four instructions are processed at once,
 thus many programs ignore additional cores and use only one core at a time.
-However, we're constantly getting better at taking advantage of multiple cores
-so single core CPUs are becoming less common.
+However, we are getting better at taking advantage of multiple cores so single
+core CPUs are becoming less common.
 
 The final measure, memory, is mentioned much less often but is still crucial.
 With our Turing machines, we were allowed to have as much imaginary tape as we
@@ -157,7 +157,7 @@ up to be hundreds of gigabytes of information &ndash; far too large to even stor
 your RAM (ignoring the problem of volatility).  To solve this problem, we need
 large, persistent data storage. The hard drive fills this role.
 
-There's some confusing terminology here, and to understand we need to quickly
+There's some confusing terminology here, and to understand it we need to quickly
 recount the history of data storage. In days of yore, it was common for personal
 computers to store information on flexible magnetic disks. By spinning the disk
 around, the computer could read information from different portions of the disk.

@@ -194,12 +194,13 @@ consists of the following components:
 4. A list of **instructions** for the head to follow. However,
    every single instruction must be a rule of the form:
 
-    1. Depending on the current tape digit and the current state,
+    1. Read a digit from the tape, and depending on this digit and the current
+       state,
     2. Write a digit to the tape (it could be the same one we just read),
-	3. Move the head either one symbol to the left, one symbol to the right, or
-	   not at all,
-	4. And choose the next state of the machine (again, this could be the same
-	   state it was already in)
+    3. Move the head either one symbol to the left, one symbol to the right, or
+       not at all,
+    4. And choose the next state of the machine (again, this could be the same
+       state it was already in)
 
 Let's compare this to the mechanical adding machine we recently built. The tape
 is a lot like the series of wheels. Each wheel pointed to a single digit, just
