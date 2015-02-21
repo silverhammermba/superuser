@@ -3,6 +3,8 @@ layout: chapter
 title: Glossary
 ---
 
+<div id="links"></div>
+
 Algorithm
 : A well-defined, step-by-step process.
 
@@ -48,6 +50,11 @@ Computation
 Continuous
 : Describes data which can only be measured.
 
+CPU
+: Central Processing Unit
+: The heart of a modern computer, which reads program instructions and performs
+  computations using the data in its registers
+
 Cryptanalysis
 : The study of ciphers for the purpose of extracting key or plaintext from
   ciphertet
@@ -83,6 +90,11 @@ Freeware
 Function
 : A relation between input and output, where each input has at most one output.
 
+GPU
+: Graphics Processing Unit
+: The component of a computer dedicate to computing the images displayed on the
+  monitor.
+
 Hardware
 : The physical components of a computer.
 
@@ -90,6 +102,11 @@ Hash
 : A function which takes an arbitrary number of bytes as input and outputs a
   fixed numbers of bytes
 : The output of a hash function
+
+HDD
+: Hard disk drive
+: The computer component for storing large amounts of data, even while the
+  computer is off. Performs the same function as an SSD.
 
 HTML
 : HyperText Markup Language
@@ -131,9 +148,19 @@ Malware
 Monitor
 : The screen of a computer, which displays images using pixels.
 
+Motherboard
+: Mobo
+: The computer component that all other components connect to. Includes the BIOS
+  and allows different components to communicate.
+
 Nibble
 : Four bits.
 : Half of a byte.
+
+NIC
+: Network interface controller
+: The component of a computer dedicated to sending/receiving signals over a
+  network. Often included as a part of the motherboard.
 
 Open Source
 : Used to describe software that is developed transparently in the public, often
@@ -142,6 +169,12 @@ Open Source
 Packet
 : A format that wraps other formats, allowing additional information to be
   attached to the contained data.
+
+PCI
+: PCIe
+: Periperhal component interconnect express
+: The standardized connection used by complex computer components such as the
+  GPU.
 
 Pixel
 : A (small) square of solid color. Used to represent images digitally as on a
@@ -173,6 +206,12 @@ PRNG
 : PsuedoRandom Number Generator
 : A function which can be used to produce psuedorandom numbers.
 
+RAM
+: Random Access Memory
+: The computer component that stores most of the information needed while the
+  computer is running. Larger and slower than the CPU cache, but smaller and
+  faster than the hard drive.
+
 Salt
 : For passwords, the practice of adding random information to a password prior
   to hashing so that duplicate passwords still have different hashes.
@@ -187,6 +226,16 @@ Shareware
 
 Software
 : A program or programs.
+
+Sound card
+: The component of a computer dedicated to computing the audio signals sent to
+  the speakers. Often included as a part of the motherboard in simpler
+  computers.
+
+SSD
+: Solid state drive
+: A modern alternative to an HDD which has no moving parts, is smaller, and uses
+  less electricity.
 
 Stream Cipher
 : A cipher that can encrypt/decrypt each bit of data independently of the others
@@ -209,3 +258,30 @@ Turing complete
 
 Turing machine
 : A simple, theoretical computer.
+
+USB
+: Universal serial bus
+: The standardized connection used by many simple computer periphals such as
+  mice, keyboards, webcams, etc.
+
+<script>
+window.onload = function() {
+    var defs = $('dt');
+    var i = 0;
+
+    // add links to letters
+    for (var letter = 'A'; letter <= 'Z'; letter = String.fromCharCode(letter.charCodeAt(0) + 1)) {
+        $('#links').append('<a href="#' + letter + '">' + letter + '</a>');
+        if (letter < 'Z')
+            $('#links').append(' - ');
+
+        while ($(defs[i]).text()[0] < letter) {
+            ++i;
+        }
+
+        if ($(defs[i]).text()[0] === letter) {
+            $(defs[i]).attr('id', letter);
+        }
+    }
+}
+</script>
