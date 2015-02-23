@@ -6711,6 +6711,11 @@ button.close {
   font-weight: bold;
   color: #245269;
 }
+/* glossary */
+dd {
+  padding-bottom: 5px;
+  margin-left: 10px;
+}
 /* images */
 p img {
   min-height: 20px;
