@@ -1,5 +1,5 @@
-This is the source for my online book _Simpleton to Superuser_. Visit the live
-site [here][io].
+This is the source for my online book _Superuser_. Visit the live site
+[here][io].
 
 [io]: http://silverhammermba.github.io/superuser
 
