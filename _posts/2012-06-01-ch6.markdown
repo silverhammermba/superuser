@@ -555,9 +555,9 @@ you can take that should help to avoid malware:
 
 * Prefer downloading from the "official website" of the software. If you know
   the particular program you want, try to find out who makes it and what their
-  website is (Wikipedia and news article can be useful for finding it). If the
+  website is (Wikipedia and news articles can be useful for finding it). If the
   official site doesn't provide the download itself, it should at least tell you
-  the where to acquire the software.
+  where to acquire the software.
 * The official site should also tell you what kind of software it is. If the
   official site says it's open source, you can safely ignore any shareware
   downloads you find since they are probably ripoffs.
@@ -588,7 +588,7 @@ you can take that should help to avoid malware:
    (at the time of writing) has a certificate that doesn't match its identity.
    For extra credit, try to find the list of CAs that your browser trusts.
 2. Connect to a site with HTTPS and see what information your browser can tell
-   you about its certificate. At minimum, you should be able to see what CA
+   you about its certificate. At minimum, you should be able to see which CA
    issued the certificate and when it expires.
 3. In the section on [hashes](#hashes), I briefly mentioned why our
    example checksum is not a cryptographic hash function. Demonstrate this with
