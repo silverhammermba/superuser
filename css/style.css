@@ -1159,6 +1159,9 @@ hr {
   overflow: visible;
   clip: auto;
 }
+[role="button"] {
+  cursor: pointer;
+}
 h1,
 h2,
 h3,
@@ -5696,7 +5699,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5737,10 +5740,12 @@ button.close {
   outline: 0;
 }
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+  z-index: 1040;
   background-color: #000000;
 }
 .modal-backdrop.fade {
