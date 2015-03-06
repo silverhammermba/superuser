@@ -1,0 +1,48 @@
+---
+layout: chapter
+title: (BONUS) Digital vs. Analog
+category: part1
+---
+
+All of that digital/analog/discrete/continuous stuff we learned in the
+formatting chapter might have been a little too abstract. Let's break it down
+with a real hands-on example.
+
+## Wallpapers ##
+
+Most computers these days have the concept of a "desktop": a main workspace
+where you can store files or links to programs, and which is covered up by
+the program windows you open (such as the web browser you are reading this in).
+
+And all of these desktops have a pretty image for you to look at when you have
+no windows open. These images are often called "desktop backgrounds" or
+"wallpapers". You've probably seen some of the [default wallpapers][wall] that
+come with popular computers. Kind of like your outfit at an interview, your
+desktop wallpaper is one of the first things people will notice about your
+computer and it says a lot about what kind of user you are. In fact, you can
+usually quickly tell whether someone is _not_ a superuser just by looking at
+their wallpaper. How? Well, surprisingly, it all has to do with that digital vs.
+analog trickiness.
+
+[wall]: https://www.google.com/search?q=default+background&tbm=isch
+
+## Images ##
+
+Last chapter I mentioned how monitors display images using pixels. Pixels are a
+purely **digital** concept: you can count the number of pixels on your monitor,
+and you can't have half a pixel. Similarly each pixel can only display a certain
+number of colors, and there are certain combinations of colors they can't
+reproduce exactly. However, we usually use monitors to convey **analog**
+information: our eyes can't easily distinguish between tiny pixels or tiny
+varitaions in digital color, so we perceive smooth images with smooth colors.
+
+Understanding this gap between digital and analog is essential for having a
+good-looking desktop wallpaper, and a trained eye can easily pick out when a
+digital image is not being properly displayed on a monitor.
+
+For this chapter, we're going to look at the image of this flower:
+
+![normal flower]({{ site.baseurl }}/img/flower.png)
+{: .pull-right}
+
+This image is made of a grid 158,464 pixels - 128 on each side.

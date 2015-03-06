@@ -67,6 +67,11 @@ there are selected answers [in the back][ans].
 
 [ans]: {{ site.baseurl }}/extras/answers.html
 
+Some chapters are marked as (BONUS). Think of these chapters as big "thinking
+deeper" sections. They build off of ideas from previous chapters or discuss side
+issues which aren't essential for understanding later sections. You can skip
+them if you like, but I think they're pretty cool!
+
 <section id="issue">
 ## A Minor Issue ##
 

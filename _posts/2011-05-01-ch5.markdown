@@ -1,16 +1,15 @@
 ---
 layout: chapter
-title: The Ultimate Computer
+title: (BONUS) The Ultimate Computer
 category: part1
 ---
 
 ## Disclaimer ##
 
-Originally this chapter was just going to be a "Thinking Deeper" blurb, since
-the topic is quite brain-bending. However I couldn't think of even a basic
-explanation that would fit in a blurb, and the topic is far too cool to simply
-mention with no explanation. Thus I'm including the topic as a mini-chapter
-which you can feel free to skip if things start getting too intense.
+This if the first (BONUS) chapter, which means that you can skip it without
+worrying too much that you're missing something essential. This chapter is a
+little bit mind-bending, but it also reveals one of the coolest facts about
+computers.
 
 ## Total Recall ##
 
