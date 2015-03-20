@@ -33,7 +33,7 @@ purely **digital** concept: you can count the number of pixels on your monitor,
 and you can't have half a pixel. Similarly each pixel can only display a certain
 number of colors, and there are certain colors that they can't reproduce
 exactly. However, we usually use monitors to convey **analog** information: our
-eyes can't easily distinguish between tiny pixels or tiny varitaions in digital
+eyes can't easily distinguish between tiny pixels or tiny variations in digital
 color, so we perceive smooth images with smooth colors.
 
 Understanding the difference between digital and analog is essential for having
@@ -50,7 +50,7 @@ suppose that we want to use this image as our desktop background. The desktop
 displayed on your monitor is also a digital image measured in pixels, so our
 challenge is to fit the pixels of the flower into the pixels of the desktop.
 
-The easiest case would be if our desktop's resolution is also 128x128.
+The easiest case would be if our desktop's resolution is also 128&times;128.
 
 The **resolution** of a digital image is its size measured in pixels, usually
 written _width_&times;_height_.
@@ -102,18 +102,17 @@ the result. On the right, we see the flower image resized with three different
 algorithms (and then zoomed in again to see the individual pixels). Notice how
 they differ in terms of the pixel colors, which details are most visible, how
 blurry certain parts appear. For a more extreme example of how tricky image
-resizing can be, see the below image.
+resizing can be, look at the image below it.
 
-
-The top line of this image is the original, featuring a mostly black region with
-a few white pixels, a crude smiley face, and some curved lines. The lines below
-are resized versions of the top line using the same three algorithms that we
-used on the flower (and again zoomed in to see the pixels). The first resized
-example uses nearest neighbor. Notice how it turned the mostly black region
-completely white! Remeber that nearest neighbor only picks one pixel from the
-original image for each pixel in the result; in this case it picked only the
+On the top row, we have three different images: a mostly black region with
+a few white pixels, a crude smiley face, and some curved lines. The rows below
+that show these three images resized using the same three algorithms we used on
+the flower image above (and again zoomed in to see the pixels). The first
+resized example uses nearest neighbor. Notice how it turned the mostly black
+region completely white! Remember that nearest neighbor only picks one pixel from
+the original image for each pixel in the result; in this case it picked only the
 white pixels even though most of the original pixels are black! The smiley face
-is also completley unrecognizable, again since it didn't make "good" choices of
+is also completely unrecognizable, again since it didn't make "good" choices of
 pixels. The next algorithm &ndash; called a bilinear filter &ndash; does a bit
 better: the mostly black region is still mostly black, and the smiley face is
 closer but still not quite recognizable. Lastly, the Fant algorithm does a great
@@ -135,7 +134,7 @@ that manipulates pixels while preserving whatever content they may represent.
 [moire]: http://en.wikipedia.org/wiki/Moir%C3%A9_pattern
 
 One approach to content-preserving image resizing is called [seam carving][seam]
-or [liquid rescaling][lqr]. It tries to idenitfy important areas of the image
+or [liquid rescaling][lqr]. It tries to identify important areas of the image
 and then only removes the least important pixels when shrinking the image.
 {: .deeper}
 
@@ -202,3 +201,95 @@ These shapes can then be drawn using pixels at whatever scale is desired.
 {: .deeper}
 
 [vector]: http://en.wikipedia.org/wiki/Vector_graphics
+
+## Compression ##
+
+The most common image formats these days use 24 bits (3 bytes) to store a single
+color. Since each pixel of an image can be a different color, the size of a
+digital image in bytes is just _width_&times;_height_&times;3. One of the most
+common resolutions for a computer monitor these days is 1920&times;1080, meaning
+that most desktop wallpapers are going to take up 1920&times;1080&times;3=6MB of
+space on your hard drive (remember that's megabytes i.e. over 6 million bytes).
+That's actually a pretty hefty size for just an image, so do we _really_ need
+all 6 million bytes?
+
+Suppose that you want to use a silly wallpaper that is just plain red. Every
+pixel is the exact same shade. To store that image as digital data, you could
+simply store each red pixel. As a digital description of the image, that's kind
+of like saying "The pixel in the top left corner is red, and so is the one next
+to it, and so is the one next to that, and so is... and the leftmost pixel in the
+next row is also red, and so is the one next to it, and..." It's a bit silly,
+right? Why not just say "All 6 million pixels are red"? This is a good example
+of where _compression_ is useful.
+
+**Compression** is any method of reducing the amount of data required to store
+the same amount of information.
+{: .definition}
+
+For our example, we can imagine a [format][fm] as follows: if the first byte of
+the data is 00, then we simply list the color of each pixel going from left to
+right and top to bottom; if the first byte of the data is 01, then we list just
+one color and all pixels of the image are that color. For our all-red image, we
+can encode it two different ways using this format: with the first byte being 00
+or the first byte being 01. The former would require 6MB as before, but the
+latter would require only 4 bytes! That's a huge saving!
+
+[fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
+
+Of course this is a very simplified example. Our image is particularly easy to
+compress, and our format for compressing it is especially designed to handle it
+well. However the are general image compression formats (such as PNG)
+that can offer significant data savings for a wide variety of images. And they
+work in roughly the same way as our simple algorithm: they find patterns in the
+image data that can be described more efficiently than by just listing each
+pixel's color.
+
+### Loss ###
+
+So what does compression have to do with choosing a nice desktop background?
+Well, I made a little lie earlier. I said that compression stores the _same_
+amount of information with fewer data, but the truth is a bit fuzzier. Remember
+that although computer images are stored digitally, they often represent analog
+information (like photographs of real objects). Since we interpret analog
+information using our imperfect brains and sensory organs, there's actually
+quite a lot of wiggle room when it comes to storing the "same" amount of
+information.
+
+![subtle color differences]({{ site.baseurl }}/img/flower_mod.png)
+{: .pull-right}
+
+For example, take a look at the images on the right. What differences do you
+see? Really there is no difference as far as we humans are concerned, but a
+computer would see the two as completely different - I subtly altered every
+single pixel of the original image.
+
+If our eyes are not sensitive enough to distinguish between two very similar
+digital colors as in this case, why bother storing them as different colors at
+all? In other words, why not compress the image by removing subtle information
+that we can't see i.e. replace similar colors with just one color? Compressing
+in this way - by removing unimportant information - is called "lossy"
+compression and it usually offers even greater savings of data size than the
+previous "lossless" compression. JPEG (or JPG) is a common lossy image
+compression format.
+
+![the effects of increased compression]({{ site.baseurl }}/img/flower_comp.png)
+{: .pull-left}
+
+However lossy compression does carry a risk. Again, computers do not understand
+the content of the images they manipulate so there is no guarantee that a
+compression algorithm will always make the right call when it decides what
+information is "unimportant". It is usually easy to see when an image has been
+poorly compressed due to the presence of visual artifacts such as blurriness or
+discoloration. On the left we see the flower image compressed three times with
+different degrees of compression (a feature of the JPEG format lets you choose
+between the data size and the image quality). The original image takes up
+128&times;128&times;3=49KB. The leftmost compressed image is nearly
+indistinguishable from the original and yet uses about a fifth of the data:
+10KB. The next image is even smaller - only 4KB - but visual artifacts are more
+apparent (look near the edges of the petals or in the very center of the
+flower). And the last image is again even smaller (2KB) but now the visual
+quality is almost completely ruined.
+
+When choosing a desktop image, be especially careful if it comes in a lossy
+format like JPEG. Keep an eye out for visual artifacts resulting from
+overcompression.
