@@ -8,6 +8,12 @@ All of that digital/analog/discrete/continuous stuff we learned in the
 formatting chapter might have been a little too abstract. Let's break it down
 with a real hands-on example.
 
+This chapter uses a lot of precisely designed images to demonstrate certain
+concepts. Mobile devices viewing this chapter will sometimes display these
+images differently than I intended, which kind of defeats the point! If
+possible, read this chapter using a (non-mobile) computer.
+{: .note .mobile}
+
 ## Wallpapers ##
 
 Most computers these days have the concept of a "desktop": a main workspace
@@ -213,32 +219,37 @@ space on your hard drive (remember that's megabytes i.e. over 6 million bytes).
 That's actually a pretty hefty size for just an image, so do we _really_ need
 all 6 million bytes?
 
+An image stored as a simple list of colored pixels is called a **bitmap**.
+Bitmaps are commonly used behind the scenes in computers to manipulate and
+display images, but they are unpopular for image storage due to inefficiency.
+{: .definition}
+
 Suppose that you want to use a silly wallpaper that is just plain red. Every
-pixel is the exact same shade. To store that image as digital data, you could
-simply store each red pixel. As a digital description of the image, that's kind
-of like saying "The pixel in the top left corner is red, and so is the one next
-to it, and so is the one next to that, and so is... and the leftmost pixel in the
-next row is also red, and so is the one next to it, and..." It's a bit silly,
-right? Why not just say "All 6 million pixels are red"? This is a good example
-of where _compression_ is useful.
+pixel is the exact same shade. To store that image as a bitmap, you simply store
+each red pixel. As a digital description of the image, that's kind of like
+saying "The pixel in the top left corner is red, and the one next to it is red,
+and the one next to that is red, and the one... and the leftmost pixel in the next
+row is red, and the one next to it is red, and..." It's a bit silly, right?
+Why not just say "All 6 million pixels are red"? This is a good example of where
+_compression_ is useful.
 
 **Compression** is any method of reducing the amount of data required to store
 the same amount of information.
 {: .definition}
 
 For our example, we can imagine a [format][fm] as follows: if the first byte of
-the data is 00, then we simply list the color of each pixel going from left to
-right and top to bottom; if the first byte of the data is 01, then we list just
-one color and all pixels of the image are that color. For our all-red image, we
-can encode it two different ways using this format: with the first byte being 00
-or the first byte being 01. The former would require 6MB as before, but the
-latter would require only 4 bytes! That's a huge saving!
+the data is 00, then we simply store the image as a bitmap; if the first byte of
+the data is 01, then we list just one color and all pixels of the image are that
+color. For our all-red image, we can encode it two different ways using this
+format: with the first byte being 00 or the first byte being 01. The former
+would require 6MB as before, but the latter would require only 4 bytes! That's a
+huge reduction in size!
 
 [fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
 
 Of course this is a very simplified example. Our image is particularly easy to
 compress, and our format for compressing it is especially designed to handle it
-well. However the are general image compression formats (such as PNG)
+well. However there are general image compression formats (such as PNG)
 that can offer significant data savings for a wide variety of images. And they
 work in roughly the same way as our simple algorithm: they find patterns in the
 image data that can be described more efficiently than by just listing each
@@ -272,17 +283,24 @@ compression and it usually offers even greater savings of data size than the
 previous "lossless" compression. JPEG (or JPG) is a common lossy image
 compression format.
 
+With a lossless compression algorithm, there isn't much choice involved: all of
+the information must be preserved, so the algorithm will simply compress the
+image as much as it can. Lossy compression is different. Since it works by
+removing information, most lossy compression algorithms offer a choice of how
+much information to remove in order to compress the image. However this choice
+can make lossy compression dangerous. It can be notoriously difficult to find
+the "right" level of compression which achieves a good balance between reduced
+size and image quality. Many programs take a naive approach and simply compress
+all images equally - which is guaranteed to result in artifacts in certain
+cases. Again, it comes down to computers not understand image content as we
+humans do. It takes a human eye to determine what level of compression is
+correct.
+
 ![the effects of increased compression]({{ site.baseurl }}/img/flower_comp.png)
 {: .pull-left}
 
-However lossy compression does carry a risk. Again, computers do not understand
-the content of the images they manipulate so there is no guarantee that a
-compression algorithm will always make the right call when it decides what
-information is "unimportant". It is usually easy to see when an image has been
-poorly compressed due to the presence of visual artifacts such as blurriness or
-discoloration. On the left we see the flower image compressed three times with
-different degrees of compression (a feature of the JPEG format lets you choose
-between the data size and the image quality). The original image takes up
+On the left we see the flower image compressed three times with different
+degrees of compression. The original uncompressed image takes up
 128&times;128&times;3=49KB. The leftmost compressed image is nearly
 indistinguishable from the original and yet uses about a fifth of the data:
 10KB. The next image is even smaller - only 4KB - but visual artifacts are more
@@ -293,3 +311,10 @@ quality is almost completely ruined.
 When choosing a desktop image, be especially careful if it comes in a lossy
 format like JPEG. Keep an eye out for visual artifacts resulting from
 overcompression.
+
+Compression artifacts aren't always a deal-breaker, however. If an image has
+artifacts but is much larger than you need it to be, shrinking the image can
+sometimes hide the artifacts completely. Intuitively, artifacts are a result of
+not having enough information to fill the size of the image, thus reducing the
+image size can actually improve the quality.
+{: .note}
