@@ -78,10 +78,10 @@ them if you like, but I think they're pretty cool!
 Occasionally in the book I use some fancy tricks to change the content based on
 what kind of device you are reading it with.
 <span class="mobile">You are seeing this section because it looks like you are
-using a mobile device. While mobile devices like smartphones are technically
+using a mobile device. While mobile devices like smart phones are technically
 computers, they aren't the sort of computers this book is focused on.</span>
 <span class="unknown">You are seeing this section because I could not figure out
-sort of device you're using!  Sorry.</span>
+what sort of device you're using! Sorry.</span>
 
 <span class="mobile">That being said, 99% of the book should still be
 informative. Just feel free to ignore stuff that doesn't make sense for the
