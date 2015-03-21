@@ -278,8 +278,8 @@ to browse! Check out the document we just made by clicking [here][ex].
 
 Pretty cool, huh? To prove that there's no trickery going on here, try right
 clicking on that page. The menu that pops up should have an option like "View
-page source" (if you're reading this on your phone, you might have to dig around
-a bit to find this option). This shows you exactly what HTML your browser is
+page source"<span class="mobile"> (this option may be difficult to find on a
+mobile device)</span>. This shows you exactly what HTML your browser is
 interpreting to create the page.
 
 "Interpreting" is definitely the correct word to use here. In most web browsers,
