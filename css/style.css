@@ -6547,6 +6547,21 @@ button.close {
     display: none !important;
   }
 }
+p {
+  text-align: justify;
+}
+/* reduce space between articles and menu */
+.navbar {
+  margin-bottom: 0;
+}
+.jumbotron {
+  margin-top: 20px;
+}
+.footer {
+  padding-top: 20px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
 /* icons for chapter links */
 .pager .previous span {
   position: relative;
@@ -6742,7 +6757,7 @@ p.pull-left {
 #network {
   text-align: center;
 }
-/* for the ASCII table */
+/* stuff for the ASCII table */
 #ASCII {
   margin: 20px;
 }
@@ -6981,6 +6996,7 @@ p.pull-left {
 #buorgclose {
   display: none;
 }
+/* stuff for the protocol nesting diagram */
 .protocol {
   margin-bottom: 20px;
   background-color: #ffffff;
