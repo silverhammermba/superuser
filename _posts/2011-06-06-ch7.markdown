@@ -298,7 +298,7 @@ can make lossy compression dangerous. It can be notoriously difficult to find
 the "right" level of compression which achieves a good balance between reduced
 size and image quality. Many programs take a naive approach and simply compress
 all images equally - which is guaranteed to result in artifacts in certain
-cases. Again, it comes down to computers not understand image content as we
+cases. Again, it comes down to computers not understanding image content as we
 humans do. It takes a human eye to determine what level of compression is
 correct.
 
@@ -324,3 +324,54 @@ sometimes hide the artifacts completely. Intuitively, artifacts are a result of
 not having enough information to fill the size of the image, thus reducing the
 image size can actually improve the quality.
 {: .note}
+
+## Native Resolution ##
+
+There is one last challenge when it comes to displaying digital images, and it
+lies within your monitor itself. The pixels that monitors use to display images
+are set in stone - there is no way to increase or decrease the number of pixels
+that your monitor has. But this can make computer programmers' lives difficult,
+because there are so many different monitors in the world and they all have
+different numbers of pixels and thus different resolutions. In some cases, it
+can be very hard for programmers to create programs which work well on every
+monitor so instead they design their programs to only work with certain monitor
+resolutions.
+
+That could be bad news for monitor manufacturers, since some of their monitors
+might not be able to run these programs that require a different resolution. To
+get around this, most monitors have a feature to "fake" a different resolution.
+For example, if a monitor has a resolution of 1920&times;1080 and a program only
+works with the resolution 1024&times;768, the monitor can fake the smaller
+resolution either by displaying a small image with black pixels filling in the
+extra space, or by resizing the small image to fit its actual 1920&times;1080
+resolution.
+
+The resolutions that your monitor can display (including the fake ones) are
+called **supported resolutions**. Whereas the _actual_ resolution of your
+monitor (which corresponds to the number of pixels it has) is called the **native
+resolution**.
+{: .definition}
+
+Earlier we learned how enlarging digital images is usually a big no-no, so using
+a non-native resolution for your monitor often is as well. You can go through
+all the effort in the world to prepare an image to look perfect for the size of
+your desktop, but if your desktop is then enlarged to display at a non-native
+resolution on your monitor all of your effort is wasted.
+
+## Exercises ##
+
+<div class="exercise">
+1. Find out your monitor's native resolution and ensure that your desktop is
+   also using that resolution.
+2. The following images are wallpaper candidates for an 800&times;600
+   desktop. For each image, name which problems it has (if any) that would make
+   it a bad wallpaper.
+
+    * [Snake]({{ site.baseurl }}/img/snake.png)
+    * [Kitten]({{ site.baseurl }}/img/kitten.png)
+    * [Hornet]({{ site.baseurl }}/img/hornet.png)
+    * [Mountains]({{ site.baseurl }}/img/mountains.png)
+    * [City]({{ site.baseurl }}/img/city.png)
+    * [Lighthouse]({{ site.baseurl }}/img/lighthouse.png)
+    * [Diner]({{ site.baseurl }}/img/diner.png)
+</div>

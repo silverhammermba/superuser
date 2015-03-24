@@ -131,6 +131,28 @@ different and this one was built with a very specific idea in mind:
 
 The end result is a small, quiet computer that draws very little electricity!
 
+## (BONUS) Digital vs. Analog ##
+
+1. Not provided
+2. Here they are:
+
+    * [Snake]({{ site.baseurl }}/img/snake.png): over-compressed. Artifacts are
+      especially noticable around some scales and in the blurred background
+    * [Kitten]({{ site.baseurl }}/img/kitten.png): squished. It was probably
+      resized to the wrong aspect ratio, rather than resized and cropped
+    * [Hornet]({{ site.baseurl }}/img/hornet.png): badly shrunk. The rough,
+      pixelated appearance is a common artifact of the nearest-neighbor
+      algorithm, which is particularly bad at preserving small details
+    * [Mountains]({{ site.baseurl }}/img/mountains.png): no problems here
+    * [City]({{ site.baseurl }}/img/city.png): enlarged. The blurriness
+      indicates that this image was originally much smaller.
+    * [Lighthouse]({{ site.baseurl }}/img/lighthouse.png): this is just 100
+      pixels too wide. Simply cropping the sides a bit would fix it up
+    * [Diner]({{ site.baseurl }}/img/diner.png): what _isn't_ wrong this one? It
+      is blurry, which indicates enlarging. There are compression artifacts, and
+      the people look squished which indicates resizing without preserving the
+      correct aspect ratio.
+
 ## Part 2: The Internet ##
 
 1. For the first protocol, the most data we could send is
