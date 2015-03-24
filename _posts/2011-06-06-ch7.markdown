@@ -104,6 +104,12 @@ they differ in terms of the pixel colors, which details are most visible, how
 blurry certain parts appear. For a more extreme example of how tricky image
 resizing can be, look at the image below it.
 
+[This article][magick] explains image filters and resizing in (a lot) more
+detail.
+{: .deeper}
+
+[magick]: http://www.imagemagick.org/Usage/filter/
+
 On the top row, we have three different images: a mostly black region with
 a few white pixels, a crude smiley face, and some curved lines. The rows below
 that show these three images resized using the same three algorithms we used on
