@@ -227,7 +227,8 @@ all 6 million bytes?
 
 An image stored as a simple list of colored pixels is called a **bitmap**.
 Bitmaps are commonly used behind the scenes in computers to manipulate and
-display images, but they are unpopular for image storage due to inefficiency.
+display images, but they are unpopular for image storage due to their large
+size.
 {: .definition}
 
 Suppose that you want to use a silly wallpaper that is just plain red. Every
@@ -282,12 +283,11 @@ single pixel of the original image.
 
 If our eyes are not sensitive enough to distinguish between two very similar
 digital colors as in this case, why bother storing them as different colors at
-all? In other words, why not compress the image by removing subtle information
-that we can't see i.e. replace similar colors with just one color? Compressing
-in this way - by removing unimportant information - is called "lossy"
-compression and it usually offers even greater savings of data size than the
-previous "lossless" compression. JPEG (or JPG) is a common lossy image
-compression format.
+all? In other words, why not removing subtle information that we can't see by
+replacing similar colors with just one color? Compressing in this way - by
+removing unimportant information - is called "lossy" compression and it usually
+offers even greater savings of data size than the previous "lossless"
+compression. JPEG (or JPG) is a common lossy image compression format.
 
 With a lossless compression algorithm, there isn't much choice involved: all of
 the information must be preserved, so the algorithm will simply compress the
@@ -324,6 +324,13 @@ sometimes hide the artifacts completely. Intuitively, artifacts are a result of
 not having enough information to fill the size of the image, thus reducing the
 image size can actually improve the quality.
 {: .note}
+
+We're talking about compression of images here because I have a pet peeve for
+ugly desktop backgrounds, but compression is a general tool that can be applied
+to any sort of digital information. For example, ZIP is a popular lossless
+compression format that works with any kind of data, and MP3 is a popular lossy
+format for digital audio.
+{: .deeper}
 
 ## Native Resolution ##
 
