@@ -1,0 +1,157 @@
+---
+layout: chapter
+title: (BONUS) Torrents
+category: part2
+---
+
+In this chapter we are going to take a second look at how information is
+transferred over the Internet. Previously we learned about how the application
+layer (usually HTTP) packages up the useful information, the transport layer
+(usually TCP) makes sure the information is transferred reliably, and the
+Internet layer (usually IP) makes sure the information gets where it needs to
+go. Whenever your web browser loads a web page, all of these protocols work
+together to get that information onto your computer.
+
+This works great for web pages &ndash; even fancy ones like
+[www.weather.com][wth] which includes lots of images and interactivitiy. That
+page only requires about 4 megabytes of data to be transferred over the
+Internet. That's chump change these days. This process also works well when you
+want to download files like images or songs.
+
+[wth]: http://www.weather.com
+
+But what if you need to transfer a **lot** more data? What if you want to
+download a super-high-definition movie or a huge videogame? Those sorts of files
+can be tens of **gigabytes** in size - &ndash; thousands of times larger than a
+typical web page. Well now we have a problem, and to see why we need to think
+about how HTTP/TCP/IP transfers information.
+
+## Service ##
+
+The simplest way to think about it is that your computer and the server are just
+two people and the data you want to download is written on a piece of paper. The
+server has the piece of paper, and your computer wants to get a copy of it. How
+does it do it?
+
+To make the example clearer, let's suppose that the data you want is a shopping
+list with ten items on it. Well with HTTP/TCP/IP, in this analogy, your computer
+simply walks up to the server and they this sort of conversation:
+
+> COMPUTER: I want a copy of the shopping list.  
+> SERVER: Okay. The shopping list has ten items on it.  
+> SERVER: The first item is eggs.  
+> COMPUTER: Eggs. Got it.  
+> SERVER: The second item is milk.  
+> COMPUTER: Milk. Got it.  
+> SERVER: The third item is...
+
+And so on. This is just fine and dandy if your computer is the only one talking
+to the server, but what if other people are in line?
+
+> COMPUTER: I want a copy of the shopping list.  
+> SERVER: Okay. The shopping list has ten items on it.  
+> BOB: Hey! I want a copy of the shopping list, too!  
+> SERVER: The first item is eggs.  
+> COMPUTER: Eggs. Got it.  
+> SERVER: Okay, Bob. The shopping list has ten items on it.  
+> SERVER: The first item is eggs, Bob.  
+> SERVER: The second item is milk, computer.  
+> COMPUTER: Milk. Got it.  
+> BOB: Eggs. Got it.  
+> SERVER: The third item is...
+
+Confusing. And can you see how now it's going to take twice as long for you both
+to get the shopping list? This is a very common problem on the Internet these
+days: the more people there are who want to get certain information from a
+server, the slower the server gets. This can be pretty frustrating for all of
+the Internet users who just want their data and don't realize that the server is
+getting swamped with requests.
+
+Sometimes people intentionally flood a server with more requests than it can
+handle in order to disrupt the service for everyone else. This is called a
+**denial of service** attack, or **DoS**.
+{: .definition}
+
+For normal web pages, this usually isn't much of an issue since web pages
+require very little data and the Internet is so fast. Usually thousands of
+people can all access a web server with no noticable slowdown. But when it comes
+to downloading huge files, those thousands of people can bring things to a crawl.
+
+There are several workarounds for this problem. Some web servers are very clever
+and are designed to talk to multiple people simultaneously so that they can
+communicate with ten people just as fast as they communicate with one. However
+this is often more expensive to operate, and still has a hard limit. If you can
+talk to ten people at once, you're still going to take ten times longer to
+finish if a hundred people show up.
+
+A similar solution is to have multiple servers all with copies of the same data
+so that if one server is overloaded, people can be redirected to a different
+server to get their data. But this still has the same problem, because if enough
+people show to overload every sever then things will still slow down.
+
+Some sites instead force people into a queue, so that only a few people can
+access the server at once. This ensures that the server never gets overloaded,
+but people might still end up waiting a while for their data. So this isn't a
+solution either.
+
+So it seems like no matter what we do, it always takes longer for people to get
+their data if more people show up. There's just no solution.
+
+## Peers ##
+
+Not. Of course there's a solution. In fact, the exact opposite it possible: the
+more people there are who want data, the faster they all can get it!
+
+Let's start by considering one simple improvement. Suppose eight people show up
+to get the shopping list. If it takes a minute to copy the list down, then it's
+going to take eight minutes for everyone to get the list from the server, right?
+But now suppose the first person copies the list from the server, well now there
+are _two_ people with the shopping list: the server and the person who just
+copied it. So the next two people can both copy the list at once, from each of
+the two people who have it. So then there would be _four_ people with the
+shopping list, so all of the remaining four people can copy the list down at
+once. Instead of eight minutes, it would only take three.
+
+How can we make this process even better? Let the people all communicate with
+each other. There's no need for an orderly queue with people waiting turns;
+people can simply shout out "I need the third item on the list! Who has it?",
+"I've finished the list! If you need any items, I can tell you!" If the list
+items are numbered, people don't even need to copy them down in order. The
+server can hand out random list items to random people in random order and since
+they're all sharing amongst themselves eventually everyone will get the whole
+list.
+
+This whole process goes even faster if, like the clever web server, people can
+talk to multiple people at once. Each person who gets a copy of the list is now
+like a new server to talk to, so newcomers who need the list can talk to many
+people at once to get it even faster than in the original case where there was
+only one server. That also means the original server can even go away entirely,
+and people can continue to get the data since there are now many copies to get
+it from.
+
+This sort of network, where computers share data amongst each other (rather than
+all getting data from a central server) is called a **peer-to-peer** (**p2p**)
+network.
+{: .definition}
+
+In particular, the system I describe here is very similar to the BitTorrent
+protocol. BitTorrent splits up files into small, indepedent pieces and allows
+computers to download these pieces from multiple sources simultaneously while
+also uploading received pieces to other BitTorrent users. Each piece is verified
+with a [cryptographic hash][hash], to ensure that none of the pieces have been
+modified by any of the peers.
+
+[hash]: {{ site.baseurl }}{% post_url 2012-06-01-ch6 %}#hashes
+
+## Clients ##
+
+BitTorrent is a great example of how different application layer protocols can
+be. BitTorrent and HTTP are both application protocols that can run inside of
+TCP/IP, but they have completely different behavior. Because of this, your web
+browser probably doesn't know how to handle BitTorrent data. To use BitTorrent,
+you will need to download a special program that understands the protocol. There
+are several available, but I recommend [Deluge][dl]{: .os .windows}
+[Transmission][tr]{: .os .linux .osx}.
+
+[dl]: http://deluge-torrent.org/
+[tr]: http://www.transmissionbt.com/
