@@ -91,7 +91,8 @@ deliver to Bob. This leads to the following rephrasing of our first challenge:
 If she simply puts the book in a mailbox, it will almost certainly be lost. She
 needs to provide information about who the book is for and where they live. But
 she can't simply write this information on the book; how would the postal
-service know where to look for it?
+service know where to look for it? They might get confused and think that Bob is
+the name of publisher and end up mailing it to Stephen King.
 
 The solution is to use a **package**. Let's consider how this solves the
 problem:
@@ -188,7 +189,7 @@ package. Suppose that Alice carefully counts the number of times the letter 'e'
 appears in her book and writes this number on the package. Then when Bob
 receives the book, he can also count the letter 'e' and see if it matches the
 number on the package. If the postal service randomly changes Alice's book,
-it is extremely unlikely that the numbers would still match.
+it is unlikely that the numbers would still match.
 
 In such a situation, Bob could send Alice an ACK along the lines of "I got your
 book, but those morons at the postal service accidentally screwed it up." Alice
@@ -205,8 +206,8 @@ simply interpret each byte of data as a non-negative integer and add them all up
 without knowing what is inside it.
 
 A **checksum** is a function that takes an arbitrary number of bytes as
-input and outputs a fixed number of bytes as output and which is very unlikely
-to produce the same output given two different inputs. Usually this function
+input and outputs a fixed number of bytes as output and which is unlikely to
+produce the same output given two different inputs. Usually this function
 involves some kind of sum and is used for error checking.
 {: .definition}
 
@@ -218,7 +219,7 @@ garbled there is a 1/256 (0.39%) chance that the checksum will still match.
 Those odds seem pretty good, but real computer communications usually use even
 more complicated checksums that have an even smaller chance of missing an error.
 
-Again, if the connection is really bad, this can involves lots and lots of
+Again, if the connection is really bad, this can involve lots and lots of
 resends, but it's still worth it. You would be surprised at how much damage a
 single erroneous bit can cause to a computer.
 
