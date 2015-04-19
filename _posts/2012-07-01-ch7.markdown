@@ -13,7 +13,7 @@ go. Whenever your web browser loads a web page, all of these protocols work
 together to get that information onto your computer.
 
 This works great for web pages &ndash; even fancy ones like
-[www.weather.com][wth] which includes lots of images and interactivitiy. That
+[www.weather.com][wth] which include lots of images and interactivitiy. That
 page only requires about 4 megabytes of data to be transferred over the
 Internet. That's chump change these days. This process also works well when you
 want to download files like images or songs.
@@ -35,7 +35,7 @@ does it do it?
 
 To make the example clearer, let's suppose that the data you want is a shopping
 list with ten items on it. Well with HTTP/TCP/IP, in this analogy, your computer
-simply walks up to the server and they this sort of conversation:
+simply walks up to the server and they have this sort of conversation:
 
 > COMPUTER: I want a copy of the shopping list.  
 > SERVER: Okay. The shopping list has ten items on it.  
@@ -60,16 +60,19 @@ to the server, but what if other people are in line?
 > BOB: Eggs. Got it.  
 > SERVER: The third item is...
 
-Confusing. And can you see how now it's going to take twice as long for you both
-to get the shopping list? This is a very common problem on the Internet these
-days: the more people there are who want to get certain information from a
-server, the slower the server gets. This can be pretty frustrating for all of
-the Internet users who just want their data and don't realize that the server is
-getting swamped with requests.
+![multiple clients downloading via HTTP]({{ site.baseurl }}/img/seq.png)
+{: .pull-right}
+
+Confusing. Can you see how now it's going to take twice as long for you both to
+get the shopping list? This is a very common problem on the Internet these days:
+the more people there are who want to get certain information from a server, the
+slower the server gets. This can be pretty frustrating for all of the Internet
+users who just want their data and don't realize that the server is getting
+swamped with requests.
 
 Sometimes people intentionally flood a server with more requests than it can
 handle in order to disrupt the service for everyone else. This is called a
-**denial of service** attack, or **DoS**.
+**denial of service** (**DoS**) attack.
 {: .definition}
 
 For normal web pages, this usually isn't much of an issue since web pages
@@ -87,7 +90,7 @@ finish if a hundred people show up.
 A similar solution is to have multiple servers all with copies of the same data
 so that if one server is overloaded, people can be redirected to a different
 server to get their data. But this still has the same problem, because if enough
-people show to overload every sever then things will still slow down.
+people show up to overload every sever then things will still slow down.
 
 Some sites instead force people into a queue, so that only a few people can
 access the server at once. This ensures that the server never gets overloaded,
@@ -99,8 +102,8 @@ their data if more people show up. There's just no solution.
 
 ## Peers ##
 
-Not. Of course there's a solution. In fact, the exact opposite it possible: the
-more people there are who want data, the faster they all can get it!
+Of course there's a solution. In fact, the exact opposite it possible: the more
+people there are who want the data, the faster they all can get it!
 
 Let's start by considering one simple improvement. Suppose eight people show up
 to get the shopping list. If it takes a minute to copy the list down, then it's
@@ -121,6 +124,9 @@ server can hand out random list items to random people in random order and since
 they're all sharing amongst themselves eventually everyone will get the whole
 list.
 
+![multiple clients downloading via BitTorrent]({{ site.baseurl }}/img/p2p.png)
+{: .pull-right}
+
 This whole process goes even faster if, like the clever web server, people can
 talk to multiple people at once. Each person who gets a copy of the list is now
 like a new server to talk to, so newcomers who need the list can talk to many
@@ -138,8 +144,10 @@ In particular, the system I describe here is very similar to the BitTorrent
 protocol. BitTorrent splits up files into small, indepedent pieces and allows
 computers to download these pieces from multiple sources simultaneously while
 also uploading received pieces to other BitTorrent users. Each piece is verified
-with a [cryptographic hash][hash], to ensure that none of the pieces have been
-modified by any of the peers.
+with a [cryptographic hash][hash] to ensure that none of the pieces have been
+modified by any of the peers. The protocol allows everyone downloading to
+communicate with each other so that they can easily find people who have the
+pieces they need.
 
 [hash]: {{ site.baseurl }}{% post_url 2012-06-01-ch6 %}#hashes
 
@@ -149,9 +157,23 @@ BitTorrent is a great example of how different application layer protocols can
 be. BitTorrent and HTTP are both application protocols that can run inside of
 TCP/IP, but they have completely different behavior. Because of this, your web
 browser probably doesn't know how to handle BitTorrent data. To use BitTorrent,
-you will need to download a special program that understands the protocol. There
-are several available, but I recommend [Deluge][dl]{: .os .windows}
-[Transmission][tr]{: .os .linux .osx}.
+you will need to download a special program called a "client" that understands
+the protocol. There are several available, but I recommend [Deluge][dl]{: .os
+.windows} [Transmission][tr]{: .os .linux .osx}.
 
 [dl]: http://deluge-torrent.org/
 [tr]: http://www.transmissionbt.com/
+
+To use your BitTorrent client, you first need to download a torrent file (via
+regular HTTP). The torrent file describes the data you are going to download via
+BitTorrent and also tells you how to communicate with the other BitTorrent users
+downloading the file. You can then give the file to your BitTorrent client and
+it will start downloading it.
+
+## Exercises
+
+<div class="exercise">
+ 1. Download and install a BitTorrent client.
+ 2. If you want practice with BitTorrent, read on. We will be using it in the
+    next section.
+</div>
