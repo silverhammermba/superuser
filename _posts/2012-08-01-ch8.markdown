@@ -1,0 +1,10 @@
+---
+layout: chapter
+title: End of Part 2
+category: part2
+---
+
+Woohoo! You've finished part 2, which means you have a pretty good understanding
+of how the Internet works and how to be safe online.
+
+From now on things are going to be a lot more hands on.

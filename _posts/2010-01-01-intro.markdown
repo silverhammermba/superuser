@@ -27,10 +27,9 @@ This guide is broken into four parts and is not yet complete.
 
 1. Computers: learn about the fundamentals of computation and how modern
    computers work.
-2. The Internet (incomplete): learn about how computers communicate with each
-   other, the basics of computer security, and the mechanisms that make the
-   Internet tick.
-3. Computers in Depth (planned): learn how to install and customize an
+2. The Internet: learn about how computers communicate with each other, the
+   basics of computer security, and the mechanisms that make the Internet tick.
+3. Computers in Depth (incomplete): learn how to install and customize an
    operating system, and create your own software.
 4. The Internet in Depth (planned): learn about the internals of web
    applications
