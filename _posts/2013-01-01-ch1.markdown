@@ -4,4 +4,27 @@ title: 'Part 3: Computers In Depth'
 category: part3
 ---
 
-I haven't written this part yet!
+You might have noticed that there has been a bit of a gap in the book so far. In
+part 1 we learned about how computers work at a very fundamental, theoretical
+level, and in part 2 we talked about how the Internet works at a very
+conceptual, high level. But none of those chapters really explained how the
+computers we use every day work. This part of the book will hopefully fill that
+gap.
+
+## Kernel ##
+
+In part 1 we learned how a computer is a machine that performs a computation
+using instructions called a program. But this description is nothing like what
+we're used to. We're used to computers that run many programs at once: web
+browsers, music players, image viewers, word processors, games, etc. We can
+access information on our computers using thumb drives, DVDs, and the Internet.
+Our computers can be "hacked" and get viruses. What does any of that have to do
+with a single list of instructions? How does a computation get a virus?
+
+Believe it or not, I didn't lie to you. Our computers (technically) only run a
+single program and perform one single computation when we turn them on. And they
+share this trait will all computers going back to the very first ones. In fact
+the first computers were very similar to the ones we learned about in part 1.
+Computer scientists would often spend hours or days carefully planning out a
+program for a computer then they would feed it into the computer, switch it on,
+and wait patiently for it to spit out the final result.
