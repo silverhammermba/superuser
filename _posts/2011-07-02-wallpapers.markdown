@@ -252,7 +252,7 @@ format: with the first byte being 00 or the first byte being 01. The former
 would require 6MB as before, but the latter would require only 4 bytes! That's a
 huge reduction in size!
 
-[fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
+[fm]: {{ site.baseurl }}{% post_url 2011-04-01-formatting %}
 
 Of course this is a very simplified example. Our image is particularly easy to
 compress, and our format for compressing it is especially designed to handle it

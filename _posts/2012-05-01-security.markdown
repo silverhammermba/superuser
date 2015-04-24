@@ -94,8 +94,8 @@ a little something extra: a key. For a locked safe, that key could be numbers
 for a combination lock or a physical key for a padlock, but for a cipher the
 key is extra information.
 
-[fm]: {{ site.baseurl }}{% post_url 2011-04-06-ch4 %}
-[int]: {{ site.baseurl }}{% post_url 2012-01-01-ch1 %}#packaging
+[fm]: {{ site.baseurl }}{% post_url 2011-04-01-formatting %}
+[int]: {{ site.baseurl }}{% post_url 2012-01-01-intro %}#packaging
 
 A **cipher** is a data format that can only be decoded using additional
 (usually secret) information called a key. Ciphers are often called **codes**
@@ -329,7 +329,7 @@ so when adding 1 to 1 we loop back to 0 and there are no others wheels to pick
 up the extra 1.
 {: .deeper}
 
-[sm]: {{ site.baseurl }}{% post_url 2011-03-01-ch2 %}
+[sm]: {{ site.baseurl }}{% post_url 2011-02-01-machines %}
 
 Using XOR, it's very easy to add even long binary numbers by hand since you
 never have to keep track of carried digits. You can look at each pair of digits
@@ -373,7 +373,7 @@ plaintext bits and you're good to go: encrypt each bit individually as we just
 did. Using [ASCII][as] to encode "ATTACK" as binary, and using 48 random bits of
 key, we can encrypt text:
 
-[as]: {{ site.baseurl }}{% post_url 2012-03-01-ch3 %}#text
+[as]: {{ site.baseurl }}{% post_url 2012-03-01-http %}#text
 
     01000001 01010100 01010100 01000001 01000011 01001011 (plaintext)
     01000000 11101110 11100111 11110101 01101110 00000011 (key)

@@ -149,7 +149,7 @@ modified by any of the peers. The protocol allows everyone downloading to
 communicate with each other so that they can easily find people who have the
 pieces they need.
 
-[hash]: {{ site.baseurl }}{% post_url 2012-06-01-ch6 %}#hashes
+[hash]: {{ site.baseurl }}{% post_url 2012-06-01-security2 %}#hashes
 
 ## Clients ##
 

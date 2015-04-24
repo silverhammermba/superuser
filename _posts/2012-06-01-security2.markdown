@@ -108,7 +108,7 @@ public encryption key from the certificate and the rest of the communication
 occurs under the confidentiality of encryption (using a key exchange as
 described [previousy][ke]).
 
-[ke]: {{ site.baseurl }}{% post_url 2012-05-01-ch5 %}#public-keys
+[ke]: {{ site.baseurl }}{% post_url 2012-05-01-security %}#public-keys
 
 An important thing to notice here is that the encryption (TLS) is _inside_ the
 Internet and transport layers. That means that even if two computers are using
@@ -191,7 +191,7 @@ chooses their password, we compute a checksum of the password and store _that_.
 Then when they access their account later, we again compute the checksum and
 compare.
 
-[cs]: {{ site.baseurl }}{% post_url 2012-01-01-ch1 %}#checksums
+[cs]: {{ site.baseurl }}{% post_url 2012-01-01-intro %}#checksums
 
 This is getting close to being secure, but again it's not quite what we're
 looking for. A checksum, as it's name implies, is more about checking that data
