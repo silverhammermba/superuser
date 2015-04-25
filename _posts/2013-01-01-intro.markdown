@@ -257,11 +257,9 @@ that you may have heard of or (perhaps unknowingly) used:
 * XNU: Apple developed this kernel for Mac OS X in 1996 and it too has evolved
   along with their products. XNU is the kernel used by iOS on the iPhone.
 * Linux: Linus Torvalds, a computer science graduate student, created this
-  kernel in 1991 as a personal project. Through [open source][os] development,
-  it has become hugely popular and today is used in every Android
-  smart phone among other places.
-
-[os]: {{ site.baseurl }}/part2/security2/#user-error
+  kernel in 1991 as a personal project. Through open source development, it has
+  become hugely popular and today is used in every Android smart phone among
+  other places.
 
 So regardless of the computer you're using, be it a desktop, tablet, or smart
 phone, somewhere in there a kernel is running and doing all of the tedious work

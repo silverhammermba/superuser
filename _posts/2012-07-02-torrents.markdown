@@ -174,6 +174,6 @@ it will start downloading it.
 
 <div class="exercise">
  1. Download and install a BitTorrent client.
- 2. If you want practice with BitTorrent, read on. We will be using it in the
-    next section.
+ 2. If you want practice with BitTorrent, read on. We will be using it in Part
+    3.
 </div>
