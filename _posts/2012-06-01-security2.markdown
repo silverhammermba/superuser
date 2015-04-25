@@ -97,8 +97,8 @@ website owner to forge it. This is achieved using a combination of hashing
 that the _encryption key is private_ and the _decryption key is public_ (this is
 reversed from the last chapter). The CA encrypts every certificate using their
 secret key. Everyone can read the certificates since the decryption key is
-public, but since only the CA knows the encryption key this verifies that that
-they created the certficate.
+public, but since only the CA knows the encryption key this verifies that they
+created the certficate.
 {: .deeper }
 
 ### Encryption ###
@@ -119,8 +119,10 @@ the IP addresses of the sender/receiver in the open.
 
 Hiding the IP addresses of the sender and receiver _is_ still possible, but it's
 much more complicated (and is rarely needed). One method of doing so is called
-"onion routing".
+[onion routing][on].
 {: .deeper }
+
+[on]: http://en.wikipedia.org/wiki/Onion_routing
 
 Whenever you're doing something on the Internet that you wouldn't want someone
 spying on (such as making purchases are checking e-mail), make sure that you're
@@ -209,7 +211,7 @@ called a **digest** or sometimes &ndash; confusingly &ndash; a **hash**.
 So whether you give your hash a gigabyte of input or 0 bytes of input, it always
 produces some fixed number of bytes of output. If you look back at our
 definition of checksum, you'll see that a checksum is just a special kind of
-hash. In order to protect our passwords we'll need a different sort of hash.
+hash. In order to protect our passwords we'll need a different kind of hash.
 
 <div class="definition">
 A **cryptographic hash** is a hash where:
@@ -223,7 +225,7 @@ A **cryptographic hash** is a hash where:
 
 Again, "difficult" here means that it should take so long for a computer to find
 the solution that the information would be practically useless to the attacker
-once they crack it.
+once they find it.
 {: .note}
 
 Our first example of a checksum &ndash; adding up the input bytes like positive
@@ -339,15 +341,13 @@ substitute letters in the word you chose. That means there are about
 method. That's not even 30 bits of information! Most computers could crank
 through every possible password of that pattern in no time at all!
 
+**Password Safety Tip #3:** whatever password you use, make sure it's at least
+12 characters long. Computers these days are so fast that they can check every
+possible shorter password in a reasonably short amount of time.
+{: .note}
+
 And so we come to the real challenge: how do you make a password that is hard
 for a hacker to guess but still easy for you to remember?
-
-Alternatively, you could use extremely secure but unmemorable passwords like
-long strings of random characters and use a tool like [Password Safe][pw] to
-help you keep track of them.
-{: .deeper}
-
-[pw]: http://passwordsafe.sourceforge.net/
 
 I find it helpful to consider this question:
 
@@ -378,11 +378,18 @@ interesting approach is XKCD's [four random words][xkcd].
 
 [xkcd]: http://xkcd.com/936/
 
-**Password Safety Tip #3:** try to use passwords that would be hard to guess
+**Password Safety Tip #4:** try to use passwords that would be hard to guess
 even if an attacker knew how you were choosing them! For example, "wPE7T%+G" may
 look like a random, secure password, but if your passwords on other sites are
 "wPE8T%+G" and "wPE9T%+G", you're kinda shooting yourself in the foot.
 {: .note}
+
+Alternatively, you could use extremely secure but unmemorable passwords like
+long strings of random characters and use a tool like [Password Safe][pw] to
+help you keep track of them.
+{: .deeper}
+
+[pw]: http://passwordsafe.sourceforge.net/
 
 And now that you know this, be **extra** cautious about so-called "password
 strength" meters on websites. By definition they cannot measure the actual
