@@ -13,7 +13,7 @@ go. Whenever your web browser loads a web page, all of these protocols work
 together to get that information onto your computer.
 
 This works great for web pages &ndash; even fancy ones like
-[www.weather.com][wth] which include lots of images and interactivitiy. That
+[www.weather.com][wth] which include lots of images and interactivity. That
 page only requires about 4 megabytes of data to be transferred over the
 Internet. That's chump change these days. This process also works well when you
 want to download files like images or songs.
@@ -77,8 +77,9 @@ handle in order to disrupt the service for everyone else. This is called a
 
 For normal web pages, this usually isn't much of an issue since web pages
 require very little data and the Internet is so fast. Usually thousands of
-people can all access a web server with no noticable slowdown. But when it comes
-to downloading huge files, those thousands of people can bring things to a crawl.
+people can all access a web server with no noticeable slowdown. But when it
+comes to downloading huge files, those thousands of people can bring things to a
+crawl.
 
 There are several workarounds for this problem. Some web servers are very clever
 and are designed to talk to multiple people simultaneously so that they can
@@ -141,7 +142,7 @@ network.
 {: .definition}
 
 In particular, the system I describe here is very similar to the BitTorrent
-protocol. BitTorrent splits up files into small, indepedent pieces and allows
+protocol. BitTorrent splits up files into small, independent pieces and allows
 computers to download these pieces from multiple sources simultaneously while
 also uploading received pieces to other BitTorrent users. Each piece is verified
 with a [cryptographic hash][hash] to ensure that none of the pieces have been

@@ -98,7 +98,7 @@ that the _encryption key is private_ and the _decryption key is public_ (this is
 reversed from the last chapter). The CA encrypts every certificate using their
 secret key. Everyone can read the certificates since the decryption key is
 public, but since only the CA knows the encryption key this verifies that they
-created the certficate.
+created the certificate.
 {: .deeper }
 
 ### Encryption ###
@@ -106,7 +106,7 @@ created the certficate.
 After the identity of the website has been verified, your browser extracts a
 public encryption key from the certificate and the rest of the communication
 occurs under the confidentiality of encryption (using a key exchange as
-described [previousy][ke]).
+described [previously][ke]).
 
 [ke]: {{ site.baseurl }}/part2/security/#public-keys
 

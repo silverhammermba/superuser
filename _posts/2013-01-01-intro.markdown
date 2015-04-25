@@ -209,7 +209,7 @@ for reading a certain number of bytes from an SSD.
 
 Then when the programmers create their programs that want to read memory from
 some I/O device, they don't have to think about what sort of device it is and
-what specific instructions it needes. Instead, they include a special I/O
+what specific instructions it needs. Instead, they include a special I/O
 instruction to the _loader_ that says they want to read from the device. That
 way, when the loader loads the program it can replace that special instruction
 with the specific instructions it knows for that specific device. In this way,
@@ -264,5 +264,5 @@ that you may have heard of or (perhaps unknowingly) used:
 So regardless of the computer you're using, be it a desktop, tablet, or smart
 phone, somewhere in there a kernel is running and doing all of the tedious work
 so that the other programs can get stuff done. In the next chapter, we'll
-finally look at some of that stuff that get's done, and we'll figure out what
+finally look at some of that stuff that gets done, and we'll figure out what
 that term "operating system" actually means.
