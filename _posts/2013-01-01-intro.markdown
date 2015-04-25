@@ -11,8 +11,6 @@ conceptual, high level. But none of those chapters really explained how the
 computers we use every day work. This part of the book will hopefully fill that
 gap.
 
-## Kernel ##
-
 In part 1 we learned how a computer is a machine that performs a computation
 using instructions called a program. But this description is nothing like what
 we're used to. We're used to computers that run many programs at once: web
@@ -26,5 +24,216 @@ single program and perform one single computation when we turn them on. And they
 share this trait will all computers going back to the very first ones. In fact
 the first computers were very similar to the ones we learned about in part 1.
 Computer scientists would often spend hours or days carefully planning out a
-program for a computer then they would feed it into the computer, switch it on,
+program for a computer. Then they would feed it into the computer, switch it on,
 and wait patiently for it to spit out the final result.
+
+The development from that type of computing to the kind we know today took place
+over several decades and many incremental improvements. But all of those
+improvements took advantage of a special property of computation: it is very
+easy to make a program which runs another program. All you need to do is make a
+program which reads the instructions for another program, and then follows those
+instructions it just read. This ability of computers turned out to be crucial in
+making them easier for humans to use.
+
+That idea of programs running programs might be ringing a bell from the [bonus
+chapter][tc] about Turing completeness. The fact that a program can run another
+program is deeply connected to the fact that any computer can simulate any other
+computer. Think about it.
+{: .deeper}
+
+[tc]: {{ site.baseurl }}/part1/complete/
+
+## Loading ##
+
+Early on, computer scientists realized that although every program they wrote
+was unique in some way, most of their programs had quite a lot of instructions
+in common. For example, a very common task for a program is to read input data
+in a certain format, perform computations using the data, and then output the
+result in a certain format. There are many programs you can write that follow
+this general pattern, but all of them will need similar instructions for reading
+and writing formatted data. Similarly, you might have two different computers
+that use different data formats but you want to run the same program on both.
+You could write a different program for each computer, but other than the
+instructions for reading the data format, they will have a lot of instructions
+in common. Computer scientists solved these problems by doing what they do best:
+they made new programs.
+
+These new programs took _other programs_ as input. They could modify the other
+program's instructions and then run the modified instructions on the computer.
+These types of programs were called "program loaders" because you would give the
+program a program as input and it would "load" it onto the machine and run it.
+Loaders turned out to be very useful. For our previous example of many programs
+reading and writing similarly formatted data, you could create a loader that
+takes a program and adds the generic instructions for handling the data format,
+leaving you to write just the interesting part of the program.
+
+Loaders also solve the problem of different computers using different data
+formats. You can write a loader for each computer that accepts the same sort of
+program as input but then adds specialized instructions for reading and writing
+its own data format. That way you can write one program and each computer's
+loader adapts it to run on that computer.
+
+## Looping ##
+
+With loaders doing much of the repetitive work for computer scientists, the
+previous operating procedure &ndash; inputting instructions, turning on the
+computer, waiting for output, and turning off the computer &ndash; no longer
+made sense. After all, the loader's instructions would be the same every time
+the computer was run so it didn't make sense to have to input them every time
+they wanted to load a program.
+
+Instead, they changed the loader's instructions to run in an infinite loop. This
+is actually very easy to do with programs since all you need is an instruction
+along the lines of "go back to the beginning and start over". For our Turing
+machine example, a very simple program that loops infinitely is
+
+    (0, 0, 0, N, 0)
+
+This program simply never changes the computer's memory (the tape and the state
+register), so that one rule will always match and the program will never
+terminate.
+
+With the loader running in an infinite loop, it would take a program as input,
+modify it, run it, and then wait for you to input another program. That way the
+computer could be left on at all times, and the loader would always be ready to
+load a program for you.
+
+## Management & Scheduling ##
+
+The next problem that computer scientists noticed was that although their
+computers had thousands or millions of bytes of memory, most of their programs
+didn't need all of that memory at once. This seemed especially wasteful now that
+they could leave the computer on all the time with the loader running in a loop.
+If you loaded in a very time-consuming program that only used 10% of the
+computer's memory, 90% of the computer's memory capacity was going to waste
+while you waited for the program to finish.
+
+So the computer scientists modified the loader even more. Now, in addition to
+giving it a program to load, you would also tell the loader how much memory the
+program would need. Then the loader would look at how much memory is in the
+computer and reserve a section of memory for the program it was given. It would
+then modify the instructions of the program so that they only used memory in
+that reserved section. For example, if we had a loader for our Turing machine,
+the loader might assign a position number for each digit on the tape. So the
+starting digit on the tape would be position 0, then next to it is position 1,
+then position 2, etc. If you give the loader a program that needs 50 digits of
+memory on the tape, the loader might choose digits 30-79, then it modifies the
+program by adding instructions that first move the head of the machine over 30
+digits before following the normal instructions. That way the program (which was
+originally written assuming the head starts at position 0) only affects digits
+in memory between positions 30 and 79.
+
+With this improvement in place, it was then possible to have the loader load
+_multiple programs at once_! The way it does this is very simple. Each program
+gets a separate section of memory reserved for it so that they don't interfere
+with each other, then the loader runs the instructions from each program in
+turn. So it runs an instruction from the first program, then the second program,
+..., all the way to the last program, and then back to the first program, etc.
+They key here is that since each program runs in a completely separate section
+of memory, it makes no difference which program's instructions are run first. So
+the loader can alternate instructions between programs such that every loaded
+program will run at about the same speed (in hertz i.e. instructions per
+second).
+
+And with that improvement, there's no real need to load all of the programs at
+the same time. You could load one program and run it at full speed for a while,
+then load another program while the first is still running and run both at half
+speed (since the loader needs to alternate running instructions between the
+two), then load maybe a third, and eventually the first program would finish and
+the loader could devote more time to running the instructions of the other
+programs. So as long as the computer still has available memory and you don't
+mind things running a bit slower, the loader lets you load and run a program on
+a computer whenever you want &ndash; even while the computer may be running
+several other programs!
+
+As a further improvement, the loader can be designed such that you don't need to
+tell it how much memory the program needs ahead of time. Instead it guesses how
+much memory each program needs and when it runs the program's instructions it
+checks to see if the program is starting to run out of room in it reserved
+section. If so, it can reserve even more memory and further modify the program's
+instructions to use the newly reserved section.
+
+The process of dividing up sections of memory for each program is called
+**memory management**. The process of one program running several other programs
+by running their instructions in turn is called **scheduling**.
+{: .definition}
+
+These are still very important topics in computer science to this day. Poor
+memory management can result in programs being reserved more memory than they
+really need, meaning the computer will run out of free memory too soon. Poor
+scheduling can cause programs to run so slowly that they aren't practically
+usable.
+
+## Drivers ##
+
+The next improvements came with rise of [computer peripherals][pci]: devices
+which can be plugged into a computer to extend its capabilities. This could
+include a HDD for additional memory, or a monitor for displaying images using
+pixels. Each of these peripherals usually worked in slightly different ways even
+when performing essentially the same task, and so required different program
+instructions in order to operate them. For example one company's monitors might
+use a different data format for pixel colors than another company's.
+
+[pci]: {{ site.baseurl }}/part1/hardware/
+
+This was not only a nightmare for computer programmers &ndash; who needed to
+consider all of the different instructions needed for making their programs work
+with all of the popular peripherals &ndash; it was also a nightmare for the
+loader, which might have several programs running at once all trying to use the
+same peripherals.
+
+The solution was to modify the loader still further. The loader was extended
+with its own instructions for handling the various peripherals and presenting
+them in a standardized way decided by the loader's designers. For example, an
+HDD and an SSD both provide additional memory for the computer but operate very
+differently (the HDD has moving mechanical parts, the SSD uses only electrical
+signals). The loader's designers might decide that every device which
+provides additional memory must have a method of reading a certain number of
+bytes from the device, so they create two sets of instructions: one for reading
+a certain number of bytes from an HDD, and another for reading a certain number
+of bytes from an SSD.
+
+Then when the programmers create their programs that want to read memory from a
+peripheral, they don't have to think about what sort of peripheral is plugged in
+and issue specific instructions for it. Instead, they include a special
+instruction to the _loader_ that says they want to read from the device. That
+way, when the loader loads the program it can replace that special instruction
+with the specific instructions it knows for that specific device. In this way,
+computer programs can easily create programs that work for a wide variety of
+peripherals.
+
+The instructions used by the loader for communicating with a specific device are
+called the device's **driver**. The special instructions that programs use to
+tell the loader that they want to use a general type of device are called an
+**interface**.
+{: .definition}
+
+This also solves the problem of multiple programs trying to use a peripheral at
+the same time. Since the loader ultimately issues the instructions for the
+specific peripherals, it can use instructions that ensure that the different
+programs won't interfere with each other.
+
+## Kernel ##
+
+At this point, the name "program loader" doesn't really do justice to this
+important program. It doesn't just load programs, it manages the memory of every
+program running on the computer, it schedules which programs run at which time,
+it provides a wide variety of drivers for using many computer peripherals, and
+it provides standardized interfaces for computer programmers to use those
+drivers. It deserves a fancier name.
+
+The main program run by a computer which manages the running of other programs
+and coordinates the usage of computer peripherals is called the **kernel**.
+{: .definition}
+
+Another way to look at the kernel is as an abstraction of a computer. There are
+thousands if not millions of different kinds of computers in existence, and
+while you could create programs for each specific computer, it would be
+extremely impractical. By running a kernel on a computer and writing programs
+_for the kernel_ (rather than the computer), you can create your program while
+thinking less about the specific type of computer it will run on. As a bonus, if
+that same kernel works with many kinds of computers, so will your program.
+
+So for the most part we can ignore the huge variety of computers there are and
+instead focus on the different kernels that exist, since that's usually what
+programs need to interact with.
