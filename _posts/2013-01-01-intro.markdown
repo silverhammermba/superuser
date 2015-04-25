@@ -11,6 +11,8 @@ conceptual, high level. But none of those chapters really explained how the
 computers we use every day work. This part of the book will hopefully fill that
 gap.
 
+## A Program for Programs ##
+
 In part 1 we learned how a computer is a machine that performs a computation
 using instructions called a program. But this description is nothing like what
 we're used to. We're used to computers that run many programs at once: web
@@ -43,7 +45,7 @@ computer. Think about it.
 
 [tc]: {{ site.baseurl }}/part1/complete/
 
-## Loading ##
+### Loading ###
 
 Early on, computer scientists realized that although every program they wrote
 was unique in some way, most of their programs had quite a lot of instructions
@@ -73,7 +75,7 @@ program as input but then adds specialized instructions for reading and writing
 its own data format. That way you can write one program and each computer's
 loader adapts it to run on that computer.
 
-## Looping ##
+### Looping ###
 
 With loaders doing much of the repetitive work for computer scientists, the
 previous operating procedure &ndash; inputting instructions, turning on the
@@ -98,7 +100,7 @@ modify it, run it, and then wait for you to input another program. That way the
 computer could be left on at all times, and the loader would always be ready to
 load a program for you.
 
-## Management & Scheduling ##
+### Management & Scheduling ###
 
 The next problem that computer scientists noticed was that although their
 computers had thousands or millions of bytes of memory, most of their programs
@@ -164,7 +166,7 @@ really need, meaning the computer will run out of free memory too soon. Poor
 scheduling can cause programs to run so slowly that they aren't practically
 usable.
 
-## Drivers ##
+### Drivers ###
 
 The next improvements came with rise of [computer peripherals][pci]: devices
 which can be plugged into a computer to extend its capabilities. This could
@@ -182,29 +184,40 @@ with all of the popular peripherals &ndash; it was also a nightmare for the
 loader, which might have several programs running at once all trying to use the
 same peripherals.
 
-The solution was to modify the loader still further. The loader was extended
-with its own instructions for handling the various peripherals and presenting
-them in a standardized way decided by the loader's designers. For example, an
-HDD and an SSD both provide additional memory for the computer but operate very
-differently (the HDD has moving mechanical parts, the SSD uses only electrical
-signals). The loader's designers might decide that every device which
-provides additional memory must have a method of reading a certain number of
-bytes from the device, so they create two sets of instructions: one for reading
-a certain number of bytes from an HDD, and another for reading a certain number
-of bytes from an SSD.
+In computing, we generally lump all of these peripherals together under the
+label **input/output** or **I/O**.
+{: .definition}
 
-Then when the programmers create their programs that want to read memory from a
-peripheral, they don't have to think about what sort of peripheral is plugged in
-and issue specific instructions for it. Instead, they include a special
+In a way, all peripherals involve inputting data into the computer or outputting
+data from the computer. For example a computer mouse and a webcam are very
+different, but they both put input data into the computer: movement data and
+image data, respectively. A speaker and a monitor are very different, but they
+both need data output from the computer: audio data and image data,
+respectively.
+
+The solution to handling all the different kinds of I/O was to modify the loader
+still further. The loader was extended with its own instructions for handling
+each type of I/O and presenting them in a standardized way decided by the
+loader's designers. For example, an HDD and an SSD both provide additional
+memory and so can be viewed as an input for additional data for the computer.
+But they operate very differently: the HDD has moving mechanical parts while the
+SSD uses only electrical signals. The loader's designers might decide that every
+I/O device which provides additional memory must have a method of reading a
+certain number of bytes from the device, so they create two sets of
+instructions: one for reading a certain number of bytes from an HDD, and another
+for reading a certain number of bytes from an SSD.
+
+Then when the programmers create their programs that want to read memory from
+some I/O device, they don't have to think about what sort of device it is and
+what specific instructions it needes. Instead, they include a special I/O
 instruction to the _loader_ that says they want to read from the device. That
 way, when the loader loads the program it can replace that special instruction
 with the specific instructions it knows for that specific device. In this way,
-computer programs can easily create programs that work for a wide variety of
-peripherals.
+computer programs can easily create programs that work for many types of I/O.
 
 The instructions used by the loader for communicating with a specific device are
-called the device's **driver**. The special instructions that programs use to
-tell the loader that they want to use a general type of device are called an
+called the device's **driver**. The special I/O instructions that programs use
+to tell the loader that they want to use a general type of device are called an
 **interface**.
 {: .definition}
 
@@ -218,12 +231,12 @@ programs won't interfere with each other.
 At this point, the name "program loader" doesn't really do justice to this
 important program. It doesn't just load programs, it manages the memory of every
 program running on the computer, it schedules which programs run at which time,
-it provides a wide variety of drivers for using many computer peripherals, and
-it provides standardized interfaces for computer programmers to use those
-drivers. It deserves a fancier name.
+it provides a wide variety of drivers for many types of devices, and it provides
+standardized I/O interfaces for computer programmers to use those drivers. It
+deserves a fancier name.
 
 The main program run by a computer which manages the running of other programs
-and coordinates the usage of computer peripherals is called the **kernel**.
+and coordinates the I/O usage is called the **kernel**.
 {: .definition}
 
 Another way to look at the kernel is as an abstraction of a computer. There are
@@ -236,4 +249,22 @@ that same kernel works with many kinds of computers, so will your program.
 
 So for the most part we can ignore the huge variety of computers there are and
 instead focus on the different kernels that exist, since that's usually what
-programs need to interact with.
+our programs need to interact with. Here are some of the really popular kernels
+that you may have heard of or (perhaps unknowingly) used:
+
+* NT Kernel: Microsoft originally developed this kernel for Windows NT in 1993,
+  but it has continued to evolve to run every version of Windows since.
+* XNU: Apple developed this kernel for Mac OS X in 1996 and it too has evolved
+  along with their products. XNU is the kernel used by iOS on the iPhone.
+* Linux: Linus Torvalds, a computer science graduate student, created this
+  kernel in 1991 as a personal project. Through [open source][os] development,
+  it has become hugely popular and today is used in every Android
+  smart phone among other places.
+
+[os]: {{ site.baseurl }}/part2/security2/#user-error
+
+So regardless of the computer you're using, be it a desktop, tablet, or smart
+phone, somewhere in there a kernel is running and doing all of the tedious work
+so that the other programs can get stuff done. In the next chapter, we'll
+finally look at some of that stuff that get's done, and we'll figure out what
+that term "operating system" actually means.
