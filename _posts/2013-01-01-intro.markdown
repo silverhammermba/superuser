@@ -58,7 +58,7 @@ that use different data formats but you want to run the same program on both.
 You could write a different program for each computer, but other than the
 instructions for reading the data format, they will have a lot of instructions
 in common. Computer scientists solved these problems by doing what they do best:
-they made new programs.
+they made more programs.
 
 These new programs took _other programs_ as input. They could modify the other
 program's instructions and then run the modified instructions on the computer.
@@ -151,7 +151,7 @@ several other programs!
 As a further improvement, the loader can be designed such that you don't need to
 tell it how much memory the program needs ahead of time. Instead it guesses how
 much memory each program needs and when it runs the program's instructions it
-checks to see if the program is starting to run out of room in it reserved
+checks to see if the program is starting to run out of room in its reserved
 section. If so, it can reserve even more memory and further modify the program's
 instructions to use the newly reserved section.
 
@@ -169,12 +169,13 @@ usable.
 ### Drivers ###
 
 The next improvements came with rise of [computer peripherals][pci]: devices
-which can be plugged into a computer to extend its capabilities. This could
+which could be plugged into a computer to extend its capabilities. This could
 include a HDD for additional memory, or a monitor for displaying images using
-pixels. Each of these peripherals usually worked in slightly different ways even
-when performing essentially the same task, and so required different program
-instructions in order to operate them. For example one company's monitors might
-use a different data format for pixel colors than another company's.
+pixels. But even when different peripherals perform essentially the same task,
+they often require slightly different instructions in order to operate
+correctly (due to differences in the way they were engineered). For example one
+company's monitors might use a different data format for pixel colors than
+another company's.
 
 [pci]: {{ site.baseurl }}/part1/hardware/
 
@@ -264,5 +265,4 @@ that you may have heard of or (perhaps unknowingly) used:
 So regardless of the computer you're using, be it a desktop, tablet, or smart
 phone, somewhere in there a kernel is running and doing all of the tedious work
 so that the other programs can get stuff done. In the next chapter, we'll
-finally look at some of that stuff that gets done, and we'll figure out what
-that term "operating system" actually means.
+finally look at some of that stuff that gets done.
