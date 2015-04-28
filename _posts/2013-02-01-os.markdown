@@ -1,0 +1,74 @@
+---
+layout: chapter
+title: 'Operating Systems'
+category: part3
+---
+
+You may already be familiar with the term "operating system". It's the thing
+that usually comes pre-installed when you buy a new computer. Apple's OS X and
+Microsoft's Windows are probably the ones you've heard of. But what are they?
+
+An **operating system** or **OS** is a collection of programs that makes a
+computer practical to use.
+{: .definition}
+
+I admit that this definition is as vague as it is terrible. But the main point
+here is that a kernel alone is not an OS. A kernel is an essential part of every
+modern OS, but on its own it does basically nothing &ndash; it needs other
+programs to run in order to be really useful. So an operating system is really
+just a kernel plus those "other programs". But which other programs? That varies
+between different OSes and is often a selling point for the companies that make
+them. Some common inclusions are a program for managing separate user accounts,
+a program for finding and organizing files, programs for opening common file
+formats like text and video, a web browser, things like that.
+
+Next we're going to play around with an OS to really get a feel for how they
+work. But we need to do a little preparation so that you can follow along with
+the book easily.
+
+## Virtual Machine ##
+
+It would be great if you could just start fooling around on your own computer in
+order to learn about being a superuser, but I'm afraid that wouldn't be very
+responsible of me. It's easy to screw things up as a superuser &ndash;
+especially an inexperienced one. Also I don't know what kind of computer you're
+using so it's hard for me to give you any specific tips. So for this chapter
+we're going to use one standard computer with a standard OS so that everyone
+gets the same experience. As a bonus, this standard computer also lets us save
+our work in case anything goes awry. Don't worry though: you don't need to go
+out and buy a new computer.
+
+You're going to need to download a computer. This is (surprisingly) easy to do
+thanks to [Turing completeness][turing]. All you need is a program which
+simulates a computer inside your actual computer.
+
+[turing]: {{ site.baseurl }}/part1/complete/
+
+A simulated computer is often called a **virtual machine** because it exists
+only in the digital memory of your computer. But other than that it works just
+like a normal one.
+{: .definition}
+
+The program we're going to use to do this is [VirtualBox][vb], a free and open
+source virtual machine manager. Steel yourself for possibly the hardest exercise
+in the book so far:
+
+[vb]: https://www.virtualbox.org
+
+Install and configure VirtualBox. **Hint:** the [VirtualBox User Manual][manual]
+has sections on installing and starting VirtualBox
+{: .exercise}
+
+[manual]: https://www.virtualbox.org/manual/UserManual.html
+
+You don't need to worry about actually creating a virtual machine: we will be
+using one I created ahead of time. You'll need to download it using a BitTorrent
+client, so go [review][torrent] that section if you don't remember what that is.
+
+[torrent]: {{ site.baseurl }}/part2/torrents
+
+Download the virtual machine using this [torrent file][vmt].
+{: .exercise}
+
+<!-- TODO -->
+[vmt]: #
