@@ -31,27 +31,28 @@ the book easily.
 It would be great if you could just start fooling around on your own computer in
 order to learn about being a superuser, but I'm afraid that wouldn't be very
 responsible of me. It's easy to screw things up as a superuser &ndash;
-especially an inexperienced one. Also I don't know what kind of computer you're
-using so it's hard for me to give you any specific tips. So for this chapter
-we're going to use one standard computer with a standard OS so that everyone
-gets the same experience. As a bonus, this standard computer also lets us save
-our work in case anything goes awry. Don't worry though: you don't need to go
-out and buy a new computer.
+especially an inexperienced one &ndash; and I wouldn't want you damaging your
+property on account of me. Also I don't know what kind of computer you're using
+so it's hard for me to give you any specific tips. So for this chapter we're
+going to use one standard computer with a standard OS so that everyone gets the
+same experience. As a bonus, this standard computer also lets us save our work
+in case anything goes awry. Don't worry though: you don't need to go out and buy
+a new computer.
 
-You're going to need to download a computer. This is (surprisingly) easy to do
-thanks to [Turing completeness][turing]. All you need is a program which
-simulates a computer inside your actual computer.
+Instead you will download a computer. This is (surprisingly) easy to do thanks
+to [Turing completeness][turing]. All you need is a program which simulates a
+computer inside your actual computer.
 
 [turing]: {{ site.baseurl }}/part1/complete/
 
-A simulated computer is often called a **virtual machine** because it exists
-only in the digital memory of your computer. But other than that it works just
-like a normal one.
+A simulated computer is often called a **virtual machine** or **VM** because it
+exists only in the digital memory of your computer. But other than that it works
+just like a normal one.
 {: .definition}
 
 The program we're going to use to do this is [VirtualBox][vb], a free and open
-source virtual machine manager. Steel yourself for possibly the hardest exercise
-in the book so far:
+source VM manager. Steel yourself for possibly the hardest exercise in the book
+so far:
 
 [vb]: https://www.virtualbox.org
 
@@ -61,14 +62,200 @@ has sections on installing and starting VirtualBox
 
 [manual]: https://www.virtualbox.org/manual/UserManual.html
 
-You don't need to worry about actually creating a virtual machine: we will be
-using one I created ahead of time. You'll need to download it using a BitTorrent
-client, so go [review][torrent] that section if you don't remember what that is.
+You don't need to worry about actually creating a VM: we will be using one I
+created ahead of time. You'll need to download it using a BitTorrent client, so
+go [review][torrent] that section if you don't remember what that is.
 
 [torrent]: {{ site.baseurl }}/part2/torrents
 
-Download the virtual machine using this [torrent file][vmt].
+Download the VM using this [torrent file][vmt].
 {: .exercise}
 
 <!-- TODO -->
 [vmt]: #
+
+![import option]({{ site.baseurl }}/img/import.png)
+{: .pull-right}
+
+Once the download is finished, you should have a file called `su_demo.ova`. This
+file describes everything about the VM: what kind of hardware it has (CPU, RAM,
+HDD, etc.) and the entire contents of its hard drive. In VirtualBox, under File,
+select "Import Appliance...", choose the `.ova` file you just downloaded, and
+hit "Next". It will show a window describing the VM, but all you have to do now
+is click "Import". After a bit of a wait there will be a new entry (Superuser
+Demo) in VirtualBox's left pane. This is your brand new (virtual) computer!
+
+Select your new computer in the pane and click the big "Start" arrow. A new
+window will open: this represents the monitor of your VM. Be patient as the
+computer starts up and flashes a bunch of technical stuff on the screen. The
+goal of the computer now is to run the kernel program (which will then run
+everything else). But the kernel is such a large, complicated program that it is
+usually too difficult for the computer to start it directly. To get around this,
+the computer uses a process called "bootstrapping".
+
+**Bootstrapping** (as in "pulling yourself up by your own bootstraps") is when a
+simpler program is used to run a more complicated program. It is usually
+shortened to just **booting**.
+{: .definition}
+
+In this case, we actually have a chain of bootstrapping. The computer runs a
+simple program, which then runs a more complicated program, which runs a more
+complicated program, which finally runs the kernel. Eventually you should get to
+a screen like this:
+
+{% highlight text %}
+
+Arch Linux 3.19.3-3-ARCH (tty1)
+
+demo login: _
+{% endhighlight %}
+
+This is what success looks like. The VM has booted successfully!
+
+<div class="note">
+![mouse capture]({{ site.baseurl }}/img/capture.png)
+{: .pull-right}
+
+If you lose your mouse cursor at any point, it's probably because of a
+VirtualBox feature called "mouse capture". This traps the mouse in the VM so
+that you don't accidentally click outside of the VM while you're trying to work.
+To get your mouse back, you can press the button indicated in the lower right of
+the VirtualBox window. For me it's the <kbd>Ctrl</kbd> key on the right side
+of my keyboard.
+</div>
+
+## UNIX ##
+
+This virtual machine is running an OS called Arch Linux which (you might guess)
+uses Linux for its kernel. Linux is based on the kernel of an old OS called UNIX
+which was developed by AT&T in THE 70S. UNIX no longer exists as such, but it
+lives on today through the many OSes which imitate it, including the Linux and
+XNU-based OSes. These OSes try to be as UNIX-like as possible and are often
+reffered to as just \*nix, meaning "some variety of OS that works kinda like
+UNIX". So even though we're working with Arch Linux specifically, many of the
+things you will learn here will apply to many other OSes.
+
+Except for Windows. Microsoft likes to be arbitrarily different whenever
+possible, so most of the things in this chapter will not work as-is on a Windows
+computer. Despite that, Windows does have some things in common with UNIX
+_conceptually_, so the general principles from this section still apply.
+{: .note}
+
+The screen we're at right now is telling us that the name of this computer is
+"demo" and it wants us to log in. Arch Linux is a multi-user OS, meaning that it
+is designed for multiple people to use the computer simultaneously. So any work
+that you do on the computer has to be done after logging in with a certain user
+name. Normally you would have your own user name just for you, but right now
+there's only one user that we want to be: the superuser, of course! The
+traditional \*nix user name for the superuser is `root` so type that and hit
+<kbd>Enter</kbd>. You should see this:
+
+<!-- TODO last login time might change -->
+{% highlight text %}
+demo login: root
+Last login: Wed Apr 29 14:42:50 on tty1
+[root@demo ~]# _
+{% endhighlight %}
+
+If the VM's window turns completely black, this is just the virtual monitor
+trying to save power. Clicking in the window and pressing <kbd>Enter</kbd>
+should wake it up.
+{: .note}
+
+Now we're logged in as the superuser and ready to roll. Before I start
+explaining more, let's become familiar with VirtualBox's ability to save and
+load our work. This will be handy moving forward in case you screw something up
+and want to return to an earlier state where things were working. Simply click
+"Take Snapshot..." in the "Machine" menu of the VM's window. You can give your
+snapshot a name and a description to remind yourself later why you saved your
+work, then click OK. After a short wait, you should be back to the VM as though
+nothing happened. But what just occured is VirtualBox created a file storing all
+of the information about the current state of the VM.
+
+Now to really appreciate how useful snapshots are, type in the following and
+then press <kbd>Enter</kbd>:
+
+    rm -rf --no-preserve-root /
+
+If you get a message like "unrecognized option" or "command not found" or it
+just prints another `[root@demo ~]#` line right away, you probably typed it
+wrong. Just carefully try again.
+{: .note}
+
+As lots of text starts flying across the screen, you might be wondering, "What
+did I just do?" Well, you basically just told Arch Linux to destroy itself! And
+by now it has probably already damaged itself beyond repair. This is the kind of
+power that a superuser wields. Luckily this isn't a real computer and we just
+took a snapshot so nothing is really lost. To restore the VM, first click
+"Close" under the "Machine" menu, select "Power off the machine" and click "OK".
+This forces the VM to stop.
+
+![restore snapshot]({{ site.baseurl }}/img/snapshot.png)
+{: .pull-right}
+
+Now the right pane of the VirtualBox window shows the snapshot we just created
+for the machine. Select it and then click the "Restore Snapshot" button. It may
+ask if you want to make a snapshot of the current state, but the current state
+is terrible so you can skip that. Then just click the "Start" arrow again and
+voila! We're back in business!
+
+### Shell ###
+
+Now that the VM snapshot is restored, we're back to where we've just logged in.
+After a user logs in to Arch Linux, the kernel automatically runs a program
+called a "shell" for that user. While the kernel is a program that works like an
+interface for other programs, the shell is a program that works like an
+interface for humans. Similarly to a kernel, it runs in an infinite loop,
+waiting for input. But instead of waiting for program instructions to run, it
+waits for text commands from the user. The `[root@demo ~]#` text with the
+flashing cursor is the shell's way of saying "you just logged into the computer
+named demo as the root user and I'm waiting for a command" &ndash; this is
+called the shell's "prompt".
+
+Let's take a look at the most common type of shell command: a command to run a
+program.
+
+    # ls /
+
+<div class="note">
+Moving forward, whenever you see a line that starts with a `#` like this:
+
+    # foo bar
+
+That means, type `foo bar` and then press <kbd>Enter</kbd>.
+</div>
+
+You should see the shell print the following text, following by another flashing
+prompt:
+
+{% highlight text %}
+bin   dev  home  lost+found  opt   root  sbin  sys  usr
+boot  etc  lib   mnt         proc  run   srv   tmp  var
+{% endhighlight %}
+
+What just happened? When you input a command, the shell breaks it into "words"
+by separating the text on the spaces. So when you type `ls /` the shell really
+sees this as two separate words: `ls` and `/`. The first word of a shell command
+is the name of a program to run. Any other words are sent along to the kernel as
+the input for that program. After the program `ls` ran with the input `/`, it
+produced text as output. The shell read this output and then printed it on the
+screen for us to see!
+
+So a shell is a very easy tool for telling the computer to run programs and to
+see the result of those programs. I will explain what this program does shortly
+but we first we need to make a quick detour.
+
+### File System ###
+
+We already know how computers store data using binary and data formats, but for
+the whole book I've been kind of avoiding the topic of how exactly the data are
+organized on the computer for practical use. A data format kind of organizes
+data, but sometimes we want data without any format at all; sometimes we just
+want "a chunk of 16 bytes" or something like that.
+
+The solution is a sort of "meta-format": a data format for organizing other
+data. This format groups together other data as chunks called "files" where each
+file has a size (in bytes) and a name. This way we can have a file called "blah"
+which contains 16 bytes of plain, unformatted data and another file called
+"song.mp3" which contains 2 kilobytes of audio formatted data and we can
+distinguish between the two.
