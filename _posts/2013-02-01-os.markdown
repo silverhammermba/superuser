@@ -126,6 +126,9 @@ of my keyboard.
 
 ## UNIX ##
 
+![UNIX]({{ site.baseurl }}/img/lex.jpg)
+{: .pull-right}
+
 This virtual machine is running an OS called Arch Linux which (you might guess)
 uses Linux for its kernel. Linux is based on the kernel of an old OS called UNIX
 which was developed by AT&T in THE 70S. UNIX no longer exists as such, but it
@@ -140,6 +143,13 @@ possible, so most of the things in this chapter will not work as-is on a Windows
 computer. Despite that, Windows does have some things in common with UNIX
 _conceptually_, so the general principles from this section still apply.
 {: .note}
+
+[Cygwin] is an open source project that tries to make Windows more UNIXy. If you
+like what you learn in this chapter and are stuck with Windows, Cygwin can be a
+practical way to apply your knowledge.
+{: .deeper}
+
+[Cygwin]: https://www.cygwin.com/
 
 The screen we're at right now is telling us that the name of this computer is
 "demo" and it wants us to log in. Arch Linux is a multi-user OS, meaning that it
@@ -158,7 +168,7 @@ Last login: Wed Apr 29 14:42:50 on tty1
 {% endhighlight %}
 
 If the VM's window turns completely black, this is just the virtual monitor
-trying to save power. Clicking in the window and pressing <kbd>Enter</kbd>
+trying to save power. Clicking in the window and pressing any keyboard key
 should wake it up.
 {: .note}
 
@@ -182,6 +192,9 @@ just prints another `[root@demo ~]#` line right away, you probably typed it
 wrong. Just carefully try again.
 {: .note}
 
+![restore snapshot]({{ site.baseurl }}/img/snapshot.png)
+{: .pull-right}
+
 As lots of text starts flying across the screen, you might be wondering, "What
 did I just do?" Well, you basically just told Arch Linux to destroy itself! And
 by now it has probably already damaged itself beyond repair. This is the kind of
@@ -190,72 +203,385 @@ took a snapshot so nothing is really lost. To restore the VM, first click
 "Close" under the "Machine" menu, select "Power off the machine" and click "OK".
 This forces the VM to stop.
 
-![restore snapshot]({{ site.baseurl }}/img/snapshot.png)
-{: .pull-right}
-
 Now the right pane of the VirtualBox window shows the snapshot we just created
 for the machine. Select it and then click the "Restore Snapshot" button. It may
 ask if you want to make a snapshot of the current state, but the current state
 is terrible so you can skip that. Then just click the "Start" arrow again and
 voila! We're back in business!
 
-### Shell ###
+## Shell ##
 
 Now that the VM snapshot is restored, we're back to where we've just logged in.
 After a user logs in to Arch Linux, the kernel automatically runs a program
 called a "shell" for that user. While the kernel is a program that works like an
 interface for other programs, the shell is a program that works like an
-interface for humans. Similarly to a kernel, it runs in an infinite loop,
-waiting for input. But instead of waiting for program instructions to run, it
-waits for text commands from the user. The `[root@demo ~]#` text with the
-flashing cursor is the shell's way of saying "you just logged into the computer
-named demo as the root user and I'm waiting for a command" &ndash; this is
-called the shell's "prompt".
+interface for humans. Similar to a kernel, it runs in an infinite loop, waiting
+for input. But instead of waiting for program instructions to run, it waits for
+text commands from the user. The `[root@demo ~]#` text with the flashing cursor
+is the shell's way of saying "you just logged into the computer named demo as
+the root user and I'm waiting for a command" &ndash; this is called the shell's
+"prompt".
 
-Let's take a look at the most common type of shell command: a command to run a
-program.
-
-    # ls /
+Let's type a few commands to get a feel for what they look like. The shell can
+be pretty picky about the input you give it, so try to type things exactly as
+you see them here.
 
 <div class="note">
 Moving forward, whenever you see a line that starts with a `#` like this:
 
     # foo bar
 
-That means, type `foo bar` and then press <kbd>Enter</kbd>.
+That means, type `foo bar` after the shell prompt and then press
+<kbd>Enter</kbd>.
 </div>
 
-You should see the shell print the following text, following by another flashing
-prompt:
+<pre><code># ls -l /usr
+</code></pre><pre></code>
+# find /etc -name system.conf
+</code></pre><pre></code>
+# grep -i ps /etc/bash.bashrc
+</code></pre><pre></code>
+# cp /usr/share/licenses/common/GPL3/license.txt /root
+</code></pre><pre></code>
+# head --lines=20 /root/license.txt
+</code></pre>
 
-{% highlight text %}
-bin   dev  home  lost+found  opt   root  sbin  sys  usr
-boot  etc  lib   mnt         proc  run   srv   tmp  var
-{% endhighlight %}
+If you ever get stuck at a point where the shell won't prompt you for another
+command, you can press <kbd>Ctrl</kbd>+<kbd>C</kbd>. This "interrupts" whatever
+the shell is doing and should force the shell to show another prompt. As a last
+resort, you can always shut down the VM and restore a prior snapshot.
+{: .note}
 
-What just happened? When you input a command, the shell breaks it into "words"
-by separating the text on the spaces. So when you type `ls /` the shell really
-sees this as two separate words: `ls` and `/`. The first word of a shell command
-is the name of a program to run. Any other words are sent along to the kernel as
-the input for that program. After the program `ls` ran with the input `/`, it
-produced text as output. The shell read this output and then printed it on the
-screen for us to see!
+After each shell command you should see the shell print some text and then
+another prompt for the next command. This is sometimes called a "read, evaluate,
+print, loop" or REPL. The shell reads your command, evaluates it (i.e. does
+something on the computer with the command), prints the result of the command to
+the screen, and then loops back to the beginning to read another command.
 
-So a shell is a very easy tool for telling the computer to run programs and to
-see the result of those programs. I will explain what this program does shortly
-but we first we need to make a quick detour.
+How does the shell read these commands? First the shell looks at the "words" of
+the command by splitting up the text on spaces. So `grep -i ps
+/etc/bash.bashrc/` becomes four words: `grep`, `-i`, `ps`, `/etc/bash.bashrc`.
+The first word is the name of the command and it is usually the most significant
+word because it indicates what sort of action the shell is going to perform. So,
+for this example, the shell is performing an action called "grep". The rest of
+the words are called the "arguments" of the command and they determine the
+specific behavior of the action. The arguments that you are allowed to use
+depend entirely on the name of the command being run, which is why the five
+different commands above have completely different arguments.
 
-### File System ###
+We'll learn more about these commands and their arguments in a little bit, but
+as a quick guide, you can generally group arguments into two categories: options
+and filenames. Arguments that start with a `-` or `--` are options: they tell
+the specific command (e.g. `grep`) what sort of thing to do. Options are
+(usually) optional and the command will normally perform some default task if
+you leave them out. The other arguments (which often contain a `/`) are the
+filenames: they indicate not what the command should do, but where the command
+should get its data from. These aren't hard rules though; sometimes options
+don't start with a `-` or may contain `/` like a filename &ndash; it depends
+entirely on the specific command.
 
-We already know how computers store data using binary and data formats, but for
-the whole book I've been kind of avoiding the topic of how exactly the data are
-organized on the computer for practical use. A data format kind of organizes
-data, but sometimes we want data without any format at all; sometimes we just
-want "a chunk of 16 bytes" or something like that.
+You can think of commands like programs: they take input (their arguments)
+and produce output (the text printed by the shell) and the output depends only
+on the input.
 
-The solution is a sort of "meta-format": a data format for organizing other
-data. This format groups together other data as chunks called "files" where each
-file has a size (in bytes) and a name. This way we can have a file called "blah"
-which contains 16 bytes of plain, unformatted data and another file called
-"song.mp3" which contains 2 kilobytes of audio formatted data and we can
-distinguish between the two.
+But what's that about "getting data" from a filename. What does that even mean?
+
+## File Systems ##
+
+We already know that computers store data using binary and data formats, but how
+does a computer distinguish between different sets of data? A hard drive can
+contain data in many different formats, so how do we say "this audio data" or
+"that image data" or "the other text file" to the computer?
+
+The solution is another data format called a "file system".
+
+A **file system** is a data format which wraps other data formats such that
+specific chunks of data can be referred to. These chunks of data are called
+**files**.
+{: .definition}
+
+The file system format usually stores information associated with each file
+(such as a name for the file and its size in bytes) so that you can view a
+summary of the data at a high level without needing to examine the data format
+of each individual file. Interacting with the file system is grouped under the
+I/O category, which means it is managed by the kernel and the kernel provides an
+interface for other programs to work with the file system.
+
+Let's jump right in and explore the file system of our VM.
+
+The shell has many commands for working with the file system, but one of the
+most important is `ls`, which **l**i**s**ts files in the file system. Try the
+following command:
+
+    # ls /
+
+You should see this output:
+
+    bin   dev  home  lost+found  opt   root  sbin  sys  usr
+    boot  etc  lib   mnt         proc  run   srv   tmp  var
+
+Now let's break down what happened. From what we just learned, we know that this
+command is called `ls` and it has one argument: the filename `/`. In a \*nix
+file system, `/` is a special filename which we call the "root" of the file
+system (no relation to the `root` we logged in as). The root of the file system
+is special because it is how we refer to the entire file system at once. So in
+English we could read the previous command as "list the files on the file
+system". From the output in the shell, we can see that there are 18 files!
+
+Wait a second, only 18 files? That seems pretty small. In fact there are many
+more (thousands) of files in the file system. But rather than storing all of
+these files in the root, the file system organizes them so that we don't get
+pages and pages of output when we do `ls /`. This organization is done using
+special files called directories.
+
+A **directory** is a file which contains no data of its own but instead contains
+a list of other files on the file system.
+{: .definition}
+
+`ls` helps us out here by coloring all of the directories dark blue. That's
+where our other files are squirreled away! And, in fact, we already know how to
+list them. I didn't mention this earlier but that special `/` filename is
+actually the root _directory_. So now we really understand how `ls` works: its
+argument is the filename of a directory and it outputs the filenames of the
+files contained in that directory. To list our other files, we can just use `ls`
+again with the name of one of these other directories.
+
+But if we try this:
+
+    # ls boot
+
+we get an error
+
+    ls: cannot access boot: No such file or directory
+
+This is because we didn't specify _where_ in the file system `boot` is. Remeber
+that we found `boot` by listing `/`, so the solution is to specify that:
+
+    # ls /boot
+
+Now it works:
+
+    grub  initramfs-linux-fallback.img  initramfs-linux.img  vmlinuz-linux
+
+And again we see that `grub` is a directory, so let's see what files are in
+there! Again, we need to specify _where_ the directory is: `grub` is in `boot`,
+and `boot` is in `/` so the command is:
+
+    # ls /boot/grub
+
+Notice how we use another `/` to indicate that `grub` is in `boot`.
+
+In `/boot/grub` we see another directory `themes`. Use `ls` to see what files
+are in there, and keep going deeper if some of them are directories! You can
+also try exploring some other directories in `/`.
+{: .exercise}
+
+If `ls` prints a lot of output, you can scroll through the result by pressing
+<kbd>Shift</kbd>+<kbd>Page Up</kbd> and <kbd>Shift</kbd>+<kbd>Page Down</kbd>.
+{: .note}
+
+### Working Directories ###
+
+Now let's look at `/etc`, for example. If you `ls` it, you'll see that it has
+lots of files and lots of directories. What if we want to spend some time
+exploring `/etc`? Won't it get really tedious typing out `/etc` over and over
+again as we list different directories? Thankfully, the shell can help us out
+here. The shell lets us "go into" a directory so that when we refer to filenames
+in that directory we don't need to mention the file system location of the
+directory we're "in". This is purely for convenience, but it really saves a lot
+of effort.
+
+The command to "go into" a directory is `cd`, for **c**hange **d**irectory.
+Let's do it:
+
+    # cd /etc
+
+This doesn't print any output, but notice that now the shell prompt is different!
+
+    [root@demo etc]# _
+
+Now that we're "in" `/etc` the shell reminds us by putting the directory's
+filename in the prompt.
+
+The directory we "go into" using `cd` is called the **working directory**.
+{: .definition}
+
+So how does the working directory save us time? Well now we can use the special
+filename `.` which means "the directory we're in". So the following two commands
+are now equivalent:
+
+    # ls /etc/kernel
+    # ls ./kernel
+
+Now you can explorer deeper and deeper like so:
+
+    # cd ./kernel
+    # ls .
+
+If you ever lose track of where you are, you can use the command `pwd` (with no
+arguments) to **p**rint the **w**orking **d**irectory.
+
+    # pwd
+    /etc/kernel
+
+So now we can easily explorer deeper, but is there an easy way to go back? Yep!
+The special filename `..` refers to the directory _containg_ our working
+directory (sometimes called the "parent directory"). So if you `cd` somewhere
+you don't want to be, you can back up with just:
+
+    # cd ..
+
+Now where it gets _really_ crazy is that you can chain these special filenames
+together! So `../..` means the parent directory of our parent directory. And
+`/etc/../usr/..` is just a really convoluted way of referring to `/` (verify it
+yourself using `ls`)! Similarly `./././././.` is the same as `.`. To think about
+these chains, you can just read them from left to right, and imagine stepping
+through the file system as you do so. So when you see `ls
+/etc/kernel/../netctl/./hooks` you can think "go into `/etc`, then go into
+`kernel`, then go back to the parent directory, then go into `netctl`, then go
+into the current directory, then go into `hooks` and list the files there".
+
+A **file path** (or just **path**) is a chain of filenames in a file system that
+describe how to locate a particular file in the file system directories.
+{: .definition}
+
+Revisiting the `cd` and `ls` commands, we see that their first argument is
+really a file _path_.
+
+There is another convenience for making paths just a little nicer to work
+with. If a path starts with something like `/` or `.` or `..` then we know where
+to start looking in the file system for the other file names in the path. But
+what if a path starts with none of these things? In that case, the assumption is
+that the computer should look in the working directory. So whenever you would
+start a path with `.` you can just leave that part out because that's where the
+computer will look by default. So the following sequence of commands works just
+fine:
+
+    # cd /
+    # cd ext
+    # cd kernel
+    # ls
+
+<div class="deeper">
+From this you might assume that the command `cd` with no arguments does the same
+thing as `cd .` and changes the working directory to itself (i.e. does nothing).
+But you might be surprised to find that you end up here:
+
+    [root@demo ~]# _
+
+Where on the file system is `~`? Well a quick check with `pwd` shows us that
+we're actually in `/root`. What's going on? On a \*nix system, every user has a
+"home" directory. This is a directory that belongs to that user and is a place
+for them to put personal files. For the superuser that directory is `/root`.
+Just like `.` and `..`, `~` is a special filename meaning "my home directory"
+and you can use it in paths just as you would expect.
+
+For convenience, if you provide it no arguments, `cd` does the same as `cd ~`
+(rather than `cd .` which would be useless).
+</div>
+
+### Commands ###
+
+Now that we know how to travel about the file system, let's look again at some
+shell commands.
+
+#### man ####
+
+Perhaps the most important command of all is `man`, short for **man**ual. Arch
+Linux comes with an extensive manual describing all of the commands (among other
+things). To view the manual, simply use the `man` command with the name of the
+command you want to learn about as its argument. For example, to learn about
+`ls`:
+
+    # man ls
+
+Or to learn about `man` itself:
+
+    # man man
+
+When you view the manual, the shell switches to a different view called a
+"pager" which makes reading nicer. You can scroll up and down with
+<kbd>&uarr;</kbd>, <kbd>&darr;</kbd>, <kbd>Page Up</kbd>, <kbd>Page Down</kbd>
+and quit with <kbd>Q</kbd>.
+
+Most manual pages are split up into similar sections:
+
+ * Name: a very short description of the command
+ * Synposis: a (confusing) description of all the different ways you can enter
+   the command
+ * Description: a very long description of the command
+ * Options: describes all of the options arguments
+
+You may find that some commands organize their manuals differently or have
+fewer or more sections. Commands can differ in a lot of ways and their manuals
+often reflect that! As we learn about more commands remember that you can always
+learn way more by reading the manual.
+
+#### ls ####
+
+We already know a lot about `ls` but here are a few common features we didn't
+mention. You can list multiple directories at once just by adding them all to
+the arguments:
+
+    # ls / /etc /usr
+
+Adding the `-l` option lists one file on each line with additional information
+such as the size (in bytes) of the file and when it was last modified:
+
+    # ls -l /etc
+
+#### cat ####
+
+Commands like `ls` and `cd` care mainly about directories because they focus on
+navigating the file system. But most commands are actually designed for regular
+(non-directory) files, which is where the computer actually stores data.
+
+In particular, most commands are designed to work with human-readable text data
+(in a format like [ASCII]). `cat`, short for con**cat**enate, is one of the
+simplest such commands. You give it several files as arguments and it outputs
+the contents of the files one after another.
+
+    # cat /etc/resolv.conf /etc/nsswitch.conf
+
+[ASCII]: {{ site.baseurl }}/part2/http/
+
+#### head and tail ####
+
+For large files, `cat` can spew out way too much information. `head` is like
+`cat` but it only prints the first 10 lines of each file.
+
+    # head /etc/services
+
+In the earlier examples we saw how to use an option to print a different number
+of lines. The command `tail` is similar but prints the last few lines of each
+file.
+
+#### less ####
+
+If you have a large file that you want to read, you can use `less` which takes a
+file as its argument and shows its contents in a pager the same way `man` does.
+You can scroll up and down and quit using the same keyboard buttons as in `man`.
+
+    less /etc/makepkg.conf
+
+#### cp and mv ####
+
+Short for **c**o**p**y, `cp` takes two paths as arguments, copies the contents
+of the file at the first path, and saves the contents at the second path. If the
+second path is a path to a directory, it creates a file in that directory with
+the same filename as the original file. Otherwise it uses the second path as the
+new file name. We used this earlier to copy a text file into `/root`.
+
+Copying a file to a directory:
+
+    cp /etc/fstab /root
+
+Copying a file to a directory with a new name:
+
+    cp /etc/fstab /root/foobar
+
+`mv` is a similar command, but it **m**o**v**es the file from one path two
+another rather than creating a copy.
+
+    mv /root/foobar /root/fizzbuzz
+
