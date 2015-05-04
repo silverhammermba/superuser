@@ -413,7 +413,7 @@ are now equivalent:
     # ls /etc/kernel
     # ls ./kernel
 
-Now you can explorer deeper and deeper like so:
+Now you can explore deeper and deeper like so:
 
     # cd ./kernel
     # ls .
@@ -424,7 +424,7 @@ arguments) to **p**rint the **w**orking **d**irectory.
     # pwd
     /etc/kernel
 
-So now we can easily explorer deeper, but is there an easy way to go back? Yep!
+So now we can easily explore deeper, but is there an easy way to go back? Yep!
 The special filename `..` refers to the directory _containg_ our working
 directory (sometimes called the "parent directory"). So if you `cd` somewhere
 you don't want to be, you can back up with just:
@@ -553,14 +553,14 @@ For large files, `cat` can spew out way too much information. `head` is like
     # head /etc/services
 
 In the earlier examples we saw how to use an option to print a different number
-of lines. The command `tail` is similar but prints the last few lines of each
-file.
+of lines. The command `tail` is similar to `head` but it prints the last few
+lines of each file instead.
 
 #### less ####
 
 If you have a large file that you want to read, you can use `less` which takes a
 file as its argument and shows its contents in a pager the same way `man` does.
-You can scroll up and down and quit using the same keyboard buttons as in `man`.
+You can scroll up and down and quit using the same keyboard keys as in `man`.
 
     less /etc/makepkg.conf
 
@@ -576,7 +576,7 @@ Copying a file to a directory:
 
     cp /etc/fstab /root
 
-Copying a file to a directory with a new name:
+Copying a file to a directory but with a different file name:
 
     cp /etc/fstab /root/foobar
 
