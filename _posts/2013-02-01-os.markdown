@@ -530,6 +530,24 @@ such as the size (in bytes) of the file and when it was last modified:
 
     # ls -l /etc
 
+#### find ####
+
+If you're looking for a specific file somewhere in the file system, it can be
+pretty tedious to find it using just `ls` and `cd`. `find` simplifies this task
+by searching the file system for you. The simplest usage looks like this:
+
+    # find /etc/pacman.d
+
+which simply lists all files in the directory `pacman.d` and any files in
+directories in `pacman.d` and then any files in directories in directories in
+`pacman.d`, etc. We can then find specific files among these by adding options
+that specify what sort of file we're looking for. For example we can find all
+files that have `gpg` in the filename like so:
+
+    # find /etc/pacman.d -name '*gpg*'
+
+Read the manual if you want to know more about it.
+
 #### cat ####
 
 Commands like `ls` and `cd` care mainly about directories because they focus on
@@ -603,21 +621,3 @@ simplest patterns are plain text like `word` which just match that exact text,
 but we can also use complicated patterns like `'\bw\w*d\b'` which searches for
 any words that start with w and end with d.
 {: .deeper}
-
-#### find ####
-
-If you're looking for a specific file somewhere in the file system, it can be
-pretty tedious to find it using just `ls` and `cd`. `find` simplifies this task
-by searching the file system for you. The simplest usage looks like this:
-
-    # find /etc/pacman.d
-
-which simply lists all files in the directory `pacman.d` and any files in
-directories in `pacman.d` and then any files in directories in directories in
-`pacman.d`, etc. We can then find specific files among these by adding options
-that specify what sort of file we're looking for. For example we can find all
-files that have `gpg` in the filename like so:
-
-    # find /etc/pacman.d -name '*gpg*'
-
-Read the manual if you want to know more about it.
