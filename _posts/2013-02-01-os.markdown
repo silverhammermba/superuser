@@ -222,6 +222,10 @@ is the shell's way of saying "you just logged into the computer named demo as
 the root user and I'm waiting for a command" &ndash; this is called the shell's
 "prompt".
 
+A text interface (like the one provided by the shell) is often called a
+**command line** for the way you type commands line-by-line.
+{: .definition}
+
 Let's type a few commands to get a feel for what they look like. The shell can
 be pretty picky about the input you give it, so try to type things exactly as
 you see them here.
@@ -621,3 +625,60 @@ simplest patterns are plain text like `word` which just match that exact text,
 but we can also use complicated patterns like `'\bw\w*d\b'` which searches for
 any words that start with w and end with d.
 {: .deeper}
+
+### Files ###
+
+Now we have a broad idea of what some commands do, but we don't know _how_ they
+do these things. To learn more about them, let's look at the `type` command.
+Shell commands fall into different categories and the commands in each category
+work in different ways. `type` takes another command as its argument and outputs
+the category that command is in (if you include the `-a` option, it will tell
+you if a command is in multiple categories). Try this:
+
+    # type -a cd
+    cd is a shell builtin
+
+What this is telling us is that `cd` is a special command understood by the
+shell program. This makes sense because the working directory is something that
+the shell keeps track of for our convenience. When you type `cd foo` you are
+commanding the shell itself to change its working directory &ndash; hence "shell
+builtin". But what about other commands?
+
+    # type -a grep
+    grep is /usr/bin/grep
+
+Interesting. That looks like a file path. Let's do a little test and type these
+two commands:
+
+    # grep word /etc/inputrc /etc/nanorc
+    # /usr/bin/grep word /etc/inputrc /etc/nanorc
+
+Weird, right? We typed a file path instead of a command name, but the output was
+the same. What's going on here? When you type a command into the shell, the
+shell looks up the command name in each of the command categories it knows. So,
+for example, first it might check if `grep` is a shell builtin. If it can't find
+the command in any of its categories, the shell tries one last thing: it looks
+to see if the command name is actually the file name of a _program_. If it is,
+the shell tells the kernel the to run that program and passes along the
+arguments you provided &ndash; which is exactly what happens here with `grep`.
+The reason why we can type either `grep` or `/usr/bin/grep` is because the shell
+keeps track of which directories in the file system contain programs and
+automatically searches all of those directories for the command name we
+provided. In fact, most programs on the computer are located in `/usr/bin`
+(`bin` is short for **bin**ary, which is another word for program), so that's a
+good place to start if you want a comprehensive list of programs.
+
+<div class="deeper">
+The list of directories that the shell searches for programs is called the
+`PATH`. You can see this list with this command:
+
+    # echo $PATH
+
+The different directory paths are separated by `:`. The directories are searched
+in order and the first match is the program that is run. So if there are two
+programs with the same file name in `/usr/local/bin` and `/usr/bin`, the
+`/usr/local/bin` one will be run when you type its name as a shell command.
+
+You can always get around this search order by typing the full file path to the
+program for the shell command.
+</div>
