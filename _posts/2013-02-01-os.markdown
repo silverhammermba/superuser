@@ -235,7 +235,7 @@ Moving forward, whenever you see a line that starts with a `#` like this:
 
     # foo bar
 
-That means, type `foo bar` after the shell prompt and then press
+That means type `foo bar` after the shell prompt and then press
 <kbd>Enter</kbd>.
 </div>
 
@@ -521,6 +521,12 @@ fewer or more sections. Commands can differ in a lot of ways and their manuals
 often reflect that! As we learn about more commands remember that you can always
 learn way more by reading the manual.
 
+Additionally, many (but not all) commands accept a `--help` or `-h` option which
+prints some basic information about the command. It's worth a shot if you don't
+feel like reading the manual:
+
+    # ls --help
+
 #### ls ####
 
 We already know a lot about `ls` but here are a few common features we didn't
@@ -626,7 +632,7 @@ but we can also use complicated patterns like `'\bw\w*d\b'` which searches for
 any words that start with w and end with d.
 {: .deeper}
 
-### Files ###
+### Command Types ###
 
 Now we have a broad idea of what some commands do, but we don't know _how_ they
 do these things. To learn more about them, let's look at the `type` command.
@@ -681,4 +687,75 @@ programs with the same file name in `/usr/local/bin` and `/usr/bin`, the
 
 You can always get around this search order by typing the full file path to the
 program for the shell command.
+</div>
+
+As an example of another command category, try
+
+    # type -a ls
+    ls is aliased to `ls --color=auto'
+    ls is /usr/bin/ls
+
+An alias is another time-saving feature of the shell. What this tells us is that
+when we type `ls foo`, the shell automatically replaces that with `ls
+--color=auto foo` and then runs the program `/usr/bin/ls` with those arguments.
+This alias is what nicely colors file names for us when we list directories.
+
+<div class="exercise">
+1. Read about the following commands in the manual and with `--help` and play
+   around with them to see if you understand their basic functions:
+
+   * `echo`
+   * `rm`
+   * `mkdir`
+   * `rmdir`
+   * `uniq`
+   * `wc`
+   * `cut`
+   * `paste`
+   * `sort`
+
+   Be bold! You can always restore a VM snapshot if you accidentally break
+   something.
+
+2. The shell has an advanced feature called "redirect". This feature lets you
+   specify that a command's output should be saved to a file rather than printed
+   on the screen. This is done using a special argument that starts with `>`.
+   For example, we can list the files in `/etc` and save the text to the file
+   `/root/etcfiles` like so:
+
+       # ls /etc >/root/etcfiles
+
+   Note that the redirect argument (with `>`) is removed by the shell when it
+   passes on arguments to the program `ls`. Remember that it is the _shell
+   itself_ which redirects output to a file, not the shell command.
+
+   Using redirects, print the five file names in `/etc` that come latest
+   alphabetically and in reverse alphabetical order (this will require three
+   commands mentioned in this chapter, and two redirects). The output should be
+
+       xinet.d
+       xdg
+       X11
+       udev
+       tmpfiles.d
+
+3. We've seen how many commands read input, perform some task, and then print
+   output. Sometimes you might want to run a command to get some output, then
+   run another command with that output as its input to get new output, then run
+   another command with that new output as its input, etc. One way to do this is
+   using redirects (from the previous exercise): you run the first command and
+   redirect its output to a file, then run the second command on that file and
+   redirect its output to another file, then run the third command on _that_
+   file, etc.
+
+   The shell has another advanced feature to simplify this task, called "pipes".
+   Pipes let you send the output of one command directly to the input of another
+   command, so that you don't need to redirect any output to files along the
+   way. All you do is type both commands on the same line separated by `|`. For
+   example, since `ls` lists file names and `grep` searches for text, we can
+   search for the text "bash" in the file names of `/etc` like so:
+
+       # ls /etc | grep bash
+
+   Repeat the previous exercise using pipes instead of redirects.
 </div>

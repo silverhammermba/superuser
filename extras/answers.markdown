@@ -322,3 +322,22 @@ Not provided.
    * The GIMP is open source software made by a community of developers as part
      of the [GNU](https://www.gnu.org/) project. The official download page is
      [www.gimp.org/downloads/](http://www.gimp.org/downloads)
+
+## Operating Systems ##
+
+1. Not provided.
+2. First break down this task into discrete steps. First you want to list the
+   files, then sort them in reverse order, then print the first five. So the
+   three commands we'll use are `ls`, `sort`, and `head`.
+
+       # ls /etc >etc_files
+       # sort -r etcfiles >rev_etc_files
+       # head -n 5 rev_etc_files
+
+   Note that the file names for the redirects are unimportant. You could use
+   `file1` and `file2` if you like. Also since `ls` already lists files in
+   alphabetical order, you could instead use `ls`, `tail`, and `sort` in that
+   order.
+3. Just get rid of the file arguments and replace the redirects with pipes.
+
+       # ls /etc | sort -r | head -n 5
