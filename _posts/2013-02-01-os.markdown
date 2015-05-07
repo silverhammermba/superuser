@@ -700,6 +700,10 @@ when we type `ls foo`, the shell automatically replaces that with `ls
 --color=auto foo` and then runs the program `/usr/bin/ls` with those arguments.
 This alias is what nicely colors file names for us when we list directories.
 
+So now we know that most shell commands are in fact just names of programs that
+we want the kernel to run. In the next chapter we'll take a closer look at how
+these programs work.
+
 <div class="exercise">
 1. Read about the following commands in the manual and with `--help` and play
    around with them to see if you understand their basic functions:
