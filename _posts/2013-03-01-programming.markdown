@@ -248,9 +248,9 @@ earlier:
  3. As we mentioned earlier, `40` becomes `incl %eax` which means "increment the
     32-bit register EAX by 1". So now EAX contains a 1.
  4. And finally `CD 80` becomes `int 0x80` which is of course short for
-    **int**errupt code `0x80`. So we see that even though this program is
-    written differently it performs the exact same steps as our machine code
-    program.
+    "**int**errupt code `0x80`" i.e. a system call. So we see that even though
+    this program is written differently it performs the exact same steps as our
+    machine code program.
 
 [XOR]: {{ site.baseurl }}/part2/security/#going-binary
 
@@ -258,14 +258,14 @@ Once you're done perusing your assembly code, press <kbd>Ctrl</kbd>+<kbd>X</kbd>
 to exit `nano`. Getting your assembly to run is a little more involved than it
 was for your machine code. You see, the CPU _only_ understands machine code, so
 we need to translate our assembly back into machine code before we can run it.
-This is a two stage process. First we turn out assembly into an "object file"
+This is a two stage process. First we turn our assembly into an "object file"
 using the `as` command (short for **as**semble):
 
     # as -o sevn.o sevn.s
 
 The `-o` option tells `as` to save the object file with the file name `sevn.o`.
-Next use the `ld` command (short for **l**ink e**d**itor) to "link" the object
-file and create the executable:
+Next we use the `ld` command (short for **l**ink e**d**itor) to "link" the
+object file and create the executable:
 
     # ld -s -o sevn2 sevn.o
 
@@ -280,3 +280,17 @@ just removes some unnecessary information from the resulting executable file.
     7
 
 Success!
+
+Open up `sevn2` in `hexedit`. There are a lot more bytes here now but again most
+of it is formatting. That's because `as` and `ld` included more optional parts
+of the ELF format that we left out when we wrote the machine code by hand. See
+if you can find the familiar machine code instructions in this executable file.
+{: .exercise}
+
+## Compilers ##
+
+While many programmers still write assembly today, it has many drawbacks. First
+of all the instructions are processor-specific. So a program written in assembly
+will only work on certain types of computers. Secondly, while it is more human
+readable than machine code, assembly is still not very understandable and thus
+it can be notoriously difficult to write in it without making mistakes.
