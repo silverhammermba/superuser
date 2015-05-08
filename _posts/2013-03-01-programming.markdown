@@ -219,7 +219,10 @@ use a program called `nano`, which is a text editor. Just type
 
 This brings up a simple text editing interface, somewhat similar to `hexedit`.
 You can type to add text and use backspace and the arrow keys as you would
-expect. Type out the following text:
+expect.
+
+<div class="exercise">
+Type out the following text:
 
     .global _start
     .text
@@ -229,11 +232,13 @@ expect. Type out the following text:
     incl %eax
     int $0x80
 
-Once you've done that, press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a
-file. Type `sevn.s` for the filename and press <kbd>Enter</kbd>. Now let's
-look at what this assembly says. Like the machine code, we can ignore the
-beginning because it's just part of the assembly format. The last four lines are
-the actual instructions and they correspond to the four instructions we saw
+Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a file. Type
+`sevn.s` for the filename and press <kbd>Enter</kbd>.
+</div>
+
+Now let's look at what this assembly says. Like the machine code, we can ignore
+the beginning because it's just part of the assembly format. The last four lines
+are the actual instructions and they correspond to the four instructions we saw
 earlier:
 
  1. `B3 07` has become `movb $7,%bl`, which means "**mov**e the **b**yte 7 into
@@ -291,6 +296,8 @@ if you can find the familiar machine code instructions in this executable file.
 
 While many programmers still write assembly today, it has many drawbacks. First
 of all the instructions are processor-specific. So a program written in assembly
-will only work on certain types of computers. Secondly, while it is more human
-readable than machine code, assembly is still not very understandable and thus
-it can be notoriously difficult to write in it without making mistakes.
+will only work with certain CPUs. If you want to run your program on other
+computers with different CPUs, you need to rewrite it instructions that that
+computer understands. Secondly, while it is more human readable than machine
+code, assembly is still not very understandable and thus it can be notoriously
+difficult to write it without making mistakes.
