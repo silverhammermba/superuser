@@ -129,7 +129,7 @@ If everything went according to plan, your shell will simply print another
 prompt. That's because the shell normally doesn't display the exit code of the
 program it runs and our program doesn't have any instruction to print anything.
 To check that the program actually worked, we can run another command which
-prints the exit code of the previous command:
+prints the exit code of the last command that was entered:
 
     # echo $?
     7
@@ -236,15 +236,21 @@ Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a file. Type
 `sevn.s` for the filename and press <kbd>Enter</kbd>.
 </div>
 
+If you want to check your work again:
+
+    # md5sum sevn.s
+    bedeba8cdfade20ece6a3e37da749435  sevn.s
+
 Now let's look at what this assembly says. Like the machine code, we can ignore
 the beginning because it's just part of the assembly format. The last four lines
 are the actual instructions and they correspond to the four instructions we saw
 earlier:
 
  1. `B3 07` has become `movb $7,%bl`, which means "**mov**e the **b**yte 7 into
-    register BL". In other words, set BL to 7. Assembly language may not be
-    "human readable" per se, but at least we can see the names of the registers
-    in the instructions now!
+    register BL". The `$` indicates that `7` is a literal, numerical value. The
+    `%` indicates that `bl` is the name of a register. In other words, set BL to 7.
+    Assembly language may not be "human readable" per se, but at least we can
+    see the names of the registers in the instructions now!
  2. `31 C0` has become `xorl %eax,%eax`. Oddly, assembly doesn't have an
     instruction for setting a register to 0. But we can achieve the same effect
     by [XOR]ing a register with itself. So `xorl %eax,%eax` says "**XOR** EAX
@@ -252,8 +258,8 @@ earlier:
     So this instruction sets all 32 bits of EAX to 0.
  3. As we mentioned earlier, `40` becomes `incl %eax` which means "increment the
     32-bit register EAX by 1". So now EAX contains a 1.
- 4. And finally `CD 80` becomes `int 0x80` which is of course short for
-    "**int**errupt code `0x80`" i.e. a system call. So we see that even though
+ 4. And finally `CD 80` becomes `int $0x80` which is of course short for
+    "**int**errupt code 0x80" i.e. a system call. So we see that even though
     this program is written differently it performs the exact same steps as our
     machine code program.
 
@@ -286,18 +292,156 @@ just removes some unnecessary information from the resulting executable file.
 
 Success!
 
-Open up `sevn2` in `hexedit`. There are a lot more bytes here now but again most
-of it is formatting. That's because `as` and `ld` included more optional parts
-of the ELF format that we left out when we wrote the machine code by hand. See
-if you can find the familiar machine code instructions in this executable file.
+<div class="deeper">
+The reason why this is a two stage process is actually to save us time when we
+make really big, complicated programs. Suppose we're working on a team to make a
+program and we want different team members to work on different parts of the
+program. We could all work on our assembly code separately, then put our code
+together in one big assembly file, and create the executable. But the big
+downside of this is that if later on we want to change even one instruction, we
+have to re-assemble the _whole_ program!
+
+What we can do instead is write our assembly separately _and_ translate our
+assembly into machine code separately. The resulting pieces of machine code
+aren't programs themselves, so instead we call them "object files". Then we user
+another program, the link editor, to "link" our object files together into an
+actual program. That way if we want to change an instruction later, we only have
+to re-assemble that one piece and then re-link the pieces rather than re-assembe
+_everything_.
+</div>
+
+Open up `sevn2` in `hexedit`. There are a lot more bytes than before but again
+most of it is formatting. That's because `as` and `ld` included more optional
+parts of the executable format that we left out when we wrote the machine code
+by hand. However the same familiar machine code instructions should be nestled
+in here somewhere. See if you can find them!
 {: .exercise}
 
 ## Compilers ##
 
-While many programmers still write assembly today, it has many drawbacks. First
+While some programmers still write assembly today, it has many drawbacks. First
 of all the instructions are processor-specific. So a program written in assembly
 will only work with certain CPUs. If you want to run your program on other
-computers with different CPUs, you need to rewrite it instructions that that
-computer understands. Secondly, while it is more human readable than machine
-code, assembly is still not very understandable and thus it can be notoriously
-difficult to write it without making mistakes.
+computers with different CPUs, you need to rewrite it in instructions that that
+computer understands. Second, while it is more human readable than machine code,
+assembly is still not very understandable and thus it can be notoriously
+difficult to write it without making mistakes. Third, assembly can be very
+tedious to write. Seemingly simple tasks can often take a surprising number of
+instructions to perform.
+
+First notice how we improved the difficult task of writing in machine code by
+using a program which translates a simpler style of writing into machine code
+for us. That word "translate" is especially appropriate here because we can
+think of machine code as the "language" of CPUs whereas assembly is a "language"
+for humans. Like normal languages, we can express similar ideas in both machine
+code and assembly and translate between them in order for humans to
+"communicate" these ideas to the CPU.
+
+So to further improve on our program creation process, we can use an even _more_
+understandable language and a program which translates _that_ language into
+assembly (and then the assembly into machine code).
+
+A **compiler** is a program which translates from one programming language to
+another (usually simpler) programming language.
+{: .definition}
+
+"Simple" here refers to the complexity of the language itself, not the
+difficulty of using the language. A human language with only four words would be
+a very simple language, but it would be very difficult to use it to communicate
+practically. In many ways, a more "complex" programming language is actually
+easier for humans to understand.
+{: .note}
+
+So how does a compiler solve the problems we had with assembly? First, we can
+program our compiler to translate our language into different assembly code
+depending on the CPU we need to run the program on. This way we can write a
+program once and the compiler will help us run that program on many kinds of
+computers. Second, we can replace confusing assembly instructions with more
+human-readable ones and let the compiler translate into assembly for us. Third,
+we can identify common _patterns_ of assembly instructions and replace these
+with human-readable instructions that the compiler will translate back into the
+corresponding pattern of assembly.
+
+Another benefit of compiling a language into assembly is that we can make the
+language _more_ restrictive. This might sound like a bad thing, but consider
+this: suppose we left out that `movb $7,%eax` instruction from our assembly
+program. Our program would still run, the CPU would still follow the
+instructions, and the kernel would still look at EAX and BL to exit our program.
+But what would the exit code be? Maybe some CPUs set all the registers to 0
+before running a program, so it would be 0. Maybe some set the registers to 42,
+so that would be the exit code. Or maybe the CPU doesn't touch the registers and
+whatever the last program happened to leave in register BL will still be there.
+Who knows? This is what programmers call "undefined behavior": when the result
+of running a program is outside of our control. It's one of the worst things
+that can happen to a program! Since a compiler creates the assembly code, it can
+help us with this problem by refusing to translate instructions that would lead
+to undefined behavior. By being more restrictive, compilers can help us create
+better programs.
+
+### C ###
+
+The compiled language we're going to learn about is one of the oldest and most
+popular languages: C.
+
+"C" seems like an odd name for a language, but it has some interesting history
+behind it that once again demonstrates that classic computer scientist humor. In
+1966, a Cambridge Ph.D. student designed a compiled language that he called the
+Basic Combined Programming Language, or BCPL. A few years later in 1969 at AT&T,
+the creators of UNIX decided that they should rewrite UNIX (which was entirely
+written in assembly) using a compiled language. They liked some features of BCPL
+but found the language too complicated, so they designed a simpler version which
+they called just "B" (get it?). But as computer technology developed, they found
+that B was unable to take advantage of the latest innovations so in 1972 they
+designed a new language as its successor: C (haha!). By 1973 UNIX was almost
+entirely written in C. Today, C is still considered the go-to language for
+large, complicated programs like operating systems.
+{: .deeper}
+
+Like assembly, C is written as plain text, but unlike assembly it no longer
+clearly corresponds to the instructions that will be run by the CPU. Now let's
+recreate our `sevn` program in C.
+
+<div class="exercise">
+Open up `nano` again and type this:
+
+    int main()
+    {
+        return 7;
+    }
+
+Save the file as `sevn.c`. Note that the indentation is not important, it just
+improves readability. You could write this all on one line if you like: `int
+main(){return 7;}`
+</div>
+
+By now we shouldn't really need a checksum to check our work. Now we compile our
+code using `gcc` (think of it as the **G**NU **C** **c**compiler):
+
+    # gcc -o sevn3 sevn.c
+
+Where we again use `-o` to specify the output file. `gcc` is nice enough to
+compile into assembly, assemble into machine code, and link into an executable
+all in one command (but we could split up these steps if we wanted to)! And
+finally
+
+    # ./sevn3
+    # echo $?
+    7
+
+Woop woop! Now open up `sevn3` in `hexedit`. What the heck? How did our tiny
+program become so huge? One problem with compiled languages in general is that
+they often make assumptions about the types of programs you will write. In this
+case, `gcc` has included lots of extra information and instructions that our
+program doesn't need because it's so incredibly simple, but most other programs
+will need. And don't even bother looking for our familiar instructions in here
+&ndash; they could be scattered all over the place or replaced with slightly
+different instructions that have the same effect. With compiled languages you
+just have to trust that the compiler will produce the right instructions and not
+look at how the sausage is made. We got the right exit code, so all is well in
+the world.
+
+Sometimes &ndash; very rarely &ndash; you [do need to care][bug] how the
+compiler creates instructions.
+{: .deeper}
+
+[bug]: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=323
