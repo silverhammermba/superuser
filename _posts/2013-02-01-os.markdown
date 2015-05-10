@@ -115,8 +115,9 @@ This is what success looks like. The VM has booted successfully!
 <div class="note">
 ![mouse capture]({{ site.baseurl }}/img/capture.png)
 {: .pull-right}
+If your VM window doesn't look like that. Try hitting <kbd>Enter</kbd>.
 
-If you lose your mouse cursor at any point, it's probably because of a
+Also, if you lose your mouse cursor at any point, it's probably because of a
 VirtualBox feature called "mouse capture". This traps the mouse in the VM so
 that you don't accidentally click outside of the VM while you're trying to work.
 To get your mouse back, you can press the button indicated in the lower right of
@@ -380,8 +381,9 @@ are in there, and keep going deeper if some of them are directories! You can
 also try exploring some other directories in `/`.
 {: .exercise}
 
-If `ls` prints a lot of output, you can scroll through the result by pressing
-<kbd>Shift</kbd>+<kbd>Page Up</kbd> and <kbd>Shift</kbd>+<kbd>Page Down</kbd>.
+If any command prints a lot of output, you can scroll through the result by
+pressing <kbd>Shift</kbd>+<kbd>Page Up</kbd> and <kbd>Shift</kbd>+<kbd>Page
+Down</kbd>.
 {: .note}
 
 ### Working Directories ###
@@ -703,6 +705,11 @@ This alias is what nicely colors file names for us when we list directories.
 So now we know that most shell commands are in fact just names of programs that
 we want the kernel to run. In the next chapter we'll take a closer look at how
 these programs work.
+
+Another convenient feature of the shell is that you can press <kbd>&uarr;</kbd>
+and <kbd>&darr;</kbd> to scroll through previous commands. This is helpful if
+you want to correct a typo in a command you ran.
+{: .note}
 
 <div class="exercise">
 1. Read about the following commands in the manual and with `--help` and play

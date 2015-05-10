@@ -190,7 +190,7 @@ people actually write machine code by hand like we just did. I just wanted to
 demonstrate that you can type out instructions as bytes and make the computer do
 things.
 
-Try modifying the `sevn` program to have a different exit code.
+Modify the `sevn` program to have a different exit code.
 {: .exercise}
 
 ## Assembly ##
@@ -398,7 +398,7 @@ large, complicated programs like operating systems.
 {: .deeper}
 
 Like assembly, C is written as plain text, but unlike assembly it no longer
-clearly corresponds to the instructions that will be run by the CPU. Now let's
+clearly corresponds to the instructions that will be run by the CPU. Let's
 recreate our `sevn` program in C.
 
 <div class="exercise">
@@ -414,8 +414,9 @@ improves readability. You could write this all on one line if you like: `int
 main(){return 7;}`
 </div>
 
-By now we shouldn't really need a checksum to check our work. Now we compile our
-code using `gcc` (think of it as the **G**NU **C** **c**compiler):
+By now things are readable enough that we shouldn't really need a checksum to
+check our work. Once your code is written, compile it using `gcc` (think of it
+as the **G**NU **C** **c**compiler):
 
     # gcc -o sevn3 sevn.c
 
@@ -445,3 +446,7 @@ compiler creates instructions.
 {: .deeper}
 
 [bug]: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=323
+
+Now that we're using C, our simple 7 program just doesn't demonstrate the
+capabilities of the programming language. In particular, the language makes it
+much easier to reuse pieces of a program multiple times.
