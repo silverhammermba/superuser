@@ -15,10 +15,10 @@ program instructions and take a glimpse at how real-world programs are made.
 ## Machine Code ##
 
 At the lowest, most fundamental level we have so-called machine code. Machine
-code is the true instructions understood by the CPU. The CPU reads instructions
-as just pure binary data sent along electrical circuits as little electrical
-pulses representing the ones and zeros. We are going to create a very simple
-program in machine code.
+code is the basic instructions understood by the CPU. The CPU reads instructions
+as pure binary data sent along electrical circuits as little electrical pulses
+representing the ones and zeros. We are going to create a very simple program in
+machine code.
 
 First you need to understand that while the kernel could technically run any
 sort of program on the computer, it expects certain standard behavior from most
@@ -448,5 +448,91 @@ compiler creates instructions.
 [bug]: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=323
 
 Now that we're using C, our simple 7 program just doesn't demonstrate the
-capabilities of the programming language. In particular, the language makes it
-much easier to reuse pieces of a program multiple times.
+capabilities of the programming language.
+
+### Paradigms ###
+
+One of the big advantages of using a high-level programming language like C (as
+opposed to a low-level language like assembly or machine code), is that we are
+no longer constrained to thinking about the particular physical components of
+the computer and how they interact. Instead, the programming language allows
+us to express our ideas in a completely different way that might have no obvious
+connection with the inner workings of the computer. As long as the compiler can
+translate these ideas into a language that the computer _does_ understand, we're
+okay.
+
+For example, suppose we wanted to make a program that stores a list of numbers
+for us. If we were to write this program in assembly we would have to think hard
+about where to store these numbers. If the list is short (like 5 or 10 numbers)
+we might be able to get away with storing them in the CPU's registers. But if
+the list is long (like 100 numbers) then there aren't enough registers so we'll
+need to store them elsewhere like in the RAM or HDD. We also have to think hard
+about what _kinds_ of numbers we're storing because positive integers, negative
+integers, and decimal numbers all have different binary formats. If we forget
+which numbers of which formats were stored where, we'll be in trouble. But with
+a language like C, we can just write something like this:
+
+    int x = -7;
+    unsigned int y = 1337;
+    double z = 1.5;
+
+Here we're telling the compiler to store three numbers: an integer (`int`) which
+can be positive or negative, a positive integer (`unsigned int`), and a decimal
+number (`double`). We also give these numbers names (x, y, and z) so that we can
+refer to them later in the program. But where will the compiler tell the
+computer to store these numbers? We don't need to care!
+
+When you write `int x = -7;` you are telling the C compiler to store that number
+_somewhere_ on the computer. When the compiler turns your C code into assembly,
+it can examine how that number is used in your program and how the hardware of
+the computer works, and it can decide to store the number in a different
+location depending on the situation. For example if it sees that the number is
+just being used as the exit code for the program, it might decide to put it
+right in register BL. Or if the number is being used alongside many other
+numbers, it might decide to store it in the RAM. Or if the compiler sees that
+you don't use the number anywhere in your program (maybe you put it in by
+accident) it might not store the number anywhere at all! So when you write `int
+x = -7;` you really can't know for sure how that will correspond to actual
+machine code; instead you must think in more abstract terms. You can imagine C
+putting the number -7 in a box for you and labelling it "x". The compiler
+handles taking the number out of the box or putting a different number in the
+box, so you don't need to think about how that box corresponds to low-level
+machine code.
+
+This more abstract way of thinking about a program is what we call a programming
+paradigm.
+
+A **programming paradigm** is an abstract way of structuring programs. In other
+words, a programming paradigm is a certain way of breaking down a problem in
+such a way that a program can be created to solve it.
+{: .definition}
+
+To make this concept more concrete, imagine that you are a carpenter. When you
+start a new carpentry project, how do you break down the project in your mind?
+One way would be to think of the project in terms of steps: first you build a
+frame, then you fill in the rest of the structure, then you add smaller details,
+then you paint and finish the wood. And some of these steps could consist of
+sub-steps, so to paint and finish the wood, first you sand the surface, then you
+apply a coat of paint, then you let it dry, then a coat of varnish, etc. Another
+approach might be to think of the project in terms of components, so you break
+down the project into separate pieces (walls, floor, supports, etc.) and
+determine how the pieces will connect. Then you can finish each piece and attach
+them all. These approaches are very different but both are valid for any sort of
+carpentry project (maybe some projects fit one approach better, however). We
+could call these different _carpentry paradigms_.
+
+Programming paradigms are very similar. They affect only how we humans think
+about programs; the compiler always ends up translating the program into machine
+code for the CPU. So it's entirely possible that we could write a program two
+different ways in two different programming languages that follow two different
+programming paradigms, but both end up being compiled to the exact same machine
+code &ndash; just like a carpenter can build the same project two different
+ways.
+
+The C programming language follows a "procedural" programming paradigm. This
+paradigm is kind of like the step-by-step approach for carpentry: it breaks down
+every program into "procedures", where each procedure is a list of steps for the
+computer to follow. The twist is that a step in a procedure can be "do the steps
+in this other procedure"! Again, this is like how a step in a carpentry project
+can be broken down into a sub-steps: the steps in a procedure can themselves be
+sub-procedures.
