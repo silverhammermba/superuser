@@ -535,4 +535,53 @@ every program into "procedures", where each procedure is a list of steps for the
 computer to follow. The twist is that a step in a procedure can be "do the steps
 in this other procedure"! Again, this is like how a step in a carpentry project
 can be broken down into a sub-steps: the steps in a procedure can themselves be
-sub-procedures.
+sub-procedures. Here's a bigger C program to demonstrate the power of this
+paradigm:
+
+{% highlight c %}
+#include <stdio.h>
+
+void multiply_and_print(int x, int y)
+{
+    int z = x * y;
+    printf("The answer is %d\n", z);
+}
+
+int main()
+{
+    multiply_and_print(3, 4);
+    multiply_and_print(-31, 57);
+
+    return 0;
+}
+{% endhighlight %}
+
+As in previous chapters the C code is colored simply to make it easier to read.
+{: .note}
+
+If you want to, you can use `nano` to create the file `mult.c` with this text
+then compile and run it like so:
+
+    # gcc -o mult mult.c
+    # ./mult
+    The answer is 12
+    The answer is -1767
+
+So this is a sort of calculator program that multiplies numbers and shows us the
+answer. Quite a step up from our previous programs! To understand how this
+program works, we can first identify the _procedures_ that are defined in the
+program. There are two: `multiply_and_print` and `main`. In C, a procedure with
+a name of `main` is special because it is the steps of this procedure which are
+performed when you run the program. So we can think of our program as performing
+three basic steps:
+
+ 1. `multiply_and_print(3, 4)`
+ 2. `multiply_and_print(-31, 57)`
+ 3. `return 0`
+
+And we see that the first two steps feature the name of the other procedure.
+This is what we described earlier: running another procedure from within a
+procedure. So the first step of our `main` procedure runs all of the steps of
+the `multiply_and_print` procedure, then the seconds step runs those steps
+again, then it does the `return 0` step. What goes on in `multiply_and_print`
+and what do those numbers after it do?
