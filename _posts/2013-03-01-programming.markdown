@@ -584,4 +584,11 @@ This is what we described earlier: running another procedure from within a
 procedure. So the first step of our `main` procedure runs all of the steps of
 the `multiply_and_print` procedure, then the seconds step runs those steps
 again, then it does the `return 0` step. What goes on in `multiply_and_print`
-and what do those numbers after it do?
+and what do those numbers do? Procedures in C are a bit like commands in the
+shell: they can take arguments to change their behavior. In this case, the
+definition of the `multiply_and_print` procedure says that it needs two
+integers as arguments, which it names x and y. These are the numbers that we
+will multiply and print. So when you see `multiply_and_print(3, 4)` you can
+imagine the compiler putting 3 and 4 into boxes labelled x and y in the
+`multiply_and_print` procedure. Then whenever it sees x and y in the steps of
+that procedure, it can look in the boxes to see what values are in the boxes.
