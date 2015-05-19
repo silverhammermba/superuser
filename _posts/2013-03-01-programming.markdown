@@ -516,18 +516,18 @@ sub-steps, so to paint and finish the wood, first you sand the surface, then you
 apply a coat of paint, then you let it dry, then a coat of varnish, etc. Another
 approach might be to think of the project in terms of components, so you break
 down the project into separate pieces (walls, floor, supports, etc.) and
-determine how the pieces will connect. Then you can finish each piece and attach
-them all. These approaches are very different but both are valid for any sort of
-carpentry project (maybe some projects fit one approach better, however). We
-could call these different _carpentry paradigms_.
+determine how the pieces will connect. Then you can finish each piece
+individually and attach them all. These approaches are very different but both
+are valid for any sort of carpentry project (maybe some projects fit one
+approach better, however). We could call these different _carpentry paradigms_.
 
 Programming paradigms are very similar. They affect only how we humans think
 about programs; the compiler always ends up translating the program into machine
 code for the CPU. So it's entirely possible that we could write a program two
 different ways in two different programming languages that follow two different
 programming paradigms, but both end up being compiled to the exact same machine
-code &ndash; just like a carpenter can build the same project two different
-ways.
+code &ndash; just like a carpenter could build a birdhouse step-by-step or as
+separate components and get the same result either way.
 
 The C programming language follows a "procedural" programming paradigm. This
 paradigm is kind of like the step-by-step approach for carpentry: it breaks down
@@ -559,7 +559,7 @@ int main()
 As in previous chapters the C code is colored simply to make it easier to read.
 {: .note}
 
-If you want to, you can use `nano` to create the file `mult.c` with this text
+If you want to, you can use `nano` to create the file `mult.c` with that text
 then compile and run it like so:
 
     # gcc -o mult mult.c
@@ -591,4 +591,15 @@ integers as arguments, which it names x and y. These are the numbers that we
 will multiply and print. So when you see `multiply_and_print(3, 4)` you can
 imagine the compiler putting 3 and 4 into boxes labelled x and y in the
 `multiply_and_print` procedure. Then whenever it sees x and y in the steps of
-that procedure, it can look in the boxes to see what values are in the boxes.
+that procedure, it can look into those boxes to see what values we passed to the
+procedure. `multiply_and_print` has just two steps:
+
+ 1. `int z = x * y`
+ 2. `printf("The answer is %d\n", z)`
+
+The first step is similar to the code we saw earlier for storing numbers. It
+makes a new imaginary box named "z" for storing an integer, and in that box it
+stores the result of multiplying x and y. The second step looks a little weird,
+but it actually has some things in common with the first two steps
+from the `main` procedure. It has a name and then some parentheses and a
+comma... it's another procedure with arguments!
