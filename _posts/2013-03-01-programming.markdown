@@ -16,9 +16,8 @@ program instructions and take a glimpse at how real-world programs are made.
 
 At the lowest, most fundamental level we have so-called machine code. Machine
 code is the basic instructions understood by the CPU. The CPU reads instructions
-as pure binary data sent along electrical circuits as little electrical pulses
-representing the ones and zeros. We are going to create a very simple program in
-machine code.
+as pure binary data. We are going to create a very simple program in machine
+code by creating a file containing such binary data.
 
 First you need to understand that while the kernel could technically run any
 sort of program on the computer, it expects certain standard behavior from most
@@ -41,13 +40,13 @@ number of bytes.
 
     # dd if=/dev/zero of=sevn bs=1 count=91
 
-This creates the 91 byte file `sevn` by copying the contents of the file
+This creates the 91 byte file `sevn` by copying the first 91 bytes of the file
 `/dev/zero`, which is a special file containing just zero bytes. Now we can edit
 the bytes of this file:
 
     # hexedit sevn
 
-And you will see a screen like this:
+You will see a screen like this:
 
     00000000   00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00   ................
     00000010   00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00   ................
@@ -61,11 +60,11 @@ simply shows us byte numbers in hexadecimal to keep track of where we are the in
 the file. So the first byte of the first line is byte `0x0`, the first byte of
 the second line is byte `0x10`, the first byte of the third line is `0x20`, etc.
 The middle column is the actual bytes of the file in hexadecimal. Remember that
-in hexadecimal a byte stores values from `0x0` to `0xFF`, so each byte is
+in hexadecimal a byte stores values from `0x00` to `0xFF`, so each byte is
 represented here by two characters. The spacing in between the bytes helps us
 visualize them in groups of 4 or 8. There are 16 bytes on each line. The third
-column is also the bytes of the file but displayed as [ASCII] characters. If a
-byte value doesn't have a printable ASCII character (such as a number or
+shows the same bytes as the middle column but displayed as [ASCII] characters.
+If a byte value doesn't have a printable ASCII character (such as a number or
 letter), it just prints a `.`.
 
 [ASCII]: {{ site.baseurl }}/part2/http/#text
@@ -99,7 +98,7 @@ then press <kbd>Y</kbd> to confirm and exit `hexedit`.
 Now I realize that it was really tedious to type in all of those bytes and you
 might have made a typo or misread something. So let's check our work. For this
 we can use the command `md5sum`, which prints a [checksum][cs] of the bytes in
-our file!
+our file:
 
     # md5sum sevn
     21deab879a3943cb640e7bfc9b702ca2  sevn
@@ -200,7 +199,7 @@ slightly more readable style called "assembly". Writing machine code is
 difficult because you have to keep in mind all of the technical details of the
 computer and the way its registers and instructions interact, but it also has an
 additional layer of difficulty because every instruction is encoded in binary.
-How do you remember that `CD 80` means "set EAX to 0"? That's just not easy to
+How do you remember that `31 C0` means "set EAX to 0"? That's just not easy to
 understand.
 
 Assembly improves this one aspect of machine code by letting us write (slightly)
@@ -236,11 +235,6 @@ Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a file. Type
 `sevn.s` for the filename and press <kbd>Enter</kbd>.
 </div>
 
-If you want to check your work again:
-
-    # md5sum sevn.s
-    bedeba8cdfade20ece6a3e37da749435  sevn.s
-
 Now let's look at what this assembly says. Like the machine code, we can ignore
 the beginning because it's just part of the assembly format. The last four lines
 are the actual instructions and they correspond to the four instructions we saw
@@ -266,11 +260,16 @@ earlier:
 [XOR]: {{ site.baseurl }}/part2/security/#going-binary
 
 Once you're done perusing your assembly code, press <kbd>Ctrl</kbd>+<kbd>X</kbd>
-to exit `nano`. Getting your assembly to run is a little more involved than it
-was for your machine code. You see, the CPU _only_ understands machine code, so
-we need to translate our assembly back into machine code before we can run it.
-This is a two stage process. First we turn our assembly into an "object file"
-using the `as` command (short for **as**semble):
+to exit `nano`. If you want to check your work again:
+
+    # md5sum sevn.s
+    bedeba8cdfade20ece6a3e37da749435  sevn.s
+
+Getting your assembly to run is a little more involved than it was for your
+machine code. You see, the CPU _only_ understands machine code, so we need to
+translate our assembly back into machine code before we can run it. This is a
+two stage process. First we turn our assembly into an "object file" using the
+`as` command (short for **as**semble):
 
     # as -o sevn.o sevn.s
 
@@ -281,10 +280,10 @@ object file and create the executable:
     # ld -s -o sevn2 sevn.o
 
 Again, the `-o` option tells `ld` to save the executable file with the file name
-`sevn2` (so we can compare it with our machine code version). The `-s` option
-just removes some unnecessary information from the resulting executable file.
-`ld` is even nice enough to mark the file as executable, so we don't have to
-`chmod` it like we did before. So now:
+`sevn2` (we use a different name so we can compare it with our machine code
+version). The `-s` option just removes some unnecessary information from the
+resulting executable file. `ld` is even nice enough to mark the file as
+executable for us, so we don't have to `chmod` it like we did before. So now:
 
     # ./sevn2
     # echo $?
@@ -303,7 +302,7 @@ have to re-assemble the _whole_ program!
 
 What we can do instead is write our assembly separately _and_ translate our
 assembly into machine code separately. The resulting pieces of machine code
-aren't programs themselves, so instead we call them "object files". Then we user
+aren't programs themselves, so instead we call them "object files". Then we use
 another program, the link editor, to "link" our object files together into an
 actual program. That way if we want to change an instruction later, we only have
 to re-assemble that one piece and then re-link the pieces rather than re-assembe
@@ -330,12 +329,12 @@ tedious to write. Seemingly simple tasks can often take a surprising number of
 instructions to perform.
 
 First notice how we improved the difficult task of writing in machine code by
-using a program which translates a simpler style of writing into machine code
-for us. That word "translate" is especially appropriate here because we can
-think of machine code as the "language" of CPUs whereas assembly is a "language"
-for humans. Like normal languages, we can express similar ideas in both machine
-code and assembly and translate between them in order for humans to
-"communicate" these ideas to the CPU.
+using a program which translates a more understandable style of writing into
+machine code for us. That word "translate" is especially appropriate here
+because we can think of machine code as the "language" of CPUs whereas assembly
+is a "language" for humans. Like normal languages, we can express similar ideas
+in both machine code and assembly and translate between them in order for humans
+to "communicate" these ideas to the CPU.
 
 So to further improve on our program creation process, we can use an even _more_
 understandable language and a program which translates _that_ language into
@@ -355,8 +354,8 @@ easier for humans to understand.
 So how does a compiler solve the problems we had with assembly? First, we can
 program our compiler to translate our language into different assembly code
 depending on the CPU we need to run the program on. This way we can write a
-program once and the compiler will help us run that program on many kinds of
-computers. Second, we can replace confusing assembly instructions with more
+program once and the compiler will translate that program to run on many kinds
+of computers. Second, we can replace confusing assembly instructions with more
 human-readable ones and let the compiler translate into assembly for us. Third,
 we can identify common _patterns_ of assembly instructions and replace these
 with human-readable instructions that the compiler will translate back into the
@@ -390,11 +389,11 @@ Basic Combined Programming Language, or BCPL. A few years later in 1969 at AT&T,
 the creators of UNIX decided that they should rewrite UNIX (which was entirely
 written in assembly) using a compiled language. They liked some features of BCPL
 but found the language too complicated, so they designed a simpler version which
-they called just "B" (get it?). But as computer technology developed, they found
-that B was unable to take advantage of the latest innovations so in 1972 they
-designed a new language as its successor: C (haha!). By 1973 UNIX was almost
-entirely written in C. Today, C is still considered the go-to language for
-large, complicated programs like operating systems.
+they called just "B". But as computer technology developed, they found that B
+was unable to take advantage of the latest computer innovations so in 1972 they
+designed a new language as its successor: C. By 1973 UNIX was almost entirely
+written in C. Today, C is still considered the go-to language for large,
+complicated programs like operating systems.
 {: .deeper}
 
 Like assembly, C is written as plain text, but unlike assembly it no longer
