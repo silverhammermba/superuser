@@ -445,7 +445,7 @@ these chains, you can just read them from left to right, and imagine stepping
 through the file system as you do so. So when you see `ls
 /etc/kernel/../netctl/./hooks` you can think "go into `/etc`, then go into
 `kernel`, then go back to the parent directory, then go into `netctl`, then go
-into the current directory, then go into `hooks` and list the files there".
+into the working directory, then go into `hooks` and list the files there".
 
 A **file path** (or just **path**) is a chain of filenames in a file system that
 describe how to locate a particular file in the file system directories.
@@ -454,9 +454,10 @@ describe how to locate a particular file in the file system directories.
 Revisiting the `cd` and `ls` commands, we see that their first argument is
 really a file _path_.
 
-There is another convenience for making paths just a little nicer to work
-with. If a path starts with something like `/` or `.` or `..` then we know where
-to start looking in the file system for the other file names in the path. But
+There is another convenience for making paths just a little nicer to work with.
+Previously, all of our paths started with either `/` or `.` or `..`. That's
+because these things tell the computer exactly where to start looking in the
+filesystem (the root directory, working directory, or parent directory). But
 what if a path starts with none of these things? In that case, the assumption is
 that the computer should look in the working directory. So whenever you would
 start a path with `.` you can just leave that part out because that's where the
@@ -482,8 +483,8 @@ for them to put personal files. For the superuser that directory is `/root`.
 Just like `.` and `..`, `~` is a special filename meaning "my home directory"
 and you can use it in paths just as you would expect.
 
-For convenience, if you provide it no arguments, `cd` does the same as `cd ~`
-(rather than `cd .` which would be useless).
+For convenience, `cd` with no arguments does the same as `cd ~` (rather than `cd
+.` which would be pointless).
 </div>
 
 ### Commands ###
@@ -506,7 +507,7 @@ Or to learn about `man` itself:
     # man man
 
 When you view the manual, the shell switches to a different view called a
-"pager" which makes reading nicer. You can scroll up and down with
+"pager" which makes reading easier. You can scroll up and down with
 <kbd>&uarr;</kbd>, <kbd>&darr;</kbd>, <kbd>Page Up</kbd>, <kbd>Page Down</kbd>
 and quit with <kbd>Q</kbd>.
 
