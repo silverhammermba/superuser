@@ -16,8 +16,8 @@ program instructions and take a glimpse at how real-world programs are made.
 
 At the lowest, most fundamental level we have so-called machine code. Machine
 code is the basic instructions understood by the CPU. The CPU reads instructions
-as pure binary data. We are going to create a very simple program in machine
-code by creating a file containing such binary data.
+byte-by-byte as pure digital data. We are going to create a very simple program
+in machine code by creating a file containing such data.
 
 First you need to understand that while the kernel could technically run any
 sort of program on the computer, it expects certain standard behavior from most
@@ -25,14 +25,15 @@ programs. For example, it expects that when a program is done running, the
 program will send it a number indicating how things went. This number is called
 the program's "exit code". It doesn't really matter what the number is: like
 command arguments, the meaning of the exit code can vary from program to
-program. But in fact most programs handle it very simply: an exit code of 0
-means everything went alright and an exit code of 1 means something went wrong
-while the program was running.
+program. Most programs use very simple exit codes: an exit code of 0 means
+everything went alright and an exit code of 1 means something went wrong while
+the program was running.
 
 The program we're going to make is very simple: it will send the kernel the exit
-code "7". That's all. To write this program in machine code, we need to be able
-to write some binary data. We will do this using a tool called `hexedit` which
-lets us edit files by changing the hexadecimal values of each byte.
+code "7". Nothing more. To write this program in machine code, we need to be
+able to write some raw bytes to a file. We will do this using a tool called
+`hexedit` which lets us edit files by changing the hexadecimal values of each
+byte.
 
 First we need to create a file to store the program instructions. We will do
 this using a command called `dd` which lets us create a file with a certain
@@ -56,16 +57,16 @@ You will see a screen like this:
     00000050   00 00 00 00  00 00 00 00  00 00 00                   ...........
 
 The `hexedit` interface is split up into three columns. The column on the left
-simply shows us byte numbers in hexadecimal to keep track of where we are the in
-the file. So the first byte of the first line is byte `0x0`, the first byte of
-the second line is byte `0x10`, the first byte of the third line is `0x20`, etc.
-The middle column is the actual bytes of the file in hexadecimal. Remember that
-in hexadecimal a byte stores values from `0x00` to `0xFF`, so each byte is
-represented here by two characters. The spacing in between the bytes helps us
-visualize them in groups of 4 or 8. There are 16 bytes on each line. The third
-shows the same bytes as the middle column but displayed as [ASCII] characters.
-If a byte value doesn't have a printable ASCII character (such as a number or
-letter), it just prints a `.`.
+simply shows us byte numbers in hexadecimal to keep track of where we are in the
+the file. So the first byte of the first line is byte number 0x0, the first byte
+of the second line is byte number 0x10, the first byte of the third line is
+number 0x20, etc. The middle column shows the actual bytes of the file in
+hexadecimal. In hexadecimal a byte stores values from 0x00 to 0xFF, so each byte
+is represented by two characters. The spacing in between the bytes helps us
+visualize them in groups of 4. There are 16 bytes on each line. The right column
+also shows the bytes of the file but represented as [ASCII] characters rather
+than hexadecimal values. Since only the byte values 0x20-0x7E correspond to
+ASCII characters, all other byte values are displayed as a `.` in this column.
 
 [ASCII]: {{ site.baseurl }}/part2/http/#text
 
@@ -74,8 +75,8 @@ Start typing on the first line so that the first four bytes look like this:
     7F 45 4C 46
 
 You can use backspace to undo and the arrow keys to move the cursor as you might
-expect. You also don't need to hold <kbd>Shift</kbd> to enter hexadecimal
-letters even though everything is written in upper case.
+expect. Even though everything appears in uppercase, you don't need to hold
+<kbd>Shift</kbd> when you type.
 {: .note}
 
 Notice that the corresponding bytes in the third column change because `45 4C
@@ -125,10 +126,11 @@ to specify exactly where the program is by including the `./`.
 {: .note}
 
 If everything went according to plan, your shell will simply print another
-prompt. That's because the shell normally doesn't display the exit code of the
-program it runs and our program doesn't have any instruction to print anything.
-To check that the program actually worked, we can run another command which
-prints the exit code of the last command that was entered:
+prompt, meaning it finished running the program and is waiting for another
+command. To know that our program worked as we intended, we need to see what its
+exit code was! When you run a command, the shell stores its exit code for later
+use. You can tell the shell to show you that exit code with the following
+command:
 
     # echo $?
     7
@@ -144,7 +146,7 @@ so let's just focus on the last seven bytes, which are the actual instructions:
     B3 07 31 C0 40 CD 80
 
 The CPU basically performs these instructions from left to right byte-by-byte.
-Though kind of like shell commands, some instructions have arguments and so
+Some instructions are kind of like shell commands and have arguments, so they
 include multiple bytes. We can split up the instructions like so:
 
     B3 07
@@ -198,9 +200,9 @@ In practice, the closest that programmers get to writing machine code is a
 slightly more readable style called "assembly". Writing machine code is
 difficult because you have to keep in mind all of the technical details of the
 computer and the way its registers and instructions interact, but it also has an
-additional layer of difficulty because every instruction is encoded in binary.
-How do you remember that `31 C0` means "set EAX to 0"? That's just not easy to
-understand.
+additional layer of difficulty because every instruction is a bunch of
+meaningless bytes. How do you remember that `31 C0` means "set EAX to 0"? That's
+just not easy to understand.
 
 Assembly improves this one aspect of machine code by letting us write (slightly)
 more human-readable instructions. For example, `40` in machine code becomes
@@ -210,7 +212,7 @@ still not super understandable, and you still need to have a good understanding
 of the inner workings of the CPU, but it's definitely easier to work with. Let's
 rewrite our program in assembly.
 
-Unlike machine code which is binary data (usually viewed as hexadecimal),
+Unlike machine code which is pure digital data (usually viewed as hexadecimal),
 assembly is entirely human-readable ASCII text. So instead of `hexedit` we will
 use a program called `nano`, which is a text editor. Just type
 
@@ -223,13 +225,18 @@ expect.
 <div class="exercise">
 Type out the following text:
 
-    .global _start
-    .text
-    _start:
-    movb $7,%bl
-    xorl %eax,%eax
-    incl %eax
-    int $0x80
+{% highlight asm %}
+.global _start
+.text
+_start:
+movb $7,%bl
+xorl %eax,%eax
+incl %eax
+int $0x80
+{% endhighlight %}
+
+As in previous chapters the text is colored simply to make it easier to read.
+{: .note}
 
 Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a file. Type
 `sevn.s` for the filename and press <kbd>Enter</kbd>.
@@ -280,10 +287,10 @@ object file and create the executable:
     # ld -s -o sevn2 sevn.o
 
 Again, the `-o` option tells `ld` to save the executable file with the file name
-`sevn2` (we use a different name so we can compare it with our machine code
-version). The `-s` option just removes some unnecessary information from the
-resulting executable file. `ld` is even nice enough to mark the file as
-executable for us, so we don't have to `chmod` it like we did before. So now:
+`sevn2` (so you can compare it with the machine code version of the program).
+The `-s` option just removes some unnecessary information from the executable
+file format. `ld` is even nice enough to mark the file as executable for us, so
+we don't have to `chmod` it like we did before. So now:
 
     # ./sevn2
     # echo $?
@@ -305,8 +312,8 @@ assembly into machine code separately. The resulting pieces of machine code
 aren't programs themselves, so instead we call them "object files". Then we use
 another program, the link editor, to "link" our object files together into an
 actual program. That way if we want to change an instruction later, we only have
-to re-assemble that one piece and then re-link the pieces rather than re-assembe
-_everything_.
+to re-assemble that one piece and then re-link the pieces rather than
+re-assemble _everything_.
 </div>
 
 Open up `sevn2` in `hexedit`. There are a lot more bytes than before but again
@@ -345,11 +352,12 @@ another (usually simpler) programming language.
 {: .definition}
 
 "Simple" here refers to the complexity of the language itself, not the
-difficulty of using the language. A human language with only four words would be
-a very simple language, but it would be very difficult to use it to communicate
-practically. In many ways, a more "complex" programming language is actually
-easier for humans to understand.
+difficulty of using the language. Expressing a complex idea is usually easier in
+a complex language (and can be [hilariously difficult][upgo] in simple
+language).
 {: .note}
+
+[upgo]: https://xkcd.com/1133/
 
 So how does a compiler solve the problems we had with assembly? First, we can
 program our compiler to translate our language into different assembly code
@@ -357,8 +365,9 @@ depending on the CPU we need to run the program on. This way we can write a
 program once and the compiler will translate that program to run on many kinds
 of computers. Second, we can replace confusing assembly instructions with more
 human-readable ones and let the compiler translate into assembly for us. Third,
-we can identify common _patterns_ of assembly instructions and replace these
-with human-readable instructions that the compiler will translate back into the
+we can identify common _patterns_ of assembly instructions (e.g. the four
+instructions for sending an exit code) and replace these with shorter
+human-readable instructions that the compiler will expand back into the
 corresponding pattern of assembly.
 
 Another benefit of compiling a language into assembly is that we can make the
@@ -366,16 +375,16 @@ language _more_ restrictive. This might sound like a bad thing, but consider
 this: suppose we left out that `movb $7,%eax` instruction from our assembly
 program. Our program would still run, the CPU would still follow the
 instructions, and the kernel would still look at EAX and BL to exit our program.
-But what would the exit code be? Maybe some CPUs set all the registers to 0
-before running a program, so it would be 0. Maybe some set the registers to 42,
-so that would be the exit code. Or maybe the CPU doesn't touch the registers and
-whatever the last program happened to leave in register BL will still be there.
-Who knows? This is what programmers call "undefined behavior": when the result
-of running a program is outside of our control. It's one of the worst things
-that can happen to a program! Since a compiler creates the assembly code, it can
-help us with this problem by refusing to translate instructions that would lead
-to undefined behavior. By being more restrictive, compilers can help us create
-better programs.
+But what would the exit code be? What is in register BL? Maybe some CPUs set all
+the registers to 0 before running a program, so it would be 0. Maybe some set
+the registers to 42, so that would be the exit code. Or maybe the CPU doesn't
+touch the registers and whatever the last program happened to leave in register
+BL will still be there. Who knows? This is what programmers call "undefined
+behavior": when the result of running a program is outside of our control. It's
+one of the worst things that can happen to a program! Since a compiler creates
+the assembly code, it can help us with this problem by refusing to translate
+instructions that would lead to undefined behavior. By being more restrictive,
+compilers can help us create better programs.
 
 ### C ###
 
@@ -403,10 +412,12 @@ recreate our `sevn` program in C.
 <div class="exercise">
 Open up `nano` again and type this:
 
-    int main()
-    {
-        return 7;
-    }
+{% highlight c %}
+int main()
+{
+    return 7;
+}
+{% endhighlight %}
 
 Save the file as `sevn.c`. Note that the indentation is not important, it just
 improves readability. You could write this all on one line if you like: `int
@@ -428,17 +439,28 @@ finally
     # echo $?
     7
 
-Woop woop! Now open up `sevn3` in `hexedit`. What the heck? How did our tiny
-program become so huge? One problem with compiled languages in general is that
-they often make assumptions about the types of programs you will write. In this
-case, `gcc` has included lots of extra information and instructions that our
-program doesn't need because it's so incredibly simple, but most other programs
-will need. And don't even bother looking for our familiar instructions in here
-&ndash; they could be scattered all over the place or replaced with slightly
-different instructions that have the same effect. With compiled languages you
-just have to trust that the compiler will produce the right instructions and not
-look at how the sausage is made. We got the right exit code, so all is well in
-the world.
+We're on a roll! Now open up `sevn3` in `hexedit`. What the heck? How did our
+tiny program become so huge? One problem with compiled languages in general is
+that they often make assumptions about the types of programs you will write. In
+this case, `gcc` has included lots of extra information and instructions that
+our program doesn't need because it's so incredibly simple, but most other
+programs will need. And don't even bother looking for our familiar instructions
+in here &ndash; they could be scattered all over the place or replaced with
+slightly different instructions that have the same effect. With compiled
+languages you just have to trust that the compiler will produce the right
+instructions and not look at how the sausage is made. We got the right exit
+code, so all is well in the world.
+
+<div class="exercise">
+To see how `gcc` translates your C code into assembly, use the `-S`
+argument:
+
+    # gcc -S -o - sevn.c
+
+Isn't it interesting how such different CPU instructions can have the same
+result? Can you find the exit code in this assembly? Can you see some extra
+information that the compiler is including which is unnecessary?
+</div>
 
 Sometimes &ndash; very rarely &ndash; you [do need to care][bug] how the
 compiler creates instructions.
@@ -447,7 +469,8 @@ compiler creates instructions.
 [bug]: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=323
 
 Now that we're using C, our simple 7 program just doesn't demonstrate the
-capabilities of the programming language.
+capabilities of the programming language. We need to make more complicated
+programs.
 
 ### Paradigms ###
 
@@ -471,9 +494,11 @@ integers, and decimal numbers all have different binary formats. If we forget
 which numbers of which formats were stored where, we'll be in trouble. But with
 a language like C, we can just write something like this:
 
-    int x = -7;
-    unsigned int y = 1337;
-    double z = 1.5;
+{% highlight c %}
+int x = -7;
+unsigned int y = 1337;
+double z = 1.5;
+{% endhighlight %}
 
 Here we're telling the compiler to store three numbers: an integer (`int`) which
 can be positive or negative, a positive integer (`unsigned int`), and a decimal
@@ -516,9 +541,9 @@ apply a coat of paint, then you let it dry, then a coat of varnish, etc. Another
 approach might be to think of the project in terms of components, so you break
 down the project into separate pieces (walls, floor, supports, etc.) and
 determine how the pieces will connect. Then you can finish each piece
-individually and attach them all. These approaches are very different but both
-are valid for any sort of carpentry project (maybe some projects fit one
-approach better, however). We could call these different _carpentry paradigms_.
+individually in whatever order you like and attach them all. These approaches
+are very different but both could be used to tackle any sort of carpentry
+project. We could call these different _carpentry paradigms_.
 
 Programming paradigms are very similar. They affect only how we humans think
 about programs; the compiler always ends up translating the program into machine
@@ -531,11 +556,170 @@ separate components and get the same result either way.
 The C programming language follows a "procedural" programming paradigm. This
 paradigm is kind of like the step-by-step approach for carpentry: it breaks down
 every program into "procedures", where each procedure is a list of steps for the
-computer to follow. The twist is that a step in a procedure can be "do the steps
-in this other procedure"! Again, this is like how a step in a carpentry project
-can be broken down into a sub-steps: the steps in a procedure can themselves be
-sub-procedures. Here's a bigger C program to demonstrate the power of this
-paradigm:
+computer to follow. The twist is that a procedure can have other procedures as
+its steps. Let's look at a fake C program where we'll pretend that our computer can
+do carpentry:
+
+{% highlight c %}
+void build_birdhouse()
+{
+    build_a_frame();
+    fill_in_structure();
+    add_details();
+    paint_and_finish();
+}
+
+void paint_and_finish()
+{
+    sand();
+    apply_paint();
+    dry();
+    apply_varnish();
+}
+{% endhighlight %}
+
+`void build_birdhouse()` is C's way of saying "make a procedure named
+`build_birdhouse`". Then we simply list the instructions of building a birdhouse
+in order, surrounded by `{ }`. The first step `build_a_frame()` is C's way of
+saying "follow the steps of the procedure named `build_a_frame`". So this is
+what we talked about earlier: a step in a procedure being another procedure. We
+can see that the other three steps of this procedure are also procedures
+themselves (that's what the `()` indicates).
+
+We can also see that the last step of building a birdhouse `paint_and_finish` is
+defined right below, and it also consists of four procedures. So this is the
+main advantage of the procedural paradigm: breaking down large tasks (like
+building a birdhouse) into smaller and smaller tasks so that we don't have to
+think about the entire thing at once.
+
+### A Real C Program ###
+
+Enough of the fake code, let's make a real program that does some work. The goal
+of this program will be to find the answers to the math problems 3&times;4,
+-31&times;57, and 12&times;8. Let's start by thinking about what procedures we
+should make. Our main purpose is to solve the three problems, so we could start
+with a procedure like this
+
+{% highlight c %}
+void main()
+{
+    solve_and_print_problem1();
+    solve_and_print_problem2();
+    solve_and_print_problem3();
+}
+{% endhighlight %}
+
+Now let's make the `solve_and_print_problem1` procedure.
+
+{% highlight c %}
+void solve_and_print_problem1()
+{
+    int x = 3;
+    int y = 4;
+    int z = x * y;
+}
+{% endhighlight %}
+
+Remember earlier that we saw how to tell C to store numbers for us. We use that
+again here to store the numbers we need to multiply. We also see that by using
+`*`, C can multiply numbers it has stored. So now the result of 3&times;4 (what
+could it be?) is stored somewhere on the computer in a box that C has labelled
+`z`. All that is left to do is print the result, but before we get to that let's
+think about our other `solve_and_print_problem` procedures.
+
+The other two procedures will be pretty much the same, just with different
+numbers stored as `x` and `y`.
+
+{% highlight c %}
+void solve_and_print_problem1()
+{
+    int x = 3;
+    int y = 4;
+    int z = x * y;
+}
+
+void solve_and_print_problem2()
+{
+    int x = -31;
+    int y = 57;
+    int z = x * y;
+}
+
+void solve_and_print_problem3()
+{
+    int x = 12;
+    int y = 8;
+    int z = x * y;
+}
+{% endhighlight %}
+
+This is pretty repetitive. And whenever you have repetitive code, that's usually
+a sign that there's a better way to do things. In this case, we can make things
+better by using _arguments_. Just like how shell commands accept arguments to
+change their behavior, C procedures can accept arguments to change their
+behavior. Look at how we can turn these three similar procedures into one
+procedure where `x` and `y` are arguments:
+
+{% highlight c %}
+void solve_and_print_problem(int x, int y)
+{
+    int z = x * y;
+}
+{% endhighlight %}
+
+By putting `x` and `y` in the `( )`, we're telling C that these numbers are
+arguments which can change every time the procedure is run. Now we have to
+change our `main` procedure to pass these arguments:
+
+{% highlight c %}
+void main()
+{
+    solve_and_print_problem(3, 4);
+    solve_and_print_problem(-31, 57);
+    solve_and_print_problem(12, 8);
+}
+{% endhighlight %}
+
+Now you can imagine that when C sees the first step in our `main` procedure, it
+picks up the values `3` and `4` and places them in the boxes `x` and `y` in our
+`solve_and_print_problem` procedure before following its steps. Now we can get
+back to the business of printing the answer.
+
+Printing the answer in the shell is actually quite a complex task, because
+printing is output, and all I/O is controlled by the kernel. So we're going to
+need to set up some CPU registers and send an interrupt. Ugh. But since we're
+using C, life is much more wonderful. A key component of many operating systems
+(including this one) is the **C standard library**, a collection of hundreds of
+C procedures designed and tested by expert programmers for performing common OS
+tasks (such as printing output).
+
+In particular, we will use the `printf` (**print** **f**ormat) procedure from
+the `stdio` (**st**an**d**ard **I/O**) portion of the standard library. This
+procedure works in a funky sort of way, so let's just look at how to add it to
+our `solve_and_print_problem` procedure:
+
+{% highlight c %}
+#include <stdio.h>
+
+void solve_and_print_problem(int x, int y)
+{
+    int z = x * y;
+    printf("%d x %d = %d\n", x, y, z);
+}
+{% endhighlight %}
+
+<div class="deeper">
+The C standard library is also documented in the manual. To read about library
+procedures, add `3` as an argument before the procedure name. `3` specifies that
+you want the standard library section of the manual (some procedures have
+the same name as a program or other shell command).
+
+    # man 3 printf
+</div>
+
+Now we're done! Our two procedures do everything we want them to! Since our code
+is sort of scattered throughout the chapter, let's collect the whole program in
+one place here and add a couple small, finishing touches.
 
 {% highlight c %}
 #include <stdio.h>
@@ -543,62 +727,42 @@ paradigm:
 void multiply_and_print(int x, int y)
 {
     int z = x * y;
-    printf("The answer is %d\n", z);
+    printf("%d x %d = %d\n", x, y, z);
 }
 
 int main()
 {
     multiply_and_print(3, 4);
     multiply_and_print(-31, 57);
+    multiply_and_print(12, 8);
 
     return 0;
 }
 {% endhighlight %}
 
-As in previous chapters the C code is colored simply to make it easier to read.
-{: .note}
+First, I renamed the `solve_and_print_problem` procedure to better reflect what
+it does (not strictly necessary but usually a good idea). Lastly I added an exit
+code. You see, I sneaked something past you earlier: `main` isn't some arbitrary
+procedure name in C, it's _special_. When you compile and run a C program, it
+only performs the steps in the `main` procedure. If you want other procedures to
+run, you need to make them steps in `main` (like we did with
+`multiply_and_print`). Also, in addition to accepting arguments, C procedures
+can "return" a value when they are finished. Whatever `main` returns is the exit
+code for the program, so I've changed the `void` to `int` (meaning it returns an
+integer rather than nothing) and added `return 0` to indicate that everything
+worked.
 
 If you want to, you can use `nano` to create the file `mult.c` with that text
 then compile and run it like so:
 
     # gcc -o mult mult.c
     # ./mult
-    The answer is 12
-    The answer is -1767
+    3 x 4 = 12
+    -31 x 57 = -1767
+    12 x 8 = 96
 
-So this is a sort of calculator program that multiplies numbers and shows us the
-answer. Quite a step up from our previous programs! To understand how this
-program works, we can first identify the _procedures_ that are defined in the
-program. There are two: `multiply_and_print` and `main`. In C, a procedure with
-a name of `main` is special because it is the steps of this procedure which are
-performed when you run the program. So we can think of our program as performing
-three basic steps:
+Pretty cool stuff! We have one more stop on our whirlwind tour of computer
+programming.
 
- 1. `multiply_and_print(3, 4)`
- 2. `multiply_and_print(-31, 57)`
- 3. `return 0`
+## Scripting ##
 
-And we see that the first two steps feature the name of the other procedure.
-This is what we described earlier: running another procedure from within a
-procedure. So the first step of our `main` procedure runs all of the steps of
-the `multiply_and_print` procedure, then the seconds step runs those steps
-again, then it does the `return 0` step. What goes on in `multiply_and_print`
-and what do those numbers do? Procedures in C are a bit like commands in the
-shell: they can take arguments to change their behavior. In this case, the
-definition of the `multiply_and_print` procedure says that it needs two
-integers as arguments, which it names x and y. These are the numbers that we
-will multiply and print. So when you see `multiply_and_print(3, 4)` you can
-imagine the compiler putting 3 and 4 into boxes labelled x and y in the
-`multiply_and_print` procedure. Then whenever it sees x and y in the steps of
-that procedure, it can look into those boxes to see what values we passed to the
-procedure. `multiply_and_print` has just two steps:
-
- 1. `int z = x * y`
- 2. `printf("The answer is %d\n", z)`
-
-The first step is similar to the code we saw earlier for storing numbers. It
-makes a new imaginary box named "z" for storing an integer, and in that box it
-stores the result of multiplying x and y. The second step looks a little weird,
-but it actually has some things in common with the first two steps
-from the `main` procedure. It has a name and then some parentheses and a
-comma... it's another procedure with arguments!
