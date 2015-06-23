@@ -766,3 +766,28 @@ programming.
 
 ## Scripting ##
 
+With compiled languages we take a big step up from the low level language of
+assembly. Our programs are pretty readable and we can express our ideas in more
+abstract ways that make large problems easier to solve; what more could we want?
+Consider the C program we just wrote: all of the information it needs is written
+right there in the `mult.c` file. The program reads no input, so it will do the
+exact same thing every time you run it. In fact we could have cheated, done the
+calculations once, and replaced all of the code with just this:
+
+{% highlight c %}
+#include <stdio.h>
+
+int main()
+{
+    printf("3 x 4 = 12\n-31 x 57 = -1767\n12 x 8 = 96\n");
+
+    return 0;
+}
+{% endhighlight %}
+
+Same result, but without any actual calculations. Programmers would say that
+this code is "static", meaning that all of its behavior is determined at
+"compile time". If you want to show different numbers, you have to recompile the
+program. We could have instead made this program more dynamic by having it read
+the numbers to multiply only when we run the program (using standard library
+functions `fgets` and atoi`).
