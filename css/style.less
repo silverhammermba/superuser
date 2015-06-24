@@ -36,7 +36,16 @@ p {
 	.alert-warning;
 	a {
 		.alert-link;
+		text-decoration: underline;
 	}
+	a:hover {
+		text-decoration: none;
+	}
+}
+.definition > p:first-child::before, p.definition::before {
+	content: "\e043"; /* book */
+	font-family: 'Glyphicons Halflings';
+	margin-right: 5px;
 }
 
 .note {
@@ -44,7 +53,16 @@ p {
 	.alert-danger;
 	a {
 		.alert-link;
+		text-decoration: underline;
 	}
+	a:hover {
+		text-decoration: none;
+	}
+}
+.note > p:first-child::before, p.note::before {
+	content: "\e209"; /* alert */
+	font-family: 'Glyphicons Halflings';
+	margin-right: 5px;
 }
 
 .deeper {
@@ -52,7 +70,16 @@ p {
 	.alert-success;
 	a {
 		.alert-link;
+		text-decoration: underline;
 	}
+	a:hover {
+		text-decoration: none;
+	}
+}
+.deeper > p:first-child::before, p.deeper::before {
+	content: "\e233"; /* education */
+	font-family: 'Glyphicons Halflings';
+	margin-right: 5px;
 }
 
 .exercise {
@@ -60,7 +87,16 @@ p {
 	.alert-info;
 	a {
 		.alert-link;
+		text-decoration: underline;
 	}
+	a:hover {
+		text-decoration: none;
+	}
+}
+.exercise > p:first-child::before, p.exercise::before {
+	content: "\270f"; /* pencil */
+	font-family: 'Glyphicons Halflings';
+	margin-right: 5px;
 }
 
 /* glossary */
