@@ -5,3 +5,9 @@ build:
 
 serve:
 	jekyll serve --watch --baseurl=
+
+css/style.css: css/style.less ../bootstrap
+	lessc $< > $@
+
+bootstrap/fonts/glyphicons-halflings-regular.woff: ../$@
+	cp $^ $@
