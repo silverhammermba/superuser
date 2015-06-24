@@ -712,6 +712,8 @@ and <kbd>&darr;</kbd> to scroll through previous commands. This is helpful if
 you want to correct a typo in a command you ran.
 {: .note}
 
+## Exercises ##
+
 <div class="exercise">
 1. Read about the following commands in the manual and with `--help` and play
    around with them to see if you understand their basic functions:
