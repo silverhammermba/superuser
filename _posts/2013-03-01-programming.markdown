@@ -717,9 +717,9 @@ the same name as a program or other shell command).
     # man 3 printf
 </div>
 
-Now we're done! Our two procedures do everything we want them to! Since our code
-is sort of scattered throughout the chapter, let's collect the whole program in
-one place here and add a couple small, finishing touches.
+Now our two procedures do everything we need them to, so we're done. Since our
+code is sort of scattered throughout the chapter, let's collect the whole
+program in one place here and add a couple small, finishing touches.
 
 {% highlight c %}
 #include <stdio.h>
@@ -752,6 +752,12 @@ code for the program, so I've changed the `void` to `int` (meaning it returns an
 integer rather than nothing) and added `return 0` to indicate that everything
 worked.
 
+In C, procedures are more commonly called **functions**, even though they aren't
+functions in the strict mathematical sense. But they do take input (via their
+arguments) and give output (via the return value) and _usually_ the output
+depends only on the input.
+{: .deeper}
+
 If you want to, you can use `nano` to create the file `mult.c` with that text
 then compile and run it like so:
 
@@ -761,33 +767,87 @@ then compile and run it like so:
     -31 x 57 = -1767
     12 x 8 = 96
 
-Pretty cool stuff! We have one more stop on our whirlwind tour of computer
-programming.
+Pretty cool stuff!
+
+<div class="exercise">
+Modify the C program so that it has the following output
+
+    3 + 4 = 7
+    -31 + 57 = 26
+    12 + 8 = 20
+</div>
+
+Subtly, a very significant change has occurred now that we're writing programs
+in C. Think about our programs from the context of another computer user who is
+running them. They might like the programs but wish that they worked in a
+slightly different way, or they might simply be curious about how they work and
+want to see for themselves. For both of these tasks, it is very helpful if the
+user can do something with the machine code in order to see the program's code
+as we (the designers) saw it.
+
+For our machine code program, they can simply open the program file in hexedit
+and see the exact same code that we did when we wrote it. For our assembly
+program, they can translate the assembled machine code back into assembly (since
+assembly is basically a 1-to-1 translation of machine code) and also see
+(essentially) the same assembly code that we saw when we wrote it. But what
+about C?
+
+We know that C uses a programming paradigm, so our C code does not correspond
+1-to-1 with machine code like assembly does. And I mentioned earlier that
+different compiled languages, possibly with different programming paradigms, can
+be compiled into the same machine code. So the short answer is that it is
+**impossible** for another user to see our C code given only the compiled
+machine code! You can get a sense of this for yourself by opening the compiled
+`mult` program in `hexedit`. Do you see `multiply_and_print` anywhere? How about
+`x * y`? Somewhere in the process of translating our abstract high-level C code
+into assembly, the _structure_ and _meaning_ has been lost. This doesn't matter
+to the computer but for humans who may want to understand our program it makes
+life very difficult. Practically the only way other users can modify our program
+is if they can get a copy of our original C code and then recompile it.
+
+The original code that computer programmers use to develop a program is the
+program's **source code**. Source code is often written in a compiled language
+and is later translated into machine code. The resulting machine code is called
+a **binary blob** (emphasizing the often confusing lack of structure in compiled
+machine code).
+{: .definition}
+
+Binary blobs are one of the reasons that software companies can sell their
+software for hundreds or thousands of dollars. If a program uses really clever
+algorithms, these algorithms are very difficult to reconstruct from the compiled
+machine code. That makes it harder for a competing company to simply buy the
+software, figure out its design from the machine code, make some nominal
+changes, and then resell it as their own.
+
+<div class="deeper">
+The short answer is that it is impossible to translate from machine code back to
+C, but the long answer is more nuanced. It _is_ impossible to determine what the
+_original_ source code was, but getting _close_ is often good enough. Computer
+programmers usually write source code in a fairly understandable, structured
+way. So even though there may be countless variations of source code that would
+compile to the same binary blob, there may only be a handful of variations that
+have a logical structure to them.
+
+If we can create some C code that compiles to the same binary blob, and which
+reflects at least the _structure_ of the original source code, that can provide
+great insight into how the program was originally designed.
+
+**Reverse engineering** is the process of creating source code (such as C) from
+obfuscated code (such as a binary blob). This process usually involves lots of
+slow, manual work.
+{: .definition}
+</div>
 
 ## Scripting ##
 
-With compiled languages we take a big step up from the low level language of
-assembly. Our programs are pretty readable and we can express our ideas in more
-abstract ways that make large problems easier to solve; what more could we want?
-Consider the C program we just wrote: all of the information it needs is written
-right there in the `mult.c` file. The program reads no input, so it will do the
-exact same thing every time you run it. In fact we could have cheated, done the
-calculations once, and replaced all of the code with just this:
+We saw how great a compiled language can be compared to assembly, but do
+compiled languages have any downsides of their own? Sort of. Compiled languages
+are often called "static" because in a sense the resulting programs are very
+rigid and unchanging. For example, with our previous C program, if we want to
+change any of the program code we need to recompile the source. In a way, this
+is an advantage because the compiler can do things like check for errors or
+optimize our algorithms when it compiles the source code. But it is also a
+disadvantage because the resulting program is not flexible and easy to change
+(we need to recompile it every time).
 
-{% highlight c %}
-#include <stdio.h>
 
-int main()
-{
-    printf("3 x 4 = 12\n-31 x 57 = -1767\n12 x 8 = 96\n");
-
-    return 0;
-}
-{% endhighlight %}
-
-Same result, but without any actual calculations. Programmers would say that
-this code is "static", meaning that all of its behavior is determined at
-"compile time". If you want to show different numbers, you have to recompile the
-program. We could have instead made this program more dynamic by having it read
-the numbers to multiply only when we run the program (using standard library
-functions `fgets` and atoi`).
