@@ -71,16 +71,17 @@ characters:
 
 A few observations of this table:
 
-* The first entry&mdash;0x20&mdash;translates to a space
-* Digits are really easy to translate since 0-9 correspond to 0x30-0x39
+* 0x20 translates to a space
+* Digits are really easy to translate since 0&ndash;9 correspond to
+  0x30&ndash;0x39
 * You can convert letters from upper case to lower case and vice versa by adding
   or subtracting 0x20
-* There are a bunch of missing byte values: 0x00-0x1F and 0x7F-0xFF. The reason
-  for some of these (0x80-0xFF) is because ASCII only uses the first 7 bits of
-  each byte so only the first 2<sup>7</sup>=128 byte values can be used. The
-  other missing characters are "unprintable ASCII". They include characters
-  representing line breaks and indentation or even "control characters" that can
-  have special meaning to the program using the ASCII text
+* There are a bunch of missing byte values: 0x00&ndash;0x1F and 0x7F&ndash;0xFF.
+  The reason for some of these (0x80&ndash;0xFF) is because ASCII only uses the
+  first 7 bits of each byte so only the first 2<sup>7</sup>=128 byte values can
+  be used. The other missing characters are "unprintable ASCII". They include
+  characters representing line breaks and indentation or even "control
+  characters" that can have special meaning to the program using the ASCII text
 
 You might recall from the chapter on data formats that one goal of a format is
 to identify the type of data to the computer. ASCII is such a simple format and
@@ -161,8 +162,8 @@ As I said, this is just the bare minimum. Let's add interesting stuff.
 </html>
 {% endhighlight %}
 
-Here we've identified the stanza of the poem as a **p**aragraph using `<p>` tags
-and we've added `<br/>` tags at the end of each line to indicate line
+Here we've identified the stanza of the poem as a **p**aragraph using `<p></p>`
+tags and we've added `<br/>` tags at the end of each line to indicate line
 **br**eaks. The `/` at the _end_ of the `br` tag indicates that each tag is on
 its own and doesn't have a matching `</br>` later in the document. This teaches
 us an important lesson about HTML.
@@ -181,7 +182,7 @@ grouped together unless separated by tags.
 
 A side effect of HTML being very explicit and ignoring line breaks and
 indentation is that we can use these tools to try to make HTML a little more
-readable. Notice how I use identation to make it clearer where tags start and
+readable. Notice how I use indentation to make it clearer where tags start and
 end.
 {: .note}
 
@@ -263,8 +264,8 @@ An attribute goes inside a start tag after the tag name and usually looks
 something like `key="value"`. Attributes let us describe additional information
 about a particular instance of a tag.
 
-In our case, the anchor "Richard Wilbur" has a "hypertext reference" (`href`) to
-a Wikipedia article.
+In our case, the anchor "Richard Wilbur" has a "**h**ypertext **ref**erence"
+(`href`) to a Wikipedia article.
 
 ## Behind the Scenes ##
 
@@ -276,11 +277,12 @@ to browse! Check out the document we just made by clicking [here][ex].
 
 [ex]: {{ site.baseurl }}/extras/example.html
 
-Pretty cool, huh? To prove that there's no trickery going on here, try right
-clicking on that page. The menu that pops up should have an option like "View
-page source"<span class="mobile"> (this option may be difficult to find on a
-mobile device)</span>. This shows you exactly what HTML your browser is
-interpreting to create the page.
+Pretty cool, huh? To prove that there's no trickery going on here, try <span
+class="os windows linux unknown">right</span><span class="os osx">⌘</span>-clicking
+on that page. The menu that pops up should have an option like "View page
+source"<span class="mobile"> (this option may be difficult to find on a mobile
+device)</span>. This shows you exactly what HTML your browser is interpreting to
+create the page.
 
 "Interpreting" is definitely the correct word to use here. In most web browsers,
 you will probably see "Richard Wilbur" underlined and colored in blue and the

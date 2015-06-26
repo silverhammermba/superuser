@@ -439,9 +439,9 @@ points to keep in mind about them:
   can also be very ineffective if the user isn't familiar with what is/isn't
   malware.
 
-Consequently, it is a very bad idea to rely on an antivirus program to
-automatically handle your malware problems. The best defense against malware
-is to educate yourself about malware so that you can avoid getting it on your
+Consequently, it is a very bad idea to rely entirely on an antivirus program to
+automatically handle your malware problems. The best defense against malware is
+to educate yourself about malware so that you can avoid getting it on your
 computer in the first place. But having some sort of antivirus as a backup can
 be a good idea too.
 
@@ -541,15 +541,8 @@ earned people's trust through years of malware-free service. It's not a simple
 matter of avoiding freeware entirely.
 
 And of course that doesn't mean that non-free software is guaranteed to be
-malware-free. There are few known instances of companies trying to sneak malware
-into the software they sell.
-
-The Internet isn't the only way that malware can spread. Portable USB thumb
-drives are also a common way for malware to get from computer to computer.
-Really, _any_ method of transferring data from one computer to another could be
-used to transfer malware and should fall under the same scrutiny as a download
-from the Internet.
-{: .note }
+malware-free. There are a few known instances of companies trying to sneak
+malware into the software they sell.
 
 ### Download Responsibly ###
 
@@ -582,6 +575,13 @@ you can take that should help to avoid malware:
   like the "Download" button so that you will click them accidentally. Be
   **extra** careful that you are clicking the right link when you download free
   software.
+
+The Internet isn't the only way that malware can spread. Portable USB thumb
+drives are also a common way for malware to get from computer to computer.
+Really, _any_ method of transferring data from one computer to another could be
+used to transfer malware and should fall under the same scrutiny as a download
+from the Internet.
+{: .note }
 
 ## Exercises ##
 

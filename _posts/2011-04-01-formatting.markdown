@@ -88,7 +88,7 @@ Even though we had eight bytes, we could only use six after the formatting was
 done. Computer components are often advertised as storing such-and-such
 gigabytes of data&mdash;but is that using powers of 10 or powers of 2? Is that
 before formatting or after formatting? One often needs to read the fine print
-when it comes to measuring data. Tricky!
+when it comes to measuring data.
 
 ## Limitations ##
 
