@@ -66,6 +66,15 @@ there are selected answers [in the back][ans].
 
 [ans]: {{ site.baseurl }}/extras/answers.html
 
+Sometimes you'll see text highlighted in `pink` or
+
+    set aside in a big gray block.
+
+This generally indicates that this is "computer text". Such text might be typed
+verbatim into a computer or a computer might output such text as the result of
+some operation. Occasionally I <kbd>Insert</kbd> text highlighted in black to
+refer to the physical keys on your computer's keyboard (e.g. the "Insert" key).
+
 Some chapters are marked as (BONUS). Think of these chapters as big "thinking
 deeper" sections. They build off of ideas from previous chapters or discuss side
 issues which aren't essential for understanding later sections. You can skip
