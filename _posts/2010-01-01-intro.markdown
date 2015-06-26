@@ -96,7 +96,7 @@ informative. Just feel free to ignore stuff that doesn't make sense for the
 particular device you are using. If you are _not_ using a mobile device, please
 [let me know][faq] so that I can fix my book!</span>
 <span class="unknown">The book should still be 99% useful, but please [let me
-know][faq] about your device so that I can fix my code! For now the book will
+know][faq] about your device so that I can fix my book! For now the book will
 assume that you are reading this with Windows Internet Explorer.</span>
 </section>
 

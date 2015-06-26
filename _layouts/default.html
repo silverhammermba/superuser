@@ -69,6 +69,12 @@ if (navigator.appVersion.indexOf("Win")   != -1) os_name = "windows";
 if (navigator.appVersion.indexOf("Mac")   != -1) os_name = "osx";
 if (navigator.appVersion.indexOf("X11")   != -1) os_name = "linux";
 if (navigator.appVersion.indexOf("Linux") != -1) os_name = "linux";
+// fall back to windows if OS detection failed
+window.os_unknown = false;
+if (os_name === "unknown") {
+	window.os_unknown = true;
+	os_name = "windows"; // it's better than nothing :\
+}
 $('.os').hide(); // putting this in CSS makes things really tricky
 $('.' + os_name).show();
 
@@ -77,13 +83,6 @@ window.is_mobile = (function(a){return /(android|bb\d+|meego).+mobile|avantgo|ba
 
 if (!window.is_mobile)
 	$('.mobile').hide();
-
-// fall back to windows if OS detection failed
-window.os_unknown = false;
-if (os_name === "unknown") {
-	window.os_unknown = true;
-	os_name = "windows"; // it's better than nothing :\
-}
 
 // add nbsp to text that we don't want to break lines on
 $('kbd, :not(pre) > code').each(function() {
