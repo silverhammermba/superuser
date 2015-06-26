@@ -84,6 +84,11 @@ if (os_name === "unknown") {
 	window.os_unknown = true;
 	os_name = "windows"; // it's better than nothing :\
 }
+
+// add nbsp to text that we don't want to break lines on
+$('kbd, :not(pre) > code').each(function() {
+	$(this).html($(this).html().replace(/ |\n/g, '\u00a0'));
+});
 		</script>
 	</body>
 </html>
