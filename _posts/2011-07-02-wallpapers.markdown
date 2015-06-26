@@ -50,11 +50,12 @@ digital image is not being properly displayed on a monitor.
 {: .pull-right}
 
 For this chapter, we're going to use an image of a flower as an example. This
-image is made of a grid of 158,464 pixels - 128 on each side. On the right is a
-portion of the image zoomed in 4&times; so that you can clearly see the pixels. Now
-suppose that we want to use this image as our desktop background. The desktop
-displayed on your monitor is also a digital image measured in pixels, so our
-challenge is to fit the pixels of the flower into the pixels of the desktop.
+image is made of a grid of 158,464 pixels&mdash;128 on each side. On the right
+is a portion of the image zoomed in 4&times; so that you can clearly see the
+pixels. Now suppose that we want to use this image as our desktop background.
+The desktop displayed on your monitor is also a digital image measured in
+pixels, so our challenge is to fit the pixels of the flower into the pixels of
+the desktop.
 
 The easiest case would be if our desktop's resolution is also 128&times;128.
 
@@ -62,8 +63,8 @@ The **resolution** of a digital image is its size measured in pixels, usually
 written _width_&times;_height_.
 {: .definition}
 
-In that case &ndash; where the image and the desktop are the same size &ndash;
-we can simply place each pixel of the image into the corresponding pixel of the
+In that case&mdash;where the image and the desktop are the same size&mdash;we
+can simply place each pixel of the image into the corresponding pixel of the
 desktop. The image will look exactly the same on the desktop as it did on its
 own. But what if the image and the desktop are not the same size?
 
@@ -72,13 +73,13 @@ own. But what if the image and the desktop are not the same size?
 ![cropped flower]({{ site.baseurl }}/img/flower_crop.png)
 {: .pull-right}
 
-For example, what if the desktop is too small? We could simply _crop_ the image
-- remove the pixels that don't fit on the desktop. We'll lose some information,
-but the pixels that _are_ shown on the desktop will be displayed exactly as they
-were in the original image. This is usually the best option if it still looks
-good. But what if the desktop is _much_ smaller? What if the desktop is so small
-that cropping the image would make it look unappealing, thus defeating the point
-of a desktop wallpaper?
+For example, what if the desktop is too small? We could simply _crop_ the
+image&mdash;remove the pixels that don't fit on the desktop. We'll lose some
+information, but the pixels that _are_ shown on the desktop will be displayed
+exactly as they were in the original image. This is usually the best option if
+it still looks good. But what if the desktop is _much_ smaller? What if the
+desktop is so small that cropping the image would make it look unappealing, thus
+defeating the point of a desktop wallpaper?
 
 ![flower fit]({{ site.baseurl }}/img/flower_grid.png)
 {: .pull-left}
@@ -125,7 +126,7 @@ region completely white! Remember that nearest neighbor only picks one pixel fro
 the original image for each pixel in the result; in this case it picked only the
 white pixels even though most of the original pixels are black! The smiley face
 is also completely unrecognizable, again since it didn't make "good" choices of
-pixels. The next algorithm &ndash; called a bilinear filter &ndash; does a bit
+pixels. The next algorithm&nmash;called a bilinear filter&mdash;does a bit
 better: the mostly black region is still mostly black, and the smiley face is
 closer but still not quite recognizable. Lastly, the Fant algorithm does a great
 job of preserving both the mostly black region and the smiley face. But what
@@ -194,7 +195,7 @@ image resizing algorithms. On the right, there are a few examples of a portion
 of the flower image enlarged to twice its original size. Take a moment to
 examine them and pick out which one looks the best.
 
-Which one did you choose? Hopefully the third one &ndash; if not you should go
+Which one did you choose? Hopefully the third one&mdash;if not you should go
 back and look more carefully. The others look blocky or blurry, right? Compared
 to the third one they almost make your eyes hurt, like your monitor is out of
 focus or something. Well, guess what: all of the images are enlarged _except_
@@ -278,14 +279,14 @@ information.
 
 For example, take a look at the images on the right. What differences do you
 see? Really there is no difference as far as we humans are concerned, but a
-computer would see the two as completely different - I subtly altered every
+computer would see the two as completely different&mdash;I subtly altered every
 single pixel of the original image.
 
 If our eyes are not sensitive enough to distinguish between two very similar
 digital colors as in this case, why bother storing them as different colors at
 all? In other words, why not removing subtle information that we can't see by
-replacing similar colors with just one color? Compressing in this way - by
-removing unimportant information - is called "lossy" compression and it usually
+replacing similar colors with just one color? Compressing in this way&mdash;by
+removing unimportant information&mdash;is called "lossy" compression and it usually
 offers even greater savings of data size than the previous "lossless"
 compression. JPEG (or JPG) is a common lossy image compression format.
 
@@ -297,7 +298,7 @@ much information to remove in order to compress the image. However this choice
 can make lossy compression dangerous. It can be notoriously difficult to find
 the "right" level of compression which achieves a good balance between reduced
 size and image quality. Many programs take a naive approach and simply compress
-all images equally - which is guaranteed to result in artifacts in certain
+all images equally&mdash;which is guaranteed to result in artifacts in certain
 cases. Again, it comes down to computers not understanding image content as we
 humans do. It takes a human eye to determine what level of compression is
 correct.
@@ -309,7 +310,7 @@ On the left we see the flower image compressed three times with different
 degrees of compression. The original uncompressed image takes up
 128&times;128&times;3=49KB. The leftmost compressed image is nearly
 indistinguishable from the original and yet uses about a fifth of the data:
-10KB. The next image is even smaller - only 4KB - but visual artifacts are more
+10KB. The next image is even smaller&mdash;only 4KB&mdash;but visual artifacts are more
 apparent (look near the edges of the petals or in the very center of the
 flower). And the last image is again even smaller (2KB) but now the visual
 quality is almost completely ruined.
@@ -336,7 +337,7 @@ format for digital audio.
 
 There is one last challenge when it comes to displaying digital images, and it
 lies within your monitor itself. The pixels that monitors use to display images
-are set in stone - there is no way to increase or decrease the number of pixels
+are set in stone&mdash;there is no way to increase or decrease the number of pixels
 that your monitor has. But this can make computer programmers' lives difficult,
 because there are so many different monitors in the world and they all have
 different numbers of pixels and thus different resolutions. In some cases, it

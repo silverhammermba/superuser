@@ -18,10 +18,10 @@ this.
 
 I'm sure that most people desire and appreciate security, but outside of a gut
 instinct I doubt that the average Joe could tell you exactly what is or is not
-secure &ndash; especially when it comes to computer stuff. Part of this difficulty
+secure&mdash;especially when it comes to computer stuff. Part of this difficulty
 comes from Security being quite an overloaded term.
 
-If something is "secure", we often think of it as "safe" &ndash; but safe in what way?
+If something is "secure", we often think of it as "safe"&mdash;but safe in what way?
 
 ### Confidentiality ###
 
@@ -40,8 +40,8 @@ Integrity is about ensuring that information cannot be secretly modified or
 modified without authorization. Integrity can be just as important as
 confidentiality.
 
-Suppose you make a confidential credit card purchase &ndash; so no one can steal your
-credit card information &ndash; but the purchase lacks integrity. A third party might
+Suppose you make a confidential credit card purchase&mdash;so no one can steal your
+credit card information&mdash;but the purchase lacks integrity. A third party might
 not be able to read your credit card number but they could substitute a
 different one. Since the transaction does not have integrity, the store you
 purchased from would be unaware of the change and would charge the wrong
@@ -153,13 +153,13 @@ message is decrypted.
 
 ## Cryptanalysis ##
 
-But Caesar's cipher &ndash; as you might expect for something over 2,000 years old -
-isn't very strong. Consider the fact that using a key of 26 is the same as using
-a key of 0 i.e. nothing gets shifted and your ciphertext would be identical to
-your plaintext. Similarly using a key of 27 is the same as a key of 1, using 28
-is the same as 2, etc. In other words, there are really only 26 different key
-values and one of them (0) is useless since it does nothing at all. Why is this
-a problem?
+But Caesar's cipher&mdash;as you might expect for something over 2,000 years
+old&mdash;isn't very strong. Consider the fact that using a key of 26 is the
+same as using a key of 0 i.e. nothing gets shifted and your ciphertext would be
+identical to your plaintext. Similarly using a key of 27 is the same as a key of
+1, using 28 is the same as 2, etc. In other words, there are really only 26
+different key values and one of them (0) is useless since it does nothing at
+all. Why is this a problem?
 
 Well, suppose our foes _do_ intercept our ciphertext. If they know that we're
 fond of the Caesar cipher, they can guess that we probably didn't use the key 0
@@ -176,11 +176,11 @@ so they try the other 25 keys:
     GZZGIQ GZ JGCT
 
 The key guess of 1 produces a pretty compelling "EXXEGO EX HEAR", but I think
-they might pick out "ATTACK AT DAWN" which &ndash; unlike every other key guess -
-produces three actual English words. If the message were longer, the
-interceptors could be even more confident of their guess since it would be even
-less likely that the wrong key would produce a legible phrase. The interceptors
-now have our plaintext _and_ the key. We've been cryptanalyzed!
+they might pick out "ATTACK AT DAWN" which&mdash;unlike every other key
+guess&mdash; produces three actual English words. If the message were longer,
+the interceptors could be even more confident of their guess since it would be
+even less likely that the wrong key would produce a legible phrase. The
+interceptors now have our plaintext _and_ the key. We've been cryptanalyzed!
 
 **Cryptanalysis** is the study of ciphers, often for the purpose of extracting
 the key or plaintext from ciphertext.
@@ -193,7 +193,7 @@ to ruin our battle plan!
 ## One-Time Pad ##
 
 Caesar's cipher turned out to be a bust, but is there a better form of
-encryption? Luckily there is. In fact there is a _perfect_ cipher &ndash; one that is
+encryption? Luckily there is. In fact there is a _perfect_ cipher&mdash;one that is
 completely unbreakable. The key, however, needs to be much larger.  Rather than
 picking just one number for the key, now we pick a random number for _every
 letter_ in our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little
@@ -242,13 +242,13 @@ and we really can't rule out
     key: 1 9 11 2 0 18 20 22 2 22 19 20
     plaintext: FONDLE MY BUTT
 
-The point is that there is now a key for _every possible combination of letters_
-- that includes every single grammatically correct English sentence with three
-words of those lengths. There is no way for our adversaries to know which phrase
-we meant!
+The point is that there is now a key for _every possible combination of
+letters_&mdash;that includes every single grammatically correct English sentence
+with three words of those lengths. There is no way for our adversaries to know
+which phrase we meant!
 
 This type of encryption has some downsides, however. For one, you need a whole
-lot of key. Suppose you wanted to encrypt an entire book &ndash; that would require an
+lot of key. Suppose you wanted to encrypt an entire book&mdash;that would require an
 awful lot of dice rolling! And even if you had that much key, you would need to
 somehow secretly get the key to the recipient ahead of time without it being
 intercepted. Lastly, the security of the cipher relies on the fact that you
@@ -382,8 +382,8 @@ key, we can encrypt text:
 
 This encryption method has a more general name:
 
-A cipher that encrypts each bit independantly &ndash; where each is bit
-unaffected by other bits in the plaintext or key &ndash; is called a **stream
+A cipher that encrypts each bit independantly&mdash;where each is bit
+unaffected by other bits in the plaintext or key&mdash;is called a **stream
 cipher**. A stream cipher doesn't need to be encrypted or decrypted all at once;
 each bit of the plaintext and key can pass through the cipher bit-by-bit (like
 water flowing through a stream).
@@ -395,12 +395,12 @@ one-time pad is just a special kind of stream cipher.
 <div class="deeper">
 The nature of stream ciphers can be a disadvantage in some cases. For example,
 if an attacker somehow gets _part_ of your key, they can read _part_ of your
-plaintext &ndash; which might be all they need. A totally different class of
+plaintext&mdash;which might be all they need. A totally different class of
 ciphers called **block ciphers** solves this by scrambling up big chunks of
 plaintext all at once using the key.
 
 Block ciphers are sort of the opposite of stream ciphers: every bit of the
-ciphertext should be dependent on every other bit &ndash; ensuring that the
+ciphertext should be dependent on every other bit&mdash;ensuring that the
 entire message must decrypted all at once or not at all. Unfortunately they are
 much more complicated than stream ciphers, so we won't discuss them in this
 chapter.
@@ -421,7 +421,7 @@ randomness! We want the computer to be able to generate different key bits every
 time it encrypts.
 
 Luckily, engineers have found a few tricks for getting random numbers out of
-computers &ndash; such as timing user input or reading information from the various
+computers&mdash;such as timing user input or reading information from the various
 devices plugged into the computer. However these methods are very slow compared
 to normal computation. For example, on the laptop I'm writing this with, my
 computer can only generate about 3-4 bytes of randomness per second during
@@ -431,7 +431,7 @@ limitation is that they're _always_ generating randomness, and if you don't need
 it at that moment, they save it for later in something called an entropy pool.
 
 <div class="definition">
-Randomness is sometimes called **entropy** &ndash; especially when measuring how
+Randomness is sometimes called **entropy**&mdash;especially when measuring how
 random something is.
 
 For example, suppose we generate 16 random bits using an unfair coin that lands
@@ -516,9 +516,9 @@ There are a few key observations we need to make about shift registers.
 
 1. This process can continue forever! We have an infinite number of pseudorandom
    bits now.
-2. The first four bits are all that matter in determining what comes next -
-   after a bit is shifted past the last tap, it no longer has any effect on
-   later bits.
+2. The first four bits are all that matter in determining what comes
+   next&mdash;after a bit is shifted past the last tap, it no longer has any
+   effect on later bits.
 3. Since only the first four bits matter, there are only 2<sup>4</sup>=16 different
    sequences that can be produced by this PRNG.
 4. Most importantly, 1, 2, and 3 together tell us that for every seed, the PRNG
@@ -563,14 +563,14 @@ longer be useful by the time they figure it out.
 {: .definition}
 
 This definition of "secure" can be a little surprising the first time you hear
-it. It means that nothing is secure forever with computers - a sufficiently
+it. It means that nothing is secure forever with computers&mdash;a sufficiently
 determined attacker can always keep guessing keys until they stumble on the
 right one. For example, if your credit card number is secured with a key so
 large that it would take 5 years on average for a computer to guess it, that's
 probably "secure enough". In 5 years you probably aren't going to have the same
 credit card number, so by then it won't matter if it's guessed. At the time of
 this writing, 80 bits is considered about the bare minimum key size you need to
-be considered secure for most common purposes &ndash; but that will increase as
+be considered secure for most common purposes&mdash;but that will increase as
 computers get faster. Most ciphers play it safe by using even larger keys. So
 PRNGs still have a place: by using one with a key that is just big enough to be
 secure, you can quickly encrypt plaintext that is many times larger than your
@@ -609,7 +609,7 @@ to begin with!
 
 This works because of an important difference between real-world locks and the
 ciphers we've talked about so far. For a real lock, you usually don't need a key
-to lock it &ndash; you only need one to unlock it &ndash; but for our ciphers we encrypted
+to lock it&mdash;you only need one to unlock it&mdash;but for our ciphers we encrypted
 and decrypted using the same key.
 
 Ciphers that encrypt and decrypt using the same key are called **symmetric-key
@@ -619,7 +619,7 @@ ciphers**.
 So now we need a digital lock: a cipher that anyone can use to encrypt, but only
 the key holder can decrypt. Another way to think about it is for the cipher to
 have two keys: one key for encrypting and a different key for decrypting. The
-encryption key can be distributed publicly &ndash; it's like the unlocked safe that
+encryption key can be distributed publicly&mdash;it's like the unlocked safe that
 Bob sends in the mail. The decryption key is kept secret by the recipient.
 
 Ciphers that use different keys for encryption and decryption are often called
@@ -635,8 +635,8 @@ extra information.
 For example, suppose I ask you to find the two integers X and Y greater than 1
 such that X&times;Y=43,047,409. This is a rather tricky problem: no one knows a
 faster way of solving it than just trying every possible value for X and Y until
-you stumble on the right ones. Now suppose I tell you that X=10,079 &ndash;
-suddenly the extremely difficult problem is extremely easy: you can just divide
+you stumble on the right ones. Now suppose I tell you that X=10,079&mdash;suddenly
+the extremely difficult problem is extremely easy: you can just divide
 to get Y. In this example, X&times;Y is kind of like a public encryption key and
 X is like the private decryption key: as long as we keep X secret, we can share
 X&times;Y freely and everyone will have a hard time finding X and Y.
@@ -680,7 +680,7 @@ first public-key ciphers.
    Which means that every A is replaced with a G, every B is replaced with E,
    every C with U, etc. This is called a _substitution cipher_. Use the above
    key to decrypt the ciphertext "WHSAA EDKLTM".
-4. This substitution cipher has over 4 septillion possible keys &ndash; that's greater
+4. This substitution cipher has over 4 septillion possible keys&mdash;that's greater
    than the "minimum" of 2<sup>80</sup> that I mentioned earlier with PRNGs, and
    of course much, much greater than the 26 keys we get with Caesar's cipher.
    But in fact substitution ciphers are only marginally more secure than

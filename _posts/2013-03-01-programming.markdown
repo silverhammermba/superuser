@@ -65,7 +65,7 @@ hexadecimal. In hexadecimal a byte stores values from 0x00 to 0xFF, so each byte
 is represented by two characters. The spacing in between the bytes helps us
 visualize them in groups of 4. There are 16 bytes on each line. The right column
 also shows the bytes of the file but represented as [ASCII] characters rather
-than hexadecimal values. Since only the byte values 0x20-0x7E correspond to
+than hexadecimal values. Since only the byte values 0x20&ndash;0x7E correspond to
 ASCII characters, all other byte values are displayed as a `.` in this column.
 
 [ASCII]: {{ site.baseurl }}/part2/http/#text
@@ -157,12 +157,12 @@ include multiple bytes. We can split up the instructions like so:
 So there are four instructions. Let's talk about what they do.
 
  1. Recall from the hardware chapter that the CPU's memory is its
-    [registers][cpu] &ndash; numbers with a set size that we can perform
+    [registers][cpu]&mdash;numbers with a set size that we can perform
     calculations on. The first instruction `B3 07` stores the byte value `07` in
     a 8-bit register called BL. This is the exit code that we're going to send
     to the kernel.
  2. The next instruction `31 C0` sets a different register to 0. The `C0` is
-    what chooses which register gets zeroed &ndash; in this case it's a 32-bit
+    what chooses which register gets zeroed&mdash;in this case it's a 32-bit
     register named EAX.
  3. Next we get the single instruction `40`. This simply adds 1 to the value in
     the EAX register. Since we previously set this register to 0, the EAX
@@ -445,7 +445,7 @@ that they often make assumptions about the types of programs you will write. In
 this case, `gcc` has included lots of extra information and instructions that
 our program doesn't need because it's so incredibly simple, but most other
 programs will need. And don't even bother looking for our familiar instructions
-in here &ndash; they could be scattered all over the place or replaced with
+in here&mdash;they could be scattered all over the place or replaced with
 slightly different instructions that have the same effect. With compiled
 languages you just have to trust that the compiler will produce the right
 instructions and not look at how the sausage is made. We got the right exit
@@ -462,7 +462,7 @@ result? Can you find the exit code in this assembly? Can you see some extra
 information that the compiler is including which is unnecessary?
 </div>
 
-Sometimes &ndash; very rarely &ndash; you [do need to care][bug] how the
+Sometimes&mdash;very rarely&mdash;you [do need to care][bug] how the
 compiler creates instructions.
 {: .deeper}
 
@@ -550,7 +550,7 @@ about programs; the compiler always ends up translating the program into machine
 code for the CPU. So it's entirely possible that we could write a program two
 different ways in two different programming languages that follow two different
 programming paradigms, but both end up being compiled to the exact same machine
-code &ndash; just like a carpenter could build a birdhouse step-by-step or as
+code&mdash;just like a carpenter could build a birdhouse step-by-step or as
 separate components and get the same result either way.
 
 The C programming language follows a "procedural" programming paradigm. This

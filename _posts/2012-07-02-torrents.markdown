@@ -12,7 +12,7 @@ Internet layer (usually IP) makes sure the information gets where it needs to
 go. Whenever your web browser loads a web page, all of these protocols work
 together to get that information onto your computer.
 
-This works great for web pages &ndash; even fancy ones like
+This works great for web pages&mdash;even fancy ones like
 [www.weather.com][wth] which include lots of images and interactivity. That
 page only requires about 4 megabytes of data to be transferred over the
 Internet. That's chump change these days. This process also works well when you
@@ -22,7 +22,7 @@ want to download files like images or songs.
 
 But what if you need to transfer a **lot** more data? What if you want to
 download a super-high-definition movie or a huge videogame? Those sorts of files
-can be tens of **gigabytes** in size - &ndash; thousands of times larger than a
+can be tens of **gigabytes** in size&mdash;thousands of times larger than a
 typical web page. Well now we have a problem, and to see why we need to think
 about how HTTP/TCP/IP transfers information.
 

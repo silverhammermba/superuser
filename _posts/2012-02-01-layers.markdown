@@ -48,7 +48,7 @@ User Datagram Protocol (UDP) performs a similar function. While TCP emphasizes
 reliability of the transmission, UDP emphasizes simplicity and speed.
 
 If I'm overloading your brain, don't worry. You can forget about these little
-details because &ndash; as I said &ndash; both of these protocols do basically the same
+details because&mdash;as I said&mdash;both of these protocols do basically the same
 thing.
 
 The **transport layer** is the protocol that is in charge of
@@ -91,7 +91,7 @@ special about a router is that it is designed to be connected to many computers
 at once.
 
 All of the computers connected to a router are assigned _addresses_ which
-identify them to the router &ndash; just like how the addresses of the homes in your
+identify them to the router&mdash;just like how the addresses of the homes in your
 neighborhood identify them to the local post office. These computer addresses
 have a very specific form.
 
@@ -100,7 +100,7 @@ convention, each byte is written in decimal with periods separating bytes e.g.
 `192.168.1.1` or `255.255.255.0`.
 {: .definition}
 
-This situation &ndash; many computers connected to a single router &ndash; is called a local
+This situation&mdash;many computers connected to a single router&mdash;is called a local
 network. The router (again, like a post office) acts as a mediator for messages
 between other computers. If two computers in the network wish to communicate,
 they don't need to be directly connected, instead they can hand their messages
@@ -120,7 +120,7 @@ beauty of this system is that each router only needs to know two things:
 Again, this system functions very similar to the postal service. Your local post
 office doesn't know (or care) how to deliver a package to an address in another
 state: they simply forward the package to another post office that might know.
-This is the essence of the Internet &ndash; a network of interconnected routers all
+This is the essence of the Internet&mdash;a network of interconnected routers all
 serving their own local networks and forwarding data to each other.
 
 ![A little network with computers communicating through routers]({{ site.baseurl }}/img/network.png)
@@ -146,9 +146,8 @@ Now let's poke around the Internet and see these principles in action.
 
 <div class="exercise">
 For these exercises, we will be working in
-<span class="os linux osx">a terminal</span>
-<span class="os windows">the command prompt</span> -
-an interface designed for running text-based programs on your computer.
+<span class="os linux osx">a terminal</span><span class="os windows">the command prompt</span>&mdash;an
+interface designed for running text-based programs on your computer.
 <span class="os windows">
 To open it, press <kbd>Win</kbd>+<kbd>R</kbd> to open the Run dialog, type
 `cmd`, and hit OK.

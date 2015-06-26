@@ -34,11 +34,11 @@ Earlier I described computers as machines that compute computing machines. Now
 let's try to apply that principle once more to get one level of abstraction
 higher: a machine that computes computers, a sort of meta-computer. We'd want it
 to be able to act like any kind of computer, just like a computer can act like
-any kind of computing machine &ndash; something like this:
+any kind of computing machine&mdash;something like this:
 
 <pre><code>input + algorithm + computer &rarr; meta-computer &rarr; answer</code></pre>
 
-But here's the kicker. Recall how a Turing machine operates &ndash; how its various
+But here's the kicker. Recall how a Turing machine operates&mdash;how its various
 components interact. Predicting what a Turing machine will do given certain
 input is a simple matter of following the steps as it reads its instructions
 and manipulates the tape. Hm... "following the steps," that sounds like an

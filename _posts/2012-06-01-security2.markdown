@@ -156,7 +156,7 @@ the stored version. Easy! And awful.
 
 Why is this so awful? Because it presents a single massive point of failure for
 our website: suppose a hacker or a disgruntled employee got access to our store
-of passwords &ndash; they could then access every single account! And it can get
+of passwords&mdash;they could then access every single account! And it can get
 even worse. Have you ever reused your username and password on different sites?
 Well if you did and someone steals your plaintext password on one site, they'll
 now have a much easier time getting access to your account on other sites.
@@ -170,7 +170,7 @@ Have you ever used one of those "I forgot my password" things where they e-mail
 you to help you get access to your account? Did they help you get into your
 account by e-mailing you the password you chose (rather than making you create a
 new password)? If so, be worried! That is a dead giveaway that the site is
-storing your password in the clear &ndash; practically begging for some hacker
+storing your password in the clear&mdash;practically begging for some hacker
 to steal it. Avoid trusting such sites with sensitive information.
 
 ### Hashes ###
@@ -205,7 +205,7 @@ class of functions called _hashes_.
 A **hash** is a function which takes an arbitrary number of bytes as input and
 outputs a fixed number of bytes. The act of putting data in a hash function to
 get output is called **hashing** the data. The output of a hash function is
-called a **digest** or sometimes &ndash; confusingly &ndash; a **hash**.
+called a **digest** or sometimes&mdash;confusingly&mdash;a **hash**.
 {: .definition}
 
 So whether you give your hash a gigabyte of input or 0 bytes of input, it always
@@ -228,8 +228,8 @@ the solution that the information would be practically useless to the attacker
 once they find it.
 {: .note}
 
-Our first example of a checksum &ndash; adding up the input bytes like positive
-integers to get a single byte of output &ndash; is decidedly _not_ a
+Our first example of a checksum&mdash;adding up the input bytes like positive
+integers to get a single byte of output&mdash;is decidedly _not_ a
 cryptographic hash:
 
 * it is easy to find any number of inputs producing a given an output
@@ -259,7 +259,7 @@ method. For one, what if Alice and Bob _both_ choose "password1"? The hash might
 slow down the attackers, but as soon as they figure out Alice's password they'll
 have Bob's too!
 
-**Password Safety Tip #2:** try to choose really unique passwords &ndash; ones
+**Password Safety Tip #2:** try to choose really unique passwords&mdash;ones
 that are unlikely to be chosen by any of the thousands of other users of the
 websites you frequent. If you use a really common password, you risk
 compromising your security when someone else with the same password is
@@ -334,9 +334,9 @@ patterns are so simple, computers can blaze through every possibility for the
 pattern in a matter of seconds. For example, suppose you make a password by
 choosing some English word, adding two random digits on the end, and possibly
 doing some simple letter substitutions like "@" for "a" or "$" for "s", etc.
-Well there are about 173,000 English words, 10&times;10 2-digit numbers, and
-&ndash; being really generous here &ndash; let's say about 20 different ways to
-substitute letters in the word you chose. That means there are about
+Well there are about 173,000 English words, 10&times;10 2-digit numbers,
+and&mdash;being really generous here&mdash;let's say about 20 different ways
+to substitute letters in the word you chose. That means there are about
 173,000&times;10&times;10&times;20=346,000,000 passwords you can make with this
 method. That's not even 30 bits of information! Most computers could crank
 through every possible password of that pattern in no time at all!
@@ -393,7 +393,7 @@ help you keep track of them.
 
 And now that you know this, be **extra** cautious about so-called "password
 strength" meters on websites. By definition they cannot measure the actual
-strength of your passwords - only a human adversary can do that. For every
+strength of your passwords&mdash;only a human adversary can do that. For every
 password strength meter there are false positives and negatives, weak passwords
 that look strong and strong passwords that look weak.
 
@@ -458,8 +458,8 @@ bug-free, they are lying (possibly to themselves). Such bugs can often be
 exploited by hackers to gain access to programs or computers that they should
 not be able to. The [National Vulnerability Database][nvd] maintains a list of
 such bugs, which stands at about 67 _thousand_ at the time of writing. When
-these bugs are in the software that you use and trust every day &ndash; your
-operating system, web browser, e-mail program, etc. &ndash; they can become
+these bugs are in the software that you use and trust every day&mdash;your
+operating system, web browser, e-mail program, etc.&mdash;they can become
 avenues for hackers to install malware on your computer.
 
 [nvd]: https://web.nvd.nist.gov

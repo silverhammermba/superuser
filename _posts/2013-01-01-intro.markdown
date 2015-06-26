@@ -78,8 +78,8 @@ loader adapts it to run on that computer.
 ### Looping ###
 
 With loaders doing much of the repetitive work for computer scientists, the
-previous operating procedure &ndash; inputting instructions, turning on the
-computer, waiting for output, and turning off the computer &ndash; no longer
+previous operating procedure&mdash;inputting instructions, turning on the
+computer, waiting for output, and turning off the computer&mdash;no longer
 made sense. After all, the loader's instructions would be the same every time
 the computer was run so it didn't make sense to have to input them every time
 they wanted to load a program.
@@ -145,7 +145,7 @@ two), then load maybe a third, and eventually the first program would finish and
 the loader could devote more time to running the instructions of the other
 programs. So as long as the computer still has available memory and you don't
 mind things running a bit slower, the loader lets you load and run a program on
-a computer whenever you want &ndash; even while the computer may be running
+a computer whenever you want&mdash;even while the computer may be running
 several other programs!
 
 As a further improvement, the loader can be designed such that you don't need to
@@ -179,9 +179,9 @@ another company's.
 
 [pci]: {{ site.baseurl }}/part1/hardware/
 
-This was not only a nightmare for computer programmers &ndash; who needed to
+This was not only a nightmare for computer programmers&mdash;who needed to
 consider all of the different instructions needed for making their programs work
-with all of the popular peripherals &ndash; it was also a nightmare for the
+with all of the popular peripherals&mdash;it was also a nightmare for the
 loader, which might have several programs running at once all trying to use the
 same peripherals.
 

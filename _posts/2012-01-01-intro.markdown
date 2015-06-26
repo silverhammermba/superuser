@@ -47,8 +47,8 @@ across a wire to another computer that doesn't know the format, it would have no
 idea how to read the data it receives.
 
 Another problem that occurs with inter-computer communication is unreliable
-connections. For _intra_-computer communication &ndash; like transferring data from
-the hard drive to the RAM &ndash; we usually assume that the connection is perfect and
+connections. For _intra_-computer communication&mdash;like transferring data from
+the hard drive to the RAM&mdash;we usually assume that the connection is perfect and
 the data will get to their destination intact. On the other hand, when data are
 being transmitted to other computers via cables or wireless signals, problems
 often occur. Cables can break and signals can get garbled. Even if the receiving
@@ -101,7 +101,7 @@ problem:
   the information it needs
 * The package removes the need to know what exactly Alice is sending. If it is
   possible to send Bob a package, then it is also possible to send Bob
-  _anything that fits in a package_ &ndash; be it a book, photograph, CD, etc.
+  _anything that fits in a package_&mdash;be it a book, photograph, CD, etc.
 
 The computer equivalent of package provides these same benefits.
 
@@ -121,7 +121,7 @@ format. For example, a packet format might look like this:
 Then Alice and Bob would use this format for all information exchanged between
 them. If Alice wants to send Bob a picture, she first adds these 4 bytes in
 front of the image format. Then Bob can receive that information without knowing
-anything about the image format Alice used &ndash; he gets everything he needs from
+anything about the image format Alice used&mdash;he gets everything he needs from
 the first 4 bytes.
 
 Of course we probably want to have something like an address and return address
@@ -158,7 +158,7 @@ has a role to play:
 
 Once Alice receives a confirmation package from Bob, she knows for sure that he
 received it. Of course, if the postal service is really crappy and frequently
-loses packages, this exchange could take quite a while &ndash; but it's the only way
+loses packages, this exchange could take quite a while&mdash;but it's the only way
 to be sure. And if the postal service is slow and takes over a week to deliver
 packages, Alice might end up sending Bob several copies even though he's
 receiving them without issue. But if Alice really wants Bob to get that book,
@@ -172,11 +172,11 @@ short.
 
 ### Checksums ###
 
-With computers it is possible for a transmission to become garbled in transit -
-for bits in the data to be randomly changed. With our analogy, that would kind
-of be like the postal service accidentally opening the package, accidentally
-tearing out or changing some pages of the book, accidentally sealing it up
-again, and delivering it to Bob. Worst postal service ever, right?
+With computers it is possible for a transmission to become garbled in
+transit&mdash;for bits in the data to be randomly changed. With our analogy,
+that would kind of be like the postal service accidentally opening the package,
+accidentally tearing out or changing some pages of the book, accidentally
+sealing it up again, and delivering it to Bob. Worst postal service ever, right?
 
 > How does Alice know that Bob received the correct copy of her book?
 
@@ -200,7 +200,7 @@ This double check would be agreed upon ahead of time as part of the protocol.
 The analogy isn't very good here because the check depends on Alice sending Bob
 a book, but with computers we don't have this problem. Remember that all digital
 information essentially amounts to numbers, so we can easily come up with a
-check that works for any packet &ndash; regardless of its contents. For example,
+check that works for any packet&mdash;regardless of its contents. For example,
 simply interpret each byte of data as a non-negative integer and add them all up
 (ignoring overflow). Alice and Bob can both perform this check on the packet
 without knowing what is inside it.
@@ -212,8 +212,8 @@ involves some kind of sum and is used for error checking.
 {: .definition}
 
 The checksum value would be included in the packet format since it doesn't
-depend on the kind of data being sent. Note that &ndash; like counting 'e's
-&ndash; the checksum doesn't provide absolute certainty that the data are
+depend on the kind of data being sent. Note that&mdash;like counting
+'e's&mdash;the checksum doesn't provide absolute certainty that the data are
 correct. A byte has 1 of 256 possible values, so if a message is randomly
 garbled there is a 1/256 (0.39%) chance that the checksum will still match.
 Those odds seem pretty good, but real computer communications usually use even
@@ -231,10 +231,10 @@ garbled. Usually connections fluctuate between periods of high reliability and
 low reliability.  For example a connection might be mostly reliable but
 occasionally lapse into unreliability for just a few seconds of each minute.
 
-The analogy kind of breaks down here, so just think about how Alice's book -
-formatted as bytes and wrapped in a packet &ndash; is transmitted to Bob. Each bit of
-the packet must be transmitted over the cable one at a time. The more bytes
-there are, the longer this process will take.
+The analogy kind of breaks down here, so just think about how Alice's
+book&mdash;formatted as bytes and wrapped in a packet&mdash;is transmitted to
+Bob. Each bit of the packet must be transmitted over the cable one at a time.
+The more bytes there are, the longer this process will take.
 
 Suppose now that this connection is unreliable in a way that we expect around 2
 seconds of each minute to be in a period of low reliability i.e. bytes sent
@@ -243,7 +243,7 @@ book's packet is so large that it takes a minute to transmit, we're in serious
 trouble. Why? Since it takes a minute to transmit, we would expect that some of
 the bytes were sent during the 2 second period of unreliability and thus had a
 high chance of being lost or garbled. Since Bob performs the checksum on the
-entire packet, we would expect the checksum to almost always fail &ndash; unless we
+entire packet, we would expect the checksum to almost always fail&mdash;unless we
 got really lucky and nothing bad happened during the period of high
 unreliability.
 
@@ -253,7 +253,7 @@ expect only 2 bytes of every 60 to be bad.
 
 > How can Alice decrease redundancy when retransmitting large packets?
 
-What if Alice sends Bob the book one page at a time &ndash; each with its own checksum
+What if Alice sends Bob the book one page at a time&mdash;each with its own checksum
 in its own packet? This provides some nice advantages:
 
 * Pages sent during periods of high reliability are unaffected by pages sent
@@ -286,7 +286,7 @@ following format for our packets:
 * 1 byte for the checksum
 * 14 bytes of data
 
-Notice that we no longer specify the size of the packet &ndash; every packet is fixed
+Notice that we no longer specify the size of the packet&mdash;every packet is fixed
 at 16 bytes. How do we adapt our protocol to use this format? It requires a bit
 of preparation when Alice wants to send something:
 

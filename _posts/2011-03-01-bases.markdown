@@ -151,8 +151,8 @@ memorized the first several powers of 2 for this reason.
 Let's think about how this affects our machines. The wheels of our adding
 machine now seem rather silly, having only two digits each. They could now be
 simple on/off switches. Our Turing machine is much simpler to program as well!
-We needed 10 instructions for our decimal "plus 1" machine &ndash; with lots of
-repetition among them &ndash; but in binary we only need 2:
+We needed 10 instructions for our decimal "plus 1" machine&mdash;with lots of
+repetition among them&mdash;but in binary we only need 2:
 
     (0, 0, 1, N, 1)
     (0, 1, 0, L, 0)

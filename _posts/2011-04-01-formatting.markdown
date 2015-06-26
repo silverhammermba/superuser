@@ -86,7 +86,7 @@ It is confusing. And it gets worse. Recall how the formatting of the data in the
 previous section reduced the number of bytes we could use to store information.
 Even though we had eight bytes, we could only use six after the formatting was
 done. Computer components are often advertised as storing such-and-such
-gigabytes of data &ndash; but is that using powers of 10 or powers of 2? Is that
+gigabytes of data&mdash;but is that using powers of 10 or powers of 2? Is that
 before formatting or after formatting? One often needs to read the fine print
 when it comes to measuring data. Tricky!
 
@@ -98,7 +98,7 @@ there other kinds of math? Aren't there are other kinds of information? What
 about numbers like &pi;? What about information like music and paintings? How
 can we represent such things using a computer?
 
-The truth, surprisingly, is that we _can't_ &ndash; because computers deal exclusively
+The truth, surprisingly, is that we _can't_&mdash;because computers deal exclusively
 with discrete data.
 
 **Discrete** data can be counted.

@@ -14,7 +14,7 @@ computer practical to use.
 
 I admit that this definition is as vague as it is terrible. But the main point
 here is that a kernel alone is not an OS. A kernel is an essential part of every
-modern OS, but on its own it does basically nothing &ndash; it needs other
+modern OS, but on its own it does basically nothing&mdash;it needs other
 programs to run in order to be really useful. So an operating system is really
 just a kernel plus those "other programs". But which other programs? That varies
 between different OSes and is often a selling point for the companies that make
@@ -30,14 +30,13 @@ the book easily.
 
 It would be great if you could just start fooling around on your own computer in
 order to learn about being a superuser, but I'm afraid that wouldn't be very
-responsible of me. It's easy to screw things up as a superuser &ndash;
-especially an inexperienced one &ndash; and I wouldn't want you damaging your
-property on account of me. Also I don't know what kind of computer you're using
-so it's hard for me to give you any specific tips. So for this chapter we're
-going to use one standard computer with a standard OS so that everyone gets the
-same experience. As a bonus, this standard computer also lets us save our work
-in case anything goes awry. Don't worry though: you don't need to go out and buy
-a new computer.
+responsible of me. It's easy to screw things up as a superuser&mdash;especially
+an inexperienced one&mdash;and I wouldn't want you damaging your property on
+account of me. Also I don't know what kind of computer you're using so it's hard
+for me to give you any specific tips. So for this chapter we're going to use one
+standard computer with a standard OS so that everyone gets the same experience.
+As a bonus, this standard computer also lets us save our work in case anything
+goes awry. Don't worry though: you don't need to go out and buy a new computer.
 
 Instead you will download a computer. This is (surprisingly) easy to do thanks
 to [Turing completeness][turing]. All you need is a program which simulates a
@@ -220,7 +219,7 @@ interface for humans. Similar to a kernel, it runs in an infinite loop, waiting
 for input. But instead of waiting for program instructions to run, it waits for
 text commands from the user. The `[root@demo ~]#` text with the flashing cursor
 is the shell's way of saying "you just logged into the computer named demo as
-the root user and I'm waiting for a command" &ndash; this is called the shell's
+the root user and I'm waiting for a command"&mdash;this is called the shell's
 "prompt".
 
 A text interface (like the one provided by the shell) is often called a
@@ -282,7 +281,7 @@ the specific command (e.g. `grep`) what sort of thing to do. Options are
 you leave them out. The other arguments (which often contain a `/`) are the
 filenames: they indicate not what the command should do, but where the command
 should get its data from. These aren't hard rules though; sometimes options
-don't start with a `-` or may contain `/` like a filename &ndash; it depends
+don't start with a `-` or may contain `/` like a filename&mdash;it depends
 entirely on the specific command.
 
 You can think of commands like programs: they take input (their arguments)
@@ -650,7 +649,7 @@ you if a command is in multiple categories). Try this:
 What this is telling us is that `cd` is a special command understood by the
 shell program. This makes sense because the working directory is something that
 the shell keeps track of for our convenience. When you type `cd foo` you are
-commanding the shell itself to change its working directory &ndash; hence "shell
+commanding the shell itself to change its working directory&mdash;hence "shell
 builtin". But what about other commands?
 
     # type -a grep
@@ -669,7 +668,7 @@ for example, first it might check if `grep` is a shell builtin. If it can't find
 the command in any of its categories, the shell tries one last thing: it looks
 to see if the command name is actually the file name of a _program_. If it is,
 the shell tells the kernel the to run that program and passes along the
-arguments you provided &ndash; which is exactly what happens here with `grep`.
+arguments you provided&mdash;which is exactly what happens here with `grep`.
 The reason why we can type either `grep` or `/usr/bin/grep` is because the shell
 keeps track of which directories in the file system contain programs and
 automatically searches all of those directories for the command name we

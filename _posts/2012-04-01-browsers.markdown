@@ -28,8 +28,8 @@ a date (my browser draws a little calendar that I can click on). If it says
 
     <form method="post">
 
-Your browser needs to create a form for you to fill out and &ndash; when you've
-finished &ndash; package up your data and send it across the internet using HTTP. If
+Your browser needs to create a form for you to fill out and&mdash;when you've
+finished&mdash;package up your data and send it across the internet using HTTP. If
 it says
 
     <video src="home_movie.ogg">
@@ -40,7 +40,7 @@ Your browser needs to be able to play a video with subtitles! If HTML says
 "Jump!", your browser says "How high?"
 
 If your web browser is not very well made, it might not understand some of these
-tags and will simply ignore them &ndash; possibly impairing your experience of the web
+tags and will simply ignore them&mdash;possibly impairing your experience of the web
 page. Or it might understand the tag but do a poor job of interpreting it; for
 example, at the time of this writing many browsers don't provide a simple
 interpretation of `<input type="date">` and make you type in a date yourself
@@ -72,8 +72,8 @@ choose carefully.
    chances are that you make credit card purchases online, manage a public
    identity on at least one social networking site, access private
    correspondance like chat and e-mail, and maybe even control a bank account.
-   When you log in to each of these Internet services &ndash; before any information
-   goes out into the Internet &ndash; you put your personal information into your
+   When you log in to each of these Internet services&mdash;before any information
+   goes out into the Internet&mdash;you put your personal information into your
    browser. If some malicious programmer created your web browser, they might be
    misusing your personal information! For software so deeply intertwined with
    your personal life, it's important to get it from a source that you trust.
