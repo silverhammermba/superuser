@@ -62,8 +62,8 @@ choose carefully.
    significantly updated, adding new responsibilities for web browsers to handle
    in order to create web pages. These responsibilities continue to change over
    the years. Old web browser software can't handle some of these new changes,
-   causing some web pages to function/appear differently than the authors
-   intended.
+   causing some web pages to function worse or appear differently than the
+   authors intended.
 2. Flaws are often found in software. As you now know, the Internet is a
    complicated, layered beast. Tiny, unintentional problems can pop up in these
    layers because of poorly designed software or even poorly thought out
@@ -78,7 +78,8 @@ choose carefully.
    misusing your personal information! For software so deeply intertwined with
    your personal life, it's important to get it from a source that you trust.
 
-Luckily from this motivation we get these simple guidelines:
+But you don't have to think too hard about all of these issues because they all
+boil down to these simple guidelines:
 
 1. Get your browser from a well-known source
 2. Keep your web browser up to date by periodically downloading the latest

@@ -59,9 +59,9 @@ bytes and byte values.
 
 ## Size Matters ##
 
-As I mentioned before, computers can have many, many bytes. Luckily we've got
-easier ways to refer to the huge numbers of bytes that come into play when it
-comes to data. Bytes use the standard metric prefixes:
+As I mentioned before, computers can have many, many bytes. To deal with this,
+we have easier ways to refer to the huge numbers of bytes that come into play
+when it comes to data. Bytes use the standard metric prefixes:
 
 * 1,000 bytes is a **kilo**byte or KB
 * 1,000 kilobytes is a **mega**byte or MB

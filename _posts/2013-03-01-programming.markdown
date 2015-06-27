@@ -186,10 +186,10 @@ So to recap, we store the exit code in BL, set EAX to 1 (which is the code for
 an exit), and give control to the kernel to perform the exit with the specified
 exit code.
 
-So that was more than a little confusing and difficult. Thankfully, only crazy
-people actually write machine code by hand like we just did. I just wanted to
-demonstrate that you can type out instructions as bytes and make the computer do
-things.
+So that was more than a little confusing and difficult. But this is hopefully
+the last time you'll ever need to touch machine code; only crazy people actually
+write machine code by hand like we just did. I just wanted to demonstrate that
+you can type out instructions as bytes and make the computer do things.
 
 Modify the `sevn` program to have a different exit code.
 {: .exercise}

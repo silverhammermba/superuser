@@ -192,12 +192,12 @@ to ruin our battle plan!
 
 ## One-Time Pad ##
 
-Caesar's cipher turned out to be a bust, but is there a better form of
-encryption? Luckily there is. In fact there is a _perfect_ cipher&mdash;one that is
-completely unbreakable. The key, however, needs to be much larger.  Rather than
-picking just one number for the key, now we pick a random number for _every
-letter_ in our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little
-work with a 26-sided die, we get
+Caesar's cipher turned out to be a bust, but we can do better. We can do _much_
+better. In fact there is a _perfect_ cipher&mdash;one that is completely
+unbreakable. The key, however, needs to be much larger.  Rather than picking
+just one number for the key, now we pick a random number for _every letter_ in
+our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little work with a
+26-sided die, we get
 
     6 4 5 5 9 12 6 1 0 16 16 0
 
@@ -420,13 +420,13 @@ provide the same input. That is exactly what we _don't_ want when it comes to
 randomness! We want the computer to be able to generate different key bits every
 time it encrypts.
 
-Luckily, engineers have found a few tricks for getting random numbers out of
-computers&mdash;such as timing user input or reading information from the various
-devices plugged into the computer. However these methods are very slow compared
-to normal computation. For example, on the laptop I'm writing this with, my
-computer can only generate about 3-4 bytes of randomness per second during
-normal use. If I stop using it, it quickly runs out of randomness since I've
-deprived it of a major source (my input). One way computers get around this
+Fortunately, clever engineers have found a few tricks for getting random numbers
+out of computers&mdash;such as timing user input or reading information from the
+various devices plugged into the computer. However these methods are very slow
+compared to normal computation. For example, on the laptop I'm writing this
+with, my computer can only generate about 3-4 bytes of randomness per second
+during normal use. If I stop using it, it quickly runs out of randomness since
+I've deprived it of a major source (my input). One way computers get around this
 limitation is that they're _always_ generating randomness, and if you don't need
 it at that moment, they save it for later in something called an entropy pool.
 
@@ -436,7 +436,7 @@ random something is.
 
 For example, suppose we generate 16 random bits using an unfair coin that lands
 on heads 70% of the time. The result will still be "random", but intuitively it
-will be "less random" than if we were to use a fair coin. In fact, using some
+will be _less_ random than if we were to use a fair coin. In fact, using some
 [fancy math][coin] we can calculate that the 16 bits from the unfair coin have
 only 14 bits of entropy. In other words, they have the same "amount" of
 randomness as 14 bits produced by a completely fair coin.

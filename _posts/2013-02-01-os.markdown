@@ -196,10 +196,10 @@ wrong. Just carefully try again.
 {: .pull-right}
 
 As lots of text starts flying across the screen, you might be wondering, "What
-did I just do?" Well, you basically just told Arch Linux to destroy itself! And
-by now it has probably already damaged itself beyond repair. This is the kind of
-power that a superuser wields. Luckily this isn't a real computer and we just
-took a snapshot so nothing is really lost. To restore the VM, first click
+did I just do?" Well, right now Arch Linux is happily destroying itself. And by
+now it has probably already damaged itself beyond repair. Fun! This is the kind
+of power that a superuser wields. Thankfully this isn't a real computer and we
+just took a snapshot so nothing is really lost. To restore the VM, first click
 "Close" under the "Machine" menu, select "Power off the machine" and click "OK".
 This forces the VM to stop.
 

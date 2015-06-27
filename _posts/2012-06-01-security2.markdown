@@ -281,8 +281,8 @@ common password that is shared by a bunch of users. If that password is
 compromised on any one of those sites, suddenly the attackers know who uses that
 password on _all_ of the sites! Terrible!
 
-Luckily, the solution is pretty simple. We add some extra data to the hash
-input.
+The solution to this problem is pretty simple, however. We add some extra data
+to the hash input.
 
 A **password salt** is a piece of random information which is added to the
 password _before_ it is hashed. The salt does not need to be kept secret and is
