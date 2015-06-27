@@ -845,9 +845,50 @@ compiled languages have any downsides of their own? Sort of. Compiled languages
 are often called "static" because in a sense the resulting programs are very
 rigid and unchanging. For example, with our previous C program, if we want to
 change any of the program code we need to recompile the source. In a way, this
-is an advantage because the compiler can do things like check for errors or
+is an advantage because the compiler can do things like check for mistakes or
 optimize our algorithms when it compiles the source code. But it is also a
-disadvantage because the resulting program is not flexible and easy to change
-(we need to recompile it every time).
+disadvantage because the resulting program is not flexible nor easy to change
+(we need to recompile it every time). Making a C program more flexible and
+"dynamic" is certainly possible, but it requires hard work and can be very
+difficult to do well. This is where the scripting languages come in.
 
+A **scripting language** is a programming language where the instructions are
+read and carried out directly by another program (rather than translated into
+machine code for the CPU to carry out).
+{: .definition}
 
+The distinction between scripting languages and compiled languages is subtle, so
+let's think about it in a different way. Recall our original fake C program that
+had procedures like `apply_varnish`. In C, we would have to define the steps
+of `apply_varnish` ourselves and the compiler would need to be able to translate
+all of those steps into machine code. But what if we're doing a _lot_ of wood
+working and `apply_varnish` is something _fundamental_ to our
+workflow&mdash;something we'll be doing all the time? It seems kind of
+overcomplicated to need to always break it down into tiny little machine code
+instructions that the CPU can understand. Wouldn't it be cool if we had a
+special "wood working CPU" that understood `apply_varnish` as one of its basic
+instructions?
+
+Well we already know from the VM we're playing around in that it's no problem
+for a computer to simulate another computer inside itself. So we could design
+our special wood working CPU _in code_ and simply simulate it inside our
+computer. Then we could issue instructions like `apply_varnish` directly to the
+simulated CPU as if it's a real, physical computer. That is basically how
+scripting languages work: rather than using a program to translate our
+instructions into machine code, a program reads our instructions and simulates
+the result of running them itself.
+
+An **interpreter** is a program which reads program instructions and simulates
+the result of running those instructions. Scripting languages are often called
+**interpreted languages** since they almost always need to be read by an
+interpreter.
+{: .definition}
+
+So what's the advantage of an interpreter and what does it have to do with
+"dynamic" programs? Recall that with C, a big task for the compiler was making
+sure that our programs made sense and didn't include weird stuff like undefined
+behavior. That was important because sending bad instructions to your actual CPU
+can be dangerous. But with an interpreter we're running a _simulated_ CPU, so
+there's no need for the interpreter to read ahead or verify anything: it can
+simply follow each instruction as it gets to it. This allows for far greater
+flexibility than in languages like C.
