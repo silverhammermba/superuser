@@ -752,6 +752,10 @@ code for the program, so I've changed the `void` to `int` (meaning it returns an
 integer rather than nothing) and added `return 0` to indicate that everything
 worked.
 
+Now that you know how `main` and `return` work, can you understand how our
+simple `sevn.c` program works?
+{: .exercise}
+
 In C, procedures are more commonly called **functions**, even though they aren't
 functions in the strict mathematical sense. But they do take input (via their
 arguments) and give output (via the return value) and _usually_ the output
@@ -770,7 +774,8 @@ then compile and run it like so:
 Pretty cool stuff!
 
 <div class="exercise">
-Modify the C program so that it has the following output
+Modify the C program so that it has the following output. Then compile and run
+it to verify.
 
     3 + 4 = 7
     -31 + 57 = 26
@@ -866,23 +871,27 @@ working and `apply_varnish` is something _fundamental_ to our
 workflow&mdash;something we'll be doing all the time? It seems kind of
 overcomplicated to need to always break it down into tiny little machine code
 instructions that the CPU can understand. Wouldn't it be cool if we had a
-special "wood working CPU" that understood `apply_varnish` as one of its basic
-instructions?
+special "wood working computer" that understood `apply_varnish` as one of its
+basic instructions?
 
 Well we already know from the VM we're playing around in that it's no problem
 for a computer to simulate another computer inside itself. So we could design
-our special wood working CPU _in code_ and simply simulate it inside our
+our special wood working computer _in code_ and simply simulate it inside our
 computer. Then we could issue instructions like `apply_varnish` directly to the
-simulated CPU as if it's a real, physical computer. That is basically how
-scripting languages work: rather than using a program to translate our
-instructions into machine code, a program reads our instructions and simulates
-the result of running them itself.
+simulated computer's CPU as if it were a real, physical computer. That is
+basically how scripting languages work: rather than using a program to translate
+our instructions into machine code, a program reads our instructions and
+simulates the result of running them itself.
 
 An **interpreter** is a program which reads program instructions and simulates
 the result of running those instructions. Scripting languages are often called
 **interpreted languages** since they almost always need to be read by an
 interpreter.
 {: .definition}
+
+The analogy between virtual machines and interpreters is so strong that many
+interpreters are actually refered to as VMs (even though they aren't simulating
+a real computer like our Arch Linux VM is).
 
 So what's the advantage of an interpreter and what does it have to do with
 "dynamic" programs? Recall that with C, a big task for the compiler was making
@@ -891,4 +900,109 @@ behavior. That was important because sending bad instructions to your actual CPU
 can be dangerous. But with an interpreter we're running a _simulated_ CPU, so
 there's no need for the interpreter to read ahead or verify anything: it can
 simply follow each instruction as it gets to it. This allows for far greater
-flexibility than in languages like C.
+flexibility than in languages like C. For example, we can add instructions for
+the interpreter on-the-fly and completely change the behavior of the code while
+it is already running.
+
+<div class="deeper">
+If you're paying close attention you might have noticed that I'm conflating two
+different ideas when talking about programming languages. On the one hand,
+there's the _linguistic_ aspect of the programming language: the syntax and
+grammar of the text that we type into the computer. On the other hand, there's
+the _implementation_ of that text to make the computer actually carry out the
+desired actions. When I say that C is a compiled language, I make it sound like
+the syntatical, grammatical nature of C is somehow connected with the compiler
+that implements C and turns it into machine code but in reality there is no such
+connection. While C is usually compiled into machine code, there _are_
+interpreters that can simulate its instructions. Similarly while most scripting
+languages are interpretted, you could technically design a compiler to turn the
+instructions into machine code (though it probably wouldn't be easy).
+
+The reason why these two meanings are conflated is simply practical. Usually the
+design of the language lends itself to one of the approaches better than the
+other. If a language is easy to compile into machine code it probably doesn't
+have the dynamic features that makes scripting languages useful, so by
+interpreting it you're losing the benefits of a compiler without any major gain.
+If a language has lots of dynamic features that make an interpreter fitting,
+designing a compiler is probably going to be impractically complicated and will
+end up creating very large, inefficient machine code programs.
+</div>
+
+The scripting language we're going to play around with is called Ruby. Let's
+create a simple Ruby program to demonstrate the dynamic nature of the language.
+Programs in scripting languages are often called "scripts".
+
+<div class="exercise">
+Create a text file named `eval.rb` with the following text
+
+{% highlight ruby %}
+x = eval gets
+
+puts x * 3
+{% endhighlight %}
+</div>
+
+Running a Ruby script is very different from the previous programs because we
+don't have to turn it into executable machine code. Instead we simply pass the
+filename as an argument to the ruby interpreter.
+
+    # ruby eval.rb
+
+After entering this command, your prompt will simply sit there and do nothing.
+That's because also unlike our previous programs, this one expects some input
+from the user. For now just provide no input by pressing <kbd>Enter</kbd>:
+
+    # ruby eval.rb
+    
+    eval.rb:3:in `<main>': undefined method `*' for nil:NilClass (NoMethodError)
+
+Ruby just spat out an error message at us. Rude! What happened here is we told
+Ruby to multiply x by 3 and Ruby doesn't know what x is, so it can't do the
+multiplication (specifically it says x is "nil", meaning nothing, and it doesn't
+know how to multiply nothing). This kind of program would never fly in C,
+because the compiler would complain long before we ever try to run the
+instructions. But since Ruby is interpreted, it can't know that there is a
+problem until it actually runs all of the previous instructions and gets to the
+problematic one.
+
+Now run the script again, only this time provide some input by typing `2` and
+<kbd>Enter</kbd>
+
+    # ruby eval.rb
+    2
+    6
+
+No more error message! `x = eval gets` is basically the Ruby way of saying "x is
+whatever the user inputs". Since we told it x is 2, it can do the multiplication
+just fine, so it prints 6 since 2&times;3=6. But Ruby knows how to multiply more
+than just numbers. This time, try telling Ruby that x is `"ha"`
+
+    # ruby eval.rb
+    "ha"
+    hahaha
+
+Pretty cool! This tiny little Ruby script can have such different behavior all
+depending on the input we give it. Would it be possible to create such a program
+in C? Sure, but take my word for it that it would be _much, much_ trickier than
+that cute little two-line script we just wrote.
+
+That example shows off the really dynamic nature of Ruby, but you don't _have_
+to use Ruby for dynamic programs like that. Here are the other two programs we
+made, rewritten using Ruby. First, `sevn.rb`
+
+{% highlight ruby %}
+exit 7
+{% endhighlight %}
+
+and `mult.rb`
+
+{% highlight ruby %}
+def multiply_and_print x, y
+  z = x * y
+  puts "#{x} x #{y} = #{z}"
+end
+
+multiply_and_print 3, 4
+multiply_and_print -31, 57
+multiply_and_print 12, 8
+{% endhighlight %}
