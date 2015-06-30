@@ -108,7 +108,7 @@ off to the router and it will perform the exchange.
 
 The situation starts becoming amazing when your router is connected to the
 router of a different local network. Now computers in both local networks can
-communicate! Imagine that you want to send a message to a computer in the other
+communicate. Imagine that you want to send a message to a computer in the other
 network. First you send the message to your router as usual, the router thinks
 "I'm not connected to that computer" so it sends it on to the other router. That
 router _is_ connected to the other computer, so it can deliver the message. The
@@ -136,7 +136,7 @@ matter of who owns all of these interlocking pieces.
 
 Since an IP address has 4 bytes, that means that there are only 2<sup>32</sup> =
 4,294,967,296 different IP addresses. Since every device connected to the
-Internet needs an IP address, we're actually running out of them! Because of
+Internet needs an IP address, we're actually running out of them. Because of
 this we're currently trying to transition to a new version of IP (version 6)
 which has 128 bit addresses. IPv6 addresses are written in hexadecimal with
 pairs of bytes separated by colons e.g. `2001:0db8:85a3:0042:1000:8a2e:0370:7334`.
@@ -161,7 +161,7 @@ In Finder, you can find the terminal under Applications &rarr; Utilities.
 </span>
 
 The first program we're going to use is called `ping`. It sends a
-simple request to an IP address: ping me back! This is commonly used to test a
+simple request to an IP address: ping me back. This is commonly used to test a
 network connection. Type in the following and press <kbd>Enter</kbd>.
 
     ping 127.0.0.1
@@ -214,7 +214,7 @@ scenario is that Google might have many computers running their search engine
 around the world. Connecting to a computer nearby is generally faster than
 connecting to one far away, so Google can offer a faster service by placing
 computers near their customers. But then customers would need to remember all of
-the different Google IP addresses based on their location!
+the different Google IP addresses based on their location.
 
 The solution is the Domain Name System (DNS). The DNS acts like a kind of phone
 book for the Internet, associating human-readable domain names (www.google.com)
@@ -257,7 +257,7 @@ message.
 
 The Internet layer gets your data where it needs to go and the transport layer
 makes sure that it arrives intact without errors, but what data are we actually
-sending? Well... anything!
+sending? Well... anything.
 
 The **application layer** is the protocol that actually communicates meaningful
 information.

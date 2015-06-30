@@ -146,7 +146,7 @@ the loader could devote more time to running the instructions of the other
 programs. So as long as the computer still has available memory and you don't
 mind things running a bit slower, the loader lets you load and run a program on
 a computer whenever you want&mdash;even while the computer may be running
-several other programs!
+several other programs.
 
 As a further improvement, the loader can be designed such that you don't need to
 tell it how much memory the program needs ahead of time. Instead it guesses how

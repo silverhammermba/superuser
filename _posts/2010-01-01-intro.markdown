@@ -129,7 +129,7 @@ irreversible damage to it! The superuser has no restrictions when using the
 computer, which means an ignorant superuser can easily cause serious damage to a
 computer by acting carelessly. On the flipside, a superuser can tweak and tailor
 a computer's every behavior to suit her needs. Since the superuser has no
-restrictions, she also has the most responsibility!
+restrictions, she also has the most responsibility.
 
 Technically speaking, it is quite trivial to become the superuser on your
 personal computer. But being able to handle the burden of being a superuser is

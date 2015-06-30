@@ -36,7 +36,7 @@ it says
       <track kind="subtitles" src="home_movie.en.vtt" srclang="en" label="English">
     </video>
 
-Your browser needs to be able to play a video with subtitles! If HTML says
+your browser needs to be able to play a video with subtitles! If HTML says
 "Jump!", your browser says "How high?"
 
 If your web browser is not very well made, it might not understand some of these
@@ -148,7 +148,7 @@ window.onload = function() {
 Because these browsers are so popular, there are a lot of different websites
 offering downloads for them. Play it safe and use the official download links
 above<span class="os linux"> (or your distribution's package manager)</span> to
-get them! Malicious software developers will often offer unofficial downloads of
+get them. Malicious software developers will often offer unofficial downloads of
 popular software but with viruses snuck in.
 {: .note}
 

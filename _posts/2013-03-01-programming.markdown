@@ -128,20 +128,20 @@ to specify exactly where the program is by including the `./`.
 If everything went according to plan, your shell will simply print another
 prompt, meaning it finished running the program and is waiting for another
 command. To know that our program worked as we intended, we need to see what its
-exit code was! When you run a command, the shell stores its exit code for later
+exit code was. When you run a command, the shell stores its exit code for later
 use. You can tell the shell to show you that exit code with the following
 command:
 
     # echo $?
     7
 
-Ta da! That 7 means our program worked! Now that we have a working program,
-let's take a look at what it's doing. First of all, we can ignore most of the
-bytes in the program! That's because like most files, program files store their
-data in a format, so not all of the bytes in the file are used as program
-instructions. The other bytes describe things like what kind of program this is,
-what sort of computers it works on, etc. We don't really care about that stuff
-so let's just focus on the last seven bytes, which are the actual instructions:
+Tada! That 7 means our program worked. Now that we have a working program, let's
+take a look at what it's doing. Just like most other files, programs store their
+data (their instructions) in a format. So not all of the bytes we just wrote are
+actual program instructions; many of them describe things like what kind of
+program this is, what sort of computers it works on, etc. We don't really care
+about that stuff so we can just focus on the last seven bytes, which are the
+actual instructions:
 
     B3 07 31 C0 40 CD 80
 
@@ -251,7 +251,7 @@ earlier:
     register BL". The `$` indicates that `7` is a literal, numerical value. The
     `%` indicates that `bl` is the name of a register. In other words, set BL to 7.
     Assembly language may not be "human readable" per se, but at least we can
-    see the names of the registers in the instructions now!
+    see the names of the registers in the instructions now.
  2. `31 C0` has become `xorl %eax,%eax`. Oddly, assembly doesn't have an
     instruction for setting a register to 0. But we can achieve the same effect
     by [XOR]ing a register with itself. So `xorl %eax,%eax` says "**XOR** EAX
@@ -320,7 +320,7 @@ Open up `sevn2` in `hexedit`. There are a lot more bytes than before but again
 most of it is formatting. That's because `as` and `ld` included more optional
 parts of the executable format that we left out when we wrote the machine code
 by hand. However the same familiar machine code instructions should be nestled
-in here somewhere. See if you can find them!
+in here somewhere. See if you can find them.
 {: .exercise}
 
 While some programmers still write assembly today, it has many drawbacks. First

@@ -161,9 +161,9 @@ even worse. Have you ever reused your username and password on different sites?
 Well if you did and someone steals your plaintext password on one site, they'll
 now have a much easier time getting access to your account on other sites.
 
-**Password Safety Tip #1:** choose unique passwords for each site! If you reuse
+**Password Safety Tip #1:** choose unique passwords for each site. If you reuse
 passwords and any of the sites store your password insecurely, it's as if
-_every_ site stores it insecurely!
+_every_ site stores it insecurely.
 {: .note}
 
 Have you ever used one of those "I forgot my password" things where they e-mail
@@ -188,7 +188,7 @@ ever, we were concerned that the book Bob received might not match the version
 Alice sent. In that case, we solved our problem using a checksum: a small bit of
 data that acted like a summary of the data being transmitted. If the summaries
 didn't match, it was pretty unlikely that the book matched the original, and
-vice versa. So maybe a checksum is the tool we're looking for! When a user
+vice versa. So maybe a checksum is the tool we're looking for. When a user
 chooses their password, we compute a checksum of the password and store _that_.
 Then when they access their account later, we again compute the checksum and
 compare.
@@ -252,18 +252,18 @@ those might produce the two hash outputs:
     f1f16683f3e0208131b46d37a79c8921
 
 They're totally different! Even if the attackers figure out Alice's password,
-they'll have no idea how close they are to getting Bob's!
+they'll have no idea how close they are to getting Bob's.
 
 You might think we're all set now, but there are still a few flaws with this
 method. For one, what if Alice and Bob _both_ choose "password1"? The hash might
 slow down the attackers, but as soon as they figure out Alice's password they'll
-have Bob's too!
+have Bob's too.
 
 **Password Safety Tip #2:** try to choose really unique passwords&mdash;ones
 that are unlikely to be chosen by any of the thousands of other users of the
 websites you frequent. If you use a really common password, you risk
 compromising your security when someone else with the same password is
-compromised!
+compromised.
 {: .note}
 
 ### Add Salt ###
@@ -279,7 +279,7 @@ the same three or four publicly-available cryptographic hash functions. Now
 imagine that a bunch of websites all use the same hash function to store a
 common password that is shared by a bunch of users. If that password is
 compromised on any one of those sites, suddenly the attackers know who uses that
-password on _all_ of the sites! Terrible!
+password on _all_ of the sites. Terrible!
 
 The solution to this problem is pretty simple, however. We add some extra data
 to the hash input.
@@ -338,7 +338,7 @@ Well there are about 173,000 English words, 10&times;10 2-digit numbers,
 and&mdash;being really generous here&mdash;let's say about 20 different ways
 to substitute letters in the word you chose. That means there are about
 173,000&times;10&times;10&times;20=346,000,000 passwords you can make with this
-method. That's not even 30 bits of information! Most computers could crank
+method. That's not even 30 bits of information; most computers could crank
 through every possible password of that pattern in no time at all!
 
 **Password Safety Tip #3:** whatever password you use, make sure it's at least
@@ -367,7 +367,7 @@ and choose a character for each word
     Joseph's face was black as night and the pale yellow moon shone in his eyes
 	J        f    w   b     a  n     &   t   p    Y      0    s     i  h   I
 
-The more creative, the better! Notice "&" for "and", "0" for "moon" and "I" for
+The more creative, the better. Notice "&" for "and", "0" for "moon" and "I" for
 "eyes". So this gives me the password
 
     Jfwban&tpY0sihI
@@ -379,7 +379,7 @@ interesting approach is XKCD's [four random words][xkcd].
 [xkcd]: http://xkcd.com/936/
 
 **Password Safety Tip #4:** try to use passwords that would be hard to guess
-even if an attacker knew how you were choosing them! For example, "wPE7T%+G" may
+even if an attacker knew how you were choosing them. For example, "wPE7T%+G" may
 look like a random, secure password, but if your passwords on other sites are
 "wPE8T%+G" and "wPE9T%+G", you're kinda shooting yourself in the foot.
 {: .note}

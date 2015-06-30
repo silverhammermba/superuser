@@ -141,7 +141,7 @@ F, D becomes I, X becomes C, etc. This gives us the ciphertext
 
     FYYFHP FY IFBS
 
-There's our confidentiality! If our foes intercept our message they will have no
+There's our confidentiality. If our foes intercept our message they will have no
 idea what is actually being said. But since the true recipient of our message
 knows that we're using the Caesar cipher with a key of 5, they can decrypt the
 message by shifting the letters in the opposite direction by that amount.
@@ -188,7 +188,7 @@ the key or plaintext from ciphertext.
 
 With the key in hand, the interceptors have completely compromised the security
 of our cipher. They can read the message or even change it to "FYYFHP FY STTS"
-to ruin our battle plan!
+to ruin our battle plan.
 
 ## One-Time Pad ##
 
@@ -202,7 +202,7 @@ our plaintext. "ATTACK AT DAWN" has 12 letters, so after a little work with a
     6 4 5 5 9 12 6 1 0 16 16 0
 
 Note that while a key of zero was useless for the Caesar cipher, now zeros in
-our key are okay!
+our key are okay.
 {: .note}
 
 Encryption is similar to the Caesar cipher but now each letter is shifted by its
@@ -249,7 +249,7 @@ which phrase we meant!
 
 This type of encryption has some downsides, however. For one, you need a whole
 lot of key. Suppose you wanted to encrypt an entire book&mdash;that would require an
-awful lot of dice rolling! And even if you had that much key, you would need to
+awful lot of dice rolling. And even if you had that much key, you would need to
 somehow secretly get the key to the recipient ahead of time without it being
 intercepted. Lastly, the security of the cipher relies on the fact that you
 never reuse a key. So even if you go through all of that effort to generate a
@@ -363,8 +363,8 @@ Now let's monkey around with that encryption equation a bit:
     plaintext ⊕ 0 = ciphertext ⊕ key
     plaintext = ciphertext ⊕ key
 
-The process for encryption is the _exact same_ as for decryption! Add key to plaintext
-and you get ciphertext, add key to ciphertext and you get plaintext! Cool, huh?
+The process for encryption is the _exact same_ as for decryption. Add key to plaintext
+and you get ciphertext, add key to ciphertext and you get plaintext. Cool, huh?
 
 Now perhaps you aren't impressed by any of this since all we encrypted was a
 measely bit, but what is binary data other than a string of bits? All you need
@@ -475,7 +475,7 @@ under the taps and put the result on the end. 0 ⊕ 0 = 0, so...
     register: 00100
               ^
 
-Now we shift! You can think of this as the register shifting to the right or the
+Now we shift. You can think of this as the register shifting to the right or the
 taps shifting to the left. Either one works:
 
         taps:   ..
@@ -530,8 +530,8 @@ For our last example, the full sequence we get is
 
 Notice how the first four bits are the same as the last four bits. If we
 continue generating bits, it will repeat this sequence over and over again.
-However, look at what we've gained! Starting with just 4 bits, we've produced
-over 16 bits that look pretty random! This is the trick of PRNGS: we use a true
+However, look at what we've gained: starting with just 4 bits, we've produced
+over 16 bits that look pretty random. This is the trick of PRNGs: we use a true
 random source (like an entropy pool) to slowly generate a small seed, then the
 PRNG quickly spits out a whole bunch of randomish numbers for us to use as key.
 The larger the shift register, the better: with an 18-bit register and taps 0 and
@@ -587,7 +587,7 @@ shift registers can be quickly broken using some [clever math][bm].
 
 There's a rather large gap in our cipher discussion so far: whether you're using
 a one-time pad with a massive key or a PRNG with a tiny key, you still need a
-way to get the key to the recipient! To figure out this problem, let's go back
+way to get the key to the recipient. To figure out this problem, let's go back
 to the analogy of sending actual packages in the mail.
 
 I mentioned earlier that encryption is like locking your package in a safe. Now
@@ -605,7 +605,7 @@ this has obvious limitations:
 The solution is clever and simple. Instead of Alice supplying the key and safe,
 Bob does. Then Bob mails Alice the _unlocked safe_, which she places her package
 in and locks. When Bob receives the safe he can unlock it because he had the key
-to begin with!
+to begin with.
 
 This works because of an important difference between real-world locks and the
 ciphers we've talked about so far. For a real lock, you usually don't need a key
@@ -684,7 +684,7 @@ first public-key ciphers.
    than the "minimum" of 2<sup>80</sup> that I mentioned earlier with PRNGs, and
    of course much, much greater than the 26 keys we get with Caesar's cipher.
    But in fact substitution ciphers are only marginally more secure than
-   Caesar's cipher!
+   Caesar's cipher.
 
    Can you think of how you might be able to crack a subtitution cipher without
    trying every single key? If you skipped it earlier, read the blurb about [not

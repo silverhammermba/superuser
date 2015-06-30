@@ -6,13 +6,13 @@ category: part1
 
 You have now constructed (in your mind) a true, modern computer! Given enough
 tape, a big enough state register, and the right program, you can perform any
-computation! There's still a big gap between the simple, theoretical Turing
+computation. There's still a big gap between the simple, theoretical Turing
 machine and the complicated computers we use in real life but you'll be happy to
 know that we'll be skipping over most of the details of that topic.
 
-We're getting _sooo_ close to talking about real life computers. I promise!
-There's just a couple more topics which we must cover before we're ready to talk
-about real computers. First up:
+I promise that we're getting _so_ close to talking about real life computers.
+There are just a couple more topics which we must cover before we're ready to
+talk about real computers. First up:
 
 ## Binary ##
 
@@ -144,14 +144,15 @@ to decimal is a good skill to have as well:
 110101<sub>2</sub> = 100000<sub>2</sub> + 10000<sub>2</sub> + 100<sub>2</sub> + 1<sub>2</sub> = 1 &times; 2<sup>5</sup> + 1 &times; 2<sup>4</sup> + 1 &times; 2<sup>2</sup> + 1 &times; 2<sup>0</sup> = 32<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> = 53<sub>10</sub>
 
 Notice how the method for conversion is the same as before, but wonderfully
-simple: since the only digits are 0 or 1, each power of 2 is either added or not
-added to the sum; no multiplication is required! Many computer scientists have
-memorized the first several powers of 2 for this reason.
+simple: since the only digits are 0 or 1, each power of 2 is either multiplied
+by 0 (is not part of the sum) or is multiplied by 1 (is added to the sum). No
+multiplication is required. Many computer scientists have memorized the first
+several powers of 2 for this reason.
 
 Let's think about how this affects our machines. The wheels of our adding
 machine now seem rather silly, having only two digits each. They could now be
-simple on/off switches. Our Turing machine is much simpler to program as well!
-We needed 10 instructions for our decimal "plus 1" machine&mdash;with lots of
+simple on/off switches. Our Turing machine is much simpler to program as well:
+we needed 10 instructions for our decimal "plus 1" machine&mdash;with lots of
 repetition among them&mdash;but in binary we only need 2:
 
     (0, 0, 1, N, 1)
@@ -190,7 +191,7 @@ annoying to read and write all of those binary digits. To solve this problem,
 computer scientists employ another tool: hexadecimal.
 
 Hexadecimal is the fancy word for base 16. 16 is more than 10 so where we
-previously had fewer digits to use, now we _add_ 6 more digits! It is telling of
+previously had fewer digits to use, now we _add_ 6 more digits. It is telling of
 computer scientists' creativity that these new digits are A, B, C, D, E, and F.
 Counting in hexadecimal looks like this:
 

@@ -22,7 +22,7 @@ Don't worry, because even computer scientists had a hard time defining it. It
 wasn't until the 1930s that anyone managed to put forth a decent definition for
 the term, and even today no one can come up with an argument for why that
 definition is the "right" one. We've all just agreed to hope that it's the
-right one. Weird, right!?
+right one. Weird, right?
 
 So what is this definition?
 
@@ -72,8 +72,8 @@ Good.
 
 You might be wondering: since a computation is a function that can be evaluated
 using an algorithm, does that mean that there are functions that
-**can't** be evaluated using any algorithm? Yes! They're both
-really cool and beyond the scope of this book. Search the web for "uncomputable
+**can't** be evaluated using any algorithm? Yes! They're really cool and
+unfortunately beyond the scope of this book. Search the web for "uncomputable
 functions".
 {: .deeper}
 

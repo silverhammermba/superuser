@@ -43,7 +43,7 @@ by making much simpler machines first.
 We'll start with a wheel attached to the surface of a table. Around this wheel
 we'll evenly write the digits 0&ndash;9 in order. We can attach a handle to the
 wheel for rotating it and draw a mark on the table to point at a digit on the
-wheel. Tada! We now have a very simple computing machine! In particular, this is
+wheel. Voilà: we now have a very simple computing machine! In particular, this is
 an "add 1 to a number" machine. It takes as input a single digit number and
 outputs a single digit number. The algorithm it uses is as follows:
 
@@ -54,7 +54,7 @@ outputs a single digit number. The algorithm it uses is as follows:
 This machine is a bit silly, but it does do the job. In particular, it saves you
 the enormous effort of remembering what order the digits come in: you simply
 find the digit you want to add to, turn the crank, and read the result. But what
-happens if we give it 9 as input? Argh! The wheel circles back around to 0!
+happens if we give it 9 as input? The wheel circles back around to 0!
 
 ![Overflow]({{ site.baseurl }}/img/overflow.png)
 {: .pull-left}
@@ -66,9 +66,9 @@ that the second wheel remains stationary when we turn the crank. Except when the
 first wheel turns from 9 back to 0, then the second wheel advances by one digit
 (the diagram below shows a crude example of this, but if you want to see how
 this is done for real check out this [video][yt]). Now when we give an input of
-09, turning the handle changes the 9 to 0, which advances the 0 to 1 and we get
-10! Success!  If we keep turning, the second wheel remains at 1 (giving us 11,
-12, 13, ...) until we get to 19 and it once again advances to 20.
+09, turning the handle changes the 9 to 0, which advances the 0 to 1 and we get 10.
+Success! If we keep turning, the second wheel remains at 1 (giving us 11, 12,
+13, ...) until we get to 19 and it once again advances to 20.
 
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
 
@@ -77,7 +77,7 @@ this is done for real check out this [video][yt]). Now when we give an input of
 
 By now you might realize that we still have a problem. Our new machine works all
 the way up to 99 and then the same error occurs. Turning the rightmost 9 back to
-0 advances the leftmost 9 to 0 as well, so our machine says that 99+1=0. Dang!
+0 advances the leftmost 9 to 0 as well, so our machine says that 99+1=0. Dang.
 We can keep adding more wheels like we did before but that only delays the
 error. How do we solve it? Well... we don't. Without having infinitely many
 wheels, there's nothing we can do other than ensure that we have enough wheels
@@ -112,7 +112,7 @@ If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
 backwards one digit from 0 to 9 turns the wheel to its left backwards by one
 digit (the reverse of what the wheels did before). Now we have an "add or
-subtract 1 from a number" machine! By turning the handle in the opposite
+subtract 1 from a number" machine. By turning the handle in the opposite
 direction, it counts in the opposite direction from what it did before. As you
 might expect, this machine now has an "underflow" problem: if we subtract 1 from
 0, the rightmost 0 turns to a 9, which turns the wheel to its left from 0 to 9,
@@ -185,7 +185,7 @@ consists of the following components:
    are performing. We assume that the tape starts with every position in the
    sequence set to 0
 2. A **head** which can read and write digits on the tape&mdash;but only one
-   digit at a time! The head can move along the tape to go from one digit to the
+   digit at a time. The head can move along the tape to go from one digit to the
    previous or next, but again only one digit at a time.
 3. A **state register**, which we can think of like a wheel in our
    adding machine. The wheel has numbers around the edge and a mark pointing at
@@ -260,7 +260,7 @@ input:
 2. The machine is in state 1 and reads a 5. There are no rules that start with
    (1, 5, ...) so the machine stops.
 
-Lo and behold there is now a 5 on the tape! Amazing! Okay, maybe not _that_
+Lo and behold there is now a 5 on the tape. Amazing! Okay, maybe not _that_
 amazing. Perhaps an input of 299 will be more mind-blowing:
 
 1. The machine starts in state 0 and reads a 9. This matches the rule

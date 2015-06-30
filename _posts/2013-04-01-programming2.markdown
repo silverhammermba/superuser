@@ -112,7 +112,7 @@ as the **G**NU **C** **c**compiler):
 
 `-o` specifies the output file. `gcc` is nice enough to compile into assembly,
 assemble into machine code, and link into an executable all in one command (but
-we could split up these steps if we wanted to)! And finally
+we could split up these steps if we wanted to). Finally
 
     # ./sevn3
     # echo $?
@@ -659,7 +659,7 @@ Now run the script again, only this time provide some input by typing `2` and
     2
     6
 
-No more error message! `x = eval gets` is basically the Ruby way of saying "x is
+No more error message. `x = eval gets` is basically the Ruby way of saying "x is
 whatever the user inputs". Since we told it x is 2, it can do the multiplication
 just fine, so it prints 6 since 2&times;3=6. But Ruby knows how to multiply more
 than just numbers. This time, try telling Ruby that x is `"ha"`

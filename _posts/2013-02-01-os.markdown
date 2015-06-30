@@ -156,7 +156,7 @@ The screen we're at right now is telling us that the name of this computer is
 is designed for multiple people to use the computer simultaneously. So any work
 that you do on the computer has to be done after logging in with a certain user
 name. Normally you would have your own user name just for you, but right now
-there's only one user that we want to be: the superuser, of course! The
+there's only one user that we want to be: the superuser, of course. The
 traditional \*nix user name for the superuser is `root` so type that and hit
 <kbd>Enter</kbd>. You should see this:
 
@@ -207,7 +207,7 @@ Now the right pane of the VirtualBox window shows the snapshot we just created
 for the machine. Select it and then click the "Restore Snapshot" button. It may
 ask if you want to make a snapshot of the current state, but the current state
 is terrible so you can skip that. Then just click the "Start" arrow again and
-voila! We're back in business!
+voilà! We're back in business.
 
 ## Shell ##
 
@@ -330,7 +330,7 @@ file system, `/` is a special filename which we call the "root" of the file
 system (no relation to the `root` we logged in as). The root of the file system
 is special because it is how we refer to the entire file system at once. So in
 English we could read the previous command as "list the files on the file
-system". From the output in the shell, we can see that there are 18 files!
+system". From the output in the shell, we can see that there are 18 files.
 
 Wait a second, only 18 files? That seems pretty small. In fact there are many
 more (thousands) of files in the file system. But rather than storing all of
@@ -343,7 +343,7 @@ a list of other files on the file system.
 {: .definition}
 
 `ls` helps us out here by coloring all of the directories dark blue. That's
-where our other files are squirreled away! And, in fact, we already know how to
+where our other files are squirreled away. And, in fact, we already know how to
 list them. I didn't mention this earlier but that special `/` filename is
 actually the root _directory_. So now we really understand how `ls` works: its
 argument is the filename of a directory and it outputs the filenames of the
@@ -368,7 +368,7 @@ Now it works:
     grub  initramfs-linux-fallback.img  initramfs-linux.img  vmlinuz-linux
 
 And again we see that `grub` is a directory, so let's see what files are in
-there! Again, we need to specify _where_ the directory is: `grub` is in `boot`,
+there. Again, we need to specify _where_ the directory is: `grub` is in `boot`,
 and `boot` is in `/` so the command is:
 
     # ls /boot/grub
@@ -376,7 +376,7 @@ and `boot` is in `/` so the command is:
 Notice how we use another `/` to indicate that `grub` is in `boot`.
 
 In `/boot/grub` we see another directory `themes`. Use `ls` to see what files
-are in there, and keep going deeper if some of them are directories! You can
+are in there, and keep going deeper if some of them are directories. You can
 also try exploring some other directories in `/`.
 {: .exercise}
 
@@ -401,7 +401,7 @@ Let's do it:
 
     # cd /etc
 
-This doesn't print any output, but notice that now the shell prompt is different!
+This doesn't print any output, but notice that now the shell prompt is different.
 
     [root@demo etc]# _
 
@@ -429,7 +429,7 @@ arguments) to **p**rint the **w**orking **d**irectory.
     # pwd
     /etc/kernel
 
-So now we can easily explore deeper, but is there an easy way to go back? Yep!
+So now we can easily explore deeper, but is there an easy way to go back? Yep.
 The special filename `..` refers to the directory _containg_ our working
 directory (sometimes called the "parent directory"). So if you `cd` somewhere
 you don't want to be, you can back up with just:
@@ -437,7 +437,7 @@ you don't want to be, you can back up with just:
     # cd ..
 
 Now where it gets _really_ crazy is that you can chain these special filenames
-together! So `../..` means the parent directory of our parent directory. And
+together. So `../..` means the parent directory of our parent directory. And
 `/etc/../usr/..` is just a really convoluted way of referring to `/` (verify it
 yourself using `ls`)! Similarly `./././././.` is the same as `.`. To think about
 these chains, you can just read them from left to right, and imagine stepping
@@ -520,7 +520,7 @@ Most manual pages are split up into similar sections:
 
 You may find that some commands organize their manuals differently or have
 fewer or more sections. Commands can differ in a lot of ways and their manuals
-often reflect that! As we learn about more commands remember that you can always
+often reflect that. As we learn about more commands remember that you can always
 learn way more by reading the manual.
 
 Additionally, many (but not all) commands accept a `--help` or `-h` option which

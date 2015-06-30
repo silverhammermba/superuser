@@ -10,7 +10,7 @@ with a real hands-on example.
 
 This chapter uses a lot of precisely designed images to demonstrate certain
 concepts. Mobile devices viewing this chapter will sometimes display these
-images differently than I intended, which kind of defeats the point! If
+images differently than I intended, which kind of defeats the point. If
 possible, read this chapter using a (non-mobile) computer.
 {: .note .mobile}
 
@@ -124,7 +124,7 @@ the flower image above (and again zoomed in to see the pixels). The first
 resized example uses nearest neighbor. Notice how it turned the mostly black
 region completely white! Remember that nearest neighbor only picks one pixel from
 the original image for each pixel in the result; in this case it picked only the
-white pixels even though most of the original pixels are black! The smiley face
+white pixels even though most of the original pixels are black. The smiley face
 is also completely unrecognizable, again since it didn't make "good" choices of
 pixels. The next algorithm&nmash;called a bilinear filter&mdash;does a bit
 better: the mostly black region is still mostly black, and the smiley face is
@@ -200,8 +200,8 @@ back and look more carefully. The others look blocky or blurry, right? Compared
 to the third one they almost make your eyes hurt, like your monitor is out of
 focus or something. Well, guess what: all of the images are enlarged _except_
 for the third one! That one is just a cropped higher-resolution image of the
-flower! The lesson here is that if you need a bigger image, find an image that
-was big to begin with! Don't resize a smaller image. Only in [rare cases][pix]
+flower. The lesson here is that if you need a bigger image, find an image that
+was big to begin with. Don't resize a smaller image. Only in [rare cases][pix]
 or when the enlargement is very subtle (like if your wallpaper is just a few
 pixels too small) will the visual quality not be ruined by enlarging.
 
@@ -247,11 +247,12 @@ the same amount of information.
 
 For our example, we can imagine a [format][fm] as follows: if the first byte of
 the data is 00, then we simply store the image as a bitmap; if the first byte of
-the data is 01, then we list just one color and all pixels of the image are that
-color. For our all-red image, we can encode it two different ways using this
-format: with the first byte being 00 or the first byte being 01. The former
-would require 6MB as before, but the latter would require only 4 bytes! That's a
-huge reduction in size!
+the data is 01, then we list the image's width in pixels, the image's height in
+pixels and then just one color for all the pixels of the image. For our all-red
+image, we can encode it two different ways using this format: with the first
+byte being 00 or the first byte being 01. The former would require 6MB as
+before, but the latter would require only about 8 bytes (2 each for the width
+and height). That's a huge reduction in size!
 
 [fm]: {{ site.baseurl }}/part1/formatting/
 

@@ -41,7 +41,7 @@ or two five byte messages? Normally the receiving computer would use the data
 format to determine this, but what if it doesn't know what format we're using?
 
 The current list of digital data formats is **huge** and new formats are being
-invented all the time! It is quite common for one computer to understand a
+invented all the time. It is quite common for one computer to understand a
 different set of formats than another one. If we simply sent formatted data
 across a wire to another computer that doesn't know the format, it would have no
 idea how to read the data it receives.
