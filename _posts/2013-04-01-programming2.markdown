@@ -119,16 +119,16 @@ we could split up these steps if we wanted to)! And finally
     7
 
 It still works! Now open up `sevn3` in `hexedit`. What the heck? How did our
-tiny program become so huge? One problem with compiled languages in general is
-that they often make assumptions about the types of programs you will write. In
-this case, `gcc` has included lots of extra information and instructions that
-our program doesn't need because it's so incredibly simple, but most other
-programs will need. And don't even bother looking for our familiar instructions
-in here&mdash;they could be scattered all over the place or replaced with
-slightly different instructions that have the same effect. With compiled
-languages you just have to trust that the compiler will produce the right
-instructions and not look at how the sausage is made. We got the right exit
-code, so all is well in the world.
+tiny program become so huge? One limitation of compiled languages is that they
+often make assumptions about the types of programs you will write. In this case,
+`gcc` has included lots of extra information and instructions that our program
+doesn't need because it's so incredibly simple, but most other programs will
+need. And don't even bother looking for our familiar instructions in
+here&mdash;they could be scattered all over the place or replaced with slightly
+different instructions that have the same effect. With compiled languages you
+just have to trust that the compiler will produce the right instructions and not
+look at how the sausage is made. We got the right exit code, so all is well in
+the world.
 
 <div class="exercise">
 To see how `gcc` translates your C code into assembly, use the `-S`
@@ -165,7 +165,7 @@ okay.
 
 For example, suppose we wanted to make a program that stores a list of numbers
 for us. If we were to write this program in assembly we would have to think hard
-about where to store these numbers. If the list is short (like 5 or 10 numbers)
+about where to store these numbers. If the list is short (less than 10 numbers)
 we might be able to get away with storing them in the CPU's registers. But if
 the list is long (like 100 numbers) then there aren't enough registers so we'll
 need to store them elsewhere like in the RAM or HDD. We also have to think hard
@@ -183,8 +183,8 @@ double z = 1.5;
 Here we're telling the compiler to store three numbers: an integer (`int`) which
 can be positive or negative, a positive integer (`unsigned int`), and a decimal
 number (`double`). We also give these numbers names (x, y, and z) so that we can
-refer to them later in the program. But where will the compiler tell the
-computer to store these numbers? We don't need to care!
+refer to them in the program. But where will the compiler tell the computer to
+store these numbers? We don't need to care!
 
 When you write `int x = -7;` you are telling the C compiler to store that number
 _somewhere_ on the computer. When the compiler turns your C code into assembly,
@@ -375,8 +375,8 @@ tasks (such as printing output).
 
 In particular, we will use the `printf` (**print** **f**ormat) procedure from
 the `stdio` (**st**an**d**ard **I/O**) portion of the standard library. This
-procedure works in a funky sort of way, so let's just look at how to add it to
-our `solve_and_print_problem` procedure:
+procedure works in a funky sort of way, so I'll just add it to the procedure and
+you can see how it works by example:
 
 {% highlight c %}
 #include <stdio.h>
@@ -429,8 +429,9 @@ run, you need to make them steps in `main` (like we did with
 `multiply_and_print`). Also, in addition to accepting arguments, C procedures
 can "return" a value when they are finished. Whatever `main` returns is the exit
 code for the program, so I've changed the `void` to `int` (meaning it returns an
-integer rather than nothing) and added `return 0` to indicate that everything
-worked.
+integer rather than nothing) and added `return 0` for an exit code of 0 (recall
+from last chapter that 0 is a common exit code for indicating "everything
+worked").
 
 Now that you know how `main` and `return` work, can you understand how our
 simple `sevn.c` program works?
@@ -442,7 +443,7 @@ arguments) and give output (via the return value) and _usually_ the output
 depends only on the input.
 {: .deeper}
 
-If you want to, you can use `nano` to create the file `mult.c` with that text
+If you want to, you can use `nano` to create the file `mult.c` with that C code,
 then compile and run it like so:
 
     # gcc -o mult mult.c
@@ -466,16 +467,19 @@ Subtly, a very significant change has occurred now that we're writing programs
 in C. Think about our programs from the context of another computer user who is
 running them. They might like the programs but wish that they worked in a
 slightly different way, or they might simply be curious about how they work and
-want to see for themselves. For both of these tasks, it is very helpful if the
-user can do something with the machine code in order to see the program's code
-as we (the designers) saw it.
+want to see for themselves. Technically they already have all that they need for
+these tasks: the executable files containing the programs' machine code
+instructions, which they can look at and modify to their content. But it would
+be much more helpful if they could see the program's code as we (the designers)
+saw it.
 
-For our machine code program, they can simply open the program file in hexedit
-and see the exact same code that we did when we wrote it. For our assembly
-program, they can translate the assembled machine code back into assembly (since
-assembly is basically a 1-to-1 translation of machine code) and also see
-(essentially) the same assembly code that we saw when we wrote it. But what
-about C?
+If they are curious about our machine code program, it's easy: they simply open
+the program file in hexedit and they can see the exact same machine code we did
+when writing it. For our assembly program things are a little trickier since we
+designed the program in assembly but all they have are the assembled machine
+code instructions. But since assembly is basically just human-readable machine
+code, there are "disassembler" programs which can take machine code and
+translate it back into assembly. Now how about our C programs?
 
 We know that C uses a programming paradigm, so our C code does not correspond
 1-to-1 with machine code like assembly does. And I mentioned earlier that
@@ -497,12 +501,13 @@ a **binary blob** (emphasizing the often confusing lack of structure in compiled
 machine code).
 {: .definition}
 
-Binary blobs are one of the reasons that software companies can sell their
-software for hundreds or thousands of dollars. If a program uses really clever
-algorithms, these algorithms are very difficult to reconstruct from the compiled
-machine code. That makes it harder for a competing company to simply buy the
-software, figure out its design from the machine code, make some nominal
-changes, and then resell it as their own.
+Binary blobs are one of the reasons why some software companies can sell their
+software for hundreds or thousands of dollars. The _ideas_ behind a piece of
+software are usually only apparent when viewing the source code, and can be
+nearly impossible to reconstruct from the structureless compiled machine code.
+So a company with valuable proprietary knowledge can create software based on
+that knowledge and distribute the software as binary blobs without much fear
+that the knowledge can be copied by a competitor.
 
 <div class="deeper">
 The short answer is that it is impossible to translate from machine code back to
@@ -592,7 +597,7 @@ grammar of the text that we type into the computer. On the other hand, there's
 the _implementation_ of that text to make the computer actually carry out the
 desired actions. When I say that C is a compiled language, I make it sound like
 the syntatical, grammatical nature of C is somehow connected with the compiler
-that implements C and turns it into machine code but in reality there is no such
+that implements C and turns it into machine code. In reality there is no such
 connection. While C is usually compiled into machine code, there _are_
 interpreters that can simulate its instructions. Similarly while most scripting
 languages are interpretted, you could technically design a compiler to turn the
@@ -608,9 +613,11 @@ designing a compiler is probably going to be impractically complicated and will
 end up creating very large, inefficient machine code programs.
 </div>
 
-The scripting language we're going to play around with is called Ruby. Let's
-create a simple Ruby program to demonstrate the dynamic nature of the language.
-Programs in scripting languages are often called "scripts".
+### Ruby ###
+
+Ruby is a relatively young scripting language, being invented in 1995 and only
+gaining widespread use by 2000. But it's especially simple and dynamic, making
+it a good choice for this book.
 
 <div class="exercise">
 Create a text file named `eval.rb` with the following text
@@ -629,8 +636,8 @@ filename as an argument to the ruby interpreter.
     # ruby eval.rb
 
 After entering this command, your prompt will simply sit there and do nothing.
-That's because also unlike our previous programs, this one expects some input
-from the user. For now just provide no input by pressing <kbd>Enter</kbd>:
+That's because unlike our previous programs, this one expects some input from
+the user. For now just provide no input by pressing <kbd>Enter</kbd>:
 
     # ruby eval.rb
     

@@ -341,3 +341,35 @@ Not provided.
 3. Just get rid of the file arguments and replace the redirects with pipes.
 
        # ls /etc | sort -r | head -n 5
+
+## Programming ##
+
+1. There are probably many ways to do this, but I did it by changing one of the
+   bytes in "ELF". These bytes identify the format of the executable so that
+   the computer knows how to read its instructions. If it can't identify the
+   format, it will complain with that error message.
+
+   In this case, the shell looked at the file format and refused to send it
+   along to the kernel in the first place. That's what `bash` means: it's the
+   name of the shell program.
+2. The are probably many ways to do this, but I did it by adding another `incl
+   %eax` instruction. This changes the system call code from 1&mdash;for
+   "exit"&mdash;to 2, which is a completely different system call called "fork".
+   Since the program makes no attempt to set up sensible CPU register values for
+   this sytem call, the program fails in the most spectacular way.
+
+   Recall that a crucial responsibility of the kernel is memory management of
+   the running programs: ensuring that each program gets a little section of
+   memory on the computer all to itself. These sections of memory are sometimes
+   called _segments_. A "segmentation fault" occurs when a program tries to
+   touch memory outside of its designated segment and it always indicates that
+   something has gone very wrong with the program. In situations like these it
+   can be very hard for the computer to know exactly what went wrong, so it
+   tries to tell you as much as it can about the problem by making a record of
+   _everything_ that was going on when the program crashed. This record of the
+   program's state is called a "core dump". Unfortunately we don't yet have the
+   techincal skills needed to take advantage of such information.
+   {: .deeper}
+
+Hopefully these two exercises have illustrated just how fragile computer
+programs can be.

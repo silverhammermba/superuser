@@ -8,7 +8,7 @@ We know that when you type a command like `ls foo` the shell is actually telling
 the kernel to run the program `/usr/bin/ls` with the argument `foo`. But we
 still don't really see what goes on behind the scenes when that program runs.
 Conceptually, we know that a program is a list of instructions for the computer,
-but the only real experience we have of that was the instructions for our
+but so far the only example we've seen of that was the instructions for the
 simple, theoretical Turing machine. In this chapter we'll look at some _real_
 program instructions.
 
@@ -31,7 +31,7 @@ the program was running.
 
 The program we're going to make is very simple: it will send the kernel the exit
 code "7". Nothing more. To write this program in machine code, we need to be
-able to write some raw bytes to a file. We will do this using a tool called
+able to write some specific bytes to a file. We will do this using a tool called
 `hexedit` which lets us edit files by changing the hexadecimal values of each
 byte.
 
@@ -106,11 +106,11 @@ our file:
 
 [cs]: {{ site.baseurl }}/part2/intro/#checksums
 
-If the output you get doesn't match that, you probably mistyped something. Open
-the file again in `hexedit` and carefully look things over and edit until you
-get the checksum to match. Once you have a match, we're almost ready to go. Next
-we have to tell the file system that this file is actually a program, not just a
-bunch of bytes:
+If the output you get doesn't match that, you mistyped something. Open the file
+again in `hexedit` and carefully look things over and edit until you get the
+checksum to match. Once you have a match, we're almost ready to go. Next we have
+to tell the file system that this file is actually a program, not just a bunch
+of bytes:
 
     # chmod +x sevn
 
@@ -157,13 +157,13 @@ include multiple bytes. We can split up the instructions like so:
 So there are four instructions. Let's talk about what they do.
 
  1. Recall from the hardware chapter that the CPU's memory is its
-    [registers][cpu]&mdash;numbers with a set size that we can perform
-    calculations on. The first instruction `B3 07` stores the byte value `07` in
-    a 8-bit register called BL. This is the exit code that we're going to send
-    to the kernel.
+    [registers][cpu]: numbers with a set size that we can perform calculations
+    on. The first instruction `B3 07` stores the byte value `07` in a 8-bit
+    register called BL. This is the exit code that we're going to send to the
+    kernel.
  2. The next instruction `31 C0` sets a different register to 0. The `C0` is
-    what chooses which register gets zeroed&mdash;in this case it's a 32-bit
-    register named EAX.
+    what chooses which register gets zeroed. In this case it's a 32-bit register
+    named EAX.
  3. Next we get the single instruction `40`. This simply adds 1 to the value in
     the EAX register. Since we previously set this register to 0, the EAX
     register now has the value 1.
@@ -333,3 +333,21 @@ difficult to write it without making mistakes. Third, assembly can be very
 tedious to write. Seemingly simple tasks can often take a surprising number of
 instructions to perform. In the next chapter we'll learn about more advanced
 programming techniques that solve these problems.
+
+## Exercises ##
+
+<div class="exercise">
+1. Try changing a _single_ byte of the `sevn` machine code so that this happens
+
+       # ./sevn
+       -bash: ./sevn: cannot execute binary file: Exec format error
+
+   What do you think that means?
+2. Try changing a _single_ instruction of `sevn.s` and reassemble into machine
+   code so that this happens
+
+       # ./sevn2
+       Segmentation fault (core dumped)
+
+   What do you think that means?
+</div>
