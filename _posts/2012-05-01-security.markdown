@@ -4,9 +4,9 @@ title: 'Security'
 category: part2
 ---
 
-Get ready. This chapter is probably the most important chapter in the book. It's
-also one of the trickiest. We're going to talk about security as it applies to
-information and computers.
+This chapter gets a little tricky and technical, but it really is important in
+order to understand later material. We're going to talk about security as it
+applies to information and computers.
 
 ## Definition ##
 
