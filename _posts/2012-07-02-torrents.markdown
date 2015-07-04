@@ -16,7 +16,7 @@ This works great for web pages&mdash;even fancy ones like
 [www.weather.com][wth] which include lots of images and interactivity. That
 page only requires about 4 megabytes of data to be transferred over the
 Internet. That's chump change these days. This process also works well when you
-want to download files like images or songs.
+want to download small files like images or songs.
 
 [wth]: http://www.weather.com
 
@@ -28,43 +28,61 @@ about how HTTP/TCP/IP transfers information.
 
 ## Service ##
 
-The simplest way to think about it is that your computer and the server are just
-two people and the data you want to download is written on a piece of paper. The
-server has the piece of paper, and your computer wants to get a copy of it. How
-does it do it?
+When it comes to transferring information over computer networks, the computers
+involved are often referred to as "clients" and "servers".
 
-To make the example clearer, let's suppose that the data you want is a shopping
-list with ten items on it. Well with HTTP/TCP/IP, in this analogy, your computer
-simply walks up to the server and they have this sort of conversation:
+The **servers** are the computers with the information and the **clients** are
+the computers that want the information.
+{: .definition}
 
-> COMPUTER: I want a copy of the shopping list.  
-> SERVER: Okay. The shopping list has ten items on it.  
-> SERVER: The first item is eggs.  
-> COMPUTER: Eggs. Got it.  
-> SERVER: The second item is milk.  
-> COMPUTER: Milk. Got it.  
-> SERVER: The third item is...
+We can think of these servers and clients just like if they were people in a
+restaurant. A computer requesting data over a network is like a client entering
+a restaurant and asking a server for the menu. To make the example concrete,
+let's suppose that the menu has ten items on it and this is a really fancy
+restaurant so the menu isn't written down, the server just memorizes it and
+tells it to each client. So the client sits down at the restaurant, waits for
+the server to come over, and they have this sort of conversation:
 
-And so on. This is just fine and dandy if your computer is the only one talking
-to the server, but what if other people are in line?
+> CLIENT: What's on the menu today?  
+> SERVER: We have a selection of ten items.  
+> CLIENT: Let's hear it, then.  
+> SERVER: First we have octopus a la plancha with farro and a dolop of Greek
+> yogurt  
+> CLIENT: Mmm, sounds fabulous.  
+> SERVER: Second, for contorni we have delicately pan roasted cauliflower with
+> anchovies and a mediterranean salsa verde.  
+> CLIENT: Okay.  
+> SERVER: Third there is...
 
-> COMPUTER: I want a copy of the shopping list.  
-> SERVER: Okay. The shopping list has ten items on it.  
-> BOB: Hey! I want a copy of the shopping list, too!  
-> SERVER: The first item is eggs.  
-> COMPUTER: Eggs. Got it.  
-> SERVER: Okay, Bob. The shopping list has ten items on it.  
-> SERVER: The first item is eggs, Bob.  
-> SERVER: The second item is milk, computer.  
-> COMPUTER: Milk. Got it.  
-> BOB: Eggs. Got it.  
-> SERVER: The third item is...
+And so on. Remember that this conversation is an analogy for TCP/IP, so both the
+client and server take care to ensure that the items of the menu are
+communicated in order without any missing. This is just fine and dandy if your
+computer is the only one talking to the server, but what if another bossy
+customer sits nearby and wants to hear the menu as well?
+
+> CLIENT: What's on the menu today?  
+> SERVER: We have a selection of ten items.  
+> CLIENT: Let's hear it, then.  
+> BOB: Hey! I want to hear the menu too!  
+> SERVER: First we have octopus a la plancha with farro and a dolop of Greek
+> yogurt  
+> BOB: How many items were on the menu?  
+> CLIENT: That octopus sounds fabulous.  
+> SERVER: Ten items, Bob. The first was octopus a la plancha with farro and yogurt  
+> SERVER: Second, for contorni we have delicately pan roasted cauliflower with
+> anchovies and a mediterranean salsa verde.  
+> CLIENT: Okay.  
+> BOB: I don't like octopus. What's the second item?  
+> SERVER: Third there is...
 
 ![multiple clients downloading via HTTP]({{ site.baseurl }}/img/seq.png)
 {: .pull-right}
 
-Confusing. Can you see how now it's going to take twice as long for you both to
-get the shopping list? This is a very common problem on the Internet these days:
+Confusing. Remember that with this analogy, the server has to talk to each
+client separately (he likes to make them feel special) because you're really
+sending packets between computers over the Internet, not speaking in a room. But
+can you see how at this rate it's going to take twice as long for you and Bob to
+both hear the menu? This is a very common problem on the Internet these days:
 the more people there are who want to get certain information from a server, the
 slower the server gets. This can be pretty frustrating for all of the Internet
 users who just want their data and don't realize that the server is getting
@@ -72,7 +90,9 @@ swamped with requests.
 
 Sometimes people intentionally flood a server with more requests than it can
 handle in order to disrupt the service for everyone else. This is called a
-**denial of service** (**DoS**) attack.
+**denial of service** (**DoS**) attack. Imagine 100 people all coming into a
+restaurant, each spending 10 minutes looking at the menu, and then deciding they
+don't want to eat there.
 {: .definition}
 
 For normal web pages, this usually isn't much of an issue since web pages
@@ -90,15 +110,16 @@ finish if a hundred people show up.
 
 A similar solution is to have multiple servers all with copies of the same data
 so that if one server is overloaded, people can be redirected to a different
-server to get their data. But this still has the same problem, because if enough
-people show up to overload every sever then things will still slow down.
+server to get their data (like how a restaurant has multiple servers). But this
+still has the same problem, because if enough people show up to overload every
+sever then things will still slow down.
 
-Some sites instead force people into a queue, so that only a few people can
-access the server at once. This ensures that the server never gets overloaded,
-but people might still end up waiting a while for their data. So this isn't a
-solution either.
+Some websites instead force people into a queue, so that only a few people can
+access the server at once (like waiting outside a restaurant for a table). This
+ensures that the server never gets overloaded, but people might still end up
+waiting a while for their data. So this isn't a solution either.
 
-So it seems like no matter what we do, it always takes longer for people to get
+It seems like no matter what we do, it always takes longer for people to get
 their data if more people show up. There's just no solution.
 
 ## Peers ##
@@ -107,60 +128,61 @@ Of course there's a solution. In fact, the exact opposite it possible: the more
 people there are who want the data, the faster they all can get it!
 
 Let's start by considering one simple improvement. Suppose eight people show up
-to get the shopping list. If it takes a minute to copy the list down, then it's
-going to take eight minutes for everyone to get the list from the server, right?
-But now suppose the first person copies the list from the server, well now there
-are _two_ people with the shopping list: the server and the person who just
-copied it. So the next two people can both copy the list at once, from each of
-the two people who have it. So then there would be _four_ people with the
-shopping list, so all of the remaining four people can copy the list down at
-once. Instead of eight minutes, it would only take three.
+at once to hear the menu. If it takes a minute for someone to recite the menu,
+then it's going to take eight minutes for everyone to get the menu from the
+server, right? But now suppose the sever starts by telling the entire menu to
+the first client. Now there are _two_ people who know the menu: the server and
+the client who just heard it. So the first client can act like a server and
+repeat the menu to another client. Since there are now two people who know the
+menu, the next two clients can both hear it at once. After that there would be
+_four_ people who know the menu, so the four who know can all repeat it to the
+four who don't know. Instead of eight minutes, it would only take three.
 
-How can we make this process even better? Let the people all communicate with
-each other. There's no need for an orderly queue with people waiting turns;
-people can simply shout out "I need the third item on the list! Who has it?",
-"I've finished the list! If you need any items, I can tell you!" If the list
-items are numbered, people don't even need to copy them down in order. The
-server can hand out random list items to random people in random order and since
-they're all sharing amongst themselves eventually everyone will get the whole
-list.
+How can we make this process even better? Instead of communicating the whole
+menu at once to a single person, let the people all communicate with each other
+simultaneously. There's no need for an orderly queue with people waiting turns;
+people can simply shout out "What's the third item on the menu! Who has it?", "I
+know the whole menu! If you need any items, I can tell you!" If the menu items
+are numbered, people don't even need to hear them in order. The server can hand
+out random items to random people in random order and since they're all sharing
+amongst themselves eventually everyone will get the whole thing.
 
 ![multiple clients downloading via BitTorrent]({{ site.baseurl }}/img/p2p.png)
 {: .pull-right}
 
-This whole process goes even faster if, like the clever web server, people can
-talk to multiple people at once. Each person who gets a copy of the list is now
-like a new server to talk to, so newcomers who need the list can talk to many
-people at once to get it even faster than in the original case where there was
-only one server. That also means the original server can even go away entirely,
-and people can continue to get the data since there are now many copies to get
-it from.
+This whole process goes even faster if, like the clever web server, each person
+can talk to multiple people at once. Each person who gets a copy of the menu is
+now like a new server and can talk to many clients at once to quickly hand out
+their information, and each newcomer can talk to many servers at once (since
+each client can now acts like a server) to quickly get the whole menu. This
+allows the whole process to go even faster than three minutes. It also means the
+original server could even go away entirely, and people could continue to get
+the menu since there are now many people to get it from.
 
-This sort of network, where computers share data amongst each other (rather than
-all getting data from a central server) is called a **peer-to-peer** (**p2p**)
-network.
+This sort of network, where computers share data amongst each other, acting both
+as clients and servers  is called a **peer-to-peer** (**P2P**) network.
 {: .definition}
 
 In particular, the system I describe here is very similar to the BitTorrent
-protocol. BitTorrent splits up files into small, independent pieces and allows
-computers to download these pieces from multiple sources simultaneously while
-also uploading received pieces to other BitTorrent users. Each piece is verified
-with a [cryptographic hash][hash] to ensure that none of the pieces have been
-modified by any of the peers. The protocol allows everyone downloading to
-communicate with each other so that they can easily find people who have the
-pieces they need.
+protocol. BitTorrent is an application protocol that splits up files into small,
+independent pieces and allows computers to download these pieces from multiple
+sources simultaneously while also uploading received pieces to other BitTorrent
+clients. Each piece is verified with a [cryptographic hash][hash] to ensure that
+none of the pieces have been modified by any of the peers. The protocol allows
+everyone downloading to communicate with each other so that they can easily find
+people who have the pieces they need.
 
 [hash]: {{ site.baseurl }}/part2/security2/#hashes
 
 ## Clients ##
 
 BitTorrent is a great example of how different application layer protocols can
-be. BitTorrent and HTTP are both application protocols that can run inside of
-TCP/IP, but they have completely different behavior. Because of this, your web
-browser probably doesn't know how to handle BitTorrent data. To use BitTorrent,
-you will need to download a special program called a "client" that understands
-the protocol. There are several available, but I recommend [Deluge][dl]{: .os
-.windows} [Transmission][tr]{: .os .linux .osx}.
+be. BitTorrent and HTTP are both protocols that can run inside of TCP/IP, but
+they have completely different behavior. Because of this, your web browser
+probably doesn't know how to handle BitTorrent data. To use BitTorrent, you will
+need to download a program called a "client" that understands the protocol.
+There are several available, but I recommend [Deluge][dl]{: .os .windows}
+[Transmission][tr]{: .os .linux .osx}.
 
 [dl]: http://deluge-torrent.org/
 [tr]: http://www.transmissionbt.com/
