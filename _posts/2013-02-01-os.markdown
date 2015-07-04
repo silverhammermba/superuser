@@ -520,8 +520,8 @@ Most manual pages are split up into similar sections:
 
 You may find that some commands organize their manuals differently or have
 fewer or more sections. Commands can differ in a lot of ways and their manuals
-often reflect that. As we learn about more commands remember that you can always
-learn way more by reading the manual.
+often reflect that. As we learn about other commands remember that you can
+always learn way more by reading the manual.
 
 Additionally, many (but not all) commands accept a `--help` or `-h` option which
 prints some basic information about the command. It's worth a shot if you don't
@@ -710,6 +710,104 @@ Another convenient feature of the shell is that you can press <kbd>&uarr;</kbd>
 and <kbd>&darr;</kbd> to scroll through previous commands. This is helpful if
 you want to correct a typo in a command you ran.
 {: .note}
+
+<div class="deeper">
+There's another time-saving feature of the shell called "globbing" that saves
+you time when typing out multiple file names. What if you want to `cat` every
+file in `/sys/devices/system/cpu`? You could type them all out
+
+    # cd /sys/devices/system/cpu
+    # cat kernel_max modalias offline online possible present uevent
+
+But there is a much better way.
+
+    # cat /sys/devices/system/cpu/*
+
+The `*` is a "glob". When the shell sees a glob, it fills it in with any
+possible filename that could fit there (if such a filename exists in the file
+system). So in this case it looks in `/sys/devices/system/cpu` and puts each of
+those filenames in place of the glob, expanding that one argument into eleven
+(one for each file in that directory)! Globs can do some cool stuff. For
+example, you can put them in the middle of a file path
+
+    # ls /usr/*/share
+    man
+
+which lists `/usr/local/share` because `local` is the only subdirectory of
+`/usr` that contains a file named `share`. You can also include some letters
+with the glob so that you don't match every file
+
+    # cat /sys/devices/system/cpu/o*
+
+which output the contents of the files `offline` and `online` since these are
+the only filenames that start with "o".
+</div>
+
+<div class="deeper">
+Another time-saving feature is autocomplete, which can save you a lot of typing
+in general. How it works is when you're typing either the name of a command or a
+file path in the shell, you can press <kbd>Tab</kbd> to tell the shell to finish
+typing it for you. So instead of typing
+
+    # head /etc/nanorc
+
+You can do
+
+<pre><code># head /etc/na</code><kbd>Tab</kbd><code></code></pre>
+
+and it will automatically fill in the `norc` because `/etc/nanorc` is the only
+file path that starts with `/etc/na`. If there are multiple file paths that
+could match, it will type as much as it can. For example
+
+<pre><code># head /etc/mki</code><kbd>Tab</kbd><code></code></pre>
+
+expands to `/etc/mkinitcpio.` because the files `mkinitcpio.d` and
+`mkinitcpio.conf` both start with `/etc/mki` and it doesn't know which one you
+want. If pressing <kbd>Tab</kbd> doesn't do anything, that is often because
+there are already multiple matches based on what you typed. In that case, simply
+press <kbd>Tab</kbd> again, and the shell will list all possible matches so that
+you can keep typing
+
+<pre><code># head /etc/mkinitcpio.</code><kbd>Tab</kbd><kbd>Tab</kbd><code>
+mkinitcpio.conf mkinitcpio.d/</code></pre>
+
+If double tapping <kbd>Tab</kbd> doesn't do anything, then there are no file
+names that match what you typed. Autocomplete also combines nicely with the
+previous tip, globbing. If you ever wonder what files a glob will match before
+you run the command, autocomplete will tell you. For example
+
+<pre><code># ls /usr/*/share</code><kbd>Tab</kbd><code>
+# cat /etc/ge*</code><kbd>Tab</kbd><kbd>Tab</kbd></code></pre>
+
+<div class="note">
+If there are a _lot_ of matches when you autocomplete, the shell will double
+check that you actually want to list them.
+
+<pre><code># g</code><kbd>Tab</kbd><kbd>Tab</kbd><code>
+Display all 126 possibilities? (y or n)</code></pre>
+
+You can press <kbd>N</kbd> to abort, or press <kbd>Y</kbd> to list them anyway
+and use <kbd>Enter</kbd> or <kbd>Spacebar</kbd> to scroll through the list.
+</div>
+</div>
+
+## Graphics ##
+
+Perhaps you still feel a little weird about the commands and programs we are
+running because they are so unlike the programs you are used to on your
+computer. How are these weird little programs with their arguments and text
+output related to big, fancy programs like your web browser or video games that
+have nothing to do with a text interface like the shell?
+
+They are actually pretty closely related! Just like how the shell is a REPL
+running in a loop, reading text input that you type and outputting text to the
+screen, programs that display graphics (like a web browser) are also a kind of
+REPL. They run in a loop reading not just text input from the keyboard but also
+mouse input (so they can see where/what you click on). And rather than waiting
+for an entire command before evaluating and printing, they run in a very fast
+loop reading and evaluating input dozens of times per second. This is what
+creates the illusion that these programs are responding to your input in "real
+time" even though they are really running in discrete steps just like a shell.
 
 ## Exercises ##
 
