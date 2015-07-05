@@ -94,7 +94,7 @@ the computer uses a process called "bootstrapping".
 
 **Bootstrapping** (as in "pulling yourself up by your own bootstraps") is when a
 simpler program is used to run a more complicated program. It is usually
-shortened to just **booting**.
+shortened to just **booting**. That simpler program is called a **boot loader**.
 {: .definition}
 
 In this case, we actually have a chain of bootstrapping. The computer runs a
@@ -223,7 +223,9 @@ the root user and I'm waiting for a command"&mdash;this is called the shell's
 "prompt".
 
 A text interface (like the one provided by the shell) is often called a
-**command line** for the way you type commands line-by-line.
+**command line** or a **terminal**. Command line because of the way you type
+commands line-by-line, and terminal because older computers used a special
+machine called a terminal for inputting commands and reading output.
 {: .definition}
 
 Let's type a few commands to get a feel for what they look like. The shell can
@@ -385,6 +387,14 @@ pressing <kbd>Shift</kbd>+<kbd>Page Up</kbd> and <kbd>Shift</kbd>+<kbd>Page
 Down</kbd>.
 {: .note}
 
+File systems are a little different in Microsoft's Windows operating systems. A
+minor difference is that they use backslashes `\` instead of forward slashes `/`
+to separate directory names. More significantly, the root directory isn't just
+called `\`, it has a letter name depending on which HDD the files are stored. So
+in Windows, `C:\Program Files` is the path for the directory `Program Files`
+stored in the root of the file system on the HDD named `C`.
+{: .note .os .windows}
+
 ### Working Directories ###
 
 Now let's look at `/etc`, for example. If you `ls` it, you'll see that it has
@@ -485,6 +495,12 @@ and you can use it in paths just as you would expect.
 For convenience, `cd` with no arguments does the same as `cd ~` (rather than `cd
 .` which would be pointless).
 </div>
+
+A file path that starts with the root `/` is called an **absolute path** because
+it says exactly where a file is in the file system. File paths that start with
+`.` or `..` are **relative paths** because they locate files _relative_ to the
+working directory.
+{: .definition}
 
 ### Commands ###
 
