@@ -9,8 +9,10 @@ the kernel to run the program `/usr/bin/ls` with the argument `foo`. But we
 still don't really see what goes on behind the scenes when that program runs.
 Conceptually, we know that a program is a list of instructions for the computer,
 but so far the only example we've seen of that was the instructions for the
-simple, theoretical Turing machine. In this chapter we'll look at some _real_
-program instructions.
+simple, theoretical Turing machine back in [Part 1][tur]. In this chapter we'll
+look at some _real_ program instructions.
+
+[tur]: {{ site.baseurl }}/part1/machines/#computers
 
 ## Machine Code ##
 
@@ -96,10 +98,10 @@ Once you've finished, press <kbd>Ctrl</kbd>+<kbd>X</kbd> to save the file and
 then press <kbd>Y</kbd> to confirm and exit `hexedit`.
 </div>
 
-Now I realize that it was really tedious to type in all of those bytes and you
-might have made a typo or misread something. So let's check our work. For this
-we can use the command `md5sum`, which prints a [checksum][cs] of the bytes in
-our file:
+I realize that it was really tedious to type in all of those bytes and you might
+have made a typo or misread something. So let's check our work. For this we can
+use the command `md5sum`, which prints a [checksum][cs] of the bytes in our
+file:
 
     # md5sum sevn
     21deab879a3943cb640e7bfc9b702ca2  sevn
@@ -343,8 +345,8 @@ programming techniques that solve these problems.
        -bash: ./sevn: cannot execute binary file: Exec format error
 
    What do you think that means?
-2. Try changing a _single_ instruction of `sevn.s` and reassemble into machine
-   code so that this happens
+2. Try changing a _single_ instruction of `sevn.s` so that when you reassemble
+   and run it this happens
 
        # ./sevn2
        Segmentation fault (core dumped)
