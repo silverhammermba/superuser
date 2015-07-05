@@ -6896,7 +6896,7 @@ p.definition::before {
 }
 .note > p:first-child::before,
 p.note::before {
-  content: "\e209";
+  content: "\e101";
   /* alert */
   font-family: 'Glyphicons Halflings';
   margin-right: 5px;
@@ -6990,6 +6990,9 @@ p.exercise::before {
   margin-right: 5px;
 }
 /* glossary */
+#links {
+  text-align: center;
+}
 dd {
   padding-bottom: 5px;
   margin-left: 10px;
@@ -7029,22 +7032,19 @@ p.pull-left {
 #ASCII table {
   margin-left: auto;
   margin-right: auto;
-  border-spacing: 2px;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 #ASCII th,
 #ASCII td {
   border: 1px solid black;
   font-family: monospace;
-  padding: 3px;
+  padding: 5px 8px;
 }
 #ASCII th {
   border-right: none;
-  padding-right: 5px;
 }
 #ASCII td {
   border-left: none;
-  padding-left: 5px;
 }
 /* stuff for the interactive browser selection */
 .browser {
@@ -7274,7 +7274,6 @@ p.pull-left {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   border-color: #dddddd;
-  text-align: center;
   padding: 10px;
   margin: auto;
 }
@@ -7458,6 +7457,9 @@ p.pull-left {
 }
 .protocol > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #dddddd;
+}
+.protocol p {
+  text-align: center;
 }
 article > .protocol {
   width: 50%;
