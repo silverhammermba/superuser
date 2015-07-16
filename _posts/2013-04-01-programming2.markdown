@@ -714,41 +714,35 @@ program you encounter will have been developed using one of the four types of
 languages we covered: machine code, assembly, compiled, or scripted. However, do
 not make the mistake of thinking that you know programming now or that you can
 call yourself a computer programmer after making the simple programs illustrated
-in these chapters.
-
-We've seen how programming is analogous to written human language in many ways.
-In that analogy, these last two chapters have discussed theoretical
-linguistics and included a few simple sentences to illustrate the concepts.
-That's not nearly enough knowledge for you to call yourself a writer. Just like
-writing English is so much more than spelling and grammar, writing a program is
-so much more than technical details and programming paradigms. Developing a
+in these chapters. Writing a program is so much more than the technical details
+and programming paradigms we learned about in these two chapters. Developing a
 program can take as much art as it does engineering and it always requires lots
 and lots of practice.
 
-Unfortunately computer programming is such a wide and deep topic that it goes
-far beyond the scope of this book; there are hundreds of other books devoted to
-every facet of programming. I wrote these chapters because I think it's
-important for a superuser to have a rough idea of what's going on behind the
-scenes of a program so that they are less mystified by normal computer use. But
-unlike [some people][yoc], I won't say that you _should_ learn programming as
-part of becoming a superuser.
-
-[yoc]: http://yearofcode.org/
+Unfortunately we won't be covering any more computer programming because it is
+such a wide and deep topic that it goes far beyond the scope of this book; there
+are hundreds of other books devoted to every facet of programming. I wrote these
+chapters because I think it's important for a superuser to have a rough idea of
+what goes on behind the scenes of the programs they use. But I will not say that
+you _should_ learn programming as a prerequisite to becoming a superuser.
 
 In a way, programming is the ultimate tool of a superuser. It's the last resort
-when a superuser can find no existing method for getting the job done. And
-luckily writing your own code is very rarely desirable. Computer programmers
-have [a saying][code] that "the best code is no code at all", meaning that while
+when a superuser can find no existing method for getting the job done. In fact,
+writing your own code is very rarely desirable. Computer programmers have [a
+saying][code] that "the best code is no code at all", meaning that while
 programming _is_ an incredible tool it also comes with incredible difficulties.
 Writing a program from scratch is hard work, and writing a _good_ program that
-is actually useful and has few bugs is even harder. So whenever possible, a good
-superuser eschews custom code in favor of existing tools. Consequently you can
-actually make it pretty far as a superuser without being a proper computer
-programmer. Simply being able to utilize the tools you already have at hand is
-far more valuable.
+is actually useful and has few bugs is even harder. Solving a problem using a
+poorly-made program often creates more problems. So whenever possible, a good
+superuser eschews custom code in favor of existing tools. You can actually make
+it pretty far as a superuser without being a proper computer programmer. Being
+able to utilize the tools you already have at hand is much more crucial.
 
 [code]: http://blog.codinghorror.com/the-best-code-is-no-code-at-all/
 
 But don't let me drive you off! I personally love programming, and if you were
 intrigued by some of the examples in these last two chapters, I encourage you to
-look more into learning programming properly. You might just get hooked! 
+look more into learning programming properly. You might just get hooked!
+
+<!-- TODO I would really like to have recommendations for where to learn
+programming here -->
