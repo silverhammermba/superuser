@@ -6821,6 +6821,7 @@ p {
   background-color: #fcf8e3;
   border-color: #faebcc;
   color: #8a6d3b;
+  overflow: auto;
 }
 .definition h4 {
   margin-top: 0;
@@ -6865,6 +6866,7 @@ p.definition::before {
   background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
+  overflow: auto;
 }
 .note h4 {
   margin-top: 0;
@@ -6909,6 +6911,7 @@ p.note::before {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #3c763d;
+  overflow: auto;
 }
 .deeper h4 {
   margin-top: 0;
@@ -6953,6 +6956,7 @@ p.deeper::before {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f;
+  overflow: auto;
 }
 .exercise h4 {
   margin-top: 0;
