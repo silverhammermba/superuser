@@ -127,6 +127,11 @@ p.pull-left {
 	margin-right: 10px;
 }
 
+/* prevent bad line breaks */
+kbd, :not(pre) > code {
+	white-space: nowrap;
+}
+
 /* little network diagram */
 #network {
 	text-align: center;

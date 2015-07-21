@@ -83,11 +83,6 @@ window.is_mobile = (function(a){return /(android|bb\d+|meego).+mobile|avantgo|ba
 
 if (!window.is_mobile)
 	$('.mobile').hide();
-
-// add nbsp to text that we don't want to break lines on
-$('kbd, :not(pre) > code').each(function() {
-	$(this).html($(this).html().replace(/ |\n/g, '\u00a0'));
-});
 		</script>
 	</body>
 </html>
