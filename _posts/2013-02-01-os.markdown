@@ -112,9 +112,10 @@ demo login: _
 This is what success looks like. The VM has booted successfully!
 
 <div class="note">
+If your VM window doesn't look like that. Try hitting <kbd>Enter</kbd>.
+
 ![mouse capture]({{ site.baseurl }}/img/capture.png)
 {: .pull-right}
-If your VM window doesn't look like that. Try hitting <kbd>Enter</kbd>.
 
 Also, if you lose your mouse cursor at any point, it's probably because of a
 VirtualBox feature called "mouse capture". This traps the mouse in the VM so
@@ -131,7 +132,7 @@ of my keyboard.
 
 This virtual machine is running an OS called Arch Linux which (you might guess)
 uses Linux for its kernel. Linux is based on the kernel of an old OS called UNIX
-which was developed by AT&T in THE 70S. UNIX no longer exists as such, but it
+which was developed by AT&T in the 70s. UNIX no longer exists as such, but it
 lives on today through the many OSes which imitate it, including the Linux and
 XNU-based OSes. These OSes try to be as UNIX-like as possible and are often
 reffered to as just \*nix, meaning "some variety of OS that works kinda like
