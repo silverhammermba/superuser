@@ -267,7 +267,7 @@ Not provided.
    any one of the 30 thousand English words that are eight letters long; or can
    it? We know that all of the Xs decrypt to the same letter, so we're looking
    for an English word that's eight letters long where the first, third, fourth,
-   and eigth letters are all the same. From almost 30,000 words that narrows the
+   and eighth letters are all the same. From almost 30,000 words that narrows the
    list down to 8. Add in the requirement that the second and sixth letters have
    to match (because of the U) and we get just one possibility: GIGGLING.
 
@@ -356,7 +356,7 @@ Not provided.
    %eax` instruction. This changes the system call code from 1&mdash;for
    "exit"&mdash;to 2, which is a completely different system call called "fork".
    Since the program makes no attempt to set up sensible CPU register values for
-   this sytem call, the program fails in the most spectacular way.
+   this system call, the program fails in the most spectacular way.
 
    Recall that a crucial responsibility of the kernel is memory management of
    the running programs: ensuring that each program gets a little section of
@@ -367,8 +367,8 @@ Not provided.
    can be very hard for the computer to know exactly what went wrong, so it
    tries to tell you as much as it can about the problem by making a record of
    _everything_ that was going on when the program crashed. This record of the
-   program's state is called a "core dump". Unfortunately we don't yet have the
-   techincal skills needed to take advantage of such information.
+   program's state is called a "core dump". Interpreting such core dumps requires
+   quite a bit of expertise.
    {: .deeper}
 
 Hopefully these two exercises have illustrated just how fragile computer

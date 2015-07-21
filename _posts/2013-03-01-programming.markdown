@@ -39,8 +39,10 @@ byte.
 
 First we need to create a file to store the program instructions. We will do
 this using a command called `dd` which lets us create a file with a certain
-number of bytes.
+number of bytes. We will do all of the work in this chapter in the `/root`
+directory.
 
+    # cd /root
     # dd if=/dev/zero of=sevn bs=1 count=91
 
 This creates the 91 byte file `sevn` by copying the first 91 bytes of the file
@@ -63,12 +65,13 @@ simply shows us byte numbers in hexadecimal to keep track of where we are in the
 the file. So the first byte of the first line is byte number 0x0, the first byte
 of the second line is byte number 0x10, the first byte of the third line is
 number 0x20, etc. The middle column shows the actual bytes of the file in
-hexadecimal. In hexadecimal a byte stores values from 0x00 to 0xFF, so each byte
-is represented by two characters. The spacing in between the bytes helps us
-visualize them in groups of 4. There are 16 bytes on each line. The right column
-also shows the bytes of the file but represented as [ASCII] characters rather
-than hexadecimal values. Since only the byte values 0x20&ndash;0x7E correspond to
-ASCII characters, all other byte values are displayed as a `.` in this column.
+hexadecimal, which are all zero. In hexadecimal a byte stores values from 0x00
+to 0xFF, so each byte is represented by two characters. Each line has 16 bytes
+and the spacing in between the bytes helps us visualize them in groups of 4. The
+right column is a duplicate of the middle column but it shows the bytes of the
+file represented as [ASCII] characters rather than hexadecimal values. Since
+only the byte values 0x20&ndash;0x7E correspond to ASCII characters, all other
+byte values are displayed as a `.` in this column.
 
 [ASCII]: {{ site.baseurl }}/part2/http/#text
 
@@ -122,9 +125,9 @@ another synonym for program. Now we can run the program:
     # ./sevn
 
 Remember that when we type the name of a program as a shell command, the shell
-looks for the program in certain directories like `/usr/bin`. Since we
-(probably) didn't create our `sevn` program in one of these directories, we have
-to specify exactly where the program is by including the `./`.
+looks for the program in certain directories like `/usr/bin`. Since we didn't
+create our `sevn` program in one of these directories, we have to specify
+exactly where the program is by including the `./`.
 {: .note}
 
 If everything went according to plan, your shell will simply print another
@@ -149,7 +152,7 @@ actual instructions:
 
 The CPU basically performs these instructions from left to right byte-by-byte.
 Some instructions are kind of like shell commands and have arguments, so they
-include multiple bytes. We can split up the instructions like so:
+include multiple bytes. We can visually split up the instructions like so:
 
     B3 07
     31 C0
@@ -339,7 +342,7 @@ programming techniques that solve these problems.
 ## Exercises ##
 
 <div class="exercise">
-1. Try changing a _single_ byte of the `sevn` machine code so that this happens
+1. Try changing a _single_ byte of the `sevn` file so that this happens
 
        # ./sevn
        -bash: ./sevn: cannot execute binary file: Exec format error

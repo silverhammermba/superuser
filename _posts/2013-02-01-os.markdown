@@ -396,6 +396,10 @@ in Windows, `C:\Program Files` is the path for the directory `Program Files`
 stored in the root of the file system on the HDD named `C`.
 {: .note .os .windows}
 
+A common analogy for a file system is a drawer in a filing cabinet. In this
+analogy, files are files, directories are folders, and the root directory is
+like the drawer itself in which all files and folders are stored.
+
 ### Working Directories ###
 
 Now let's look at `/etc`, for example. If you `ls` it, you'll see that it has
@@ -404,7 +408,7 @@ exploring `/etc`? Won't it get really tedious typing out `/etc` over and over
 again as we list different directories? Thankfully, the shell can help us out
 here. The shell lets us "go into" a directory so that when we refer to filenames
 in that directory we don't need to mention the file system location of the
-directory we're "in". This is purely for convenience, but it really saves a lot
+directory we are "in". This is purely for convenience, but it really saves a lot
 of effort.
 
 The command to "go into" a directory is `cd`, for **c**hange **d**irectory.
@@ -416,14 +420,14 @@ This doesn't print any output, but notice that now the shell prompt is different
 
     [root@demo etc]# _
 
-Now that we're "in" `/etc` the shell reminds us by putting the directory's
+Now that we are "in" `/etc` the shell reminds us by putting the directory's
 filename in the prompt.
 
 The directory we "go into" using `cd` is called the **working directory**.
 {: .definition}
 
 So how does the working directory save us time? Well now we can use the special
-filename `.` which means "the directory we're in". So the following two commands
+filename `.` which means "the working directory". So the following two commands
 are now equivalent:
 
     # ls /etc/kernel
@@ -729,9 +733,9 @@ you want to correct a typo in a command you ran.
 {: .note}
 
 <div class="deeper">
-There's another time-saving feature of the shell called "globbing" that saves
-you time when typing out multiple file names. What if you want to `cat` every
-file in `/sys/devices/system/cpu`? You could type them all out
+There's another feature of the shell called "globbing" that saves you time when
+typing out multiple file names. What if you want to `cat` every file in
+`/sys/devices/system/cpu`? You could type them all out
 
     # cd /sys/devices/system/cpu
     # cat kernel_max modalias offline online possible present uevent
@@ -761,10 +765,10 @@ the only filenames that start with "o".
 </div>
 
 <div class="deeper">
-Another time-saving feature is autocomplete, which can save you a lot of typing
-in general. How it works is when you're typing either the name of a command or a
-file path in the shell, you can press <kbd>Tab</kbd> to tell the shell to finish
-typing it for you. So instead of typing
+Another shell feature is autocomplete, which can save you a lot of typing. How
+it works is when you're typing either the name of a command or a file path in
+the shell, you can press <kbd>Tab</kbd> to tell the shell to finish typing it
+for you. So instead of typing
 
     # head /etc/nanorc
 
