@@ -323,8 +323,8 @@ overcompression.
 Compression artifacts aren't always a deal-breaker, however. If an image has
 artifacts but is much larger than you need it to be, shrinking the image can
 sometimes hide the artifacts completely. Intuitively, artifacts are a result of
-not having enough information to fill the size of the image, thus reducing the
-image size can actually improve the quality.
+not having enough information to fill the resolution of the image, thus reducing
+the image resolution can actually improve the quality.
 {: .note}
 
 We're talking about compression of images here because I have a pet peeve for
