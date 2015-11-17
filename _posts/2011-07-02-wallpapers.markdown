@@ -126,7 +126,7 @@ region completely white! Remember that nearest neighbor only picks one pixel fro
 the original image for each pixel in the result; in this case it picked only the
 white pixels even though most of the original pixels are black. The smiley face
 is also completely unrecognizable, again since it didn't make "good" choices of
-pixels. The next algorithm&nmash;called a bilinear filter&mdash;does a bit
+pixels. The next algorithm&mdash;called a bilinear filter&mdash;does a bit
 better: the mostly black region is still mostly black, and the smiley face is
 closer but still not quite recognizable. Lastly, the Fant algorithm does a great
 job of preserving both the mostly black region and the smiley face. But what
