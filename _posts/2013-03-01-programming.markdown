@@ -219,13 +219,13 @@ rewrite our program in assembly.
 
 Unlike machine code which is pure digital data (usually viewed as hexadecimal),
 assembly is entirely human-readable ASCII text. So instead of `hexedit` we will
-use a program called `nano`, which is a text editor. Just type
+use a program called `nano`, which is a text editor. Type
 
-    # nano
+    # nano sevn.s
 
-This brings up a simple text editing interface, somewhat similar to `hexedit`.
-You can type to add text and use backspace and the arrow keys as you would
-expect.
+This opens up a new text file called `sevn.s` in a simple text editing
+interface, somewhat similar to `hexedit`. You can type to add text and use
+backspace and the arrow keys as you would expect.
 
 <div class="exercise">
 Type out the following text:
@@ -243,8 +243,8 @@ int $0x80
 As in previous chapters the text is colored simply to make it easier to read.
 {: .note}
 
-Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> to save the text to a file. Type
-`sevn.s` for the filename and press <kbd>Enter</kbd>.
+Then press <kbd>Ctrl</kbd>+<kbd>O</kbd> and <kbd>Enter</kbd> to save the text in
+the file `sevn.s`.
 </div>
 
 Now let's look at what this assembly says. Like the machine code, we can ignore
@@ -293,9 +293,9 @@ object file and create the executable:
 
 Again, the `-o` option tells `ld` to save the executable file with the file name
 `sevn2` (so you can compare it with the machine code version of the program).
-The `-s` option just removes some unnecessary information from the executable
-file format. `ld` is even nice enough to mark the file as executable for us, so
-we don't have to `chmod` it like we did before. So now:
+The `-s` is optional, but it makes the resulting machine code a little easier to
+read. `ld` is even nice enough to mark the file as executable for us, so we
+don't have to `chmod` it like we did before. So now:
 
     # ./sevn2
     # echo $?

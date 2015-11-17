@@ -30,7 +30,7 @@ A **compiler** is a program which translates from one programming language to
 another (usually simpler) programming language.
 {: .definition}
 
-"Simple" here refers to the complexity of the language itself, not the
+"Simpler" here refers to the complexity of the language itself, not the
 difficulty of using the language. It is usually easier to express a complex idea
 in a complex language (and it can be [hilariously difficult][upgo] in simple
 language).
