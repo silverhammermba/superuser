@@ -214,7 +214,7 @@ what specific instructions it needs. Instead, they include a special I/O
 instruction to the _loader_ that says they want to read from the device. That
 way, when the loader loads the program it can replace that special instruction
 with the specific instructions it knows for that specific device. In this way,
-computer programs can easily create programs that work for many types of I/O.
+computer programmers can easily create programs that work for many types of I/O.
 
 The instructions used by the loader for communicating with a specific device are
 called the device's **driver**. The special I/O instructions that programs use
