@@ -851,23 +851,24 @@ for you. So instead of typing
 
 You can do
 
-<pre><code># head /etc/na</code><kbd>Tab</kbd><code></code></pre>
+<pre><code># head /etc/na</code><kbd>Tab</kbd></pre>
 
 and it will automatically fill in the `norc` because `/etc/nanorc` is the only
 file path that starts with `/etc/na`. If there are multiple file paths that
 could match, it will type as much as it can. For example
 
-<pre><code># head /etc/mki</code><kbd>Tab</kbd><code></code></pre>
+<pre><code># head /etc/mki</code><kbd>Tab</kbd></pre>
 
-expands to `/etc/mkinitcpio.` because the files `mkinitcpio.d` and
-`mkinitcpio.conf` both start with `/etc/mki` and it doesn't know which one you
-want. If pressing <kbd>Tab</kbd> doesn't do anything, that is often because
-there are already multiple matches based on what you typed. In that case, simply
-press <kbd>Tab</kbd> again, and the shell will list all possible matches so that
-you can keep typing
+expands to `/etc/mkinitcpio` because all of the files that start with `/etc/mki`
+also start with `/etc/mkinitcpio` and it doesn't know which one you want. If
+pressing <kbd>Tab</kbd> doesn't do anything, that is often because there are
+already multiple matches based on what you typed. In that case, simply press
+<kbd>Tab</kbd> again, and the shell will list all possible matches so that you
+can keep typing
 
-<pre><code># head /etc/mkinitcpio.</code><kbd>Tab</kbd><kbd>Tab</kbd><code>
-mkinitcpio.conf mkinitcpio.d/</code></pre>
+<pre><code># head /etc/mkinitcpio</code><kbd>Tab</kbd><kbd>Tab</kbd><code>
+completing file
+mkinitcpio-archiso.conf mkinitcpio.conf mkinitcpio.d/</code></pre>
 
 If double tapping <kbd>Tab</kbd> doesn't do anything, then there are no file
 names that match what you typed. Autocomplete also combines nicely with the
@@ -875,14 +876,14 @@ previous tip, globbing. If you ever wonder what files a glob will match before
 you run the command, autocomplete will tell you. For example
 
 <pre><code># ls /usr/*/share</code><kbd>Tab</kbd><code>
-# cat /etc/ge*</code><kbd>Tab</kbd><kbd>Tab</kbd></code></pre>
+# cat /etc/ge*</code><kbd>Tab</kbd><kbd>Tab</kbd></pre>
 
 <div class="note">
 If there are a _lot_ of matches when you autocomplete, the shell will double
 check that you actually want to list them.
 
-<pre><code># g</code><kbd>Tab</kbd><kbd>Tab</kbd><code>
-Display all 126 possibilities? (y or n)</code></pre>
+<pre><code># g</code><kbd>Tab</kbd><kbd>Tab</kbd>
+<code>Display all 126 possibilities? (y or n)</code></pre>
 
 You can press <kbd>N</kbd> to abort, or press <kbd>Y</kbd> to list them anyway
 and use <kbd>Enter</kbd> or <kbd>Spacebar</kbd> to scroll through the list.
