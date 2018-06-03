@@ -728,8 +728,8 @@ you _should_ learn programming as a prerequisite to becoming a superuser.
 
 In a way, programming is the ultimate tool of a superuser. It's the last resort
 when a superuser can find no existing method for getting the job done. In fact,
-writing your own code is very rarely desirable. Computer programmers have [a
-saying][code] that "the best code is no code at all", meaning that while
+writing your own code is very rarely desirable. Computer programmers have a
+saying that ["the best code is no code at all"][code], meaning that while
 programming _is_ an incredible tool it also comes with incredible difficulties.
 Writing a program from scratch is hard work, and writing a _good_ program that
 is actually useful and has few bugs is even harder. Solving a problem using a

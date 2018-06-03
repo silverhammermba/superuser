@@ -246,15 +246,31 @@ in this and the following chapters, the live OS is sufficient.
 
 </div>
 
-So we're logged in as the superuser and ready to roll. Before I start
-explaining more, let's become familiar with VirtualBox's ability to save and
-load our work. This will be handy moving forward in case you screw something up
-and want to return to an earlier state where things were working. Simply click
-"Take Snapshot..." in the "Machine" menu of the VM's window. You can give your
-snapshot a name and a description to remind yourself later why you saved your
-work, then click OK. After a short wait, you should be back to the VM as though
-nothing happened. But what just occured is VirtualBox created a file storing all
-of the information about the current state of the VM.
+So we're logged in as the superuser and ready to roll. First, let's install some
+additional tools that weren't included with the Arch Linux downoad.
+
+<div class="exercise">
+
+Type the following commands into your virtual machine, typing the correct
+capitalization and spacing is important:
+
+1. `pacman -Sy`<kbd>Enter</kbd>. You should see `Synchronizing package
+   databases...` and then some loading bars. Wait for them to finish.
+2. `pacman -S hexedit gcc ruby`<kbd>Enter</kbd>. You will see some output
+   printed and then it will pause at `Proceed with installation? [Y/n]`. Hit
+   <kbd>Enter</kbd> again. Wait for the progress bars to finish again.
+
+</div>
+
+
+Before I start explaining more, let's become familiar with VirtualBox's ability
+to save and load our work. This will be handy moving forward in case you screw
+something up and want to return to an earlier state where things were working.
+Simply click "Take Snapshot..." in the "Machine" menu of the VM's window. You
+can give your snapshot a name and a description to remind yourself later why you
+saved your work, then click OK. After a short wait, you should be back to the VM
+as though nothing happened. But what just occured is VirtualBox created a file
+storing all of the information about the current state of the VM.
 
 Now to really appreciate how useful snapshots are, type in the following and
 then press <kbd>Enter</kbd>:
