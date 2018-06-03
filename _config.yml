@@ -1,8 +1,8 @@
 name: Superuser
-highlighter: pygments
+highlighter: rouge
 baseurl: /superuser
 markdown: kramdown
 permalink: /:categories/:title/
-gems: ['jekyll-less']
+plugins: ['jekyll-less']
 kramdown:
   parse_block_html: true
