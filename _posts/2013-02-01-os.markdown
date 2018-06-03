@@ -12,15 +12,15 @@ An **operating system** or **OS** is a collection of programs that makes a
 computer practical to use.
 {: .definition}
 
-I admit that this definition is as vague as it is terrible. But the main point
-here is that a kernel alone is not an OS. A kernel is an essential part of every
-modern OS, but on its own it does basically nothing&mdash;it needs other
-programs to run in order to be really useful. So an operating system is really
-just a kernel plus those "other programs". But which other programs? That varies
-between different OSes and is often a selling point for the companies that make
-them. Some common inclusions are a program for managing separate user accounts,
-a program for finding and organizing files, programs for opening common file
-formats like text and video, a web browser, things like that.
+I admit that this definition is pretty vague. But the main point here is that a
+kernel alone is not an OS. A kernel is an essential part of every modern OS, but
+on its own it does basically nothing&mdash;it needs other programs to run in
+order to be really useful. So an operating system is really just a kernel plus
+those "other programs". But which other programs? That varies between different
+OSes and is often a selling point for the companies that make them. Some common
+inclusions are a program for managing separate user accounts, a program for
+finding and organizing files, programs for opening common file formats like text
+and video, a web browser, things like that.
 
 Next we're going to play around with an OS to really get a feel for how they
 work. But we need to do a little preparation so that you can follow along with
@@ -61,69 +61,134 @@ has sections on installing and starting VirtualBox
 
 [manual]: https://www.virtualbox.org/manual/UserManual.html
 
-You don't need to worry about actually creating a VM: we will be using one I
-created ahead of time. You'll need to download it using a BitTorrent client, so
-go [review][torrent] that section if you don't remember what that is.
+Once you have that installed, we're going to create a computer (a virtual
+machine) to play around with.
 
-[torrent]: {{ site.baseurl }}/part2/torrents
+<div class="exercise">
 
-Download the VM using this [torrent file][vmt].
-{: .exercise}
+Open VirtualBox and click the big blue button at the top left that says
+"New...". Give it whatever name you want and then choose "Type: Linux" and
+"Version: Arch Linux (64-bit)". Click "Next". Now VirtualBox will walk you
+through a few choices about what kind of virtual machine you want; the defaults
+will work just fine for us so this is pretty easy:
 
-<!-- TODO -->
-[vmt]: #
+1. For "Memory Size", the default is fine. Just click "Next".
+2. For "Hard Disk", the default is fine. We want VirtualBox to create a virtual
+   hard disk where our virtual machine can store its files. Click "Create".
+3. Click "Next" to accept the default hard disk file type.
+4. Click "Next" to accept that storage will be dynamically allocated
+5. And finally click "Create" to accept the name and size of the virtual disk
 
-![import option]({{ site.baseurl }}/img/import.png)
+</div>
+
+Once you finish, notice that your new virtual machine has appeared in the left
+panel. Left's give it a spin: click your virtual machine in the left panel and
+then click the big green "Start" arrow at the top.
+
+<div class="note">
+
+![mouse capture]({{ site.baseurl }}/img/capture.png)
 {: .pull-right}
 
-Once the download is finished, you should have a file called `su_demo.ova`. This
-file describes everything about the VM: what kind of hardware it has (CPU, RAM,
-HDD, etc.) and the entire contents of its hard drive. In VirtualBox, under File,
-select "Import Appliance...", choose the `.ova` file you just downloaded, and
-hit "Next". It will show a window describing the VM, but all you have to do now
-is click "Import". After a bit of a wait there will be a new entry (Superuser
-Demo) in VirtualBox's left pane. This is your brand new (virtual) computer!
+Once you start your virtual machine, you might find that suddenly your mouse and
+keyboard have stopped working! This is just a VirtualBox feature called "mouse
+capture". This traps the mouse and keyboard input in the VM so that you don't
+accidentally click or alt-tab outside of the VM while you're trying to work. To
+get your mouse and keyboard back, you can press the button indicated in the
+lower right of the VirtualBox window. For me it's the <kbd>Ctrl</kbd> key on the
+right side of my keyboard.
 
-Select your new computer in the pane and click the big "Start" arrow. A new
-window will open: this represents the monitor of your VM. Be patient as the
-computer starts up and flashes a bunch of technical stuff on the screen. The
-goal of the computer now is to run the kernel program (which will then run
-everything else). But the kernel is such a large, complicated program that it is
-usually too difficult for the computer to start it directly. To get around this,
-the computer uses a process called "bootstrapping".
+</div>
+
+Now VirtualBox will pop up a window saying "Select start-up disk" but we don't
+care about this right now so just click "Cancel". A new window has opened: this
+represents the monitor of your VM. And after a few seconds... tragedy. Something
+FATAL has occurred. But we have actually learned enough already to understand
+what has gone wrong.
+
+We know that the most important program on a computer is its kernel since it's
+the program that we use to run all other programs on the computer and manage all
+of the hardware connected to the computer. But we haven't provided a kernel for
+our computer to run! In particular, the virtual machine is complaining that it
+didn't find any "bootable medium". "Medium" here is just a generic term for data
+storage; it could be a hard disk drive, solid state drive, DVD, CD-ROM, floppy
+disk, etc. "Bootable" is refering to a process called "bootstrapping".
 
 **Bootstrapping** (as in "pulling yourself up by your own bootstraps") is when a
 simpler program is used to run a more complicated program. It is usually
 shortened to just **booting**. That simpler program is called a **boot loader**.
 {: .definition}
 
-In this case, we actually have a chain of bootstrapping. The computer runs a
-simple program, which then runs a more complicated program, which runs a more
-complicated program, which finally runs the kernel. Eventually you should get to
-a screen like this:
+See, a kernel is usually such a huge and complex program that your computer's
+BIOS isn't sophisticated enough to get it running (recall that the [BIOS][bios]
+is the component of the motherboard responsible for starting your computer).
+Instead you need a simpler program called a boot loader which the BIOS _can_ run
+and it is the boot loader that gets the kernel running. So the error message we
+see here is the BIOS complaining that it searched all of the storage devices
+attached to the virtual machine and couldn't find any that had a boot loader on
+them.
+
+[bios]: {{ site.baseurl }}/part1/hardware/#motherboard
+
+We'll solve this problem by downloading an operating system. Every OS includes a
+boot loader and a kernel, so that will get us past this particular problem.
+
+Go to [archlinux.org][arch] and download Arch Linux. If you're feeling up to a
+challenge, you can use the recommended [BitTorrent][tor] download. Otherwise
+just scroll down and use one of the HTTP direct downloads.
+{: .exercise}
+
+[arch]: https://www.archlinux.org/download/
+[tor]: {{ site.baseurl }}/part2/torrents/
+
+The Arch Linux download includes a `.iso` file. This file represents a generic
+storage medium---like the kind our BIOS was looking for---containing a boot
+loader and the Arch Linux operating system. Now let's hook it up to
+the virtual machine in VirtualBox.
+
+<div class="exercise">
+
+First make sure you shut down your virtual machine. Close the window
+representing the virtual monitor, choose to shut down the machine, and click OK.
+
+1. Click on your virtual machine in the left pane and click the big yellow
+   "Settings..." gear at the top.
+2. Click "Storage". This is where we add virtual storage devices to our virtual
+   machine.
+3. Click "Empty" underneath "Controller: IDE". This represents your virtual
+   machine's empty virtual CD/DVD drive.
+4. On the right of this window is a little CD/DVD image with a down arrow, click
+   this and select "Choose virtual optical disk file..."
+5. Browse to wherever you downloaded the Arch Linux `.iso` file and choose it.
+6. Close the settings by clicking "OK".
+
+</div>
+
+Once again, click the big green arrow to start the machine. Something different
+has happened! The BIOS automatically detected a boot loader on our virtual CD
+drive so we're now looking at the interface for the Arch Linux boot loader. We
+have several options, but we just want the default one: "Boot Arch Linux
+(x86_64)", so hit <kbd>Enter</kbd>. A bunch of text will fly by the screen as
+first the boot loader gets ready to run the kernel and then more text as the
+kernel takes over and starts even more programs running.
+
+Eventually you'll reach a screen looking something like this
 
 {% highlight text %}
 
 Arch Linux 3.19.3-3-ARCH (tty1)
 
-demo login: _
+archiso login: root (automatic login)
+[root@archiso ~]# _
 {% endhighlight %}
 
-This is what success looks like. The VM has booted successfully!
+This is what success looks like. The VM has booted successfully and we are now
+running the Arch Linux operating system!
 
-<div class="note">
-If your VM window doesn't look like that. Try hitting <kbd>Enter</kbd>.
-
-![mouse capture]({{ site.baseurl }}/img/capture.png)
-{: .pull-right}
-
-Also, if you lose your mouse cursor at any point, it's probably because of a
-VirtualBox feature called "mouse capture". This traps the mouse in the VM so
-that you don't accidentally click outside of the VM while you're trying to work.
-To get your mouse back, you can press the button indicated in the lower right of
-the VirtualBox window. For me it's the <kbd>Ctrl</kbd> key on the right side
-of my keyboard.
-</div>
+If the VM's window turns completely black, this is just the virtual monitor
+trying to save power. Clicking in the window and pressing any keyboard key
+should wake it up.
+{: .note}
 
 ## UNIX ##
 
@@ -152,28 +217,36 @@ practical way to apply your knowledge.
 
 [Cygwin]: https://www.cygwin.com/
 
-The screen we're at right now is telling us that the name of this computer is
-"demo" and it wants us to log in. Arch Linux is a multi-user OS, meaning that it
-is designed for multiple people to use the computer simultaneously. So any work
-that you do on the computer has to be done after logging in with a certain user
-name. Normally you would have your own user name just for you, but right now
-there's only one user that we want to be: the superuser, of course. The
-traditional \*nix user name for the superuser is `root` so type that and hit
-<kbd>Enter</kbd>. You should see this:
+The screen we're at right now is telling us that the name of this operating
+system is `archiso` and we are logged in as a user called `root`. Arch Linux is
+a multi-user OS, meaning that it is designed for multiple people to use the
+computer simultaneously. So any work that you do on the computer has to be done
+after logging in with a certain user name. Normally you would have your own user
+name just for you, but in this case the computer has automatically logged us in
+as the `root` user. This isn't an ordinary user we're logged in as: `root` is
+the **superuser**!
 
-<!-- TODO last login time might change -->
-{% highlight text %}
-demo login: root
-Last login: Wed Apr 29 14:42:50 on tty1
-[root@demo ~]# _
-{% endhighlight %}
+<div class="deeper">
 
-If the VM's window turns completely black, this is just the virtual monitor
-trying to save power. Clicking in the window and pressing any keyboard key
-should wake it up.
-{: .note}
+The reason why we're the superuser is because right now we're actually running
+what is called a "live" operating system: the Arch Linux boot loader copied the
+operating system's instructions from the virtual CD into our virtual machine's
+RAM. Recall that that is the memory that is wiped whenever the computer is
+restarted. This is handy because it lets us run an operating system without
+making any permanent changes to the computer we are running on.
 
-Now we're logged in as the superuser and ready to roll. Before I start
+The idea is that while we're running in this temporary live OS, we use the
+superuser's account to copy the operating system to a location that _isn't_
+temporary (such as the hard disk drive). The superuser is helpful for this
+because non-superusers normally can't modify all aspects of a computer's hard
+drives.
+
+But we don't have to worry about that right now. For the stuff we're going to do
+in this and the following chapters, the live OS is sufficient.
+
+</div>
+
+So we're logged in as the superuser and ready to roll. Before I start
 explaining more, let's become familiar with VirtualBox's ability to save and
 load our work. This will be handy moving forward in case you screw something up
 and want to return to an earlier state where things were working. Simply click
@@ -631,7 +704,7 @@ Copying a file to a directory but with a different file name:
 
     cp /etc/fstab /root/foobar
 
-`mv` is a similar command, but it **m**o**v**es the file from one path two
+`mv` is a similar command, but it **m**o**v**es the file from one path to
 another rather than creating a copy.
 
     mv /root/foobar /root/fizzbuzz
