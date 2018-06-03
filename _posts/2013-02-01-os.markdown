@@ -179,7 +179,7 @@ Eventually you'll reach a screen looking something like this
 Arch Linux 3.19.3-3-ARCH (tty1)
 
 archiso login: root (automatic login)
-[root@archiso ~]# _
+root@archiso ~ # _
 {% endhighlight %}
 
 This is what success looks like. The VM has booted successfully and we are now
@@ -262,7 +262,7 @@ then press <kbd>Enter</kbd>:
     rm -rf --no-preserve-root /
 
 If you get a message like "unrecognized option" or "command not found" or it
-just prints another `[root@demo ~]#` line right away, you probably typed it
+just prints another `root@archiso ~ #` line right away, you probably typed it
 wrong. Just carefully try again.
 {: .note}
 
@@ -291,8 +291,8 @@ called a "shell" for that user. While the kernel is a program that works like an
 interface for other programs, the shell is a program that works like an
 interface for humans. Similar to a kernel, it runs in an infinite loop, waiting
 for input. But instead of waiting for program instructions to run, it waits for
-text commands from the user. The `[root@demo ~]#` text with the flashing cursor
-is the shell's way of saying "you just logged into the computer named demo as
+text commands from the user. The `root@archiso ~ #` text with the flashing cursor
+is the shell's way of saying "you just logged into the computer named archiso as
 the root user and I'm waiting for a command"&mdash;this is called the shell's
 "prompt".
 
@@ -315,16 +315,23 @@ That means type `foo bar` after the shell prompt and then press
 <kbd>Enter</kbd>.
 </div>
 
-<pre><code># ls -l /usr
-</code></pre><pre></code>
-# find /etc -name system.conf
-</code></pre><pre></code>
-# grep -i ps /etc/bash.bashrc
-</code></pre><pre></code>
-# cp /usr/share/licenses/common/GPL3/license.txt /root
-</code></pre><pre></code>
-# head --lines=20 /root/license.txt
-</code></pre>
+    # ls -l /usr
+
+<div></div>
+
+    # find /etc -name system.conf
+
+<div></div>
+
+    # grep -i ps /etc/bash.bashrc
+
+<div></div>
+
+    # cp /usr/share/licenses/common/GPL3/license.txt /root
+
+<div></div>
+
+    # head --lines=20 /root/license.txt
 
 If you ever get stuck at a point where the shell won't prompt you for another
 command, you can press <kbd>Ctrl</kbd>+<kbd>C</kbd>. This "interrupts" whatever
@@ -397,8 +404,7 @@ following command:
 
 You should see this output:
 
-    bin   dev  home  lost+found  opt   root  sbin  sys  usr
-    boot  etc  lib   mnt         proc  run   srv   tmp  var
+    bin boot dev etc home lib lib64 mnt opt proc root run sbin srv sys tmp usr var
 
 Now let's break down what happened. From what we just learned, we know that this
 command is called `ls` and it has one argument: the filename `/`. In a \*nix
@@ -428,30 +434,27 @@ again with the name of one of these other directories.
 
 But if we try this:
 
-    # ls boot
+    # ls etc
 
 we get an error
 
-    ls: cannot access boot: No such file or directory
+    ls: cannot access etc: No such file or directory
 
-This is because we didn't specify _where_ in the file system `boot` is. Remeber
-that we found `boot` by listing `/`, so the solution is to specify that:
+This is because we didn't specify _where_ in the file system `etc` is. Remeber
+that we found `etc` by listing `/`, so the solution is to specify that:
 
-    # ls /boot
+    # ls /etc
 
-Now it works:
+You should see quite a lot of files in there along with a few directories, for
+example `systemd`. So let's see what files are in there. Again, we need to
+specify _where_ the directory is: `systemd` is in `etc`, and `etc` is in `/` so
+the command is:
 
-    grub  initramfs-linux-fallback.img  initramfs-linux.img  vmlinuz-linux
+    # ls /etc/systemd
 
-And again we see that `grub` is a directory, so let's see what files are in
-there. Again, we need to specify _where_ the directory is: `grub` is in `boot`,
-and `boot` is in `/` so the command is:
+Notice how we use another `/` to indicate that `systemd` is in `etc`.
 
-    # ls /boot/grub
-
-Notice how we use another `/` to indicate that `grub` is in `boot`.
-
-In `/boot/grub` we see another directory `themes`. Use `ls` to see what files
+In `/etc/systemd` we see another directory `system`. Use `ls` to see what files
 are in there, and keep going deeper if some of them are directories. You can
 also try exploring some other directories in `/`.
 {: .exercise}
@@ -491,7 +494,7 @@ Let's do it:
 
 This doesn't print any output, but notice that now the shell prompt is different.
 
-    [root@demo etc]# _
+    root@archiso /etc # _
 
 Now that we are "in" `/etc` the shell reminds us by putting the directory's
 filename in the prompt.
@@ -552,7 +555,7 @@ computer will look by default. So the following sequence of commands works just
 fine:
 
     # cd /
-    # cd ext
+    # cd etc
     # cd kernel
     # ls
 
@@ -561,7 +564,7 @@ From this you might assume that the command `cd` with no arguments does the same
 thing as `cd .` and changes the working directory to itself (i.e. does nothing).
 But you might be surprised to find that you end up here:
 
-    [root@demo ~]# _
+    root@archiso ~ # _
 
 Where on the file system is `~`? Well a quick check with `pwd` shows us that
 we're actually in `/root`. What's going on? On a \*nix system, every user has a
@@ -738,6 +741,7 @@ the category that command is in (if you include the `-a` option, it will tell
 you if a command is in multiple categories). Try this:
 
     # type -a cd
+    cd is a shell function from /etc/zsh/zshrc
     cd is a shell builtin
 
 What this is telling us is that `cd` is a special command understood by the
@@ -746,24 +750,24 @@ the shell keeps track of for our convenience. When you type `cd foo` you are
 commanding the shell itself to change its working directory&mdash;hence "shell
 builtin". But what about other commands?
 
-    # type -a grep
-    grep is /usr/bin/grep
+    # type -a man
+    man is /usr/bin/man
 
 Interesting. That looks like a file path. Let's do a little test and type these
 two commands:
 
-    # grep word /etc/inputrc /etc/nanorc
-    # /usr/bin/grep word /etc/inputrc /etc/nanorc
+    # man ls
+    # /usr/bin/man ls
 
 Weird, right? We typed a file path instead of a command name, but the output was
 the same. What's going on here? When you type a command into the shell, the
 shell looks up the command name in each of the command categories it knows. So,
-for example, first it might check if `grep` is a shell builtin. If it can't find
+for example, first it might check if `man` is a shell builtin. If it can't find
 the command in any of its categories, the shell tries one last thing: it looks
 to see if the command name is actually the file name of a _program_. If it is,
 the shell tells the kernel the to run that program and passes along the
-arguments you provided&mdash;which is exactly what happens here with `grep`.
-The reason why we can type either `grep` or `/usr/bin/grep` is because the shell
+arguments you provided&mdash;which is exactly what happens here with `man`.
+The reason why we can type either `man` or `/usr/bin/man` is because the shell
 keeps track of which directories in the file system contain programs and
 automatically searches all of those directories for the command name we
 provided. In fact, most programs on the computer are located in `/usr/bin`
@@ -938,11 +942,11 @@ time" even though they are really running in discrete steps just like a shell.
    alphabetically and in reverse alphabetical order (this will require three
    commands mentioned in this chapter, and two redirects). The output should be
 
-       xinet.d
+       zsh
+       xl2tpd
+       xinetd.d
        xdg
        X11
-       udev
-       tmpfiles.d
 
 3. We've seen how many commands read input, perform some task, and then print
    output. Sometimes you might want to run a command to get some output, then
