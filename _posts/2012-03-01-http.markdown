@@ -275,7 +275,7 @@ the real magic of HTML occurs when you give an HTML document to a web browser
 interprets the various tags, and turns it into an interactive web page for you
 to browse. Check out the document we just made by clicking [here][ex].
 
-[ex]: {{ site.baseurl }}/extras/example.html
+[ex]: {{ site.baseurl }}/extras/example
 
 Pretty cool, huh? To prove that there's no trickery going on here, try <span
 class="os windows linux">right</span><span class="os osx">⌘</span>-clicking

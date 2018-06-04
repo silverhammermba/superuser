@@ -47,7 +47,7 @@ attention! All definitions from the chapters (and a few more) are listed in the
 [glossary][gl].
 {: .definition}
 
-[gl]: {{ site.baseurl }}/extras/glossary.html
+[gl]: {{ site.baseurl }}/extras/glossary
 
 Notes are little reminders. They might remind you of older material that is
 being used again or they'll try to clear up a frequent point of confusion.
@@ -64,7 +64,7 @@ the chapter. They're not graded, but you should still consider them. And yes
 there are selected answers [in the back][ans].
 {: .exercise}
 
-[ans]: {{ site.baseurl }}/extras/answers.html
+[ans]: {{ site.baseurl }}/extras/answers
 
 Sometimes you'll see text highlighted in `pink` or
 
@@ -112,7 +112,7 @@ window.onload = function() {
 };
 </script>
 
-[faq]: {{ site.baseurl }}/extras/faq.html
+[faq]: {{ site.baseurl }}/extras/faq
 
 So anyway...
 
