@@ -3,8 +3,12 @@ layout: chapter
 title: Introduction
 ---
 
-This is a book to set you on the course to becoming an accomplished computer
-user or&mdash;as I like to call it&mdash;a superuser.
+<!-- credit to Martin Hornik for coming up with the new book title -->
+
+This is a book for people who find computers mysterious or confusing. I want to
+teach you the basics of computers in order to demystify them. With how important
+computers are to our modern way of life, it is important to have more people
+around who are comfortable with them.
 
 First a disclaimer: this book is not written for [complete idiots][ci]
 or [dummies][du]. Computers are tricky things, and you will need some cleverness
@@ -16,9 +20,9 @@ concepts and terminology before using them.
 [du]: http://www.amazon.com/PCs-Dummies-Dan-Gookin/dp/1118197348
 
 Still reading? Great! By starting to read this guide you have demonstrated that
-you have what it takes to become a superuser. A healthy thirst for knowledge and
-the willingness to read long, boring documents to acquire said knowledge are
-important traits of any superuser. I'll do my best to keep things interesting so
+you have what it takes understand computers. A healthy thirst for knowledge and
+the willingness to read long, boring documents are the secret skills for
+becoming good at computer use. I'll do my best to keep things interesting so
 long as you try to stay thirsty for knowledge.
 
 ## How to Read This Book ##
