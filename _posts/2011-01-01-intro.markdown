@@ -4,40 +4,38 @@ title: 'Part 1: Computers'
 category: part1
 ---
 
-We're going to start by answering a question so fundamental that you might even
-laugh that I ask it at all: what is a computer? Yes, I know you're using one
+We are going to start by answering a question so fundamental that you might even
+laugh that I ask it at all: what is a computer? Yes, I know you are using one
 right now, but do you really know what a computer is? What is the difference
 between a computer and a calculator? Other than size and shape, what makes
 different computers different?  What makes one computer better than another?
 
-We're going to learn the answers to all of these questions eventually. For now,
-let's take a stab at answering that first question.
+We are going to learn the answers to all of these questions eventually. For now,
+try to take a stab at answering that first question.
 
 Q: What is a computer?
 
-A: Something that computes.
+A: Something that... computes?
 
-Obvious, right? Now you have 10 seconds to define "compute". Not so obvious.
-Don't worry, because even computer scientists had a hard time defining it. It
-wasn't until the 1930s that anyone managed to put forth a decent definition for
-the term, and even today no one can come up with an argument for why that
-definition is the "right" one. We've all just agreed to hope that it's the
-right one. Weird, right?
+Okay, but what does it mean to "compute"? Feel free to try to come up with a
+definition on your own, but this is actually a really difficult question; even
+computer scientists had a hard time defining it! The first decent definition was
+put forth in the 1930s, and even though it is the one we use today, computer
+scientists are still not quite sure if there could be a better way to define it.
 
-So what is this definition?
+But what is this definition?
 
-A **computation** is any function that can be evaluated using an
-algorithm.
+A **computation** is any function that can be evaluated using an algorithm.
 {: .definition}
 
-Woah, terminology alert! Let's break it down:
+Woah, terminology alert! We can break it down:
 
-A **function** is something that can be given input and will
-return output. And if you give it the same input several times, it must return
-the same output each time.
+A **function** is something that can be given input and will return output. And
+if you give it the same input several times, it must return the same output each
+time.
 {: .definition}
 
-For example, "Given two integers, what is their sum?" is a function. Its input
+For example, "Given two numbers, what is their sum?" is a function. Its input
 is two numbers and its output is a single number. "What day of the week was it
 on a certain date?" is also a function. With the date as the input, you can
 look backwards or forwards in the calendar to see if that day was "Monday",
@@ -59,29 +57,27 @@ An **algorithm** is a well-defined, step-by-step process.
 
 In other words, an algorithm is just a list of instructions. However, the
 instructions must be _completely clear_. There should be no room for
-interpretation. For example, "multiply this number by 2" would work as a step
-in an algorithm since anyone who knows how to multiply will get the exact same
+interpretation. For example, "multiply this number by 2" would work as a step in
+an algorithm since anyone who knows how to multiply will get the exact same
 result. However "draw a pretty picture" would not work in an algorithm because
-it's ambiguous. What do you mean by "pretty"? What tools can I draw with? What
+it is ambiguous. What do you mean by "pretty"? What tools can I draw with? What
 should I draw a picture of?
 
 Now read it again: a computation is any function that can be evaluated using an
 algorithm. A computation takes input and produces output by following a clear,
 step-by-step process and where the output depends only on the input. Got it?
-Good.
 
 You might be wondering: since a computation is a function that can be evaluated
-using an algorithm, does that mean that there are functions that
-**can't** be evaluated using any algorithm? Yes! They're really cool and
-unfortunately beyond the scope of this book. Search the web for "uncomputable
-functions".
+using an algorithm, does that mean that there are functions that **cannot** be
+evaluated using any algorithm? Yes! They are really cool but unfortunately are
+beyond the scope of this book. Search the web for "uncomputable functions".
 {: .deeper}
 
-Now get ready because here comes the first set of exercises. This isn't school
-so you don't _have_ to do them and some problems are tricky enough that I don't
-expect you to figure them out very easily. But remember that a superuser learns
-by doing, so at the very least try to think about each question a little bit
-before moving on.
+Now get ready because here comes the first set of exercises. This is not school
+so you do not _have_ to do them and some problems are tricky enough that I do
+not expect you to figure them out very easily. But the best way to learn is by
+doing, so at the very least try to think about each question a little bit before
+moving on.
 
 ## Exercises ##
 
