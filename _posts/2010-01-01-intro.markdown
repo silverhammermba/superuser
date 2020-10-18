@@ -5,25 +5,32 @@ title: Introduction
 
 <!-- credit to Martin Hornik for coming up with the new book title -->
 
-This is a book for people who find computers mysterious or confusing. I want to
-teach you the basics of computers in order to demystify them. With how important
-computers are to our modern way of life, it is important to have more people
-around who are comfortable with them.
+These days computers are everywhere. You pretty much have to use a computer of
+some kind every day just to work, or relax, or buy things. But I suspect that a
+lot of people still find computers a bit mysterious; is that the case for you?
 
-First a disclaimer: this book is not written for [complete idiots][ci]
-or [dummies][du]. Computers are tricky things, and you will need some cleverness
-and determination to get through this. However, you won't need any fancy diploma
-or prior knowledge to understand this book. I try my best to explain all
+Do you feel confused when your computer does something you do not expect? Do you
+feel worried when you hear in the news about people getting "hacked" and you are
+not sure how to protect yourself? Do you get frustrated when your computer
+starts acting slow seemingly for no reason? Then this book is for you.
+
+I am going to teach you the basics of computers. Not enough to be an expert, but
+enough to have a pretty good idea of what is going on inside them. After
+finishing this book, you should have a few practical skills for improving your
+digital life, as well as some theoretical knowledge that will help you
+understand computer-related discussions in the news.
+
+First a disclaimer: this book is not written for [complete idiots][ci] or
+[dummies][du]. Computers are tricky things, and you will need some cleverness
+and determination to get through this. However, you will not need any fancy
+diploma or prior knowledge to understand this book. I try my best to explain all
 concepts and terminology before using them.
 
 [ci]: http://www.amazon.com/Complete-Idiots-Basics-Windows-Edition/dp/1615640673
 [du]: http://www.amazon.com/PCs-Dummies-Dan-Gookin/dp/1118197348
 
-Still reading? Great! By starting to read this guide you have demonstrated that
-you have what it takes understand computers. A healthy thirst for knowledge and
-the willingness to read long, boring documents are the secret skills for
-becoming good at computer use. I'll do my best to keep things interesting so
-long as you try to stay thirsty for knowledge.
+Still reading? Great! You are already showing that you have the determination to
+figure this stuff out.
 
 ## How to Read This Book ##
 
@@ -44,33 +51,33 @@ using the list of chapters at the top.
 
 ## Notation ##
 
-Occasionally you'll see little highlighted blurbs like these.
+Occasionally you will see little highlighted blurbs like these.
 
-**Definitions** highlight terms that are important to understand. Pay close
-attention! All definitions from the chapters (and a few more) are listed in the
-[glossary][gl].
+This is a **definitions**. It highlights terms that are important to understand.
+Pay close attention! All definitions from the chapters (and a few more) are
+listed in the [glossary][gl].
 {: .definition}
 
 [gl]: {{ site.baseurl }}/extras/glossary
 
-Notes are little reminders. They might remind you of older material that is
-being used again or they'll try to clear up a frequent point of confusion.
+This is a note. It might remind you of older material that is being used again
+or it will try to clear up a frequent point of confusion.
 {: .note}
 
-"Thinking deeper" blurbs set aside optional material. Sometimes I think of
-something related to the current chapter that isn't essential for your
-understanding but is just too cool for me to not mention. Don't feel bad about
-skipping over these if they go over your head.
+This is optional material. Sometimes I think of something related to the current
+chapter that is not essential for your understanding but is just too cool for me
+to not mention. You should not feel bad about skipping over these if they are
+confusing.
 {: .deeper}
 
 Most chapters have a few exercises at the end to help you grasp concepts from
-the chapter. They're not graded, but you should still consider them. And yes
+the chapter. They are not graded, but you should still consider them. And yes
 there are selected answers [in the back][ans].
 {: .exercise}
 
 [ans]: {{ site.baseurl }}/extras/answers
 
-Sometimes you'll see text highlighted in `pink` or
+Sometimes you will see text highlighted in `pink` or
 
     set aside in a big gray block.
 
@@ -79,10 +86,10 @@ verbatim into a computer or a computer might output such text as the result of
 some operation. Occasionally I <kbd>Insert</kbd> text highlighted in black to
 refer to the physical keys on your computer's keyboard (e.g. the "Insert" key).
 
-Some chapters are marked as (BONUS). Think of these chapters as big "thinking
-deeper" sections. They build off of ideas from previous chapters or discuss side
-issues which aren't essential for understanding later sections. You can skip
-them if you like, but I think they're pretty cool!
+Some chapters are marked as (BONUS). Think of these chapters as big "optional
+material" sections. They build off of ideas from previous chapters or discuss
+side issues which are not essential for understanding later sections. You can
+skip them if you like, but I think they are really cool!
 
 <section id="issue">
 ## A Minor Issue ##
@@ -91,12 +98,12 @@ Occasionally in the book I use some fancy tricks to change the content based on
 what kind of device you are reading it with.
 <span class="mobile">You are seeing this section because it looks like you are
 using a mobile device. While mobile devices like smart phones are technically
-computers, they aren't the sort of computers this book is focused on.</span>
+computers, they are not the sort of computers this book is focused on.</span>
 <span class="unknown">You are seeing this section because I could not figure out
-what sort of device you're using! Sorry.</span>
+what sort of device you are using! Sorry.</span>
 
 <span class="mobile">That being said, 99% of the book should still be
-informative. Just feel free to ignore stuff that doesn't make sense for the
+informative. Just feel free to ignore stuff that does not make sense for the
 particular device you are using. If you are _not_ using a mobile device, please
 [let me know][faq] so that I can fix my book!</span>
 <span class="unknown">The book should still be 99% useful, but please [let me
@@ -118,63 +125,57 @@ window.onload = function() {
 
 [faq]: {{ site.baseurl }}/extras/faq
 
-So anyway...
+## Let's get started! ##
 
-## What is a Superuser? ##
+Before we get into Part 1 about computer theory, I want to surprise you with a
+basic fact about computers that you might not know: even though you probably own
+the computer you are reading this book on, there are a whole bunch of things you
+can do with your computer that your computer will actively try to prevent you
+from doing!
 
-On a computer system, the superuser is the one user with complete control over
-the system. You might not realize this, but chances are that on the very
-computer that you are using to read this guide there is information you cannot
-access and tasks you are not allowed to perform. That is because you are a
-regular user rather than a superuser. And for good reason! Certain information
-on your computer is extremely sensitive. If the information becomes corrupted
-you could lose your personal data, crash the computer, or even cause
-irreversible damage to it! The superuser has no restrictions when using the
-computer, which means an ignorant superuser can easily cause serious damage to a
-computer by acting carelessly. On the flipside, a superuser can tweak and tailor
-a computer's every behavior to suit her needs. Since the superuser has no
-restrictions, she also has the most responsibility.
+Imagine buying a car, trying to change the oil, and the car yells at you "Sorry,
+oil change is not permitted!" This is actually extremely common in the computer
+world.
 
-Technically speaking, it is quite trivial to become the superuser on your
-personal computer. But being able to handle the burden of being a superuser is
-another matter entirely. When I say that this book will help you "become a
-superuser", what I mean is that it will help you acquire the knowledge and
-skills necessary to be a responsible, benevolent one. In order to be a good
-superuser, you need to have a solid understanding of how computers work and the
-various systems involved in their operation. When you understand your computer,
-you are better able to operate it as the superuser without causing harm.
+The reason is that most computers have some understanding of a "user"; they try
+to keep track of which person is interacting with them and what that person can
+be trusted to do. Whenever you do something on your computer, chances are that
+your computer first asks itself "Do I trust this user to do that?" This is an
+important security feature because often there are multiple users sharing a
+computer and they want to be able to have private information that other users
+cannot see. And sometimes a "user" is not an actual physical person sitting in
+front of the computer, but someone on the Internet, controlling the computer
+from half-way around the world. In those cases the computer tries to figure out
+if that user is actually a hacker trying to do something bad versus someone
+legitimately using the computer over the Internet.
 
-There are many skills that I consider essential to being a superuser. You will
-pick up most of them as you read through this guide, but here are a few to
-get you started:
+It is also important because for users like you, who are just starting to learn
+about the secrets of computers, it could be surprisingly easy to accidentally
+break your computer if it did not restrict you in some way. The computer wants
+to prevent you from doing something that you might regret later!
 
-* A superuser is always thirsty for knowledge. Every tidbit of computer
-  knowledge is of interest to a superuser&mdash;though some tidbits are of more
-  interest than others.
-* RTFM (three of the letters stand for Read The Manual). It is often tempting to
-  seek out an expert to answer your computer questions, but it is essential that
-  a superuser be able to acquire knowledge on her own. Just about every bit of
-  technology in the world has an associated manual, and most are available for
-  free, though they are sometimes not easy to find nor easy to read. Many
-  experts on the Internet will refuse to answer a question if it's clear that
-  the asker made no effort to figure it out on their own first.
-* A superuser learns by doing. You can read as much as you want about computers
-  and technology, but you haven't learned a thing until you get down and dirty
-  at a keyboard to apply the concepts yourself.
+However, all of these restrictions can sometimes get in the way. For every
+action that could potentially harm your computer, there are completely
+legitimate situations where you really do want to perform that action! If you
+are computer-illiterate, those are the situations where all you can do is take
+your computer into the shop or call up your computer wiz family member.
 
-That should be enough to get us started. Now let's get excited! What benefits
-are there to being a true superuser?
+However, practically every computer also has some concept of a special user who
+has no restrictions at all. This user is trusted to do absolutely everything and
+is often called the "superuser". Each computer has its own mechanisms for
+telling the computer "I am the superuser, do not prevent me from doing
+anything". In the world of smart phones (which are just small computers), you
+might have heard of terms like "rooting" or "jail breaking". These are just
+slang terms for updating a phone in a way to allow you to become the superuser
+for it. I think it would be great if more people were comfortable enough with
+their computers that they could recognize those situations where they want to be
+the superuser. When your computer tells you "No!" you should be able to ask
+yourself "Why did my computer prevent that? Am I doing something bad, or should
+I really be telling my computer that I am the superuser?"
 
-* A superuser is her own tech support. You can save time and money by fixing
-  your own problems.
-* A superuser is a safer user. 99% of the dangers of computer use are spawned
-  from laziness and ignorance. The more you understand your computer, the more
-  you will be able to protect yourself and it from cyber threats.
-* A superuser can tweak and specialize a computer to perform a wider variety of
-  tasks, to operate more efficiently, and to better fit her needs. As a true
-  superuser, your computer will feel like your room: all of your favorite things
-  at hand, your possessions precisely arranged for ease of access, pleasing
-  decor, comfort, familiarity, etc.
+I cannot promise that this book alone will get you all the way to the point
+where you can do that, but I at least want to give you a push in the right
+direction.
 
 By now you are hopefully excited. If not, consider taking an invigorating walk.
 We begin with Part 1.
