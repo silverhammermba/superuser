@@ -53,7 +53,7 @@ using the list of chapters at the top.
 
 Occasionally you will see little highlighted blurbs like these.
 
-This is a **definitions**. It highlights terms that are important to understand.
+This is a **definition**. It highlights terms that are important to understand.
 Pay close attention! All definitions from the chapters (and a few more) are
 listed in the [glossary][gl].
 {: .definition}

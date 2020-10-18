@@ -7,24 +7,24 @@ category: part1
 Now we know what a computation is, but how is that related to the computers we
 know today?
 
-To answer this question, we're going to go way back to the beginning and talk
+To answer this question, we are going to go way back to the beginning and talk
 about the very first computers: people. People have been carrying out
 computation for quite some time, especially for business purposes. The faster
 and more accurately you can compute, the more products you can sell, the better
 you can track your finances, the further you can plan for the future, etc.
 
 Humans are decent at computation (almost all of pre-college math is
-computation), but they come with some significant drawbacks. The main problem is
-that computation is very boring. Since computation relies on
+computation), but humans come with some significant drawbacks. The main problem
+is that computation is very boring. Since computation relies on
 algorithms&mdash;instructions with no room for interpretation&mdash;it can be
 very uncreative, dull work. Dull work causes people to zone out; zoning out
-causes people to make silly mistakes. Secondly, humans don't have very good
+causes people to make silly mistakes. Secondly, humans do not have very good
 memories for computation. We can remember lots and lots of things, but our
 memory is fuzzy and selective: not so good at remembering huge quantities of
 precise numbers. That means that large computations require a lot of
-book-keeping to bypass our limited memory. Lastly humans aren't terribly fast at
-computation. For big companies with lots of accounting requirements, humans are
-not a great solution.
+book-keeping to bypass our limited memory. Lastly humans are not terribly fast
+at computation. For big companies with lots of accounting requirements, humans
+are not a great solution.
 
 Various computational tools have been invented over the years to assist humans
 with computation&mdash;such as the abacus and slide rule&mdash;but these essentially
@@ -32,16 +32,16 @@ amount to fancy book-keeping methods and still require slow, fallible human
 effort.
 
 The big breakthrough in computation came with computing machines. This was a
-crucial stepping stone to modern computers, so we're going to relive it right
-now by inventing a machine that can add two numbers with much less chance of
-human fallibility mucking it up. We're going to work our way up to this machine
+crucial stepping stone to modern computers, so we are going to reinvent it right
+now by creatting a machine that can add two numbers with much less chance of
+human fallibility mucking it up. We are going to work our way up to this machine
 by making much simpler machines first.
 
 ![Add 1 Machine]({{ site.baseurl }}/img/add1.png)
 {: .pull-right}
 
-We'll start with a wheel attached to the surface of a table. Around this wheel
-we'll evenly write the digits 0&ndash;9 in order. We can attach a handle to the
+We will start with a wheel attached to the surface of a table. Around this wheel
+we will evenly write the digits 0&ndash;9 in order. We can attach a handle to the
 wheel for rotating it and draw a mark on the table to point at a digit on the
 wheel. Voilà: we now have a very simple computing machine! In particular, this is
 an "add 1 to a number" machine. It takes as input a single digit number and
@@ -53,22 +53,24 @@ outputs a single digit number. The algorithm it uses is as follows:
 
 This machine is a bit silly, but it does do the job. In particular, it saves you
 the enormous effort of remembering what order the digits come in: you simply
-find the digit you want to add to, turn the crank, and read the result. But what
-happens if we give it 9 as input? The wheel circles back around to 0!
+find the digit you want to add to, turn the crank, and read the result. This is
+a simple "add 1 to a single digit number" machine!
+
+But what happens if we give it 9 as input? The wheel circles back around to 0!
 
 ![Overflow]({{ site.baseurl }}/img/overflow.png)
 {: .pull-left}
 
 We can solve this problem by adding another wheel to our contraption. The second
-wheel is exactly like the first, except rather than turning it directly with a
-handle we attach it to the first wheel. The attachment should be designed such
-that the second wheel remains stationary when we turn the crank. Except when the
-first wheel turns from 9 back to 0, then the second wheel advances by one digit
-(the diagram below shows a crude example of this, but if you want to see how
+wheel is similar to the first but with one crucial difference: rather than
+turning it directly with a crank, it is attached to the first wheel. The
+attachment turns the second wheel only when the first wheel turns from 9 back to
+0 (the diagram below shows a crude example of this, but if you want to see how
 this is done for real check out this [video][yt]). Now when we give an input of
-09, turning the handle changes the 9 to 0, which advances the 0 to 1 and we get 10.
-Success! If we keep turning, the second wheel remains at 1 (giving us 11, 12,
-13, ...) until we get to 19 and it once again advances to 20.
+09, turning the handle changes the 9 to 0, which advances the second wheel from
+0 to 1 and we get 10. Success! If we keep turning, the second wheel remains at 1
+(giving us 11, 12, 13, ...) until we get to 19 and it once again advances to 20.
+We now have a machine that can add 1 to a two digit number!
 
 [yt]: http://www.youtube.com/watch?v=rjWfIiaOFR4
 
@@ -77,34 +79,35 @@ Success! If we keep turning, the second wheel remains at 1 (giving us 11, 12,
 
 By now you might realize that we still have a problem. Our new machine works all
 the way up to 99 and then the same error occurs. Turning the rightmost 9 back to
-0 advances the leftmost 9 to 0 as well, so our machine says that 99+1=0. Dang.
-We can keep adding more wheels like we did before but that only delays the
-error. How do we solve it? Well... we don't. Without having infinitely many
-wheels, there's nothing we can do other than ensure that we have enough wheels
-at the moment to handle the input we have. You might be surprised to know
-that&mdash;as simple as our little machine is&mdash;it shares this problem with
-every modern computer. It's such a common problem that computer scientists even
-have a special term for it: "overflow". As is common in computer science, from
-now on we'll just assume that we have lots and lots of wheels&mdash;not
-infinitely many, but enough that we can handle reasonably large numbers without
-overflowing.
+0 advances the leftmost 9 to 0 as well, so our machine says that 99+1=00. Dang.
+We can keep adding more wheels like we did before. A third wheel will work all
+the way up to 999, but again we will have the same problem: more wheels only
+delays the error. How do we solve it? Well... we cannot. Without having
+infinitely many wheels, there is nothing we can do other than ensure that we
+have enough wheels at the moment to handle the input we have. You might be
+surprised to know that&mdash;as simple as our little machine is&mdash;it shares
+this problem with every modern computer. It is such a common problem that
+computer scientists even have a special term for it: "overflow". As is common in
+computer science, from now on we will just assume that we have lots and lots of
+wheels&mdash;not infinitely many, but enough that we can handle reasonably large
+numbers without overflowing.
 
 <div class="deeper">
-It's tempting to think of overflow as a problem like I just did. But there's
+It is tempting to think of overflow as a problem like I just did. But there is
 another way to look at it. What if we thought of our machine as taking your
 input and output, dividing them by 100 and then only showing you the remainder?
 
 99 + 1 = 100; 100 &divide; 100 = 1 with remainder 0
 
-So 00 is a sensible output from the machine. Do a few examples and you'll
-see that this always works:
+If that is the rule, then 99+1=0 is actually correct. Do a few more examples and
+you will see that this always works:
 
-100 + 1 = 101; 101 &divide; 100 = 1 with remainder 1
+99 + 2 = 101; 101 &divide; 100 = 1 with remainder 1
 
-101 + 1 = 102; 102 &divide; 100 = 1 with remainder 2
+99 + 3 = 102; 102 &divide; 100 = 1 with remainder 2
 
 And so on. This trick is called "modular arithmetic". You can add, subtract,
-and multiply just like in normal arithmetic except that numbers always stay
+and multiply just like in normal arithmetic except that the answer always stays
 smaller than the "modulus" (which is 100, in this case).
 </div>
 
@@ -112,12 +115,12 @@ If we use the right sort of mechanism to connect the wheels (as I did in the
 diagram), we get a bonus feature from the machine: turning the rightmost wheel
 backwards one digit from 0 to 9 turns the wheel to its left backwards by one
 digit (the reverse of what the wheels did before). Now we have an "add or
-subtract 1 from a number" machine. By turning the handle in the opposite
-direction, it counts in the opposite direction from what it did before. As you
-might expect, this machine now has an "underflow" problem: if we subtract 1 from
-0, the rightmost 0 turns to a 9, which turns the wheel to its left from 0 to 9,
-which turns the wheel to its left from 0 to 9, until every wheel is set to 9
-(giving the largest number the machine can display). Again, this problem is
+subtract 1 from a two-digit number" machine. By turning the handle in the
+opposite direction, it counts in the opposite direction from what it did before.
+As you might expect, this machine now has an "underflow" problem: if we subtract
+1 from 0, the rightmost 0 turns to a 9, which turns the wheel to its left from 0
+to 9, which turns the wheel to its left from 0 to 9, until every wheel is set to
+9 (giving the largest number the machine can display). Again, this problem is
 unavoidable.
 
 We are now ready to construct our number adding machine. To construct it, we
